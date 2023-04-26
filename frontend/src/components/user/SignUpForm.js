@@ -9,25 +9,24 @@ const SignUpForm = ({ navigate }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const formData = new FormData();
-    formData.append("email", email);
-    formData.append("password", password);
-    formData.append("firstName", firstName);
-    formData.append("lastName", lastName);
-
-    let response = await fetch("/users", {
+    fetch("/users", {
       method: "post",
       headers: {
-        // "Content-Type": "application/json",
+        "Content-Type": "application/json",
       },
-      body: formData,
+      body: JSON.stringify({
+        email: email,
+        password: password,
+        firstName: firstName,
+        lastName: lastName,
+      }),
+    }).then((response) => {
+      if (response.status === 201) {
+        navigate("/login");
+      } else {
+        navigate("/signup");
+      }
     });
-
-    if (response.status === 201) {
-      navigate("/login");
-    } else {
-      navigate("/signup");
-    }
   };
 
   const handleEmailChange = (event) => {
@@ -59,7 +58,7 @@ const SignUpForm = ({ navigate }) => {
           <div className="mb-4">
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="email"
+              id="firstName"
               type="text"
               placeholder="first name"
               value={firstName}
@@ -69,7 +68,7 @@ const SignUpForm = ({ navigate }) => {
           <div className="mb-4">
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="email"
+              id="lastName"
               type="text"
               placeholder="last name"
               value={lastName}
