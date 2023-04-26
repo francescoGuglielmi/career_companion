@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 const LogInForm = ({ navigate }) => {
   const [email, setEmail] = useState("");
@@ -35,14 +38,14 @@ const LogInForm = ({ navigate }) => {
   };
 
   return (
-    <div className="flex flex-col items-start justify-start h-screen md:pl-60 md:pt-40">
+    <div className="flex flex-col items-start justify-start h-screen md:pl-60 md:pt-40 bg-cream">
       <h1 className="text-5xl font-epilogue-regular text-black pt-4">
         Sign in
       </h1>
       <div className="w-full max-w-xs">
         <form
           onSubmit={handleSubmit}
-          className="bg-white rounded px-2 pt-6 pb-8 mb-4 font-dm-sans-regular"
+          className="bg-cream rounded px-2 pt-6 pb-8 mb-4 font-dm-sans-regular"
         >
           <div className="mb-4">
             <input
@@ -66,17 +69,16 @@ const LogInForm = ({ navigate }) => {
           </div>
           <div className="flex items-center justify-between">
             <button
-              className="bg-orange hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="text-orange hover:bg-blue-700 text-5xl font-thin rounded focus:outline-none focus:shadow-outline flex items-center justify-center"
               type="submit"
             >
-              Sign In
+              <FontAwesomeIcon icon={faArrowRight} size="sm" className="" />
             </button>
           </div>
           <p className="pt-4 text-sm">Don't have an account yet? Sign up now</p>
         </form>
       </div>
     </div>
-    
   );
 };
 
