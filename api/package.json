@@ -1,0 +1,37 @@
+{
+  "name": "career_companion",
+  "version": "0.0.0",
+  "description": "Career Companion project",
+  "license": "CC BY-NC-SA",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www",
+    "start:test": "MONGODB_URL='mongodb://0.0.0.0/career_companion_test' npm start",
+    "test": "jest"
+  },
+  "engines": {
+    "node": ">=18.1.0"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "express-session": "^1.17.2",
+    "hbs": "^4.1.0",
+    "http-errors": "~1.6.3",
+    "jsonwebtoken": "^9.0.0",
+    "method-override": "^3.0.0",
+    "mongodb": "^3.4.1",
+    "mongoose": "^5.8.11",
+    "morgan": "~1.9.1",
+    "nodemon": "^2.0.15",
+    "superagent": "^8.0.0",
+    "supertest": "^6.2.4"
+  },
+  "devDependencies": {
+    "jest": "^27.5.1"
+  },
+  "nodemonConfig": {
+    "ext": "js,hbs"
+  }
+}
