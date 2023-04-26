@@ -8,6 +8,7 @@ module.exports = {
     fontFamily: {
       "epilogue-regular": ["Epilogue Regular"],
       "dm-sans-regular": ["DM Sans Regular"],
+      "dm-sans-bold": ["DM Sans Bold"],
     },
     colors: {
       purple: "#6B66DA",

@@ -8,6 +8,11 @@
   src: url("../public/fonts/DMSans-Regular.ttf");
 }
 
+@font-face {
+  font-family: "DM Sans Bold";
+  src: url("../public/fonts/DMSans-Bold.ttf");
+}
+
 
 
 @tailwind base;
