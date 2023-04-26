@@ -3,7 +3,9 @@ const Users = require("./user");
 const { ObjectID } = require("mongodb");
 
 const ApplicationSchema = new mongoose.Schema({
-  message: { type: String },
+  company: { type: String },
+  jobTitle: { type: String }, 
+  location: { type: String },
   createdBy: {
     type: ObjectID,
     ref: "Users",
