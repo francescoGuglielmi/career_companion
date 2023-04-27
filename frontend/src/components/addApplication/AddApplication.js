@@ -3,27 +3,27 @@ import { Switch } from "@material-tailwind/react";
 
 const Modal = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [company, setCompany] = useState("")
-  const [jobTitle, setJobTitle] = useState("")
-  const [location, setLocation] = useState("")
-  // const [link, setLink] = useState("")
+  const [company, setCompany] = useState("");
+  const [jobTitle, setJobTitle] = useState("");
+  const [location, setLocation] = useState("");
+  const [link, setLink] = useState("");
   // const [interviewOffered, setInterviewOffered] = useState(false);
 
   const handleCompanyChange = (event) => {
-    setCompany(event.target.value)
-  }
+    setCompany(event.target.value);
+  };
 
   const handleJobTitleChange = (event) => {
-    setJobTitle(event.target.value)
-  }
+    setJobTitle(event.target.value);
+  };
 
   const handleLocationChange = (event) => {
-    setLocation(event.target.value)
-  }
+    setLocation(event.target.value);
+  };
 
-  // const handleLinkChange = (event) => {
-  //   setLink(event.target.value)
-  // }
+  const handleLinkChange = (event) => {
+    setLink(event.target.value);
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -46,7 +46,7 @@ const Modal = () => {
     // formData.append("interviewOffered", interviewOffered);
     // for (const [key, value] of formData.entries()) {
     //   console.log(key, value);
-    // } 
+    // }
 
     // console.log(formData)
 
@@ -56,22 +56,23 @@ const Modal = () => {
         "Content-Type": "application/json",
         Authorization: `Bearer ${window.localStorage.getItem("token")}`,
       },
-      body: JSON.stringify({company: company, 
-      jobTitle: jobTitle,
-    location: location
-  }),
+      body: JSON.stringify({
+        company: company,
+        jobTitle: jobTitle,
+        location: location,
+        link: link,
+      }),
     });
 
     if (response.status !== 201) {
       console.log("error saving your application");
     } else {
       console.log("your application saved to db");
-  
     }
 
     // send form data to database or perform other actions
     setIsModalOpen(false);
-  }
+  };
 
   function handleClose() {
     setIsModalOpen(false);
@@ -160,6 +161,6 @@ const Modal = () => {
       ) : null}
     </div>
   );
-}
+};
 
 export default Modal;
