@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Application from "../applications/Applications"
+import Application from "../applications/Applications";
 
 const Profile = ({ navigate }) => {
   const [applications, setApplications] = useState([]);
@@ -17,7 +17,8 @@ const Profile = ({ navigate }) => {
         .then(async (data) => {
           window.localStorage.setItem("token", data.token);
           setToken(window.localStorage.getItem("token"));
-          setApplications(data.applications);
+          const filteredApplications = data.applications.filter(application => application.user._id === data.user._id); //only shows user that is logged in applications
+          setApplications(filteredApplications);
           setUserData(data.user);
         });
     }
@@ -45,6 +46,9 @@ const Profile = ({ navigate }) => {
             <button className="font-dm-sans-bold text-lg border py-1 px-2 flex items-center justify-center">
               Build CV
             </button>
+          </div>
+          <div>
+            <h2>Applications</h2>
           </div>
           {applications.map((application) => {
             return (
