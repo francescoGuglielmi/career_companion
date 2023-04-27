@@ -6,10 +6,9 @@ const ApplicationSchema = new mongoose.Schema({
   company: { type: String },
   jobTitle: { type: String }, 
   location: { type: String },
-  createdBy: {
-    type: ObjectID,
-    ref: "Users",
-    immutable: true,
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
   },
   createdAt: {
     type: Date,
