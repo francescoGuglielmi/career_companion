@@ -1,0 +1,19 @@
+.title {
+  font-size: 30px;
+  text-align: center;
+}
+
+a {
+  margin-left: 45%;
+  background-color: bisque;
+}
+
+.submit {
+  background-color: bisque;
+}
+
+.cover_letter {
+  background-color: rgb(239, 150, 118);
+  margin-left: 30px;
+  margin-right: 30px;
+}
