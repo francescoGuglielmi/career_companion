@@ -4,6 +4,7 @@
   "private": true,
   "proxy": "http://localhost:8080",
   "dependencies": {
+    "@material-tailwind/react": "^1.4.2",
     "cypress": "^10.7.0",
     "eslint": "^8.23.0",
     "react": "^18.2.0",

@@ -1,12 +1,14 @@
 import React from "react";
-import App from "../app/App";
+import AddApplication from "../addApplication/AddApplication"
+
 
 const Application = ({ application }) => {
   return (
     <>
+    <AddApplication />
       <article data-cy="application" key={application._id}>
         {console.log(application)}
-        {application.company} - {application.jobTitle} - {application.location} - Applied on {console.log(application.user._id)}
+        {application.company} - {application.jobTitle} - {application.location} - Applied on {application.createdAt}
       </article>
     </>
   );
