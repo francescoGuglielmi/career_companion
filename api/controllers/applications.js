@@ -24,7 +24,8 @@ const ApplicationsController = {
   },
 
   Create: (req, res) => {
-    const application = new Application({ ...req.body, user: req.user_id });
+    let applicationContent = { ...req.body, user: req.user_id };
+    const application = new Application(applicationContent);
     application.save(async (err) => {
       if (err) {
         throw err;

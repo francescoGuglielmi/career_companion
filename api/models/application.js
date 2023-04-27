@@ -6,6 +6,7 @@ const ApplicationSchema = new mongoose.Schema({
   company: { type: String },
   jobTitle: { type: String }, 
   location: { type: String },
+  link: { type: String },
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",

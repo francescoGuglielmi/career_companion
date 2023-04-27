@@ -79,7 +79,7 @@ const LogInForm = ({ navigate }) => {
         </form>
       </div>
       <div>
-          <img src="/cc-login.png" width={600} className="pl-40" />
+          <img src="/cc-login.png" width={600} className="pl-40" alt="" />
         </div>
     </div>
   );
