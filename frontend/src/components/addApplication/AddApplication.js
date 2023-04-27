@@ -35,21 +35,31 @@ const Modal = () => {
     // )
 
     console.log("Company: ", company);
+    console.log("jobTitle: ", jobTitle);
+    console.log("location: ", location);
 
-    const formData = new FormData();
-    formData.append("company", company);
-    formData.append("jobTitle", jobTitle);
-    formData.append("location", location);
+    // const formData = new FormData();
+    // formData.append("company", company);
+    // formData.append("jobTitle", jobTitle);
+    // formData.append("location", location);
     // formData.append("link", link);
     // formData.append("interviewOffered", interviewOffered);
+    // for (const [key, value] of formData.entries()) {
+    //   console.log(key, value);
+    // } 
+
+    // console.log(formData)
 
     let response = await fetch("/applications", {
       method: "post",
       headers: {
-        // "Content-Type": "application/json",
+        "Content-Type": "application/json",
         Authorization: `Bearer ${window.localStorage.getItem("token")}`,
       },
-      body: formData,
+      body: JSON.stringify({company: company, 
+      jobTitle: jobTitle,
+    location: location
+  }),
     });
 
     if (response.status !== 201) {
@@ -91,7 +101,7 @@ const Modal = () => {
             <form onSubmit={handleSubmit}>
               <div className="mb-4">
                 <input
-                  className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="company"
                   type="text"
                   placeholder="Company name"
