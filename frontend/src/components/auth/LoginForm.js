@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "@fortawesome/fontawesome-free/css/all.min.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
@@ -25,7 +24,7 @@ const LogInForm = ({ navigate }) => {
       let data = await response.json();
       window.localStorage.setItem("token", data.token);
       window.localStorage.setItem("user_id", data.user_id);
-      navigate("/posts");
+      navigate("/profile");
     }
   };
 
@@ -47,6 +46,7 @@ const LogInForm = ({ navigate }) => {
           onSubmit={handleSubmit}
           className="bg-cream rounded px-2 pt-6 pb-8 mb-4 font-dm-sans-regular"
         >
+          
           <div className="mb-4">
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -69,7 +69,7 @@ const LogInForm = ({ navigate }) => {
           </div>
           <div className="flex items-center justify-between">
             <button
-              className="text-orange hover:bg-blue-700 text-5xl font-thin rounded focus:outline-none focus:shadow-outline flex items-center justify-center"
+              className="text-orange text-5xl font-thin rounded focus:outline-none focus:shadow-outline flex items-center justify-center"
               type="submit"
             >
               <FontAwesomeIcon icon={faArrowRight} size="sm" className="" />

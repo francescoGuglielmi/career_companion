@@ -28,24 +28,24 @@ const Interview = ({ navigate }) => {
 
   // FUNCTION TO SET THE JOB SELECTION 
 
-  useEffect(() => {
-    if(token) {
-      fetch("/interview", {
-        headers: {
-          //makes sure a vaild token is present
-          'Authorization': `Bearer ${token}`
-        }
-      })
-        .then(response => response.json())
-        .then(async data => {
-          window.localStorage.setItem("token", data.token)
-          setToken(window.localStorage.getItem("token"))
-          ///console.log()
-        })
+  // useEffect(() => {
+  //   if(token) {
+  //     fetch("/interview", {
+  //       headers: {
+  //         //makes sure a vaild token is present
+  //         'Authorization': `Bearer ${token}`
+  //       }
+  //     })
+  //       .then(response => response.json())
+  //       .then(async data => {
+  //         window.localStorage.setItem("token", data.token)
+  //         setToken(window.localStorage.getItem("token"))
+  //         ///console.log()
+  //       })
 
-    } else { 
-      return "" }
-  })
+  //   } else { 
+  //     return "" }
+  // })
 
   function handleSelectionChange(event) {
     setJobSelection(event.target.value);

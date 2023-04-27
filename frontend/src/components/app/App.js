@@ -2,6 +2,7 @@ import './App.css';
 import LoginForm from '../auth/LoginForm'
 import SignUpForm from '../user/SignUpForm'
 import Interview from '../Interview/Interview'
+import Profile from '../profile/Profile'
 import React, { useState } from 'react';
 import {
   useNavigate,
@@ -12,6 +13,7 @@ import {
 const App = () => {
     return (
         <Routes>
+          <Route path='/profile'  element={<Profile navigate={ useNavigate() }/>}/>
           <Route path='/interview'  element={<Interview navigate={ useNavigate() }/>}/>
           <Route path='/login'  element={<LoginForm  navigate={ useNavigate() }/>}/>
           <Route path='/signup' element={<SignUpForm navigate={ useNavigate() }/>}/>
