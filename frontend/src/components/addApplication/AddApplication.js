@@ -1,26 +1,63 @@
 import { useState } from "react";
 import { Switch } from "@material-tailwind/react";
 
-function Modal() {
+const Modal = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [formState, setFormState] = useState({
-    company: "",
-    jobTitle: "",
-    location: "",
-    link: ""
-  });
-  const [interviewOffered, setInterviewOffered] = useState(false);
+  const [company, setCompany] = useState("")
+  const [jobTitle, setJobTitle] = useState("")
+  const [location, setLocation] = useState("")
+  // const [link, setLink] = useState("")
+  // const [interviewOffered, setInterviewOffered] = useState(false);
 
-  function handleChange(event) {
-    setFormState({ ...formState, [event.target.name]: event.target.value });
+  const handleCompanyChange = (event) => {
+    setCompany(event.target.value)
   }
 
-  function handleSubmit(event) {
+  const handleJobTitleChange = (event) => {
+    setJobTitle(event.target.value)
+  }
+
+  const handleLocationChange = (event) => {
+    setLocation(event.target.value)
+  }
+
+  // const handleLinkChange = (event) => {
+  //   setLink(event.target.value)
+  // }
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
-    console.log(
-      interviewOffered ? "Offered an interview" : "Did not offer an interview"
-    );
+
+    // console.log(formState);
+
+    // console.log(
+    //   interviewOffered ? "Offered an interview" : "Did not offer an interview"
+    // )
+
+    console.log("Company: ", company);
+
+    const formData = new FormData();
+    formData.append("company", company);
+    formData.append("jobTitle", jobTitle);
+    formData.append("location", location);
+    // formData.append("link", link);
+    // formData.append("interviewOffered", interviewOffered);
+
+    let response = await fetch("/applications", {
+      method: "post",
+      headers: {
+        // "Content-Type": "application/json",
+        Authorization: `Bearer ${window.localStorage.getItem("token")}`,
+      },
+      body: formData,
+    });
+
+    if (response.status !== 201) {
+      console.log("error saving your application");
+    } else {
+      console.log("your application saved to db");
+  
+    }
 
     // send form data to database or perform other actions
     setIsModalOpen(false);
@@ -33,10 +70,10 @@ function Modal() {
   return (
     <div>
       <button
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        className="bg-cream text-black font-bold py-2 px-4 rounded"
         onClick={() => setIsModalOpen(true)}
       >
-        Open Modal
+        Add application
       </button>
 
       {isModalOpen ? (
@@ -55,20 +92,22 @@ function Modal() {
               <div className="mb-4">
                 <input
                   className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  id="email"
+                  id="company"
+                  type="text"
                   placeholder="Company name"
-                  value={formState.company}
-                  onChange={handleChange}
+                  value={company}
+                  onChange={handleCompanyChange}
                   required
                 />
               </div>
               <div className="mb-4">
                 <input
                   className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  id="password"
+                  id="jobTitle"
+                  type="text"
                   placeholder="Job title"
-                  value={formState.jobTitle}
-                  onChange={handleChange}
+                  value={jobTitle}
+                  onChange={handleJobTitleChange}
                   required
                 />
               </div>
@@ -76,25 +115,27 @@ function Modal() {
                 <input
                   className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="location"
+                  type="text"
                   placeholder="Location"
-                  value={formState.location}
-                  onChange={handleChange}
+                  value={location}
+                  onChange={handleLocationChange}
                   required
                 />
               </div>
-              <div className="mb-4">
+              {/* <div className="mb-4">
                 <input
                   className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  id="password"
+                  id="link"
+                  type="text"
                   placeholder="Link to job posting"
-                  value={formState.link}
-                  onChange={handleChange}
+                  value={link}
+                  onChange={handleLinkChange}
                   required
                 />
-              </div>
-              <div>
+              </div> */}
+              {/* <div>
                 <Switch id="auto-update" label="Asked to interview?" />
-              </div>
+              </div> */}
               <div className="flex items-center justify-end">
                 <button
                   className="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"

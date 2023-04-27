@@ -99,7 +99,7 @@ const SignUpForm = ({ navigate }) => {
           </div>
           <div className="flex items-center justify-between">
           <button
-              className="text-orange hover:bg-blue-700 text-5xl font-thin rounded focus:outline-none focus:shadow-outline flex items-center justify-center"
+              className="text-orange text-5xl font-thin rounded focus:outline-none focus:shadow-outline flex items-center justify-center"
               type="submit"
             >
               <FontAwesomeIcon icon={faArrowRight} size="sm" className="" />

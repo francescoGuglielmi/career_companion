@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Application from "../applications/Applications";
+import AddApplication from "../addApplication/AddApplication"
 
 const Profile = ({ navigate }) => {
   const [applications, setApplications] = useState([]);
@@ -47,8 +48,9 @@ const Profile = ({ navigate }) => {
               Build CV
             </button>
           </div>
+          <AddApplication />
           <div>
-            <h2>Applications</h2>
+            <h2>Track your applications</h2>
           </div>
           {applications.map((application) => {
             return (

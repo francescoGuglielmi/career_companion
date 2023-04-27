@@ -46,6 +46,7 @@ const LogInForm = ({ navigate }) => {
           onSubmit={handleSubmit}
           className="bg-cream rounded px-2 pt-6 pb-8 mb-4 font-dm-sans-regular"
         >
+          
           <div className="mb-4">
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -68,7 +69,7 @@ const LogInForm = ({ navigate }) => {
           </div>
           <div className="flex items-center justify-between">
             <button
-              className="text-orange hover:bg-blue-700 text-5xl font-thin rounded focus:outline-none focus:shadow-outline flex items-center justify-center"
+              className="text-orange text-5xl font-thin rounded focus:outline-none focus:shadow-outline flex items-center justify-center"
               type="submit"
             >
               <FontAwesomeIcon icon={faArrowRight} size="sm" className="" />
