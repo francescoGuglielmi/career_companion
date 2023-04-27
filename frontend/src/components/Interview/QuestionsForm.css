@@ -1,0 +1,9 @@
+textarea {
+  width: 70%;
+  height: 100px;
+  background-color: azure;
+}
+
+.submit_button {
+  background-color: coral;
+}
