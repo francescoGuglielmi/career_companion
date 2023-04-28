@@ -13,12 +13,16 @@ module.exports = withMT({
       "dm-sans-bold": ["DM Sans Bold"],
     },
     colors: {
+      navy: "#003060",
       purple: "#6B66DA",
       orange: "#F74F39",
       white: "#ffffff",
       black: "#31302F",
       cream: "#F4F3EF",
-      lilac: "#D2BAF4"
+      lilac: "#D2BAF4",
+      blue: "#005689",
+      lblue: "#007cb9",
+      lorange: "#ff895d"
     }
   },
  
