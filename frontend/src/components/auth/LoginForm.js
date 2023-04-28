@@ -22,6 +22,11 @@ const LogInForm = ({ navigate }) => {
       console.log(data);
     } else {
       let data = await response.json();
+      if (data.token === undefined) {
+        console.log("token not valid")
+      } else if (data.user_id === undefined) {
+        console.log("user id is undefined")
+      }
       window.localStorage.setItem("token", data.token);
       window.localStorage.setItem("user_id", data.user_id);
       navigate("/profile");

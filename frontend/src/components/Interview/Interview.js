@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import key from './api_key';
-import SelectJobPosition from './JobSelection';
-import QuestionsForm from './QuestionsForm';
+import key from '../api_key';
+import SelectJobPosition from '../jobSelection/JobSelection';
+import QuestionsForm from '../questionsForm/QuestionsForm';
 import './Interview.css';
 import { Configuration, OpenAIApi } from "openai";
 
@@ -142,6 +142,7 @@ const Interview = ({ navigate }) => {
   // RENDERED FUNCTIONS:
 
   if (token) {
+    console.log(typeof token)
     return (
       <div className="dojo_container">
         <h2 id="title">Welcome to the interview dojo!</h2>
@@ -165,6 +166,13 @@ const Interview = ({ navigate }) => {
         </> } */}
       </div>
     )
+  } else {
+  return (
+    <>
+      <h1>Please Sign in to access this resource</h1>
+      <a href='/login'>Sign in</a>
+    </>
+  )
   }
 }
 

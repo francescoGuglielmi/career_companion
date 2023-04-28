@@ -17,3 +17,13 @@ a {
   margin-left: 30px;
   margin-right: 30px;
 }
+
+.save_button {
+  margin-left: 15px;
+  background-color: cornflowerblue;
+}
+
+h1 {
+  text-align: center;
+  margin-right: 80px;
+}

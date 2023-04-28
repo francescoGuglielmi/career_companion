@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './CoverLetterGen.css'
 import { Configuration, OpenAIApi } from "openai";
-import key from '../Interview/api_key';
+import key from '../api_key';
 
 const openai = new OpenAIApi(new Configuration({
   apiKey: key
@@ -9,12 +9,13 @@ const openai = new OpenAIApi(new Configuration({
 
 const CoverLetterGenerator = ({ navigate }) => {
 
+  const [token] = useState(window.localStorage.getItem("token"))
   const [jobPosition, setJobPosition] = useState("");
-  const [companyName, setCompanyName] = useState("")
+  const [companyName, setCompanyName] = useState("");
   const [reasons, setReasons] = useState("");
   const [resume, setResume] = useState("");
   const [coverLetter, setCoverLetter] = useState(null);
-  const [loadingAlert, setLoadingAlert] = useState("")
+  const [loadingAlert, setLoadingAlert] = useState("");
 
   function handleJobPositionChange(event) {
     setJobPosition(event.target.value)
@@ -47,6 +48,30 @@ const CoverLetterGenerator = ({ navigate }) => {
     })
   }
 
+  async function handleSaveButtonClick() {
+
+    let response = await fetch('/coverLetterGen', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${window.localStorage.getItem("token")}`
+      },
+      body: JSON.stringify({
+        companyName: companyName,
+        jobPosition: jobPosition,
+        content: coverLetter
+      })
+
+    })
+    if (response.status === 201) {
+      navigate("/profile");
+    } else {
+      return "There was an error saving your cover letter, refresh the page to try again.";
+    }
+      
+  } 
+
+  if (token) {
   return (
     <>
       <div>
@@ -74,10 +99,18 @@ const CoverLetterGenerator = ({ navigate }) => {
       </div> }
       <br/>
       { coverLetter && <a href='/generator'>Try Again!</a> }
+      { coverLetter && <button className="save_button" onClick={handleSaveButtonClick}>Save Cover Letter</button> }
       <br/>
     </>
   )
-
+  } else {
+    return (
+      <>
+        <h1>Please  Sign in to access this resource</h1>
+        <a href='/login'>Sign in</a>
+      </>
+    )
+  }
 }
 
 export default CoverLetterGenerator;
