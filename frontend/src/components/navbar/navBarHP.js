@@ -9,6 +9,7 @@ export default function Navbar() {
         setIsMenuOpen(!isMenuOpen);
     };
 
+
     return (
         <nav className="nav">
             <a href="/" className="site-title">
@@ -21,16 +22,13 @@ export default function Navbar() {
             </button>
             <ul className={isMenuOpen ? "menu-open" : ""}>
                 <li className="active">
-                    <a href="/about">About</a>
+                    <a href="/community">Community</a>
                 </li>
                 <li>
-                    <a href="/team">Team</a>
+                    <a href="/interview">Interview Dojo</a>
                 </li>
                 <li>
-                    <a href="/signup">Sign up</a>
-                </li>
-                <li>
-                    <a href="/login">Sign in</a>
+                    <a href="/letter">Letter Generator</a>
                 </li>
             </ul>
         </nav>

@@ -27,9 +27,6 @@ export default function Navbar() {
                     <a href="/team">Team</a>
                 </li>
                 <li>
-                    <a href="/signup">Sign up</a>
-                </li>
-                <li>
                     <a href="/login">Sign in</a>
                 </li>
             </ul>
