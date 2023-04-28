@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import key from './api_key';
-import SelectJobPosition from './JobSelection';
-import QuestionsForm from './QuestionsForm';
+import React, { useState } from 'react';
+import key from '../api_key';
+import SelectJobPosition from '../jobSelection/JobSelection';
+import QuestionsForm from '../questionsForm/QuestionsForm';
 import './Interview.css';
 import { Configuration, OpenAIApi } from "openai";
 
@@ -13,7 +13,7 @@ const Interview = ({ navigate }) => {
 
   //  HOOKS
   
-  const [token, setToken] = useState(window.localStorage.getItem("token"))
+  const [token] = useState(window.localStorage.getItem("token"))
   const [jobSelection, setJobSelection] = useState("")
   const [loadingFormAlert, setLoadingFormAlert] = useState("")
   const [questions, setQuestions] = useState(null)
@@ -24,7 +24,7 @@ const Interview = ({ navigate }) => {
   const [answer5, setAnswer5] = useState("")
   const [loadingFeedbackAlert, setLoadingFeedbackAlert] = useState("")
   const [feedback, setFeedback] = useState(null)
-  const [rating, setRating] = useState(null)
+  // const [rating, setRating] = useState(null)
 
   // FUNCTION TO SET THE JOB SELECTION 
 
@@ -142,6 +142,7 @@ const Interview = ({ navigate }) => {
   // RENDERED FUNCTIONS:
 
   if (token) {
+    console.log(typeof token)
     return (
       <div className="dojo_container">
         <h2 id="title">Welcome to the interview dojo!</h2>
@@ -165,6 +166,13 @@ const Interview = ({ navigate }) => {
         </> } */}
       </div>
     )
+  } else {
+  return (
+    <>
+      <h1>Please Sign in to access this resource</h1>
+      <a href='/login'>Sign in</a>
+    </>
+  )
   }
 }
 
