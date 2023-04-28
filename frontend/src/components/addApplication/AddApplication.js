@@ -33,12 +33,6 @@ const Modal = () => {
       setInterviewStatus(!interviewStatus);
     }
 
-    // console.log(formState);
-
-    // console.log(
-    //   interviewOffered ? "Offered an interview" : "Did not offer an interview"
-    // )
-
     console.log("Company: ", company);
     console.log("jobTitle: ", jobTitle);
     console.log("location: ", location);
@@ -64,8 +58,7 @@ const Modal = () => {
     } else {
       console.log("your application saved to db");
     }
-
-    // send form data to database or perform other actions
+    
     setIsModalOpen(false);
   };
 

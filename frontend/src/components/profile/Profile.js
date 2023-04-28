@@ -7,6 +7,7 @@ const Profile = ({ navigate }) => {
   const [applications, setApplications] = useState([]);
   const [token, setToken] = useState(window.localStorage.getItem("token"));
   const [userData, setUserData] = useState({});
+  const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
     if (token) {
@@ -33,10 +34,12 @@ const Profile = ({ navigate }) => {
     navigate("/login");
   };
 
+  
+
   if (token) {
     return (
       <>
-        <div className="h-screen bg-cream">
+        <div className="min-h-screen bg-cream">
           <h1 className="flex justify-center pt-20 text-black text-5xl font-epilogue-regular">
             Welcome {userData.firstName}
           </h1>
@@ -44,9 +47,6 @@ const Profile = ({ navigate }) => {
             What would you like to do?
           </h2>
           <div className="flex flex-row">
-            <button className="font-dm-sans-bold text-lg border py-1 px-2 flex items-center justify-center mr-3">
-              Add application
-            </button>
             <button className="font-dm-sans-bold text-lg border py-1 px-2 flex items-center justify-center">
               Build CV
             </button>
@@ -57,9 +57,10 @@ const Profile = ({ navigate }) => {
           </div>
           <div>
             <h1 className="pt-2 pb-2">applications - interview </h1>
-            <div className="flex flex-row">
+            <div className="flex flex-wrap">
             {applications
               .filter((application) => application.interviewStatus === true)
+              .slice(0, 3)
               .map((application) => (
                 <ApplicationInterview key={application._id} application={application} />
               ))}
@@ -73,8 +74,8 @@ const Profile = ({ navigate }) => {
                 <Application key={application._id} application={application} />
               ))}
           </div>
+          <button onClick={logout}>Logout</button>
         </div>
-        <button onClick={logout}>Logout</button>
       </>
     );
   } else {
