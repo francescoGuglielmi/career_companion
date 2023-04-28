@@ -7,7 +7,7 @@ const Modal = () => {
   const [jobTitle, setJobTitle] = useState("");
   const [location, setLocation] = useState("");
   const [link, setLink] = useState("");
-  // const [interviewOffered, setInterviewOffered] = useState(false);
+  const [interviewStatus, setInterviewStatus] = useState(false);
 
   const handleCompanyChange = (event) => {
     setCompany(event.target.value);
@@ -28,28 +28,16 @@ const Modal = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    // console.log(formState);
-
-    // console.log(
-    //   interviewOffered ? "Offered an interview" : "Did not offer an interview"
-    // )
+  
+    const handleToggle = () => {
+      setInterviewStatus(!interviewStatus);
+    }
 
     console.log("Company: ", company);
     console.log("jobTitle: ", jobTitle);
     console.log("location: ", location);
 
-    // const formData = new FormData();
-    // formData.append("company", company);
-    // formData.append("jobTitle", jobTitle);
-    // formData.append("location", location);
-    // formData.append("link", link);
-    // formData.append("interviewOffered", interviewOffered);
-    // for (const [key, value] of formData.entries()) {
-    //   console.log(key, value);
-    // }
-
-    // console.log(formData)
-
+   
     let response = await fetch("/applications", {
       method: "post",
       headers: {
@@ -61,6 +49,7 @@ const Modal = () => {
         jobTitle: jobTitle,
         location: location,
         link: link,
+        interviewStatus: interviewStatus,
       }),
     });
 
@@ -69,14 +58,15 @@ const Modal = () => {
     } else {
       console.log("your application saved to db");
     }
-
-    // send form data to database or perform other actions
+    
     setIsModalOpen(false);
   };
 
   function handleClose() {
     setIsModalOpen(false);
   }
+
+
 
   return (
     <div>
@@ -133,7 +123,7 @@ const Modal = () => {
                   required
                 />
               </div>
-              {/* <div className="mb-4">
+              <div className="mb-4">
                 <input
                   className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="link"
@@ -143,10 +133,10 @@ const Modal = () => {
                   onChange={handleLinkChange}
                   required
                 />
-              </div> */}
-              {/* <div>
-                <Switch id="auto-update" label="Asked to interview?" />
-              </div> */}
+              </div>
+              <div>
+                <Switch id="auto-update" label="Asked to interview?" value={interviewStatus} onChange={(event) => setInterviewStatus(event.target.checked)}/>
+              </div>
               <div className="flex items-center justify-end">
                 <button
                   className="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
