@@ -15,9 +15,9 @@ const App = () => {
     return (
         <Routes>
           <Route path='/' element={<LandingPage  navigate={ useNavigate() }/>}/>
-          <Route path='/profile'  element={<Profile navigate={ useNavigate() }/>}/>
-          <Route path='/interview'  element={<Interview navigate={ useNavigate() }/>}/>
-          <Route path='/login'  element={<LoginForm  navigate={ useNavigate() }/>}/>
+          <Route path='/profile' element={<Profile navigate={ useNavigate() }/>}/>
+          <Route path='/interview' element={<Interview navigate={ useNavigate() }/>}/>
+          <Route path='/login' element={<LoginForm  navigate={ useNavigate() }/>}/>
           <Route path='/signup' element={<SignUpForm navigate={ useNavigate() }/>}/>
         </Routes>
     );
