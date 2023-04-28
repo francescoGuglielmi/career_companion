@@ -11,14 +11,16 @@ import {
 } from "react-router-dom";
 
 const App = () => {
-    return (
-        <Routes>
-          <Route path='/profile'  element={<Profile navigate={ useNavigate() }/>}/>
-          <Route path='/interview'  element={<Interview navigate={ useNavigate() }/>}/>
-          <Route path='/login'  element={<LoginForm  navigate={ useNavigate() }/>}/>
-          <Route path='/signup' element={<SignUpForm navigate={ useNavigate() }/>}/>
-        </Routes>
-    );
+  return (
+    <>
+      <Routes>
+        <Route path='/profile' element={<Profile navigate={useNavigate()} />} />
+        <Route path='/interview' element={<Interview navigate={useNavigate()} />} />
+        <Route path='/login' element={<LoginForm navigate={useNavigate()} />} />
+        <Route path='/signup' element={<SignUpForm navigate={useNavigate()} />} />
+      </Routes>
+    </>
+  );
 }
 
 export default App;

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Application from "../applications/Applications";
 import AddApplication from "../addApplication/AddApplication";
 import ApplicationInterview from "../applicationsInterview/applicationsInterview";
+import NavbarHP from '../navbar/navBarHP';
 
 const Profile = ({ navigate }) => {
   const [applications, setApplications] = useState([]);
@@ -39,6 +40,7 @@ const Profile = ({ navigate }) => {
   if (token) {
     return (
       <>
+        <NavbarHP />
         <div className="min-h-screen bg-cream">
           <h1 className="flex justify-center pt-20 text-black text-5xl font-epilogue-regular">
             Welcome {userData.firstName}
