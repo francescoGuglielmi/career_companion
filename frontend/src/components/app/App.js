@@ -9,16 +9,24 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import NavbarLP from '../navbar/navBarLP';
+import Body from '../footer/body/body';
+import Footer from '../footer/footer';
 
 const App = () => {
-    return (
-        <Routes>
-          <Route path='/profile'  element={<Profile navigate={ useNavigate() }/>}/>
-          <Route path='/interview'  element={<Interview navigate={ useNavigate() }/>}/>
-          <Route path='/login'  element={<LoginForm  navigate={ useNavigate() }/>}/>
-          <Route path='/signup' element={<SignUpForm navigate={ useNavigate() }/>}/>
-        </Routes>
-    );
+  return (
+    <>
+      <NavbarLP />
+      <Routes>
+        <Route path='/profile' element={<Profile navigate={useNavigate()} />} />
+        <Route path='/interview' element={<Interview navigate={useNavigate()} />} />
+        <Route path='/login' element={<LoginForm navigate={useNavigate()} />} />
+        <Route path='/signup' element={<SignUpForm navigate={useNavigate()} />} />
+      </Routes>
+      <Body />
+      <Footer />
+    </>
+  );
 }
 
 export default App;
