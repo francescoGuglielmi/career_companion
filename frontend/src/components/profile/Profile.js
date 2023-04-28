@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Application from "../applications/Applications";
 import AddApplication from "../addApplication/AddApplication";
+import ApplicationInterview from "../applicationsInterview/applicationsInterview";
 
 const Profile = ({ navigate }) => {
   const [applications, setApplications] = useState([]);
@@ -55,15 +56,17 @@ const Profile = ({ navigate }) => {
             <h2>Track your applications</h2>
           </div>
           <div>
-            <h1>applications - interview </h1>
+            <h1 className="pt-2 pb-2">applications - interview </h1>
+            <div className="flex flex-row">
             {applications
               .filter((application) => application.interviewStatus === true)
               .map((application) => (
-                <Application key={application._id} application={application} />
+                <ApplicationInterview key={application._id} application={application} />
               ))}
+              </div>
           </div>
           <div>
-          <h1>applications - no interview </h1>
+          <h1 className="pt-2 pb-2">applications - no interview </h1>
             {applications
               .filter((application) => application.interviewStatus === false)
               .map((application) => (
