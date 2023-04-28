@@ -29,9 +29,9 @@ const Modal = () => {
     event.preventDefault();
 
   
-    const handleToggle = () => {
-      setInterviewStatus(!interviewStatus);
-    }
+    // const handleToggle = () => {
+    //   setInterviewStatus(!interviewStatus);
+    // }
 
     console.log("Company: ", company);
     console.log("jobTitle: ", jobTitle);
@@ -58,7 +58,7 @@ const Modal = () => {
     } else {
       console.log("your application saved to db");
     }
-    
+
     setIsModalOpen(false);
   };
 
