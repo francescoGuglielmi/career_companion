@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Application from "../applications/Applications";
-import AddApplication from "../addApplication/AddApplication"
+import AddApplication from "../addApplication/AddApplication";
+import ApplicationInterview from "../applicationsInterview/applicationsInterview";
 import NavbarHP from '../navbar/navBarHP';
 
 const Profile = ({ navigate }) => {
   const [applications, setApplications] = useState([]);
   const [token, setToken] = useState(window.localStorage.getItem("token"));
   const [userData, setUserData] = useState({});
+  const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
     if (token) {
@@ -19,7 +21,9 @@ const Profile = ({ navigate }) => {
         .then(async (data) => {
           window.localStorage.setItem("token", data.token);
           setToken(window.localStorage.getItem("token"));
-          const filteredApplications = data.applications.filter(application => application.user._id === data.user._id); //only shows user that is logged in applications
+          const filteredApplications = data.applications.filter(
+            (application) => application.user._id === data.user._id
+          ); //only shows user that is logged in applications
           setApplications(filteredApplications);
           setUserData(data.user);
         });
@@ -31,11 +35,13 @@ const Profile = ({ navigate }) => {
     navigate("/login");
   };
 
+  
+
   if (token) {
     return (
       <>
         <NavbarHP />
-        <div className="h-screen bg-cream">
+        <div className="min-h-screen bg-cream">
           <h1 className="flex justify-center pt-20 text-black text-5xl font-epilogue-regular">
             Welcome {userData.firstName}
           </h1>
@@ -43,9 +49,6 @@ const Profile = ({ navigate }) => {
             What would you like to do?
           </h2>
           <div className="flex flex-row">
-            <button className="font-dm-sans-bold text-lg border py-1 px-2 flex items-center justify-center mr-3">
-              Add application
-            </button>
             <button className="font-dm-sans-bold text-lg border py-1 px-2 flex items-center justify-center">
               Build CV
             </button>
@@ -54,15 +57,25 @@ const Profile = ({ navigate }) => {
           <div>
             <h2>Track your applications</h2>
           </div>
-          {applications.map((application) => {
-            return (
-              <Application key={application._id} application={application} />
-            );
-          })}
-
-          {/* <div id="profile" role="profile">
-            {applications.map((application) => application.company)}
-          </div> */}
+          <div>
+            <h1 className="pt-2 pb-2">applications - interview </h1>
+            <div className="flex flex-wrap">
+            {applications
+              .filter((application) => application.interviewStatus === true)
+              .slice(0, 3)
+              .map((application) => (
+                <ApplicationInterview key={application._id} application={application} />
+              ))}
+              </div>
+          </div>
+          <div>
+          <h1 className="pt-2 pb-2">applications - no interview </h1>
+            {applications
+              .filter((application) => application.interviewStatus === false)
+              .map((application) => (
+                <Application key={application._id} application={application} />
+              ))}
+          </div>
           <button onClick={logout}>Logout</button>
         </div>
       </>
