@@ -19,7 +19,7 @@ const LogInForm = ({ navigate }) => {
 
     if (response.status !== 201) {
       let data = await response.json();
-      console.log(data);
+      console.log(data._id);
     } else {
       let data = await response.json();
       window.localStorage.setItem("token", data.token);

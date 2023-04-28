@@ -38,18 +38,6 @@ const Modal = () => {
     console.log("jobTitle: ", jobTitle);
     console.log("location: ", location);
 
-    // const formData = new FormData();
-    // formData.append("company", company);
-    // formData.append("jobTitle", jobTitle);
-    // formData.append("location", location);
-    // formData.append("link", link);
-    // formData.append("interviewOffered", interviewOffered);
-    // for (const [key, value] of formData.entries()) {
-    //   console.log(key, value);
-    // }
-
-    // console.log(formData)
-
     let response = await fetch("/applications", {
       method: "post",
       headers: {
@@ -133,7 +121,7 @@ const Modal = () => {
                   required
                 />
               </div>
-              {/* <div className="mb-4">
+              <div className="mb-4">
                 <input
                   className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="link"
@@ -143,7 +131,7 @@ const Modal = () => {
                   onChange={handleLinkChange}
                   required
                 />
-              </div> */}
+              </div>
               {/* <div>
                 <Switch id="auto-update" label="Asked to interview?" />
               </div> */}
