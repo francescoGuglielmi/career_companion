@@ -7,7 +7,7 @@ const Modal = () => {
   const [jobTitle, setJobTitle] = useState("");
   const [location, setLocation] = useState("");
   const [link, setLink] = useState("");
-  // const [interviewOffered, setInterviewOffered] = useState(false);
+  const [interviewStatus, setInterviewStatus] = useState(false);
 
   const handleCompanyChange = (event) => {
     setCompany(event.target.value);
@@ -28,6 +28,11 @@ const Modal = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+  
+    const handleToggle = () => {
+      setInterviewStatus(!interviewStatus);
+    }
+
     // console.log(formState);
 
     // console.log(
@@ -38,6 +43,7 @@ const Modal = () => {
     console.log("jobTitle: ", jobTitle);
     console.log("location: ", location);
 
+   
     let response = await fetch("/applications", {
       method: "post",
       headers: {
@@ -49,6 +55,7 @@ const Modal = () => {
         jobTitle: jobTitle,
         location: location,
         link: link,
+        interviewStatus: interviewStatus,
       }),
     });
 
@@ -65,6 +72,8 @@ const Modal = () => {
   function handleClose() {
     setIsModalOpen(false);
   }
+
+
 
   return (
     <div>
@@ -132,9 +141,9 @@ const Modal = () => {
                   required
                 />
               </div>
-              {/* <div>
-                <Switch id="auto-update" label="Asked to interview?" />
-              </div> */}
+              <div>
+                <Switch id="auto-update" label="Asked to interview?" value={interviewStatus} onChange={(event) => setInterviewStatus(event.target.checked)}/>
+              </div>
               <div className="flex items-center justify-end">
                 <button
                   className="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"

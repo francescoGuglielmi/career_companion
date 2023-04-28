@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Application from "../applications/Applications";
-import AddApplication from "../addApplication/AddApplication"
+import AddApplication from "../addApplication/AddApplication";
 
 const Profile = ({ navigate }) => {
   const [applications, setApplications] = useState([]);
@@ -18,7 +18,9 @@ const Profile = ({ navigate }) => {
         .then(async (data) => {
           window.localStorage.setItem("token", data.token);
           setToken(window.localStorage.getItem("token"));
-          const filteredApplications = data.applications.filter(application => application.user._id === data.user._id); //only shows user that is logged in applications
+          const filteredApplications = data.applications.filter(
+            (application) => application.user._id === data.user._id
+          ); //only shows user that is logged in applications
           setApplications(filteredApplications);
           setUserData(data.user);
         });
@@ -52,17 +54,24 @@ const Profile = ({ navigate }) => {
           <div>
             <h2>Track your applications</h2>
           </div>
-          {applications.map((application) => {
-            return (
-              <Application key={application._id} application={application} />
-            );
-          })}
-
-          {/* <div id="profile" role="profile">
-            {applications.map((application) => application.company)}
-          </div> */}
-          <button onClick={logout}>Logout</button>
+          <div>
+            <h1>applications - interview </h1>
+            {applications
+              .filter((application) => application.interviewStatus === true)
+              .map((application) => (
+                <Application key={application._id} application={application} />
+              ))}
+          </div>
+          <div>
+          <h1>applications - no interview </h1>
+            {applications
+              .filter((application) => application.interviewStatus === false)
+              .map((application) => (
+                <Application key={application._id} application={application} />
+              ))}
+          </div>
         </div>
+        <button onClick={logout}>Logout</button>
       </>
     );
   } else {
