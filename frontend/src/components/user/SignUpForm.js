@@ -87,6 +87,7 @@ const SignUpForm = ({ navigate }) => {
                 id="email"
                 type="text"
                 placeholder="email"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                 value={email}
                 onChange={handleEmailChange}
               />
@@ -97,6 +98,7 @@ const SignUpForm = ({ navigate }) => {
                 id="password"
                 type="password"
                 placeholder="password"
+                pattern="[a-zA-Z0-9.-_!?]{8,20}"
                 value={password}
                 onChange={handlePasswordChange}
               />
