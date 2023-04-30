@@ -24,6 +24,17 @@ const LandingPage = () => {
           <img className="object-cover w-4/6 mx-auto" src="/cc-hero-image.png" alt="Career Companion Hero" />
         </div>
       </div>
+
+      <section class="bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <h2 class="text-3xl font-extrabold text-gray-900">About</h2>
+          <p class="mt-4 text-lg text-gray-500">Welcome to Career Companion, your ultimate job search assistant. With Career Companion, you can easily track your job applications, manage your interviews, and receive reminders and notifications to stay on top of your job search.</p>
+          <p class="mt-4 text-lg text-gray-500">Our platform is designed to make your job search experience as smooth and efficient as possible. With our user-friendly interface, you can easily save jobs you applied for, track your application progress, and receive timely reminders to follow up with employers. You can also generate your resume and a custom cover letter with just a few clicks.</p>
+          <p class="mt-4 text-lg text-gray-500">At Career Companion, we understand that job hunting can be a daunting process. That's why we're here to support you every step of the way. Whether you're a recent graduate or an experienced professional, our platform can help you land your dream job.</p>
+          <p class="mt-4 text-lg text-gray-500">If you're still not quite sold, check out the features below!</p>
+        </div>
+      </section>
+
       <div className="w-full flex flex-col justify-center items-start px-20 py-25 md:py-0 min-h-screen bg-cream" id="about">
         <div className="flex flex-col md:flex-row justify-center items-start min-h-fit border-4 border-lorange border-slate-400 rounded-3xl">
           <h1 className="text-navy text-4xl md:text-5xl font-bold justify-center leading-tight mb-4 px-10 py-10">ABOUT</h1>
