@@ -5,7 +5,7 @@ const Stats = ({ application }) => {
     <>
       <div data-cy="application" key={application._id} className="stats shadow">
         <div className="stat">
-          <div className="stat-figure text-primary">
+          <div className="stat-figure text-lblue">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -21,7 +21,7 @@ const Stats = ({ application }) => {
             </svg>
           </div>
           <div className="stat-title">Completed</div>
-          <div className="stat-value text-primary">
+          <div className="stat-value text-lblue">
             {
               application.filter(
                 (application) =>
@@ -33,7 +33,7 @@ const Stats = ({ application }) => {
         </div>
 
         <div className="stat">
-          <div className="stat-figure text-secondary">
+          <div className="stat-figure text-lorange">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -49,7 +49,7 @@ const Stats = ({ application }) => {
             </svg>
           </div>
           <div className="stat-title">Interviews</div>
-          <div className="stat-value text-secondary">
+          <div className="stat-value text-lorange">
             {
               application.filter(
                 (application) =>
@@ -60,7 +60,7 @@ const Stats = ({ application }) => {
           <div className="stat-desc">21% more than last month</div>
         </div>
         <div className="stat">
-          <div className="stat-figure text-secondary">
+          <div className="stat-figure text-lblue">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -76,7 +76,7 @@ const Stats = ({ application }) => {
             </svg>
           </div>
           <div className="stat-title">Incomplete</div>
-          <div className="stat-value text-secondary">
+          <div className="stat-value text-lblue">
             {
               application.filter(
                 (application) =>

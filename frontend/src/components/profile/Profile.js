@@ -42,19 +42,16 @@ const Profile = ({ navigate }) => {
       <>
         <NavbarHP />
         <div className="min-h-screen bg-cream">
-          <h1 className="flex justify-center pt-20 text-black text-5xl font-epilogue-regular">
+          <h1 className="flex justify-center pt-20 text-lorange text-5xl font-poppins-bold pb-4">
             Welcome {userData.firstName}
           </h1>
-
+          <div className="flex justify-center pt-8 pb-8">
           <Stats key={applications._id} application={applications} />
-          
-          <h2 className="font-dm-sans-bold text-2xl">
-            What would you like to do?
-          </h2>
+          </div>
           <div className="flex flex-row">
-            <button className="font-dm-sans-bold text-lg border py-1 px-2 flex items-center justify-center">
+            {/* <button className="font-dm-sans-bold text-lg border py-1 px-2 flex items-center justify-center">
               Build CV
-            </button>
+            </button> */}
           </div>
           <AddApplication />
           <div>
