@@ -3,6 +3,7 @@ import Application from "../applications/Applications";
 import AddApplication from "../addApplication/AddApplication";
 import ApplicationInterview from "../applicationsInterview/applicationsInterview";
 import NavbarHP from "../navbar/navBarHP";
+import Stats from "../stats/Stats";
 
 const Profile = ({ navigate }) => {
   const [applications, setApplications] = useState([]);
@@ -44,33 +45,9 @@ const Profile = ({ navigate }) => {
           <h1 className="flex justify-center pt-20 text-black text-5xl font-epilogue-regular">
             Welcome {userData.firstName}
           </h1>
-          <p>
-            Completed applications:{" "}
-            {
-              applications.filter(
-                (application) =>
-                  application.applicationStatus !== "Not yet applied"
-              ).length
-            }
-          </p>
-          <p>
-            Interviews offered:{" "}
-            {
-              applications.filter(
-                (application) =>
-                  application.applicationStatus === "Invited to interview"
-              ).length
-            }
-          </p>
-          <p>
-            Applications to be completed:{" "}
-            {
-              applications.filter(
-                (application) =>
-                  application.applicationStatus === "Not yet applied"
-              ).length
-            }
-          </p>
+
+          <Stats key={applications._id} application={applications} />
+          
           <h2 className="font-dm-sans-bold text-2xl">
             What would you like to do?
           </h2>

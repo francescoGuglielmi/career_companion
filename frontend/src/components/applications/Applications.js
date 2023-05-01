@@ -16,6 +16,7 @@ const Application = ({ application }) => {
         </a>
         <UpdateApplication key={application._id} application={application} />
       </article>
+
     </>
   );
 };
