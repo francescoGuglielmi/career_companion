@@ -1,4 +1,5 @@
 import React from "react";
+import UpdateApplication from "../updateApplication/updateApplication";
 
 const ApplicationInterview = ({ application }) => {
   return (
@@ -16,6 +17,7 @@ const ApplicationInterview = ({ application }) => {
             >
               Link
             </a>
+            <UpdateApplication key={application._id} application={application} />
           </div>
         </div>
       </article>
