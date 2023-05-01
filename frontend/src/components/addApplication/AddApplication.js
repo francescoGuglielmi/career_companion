@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { Switch } from "@material-tailwind/react";
 
-const Modal = () => {
+const AddApplication = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [company, setCompany] = useState("");
   const [jobTitle, setJobTitle] = useState("");
   const [location, setLocation] = useState("");
   const [link, setLink] = useState("");
-  const [interviewStatus, setInterviewStatus] = useState(false);
+  const [applicationStatus, setApplicationStatus] = useState("");
 
   const handleCompanyChange = (event) => {
     setCompany(event.target.value);
@@ -25,19 +25,21 @@ const Modal = () => {
     setLink(event.target.value);
   };
 
+  const handleApplicationStatusChange = (event) => {
+    setApplicationStatus(event.target.value);
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-  
-    const handleToggle = () => {
-      setInterviewStatus(!interviewStatus);
-    }
+    // const handleToggle = () => {
+    //   setInterviewStatus(!interviewStatus);
+    // }
 
     console.log("Company: ", company);
     console.log("jobTitle: ", jobTitle);
     console.log("location: ", location);
 
-   
     let response = await fetch("/applications", {
       method: "post",
       headers: {
@@ -49,7 +51,7 @@ const Modal = () => {
         jobTitle: jobTitle,
         location: location,
         link: link,
-        interviewStatus: interviewStatus,
+        applicationStatus: applicationStatus,
       }),
     });
 
@@ -57,8 +59,9 @@ const Modal = () => {
       console.log("error saving your application");
     } else {
       console.log("your application saved to db");
+      window.location.reload(); 
     }
-    
+
     setIsModalOpen(false);
   };
 
@@ -66,7 +69,14 @@ const Modal = () => {
     setIsModalOpen(false);
   }
 
-
+  const applicationStatuses = [
+    "not yet applied",
+    "applied for role",
+    "invited to interview",
+    "interview successful",
+    "interview unsuccessful",
+    "no response / archive",
+  ];
 
   return (
     <div>
@@ -134,8 +144,32 @@ const Modal = () => {
                   required
                 />
               </div>
+              <div className="mb-4">
+                <select
+                  className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="applicationStatus"
+                  type="text"
+                  value={applicationStatus}
+                  onChange={handleApplicationStatusChange}
+                  required
+                  
+                >
+                  <option value="">Select an option</option>
+                {applicationStatuses.map((status) => (
+                  <option key={status} value={status}>
+                    {status}
+                  </option>
+                ))}
+                  </select>
+                
+              </div>
               <div>
-                <Switch id="auto-update" label="Asked to interview?" value={interviewStatus} onChange={(event) => setInterviewStatus(event.target.checked)}/>
+                {/* <Switch
+                  id="auto-update"
+                  label="Asked to interview?"
+                  value={interviewStatus}
+                  onChange={(event) => setInterviewStatus(event.target.checked)}
+                /> */}
               </div>
               <div className="flex items-center justify-end">
                 <button
@@ -153,4 +187,4 @@ const Modal = () => {
   );
 };
 
-export default Modal;
+export default AddApplication;

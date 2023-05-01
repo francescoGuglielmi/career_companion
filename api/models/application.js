@@ -7,7 +7,7 @@ const ApplicationSchema = new mongoose.Schema({
   jobTitle: { type: String }, 
   location: { type: String },
   link: { type: String },
-  interviewStatus: { type: Boolean},
+  applicationStatus: { type: String},
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
