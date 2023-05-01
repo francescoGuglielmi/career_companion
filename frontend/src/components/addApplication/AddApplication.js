@@ -59,12 +59,7 @@ const AddApplication = () => {
       window.location.reload();
     }
 
-    setIsModalOpen(false);
   };
-
-  function handleClose() {
-    setIsModalOpen(false);
-  }
 
   const applicationStatuses = [
     "Not yet applied",
@@ -77,26 +72,25 @@ const AddApplication = () => {
 
   return (
     <div className="flex justify-center">
-      <button
-        className="bg-cream text-blue font-poppins-bold text-2xl py-2 px-4 underline"
-        onClick={() => setIsModalOpen(true)}
-      >
-        Add application
-      </button>
 
-      {isModalOpen ? (
-        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-500 bg-opacity-75">
-          <div className="bg-white rounded-lg p-8 w-1/2">
-            <div className="flex justify-end">
-              <button
-                className="text-gray-700 hover:text-gray-900 font-bold text-xl leading-none focus:outline-none"
-                onClick={handleClose}
-              >
-                &times;
-              </button>
-            </div>
-            <h2 className="text-2xl font-bold mb-4">Add an application</h2>
-            <form onSubmit={handleSubmit}>
+      {/* The button to open modal */}
+      <label htmlFor="my-modal-3" className="bg-cream text-blue font-poppins-bold text-2xl py-2 px-4 underline">
+        Add application
+      </label>
+
+      <input type="checkbox" id="my-modal-3" className="modal-toggle" />
+      <div className="modal">
+        <div className="modal-box relative">
+          <label
+            htmlFor="my-modal-3"
+            className="btn btn-sm btn-circle absolute right-2 top-2"
+          >
+            ✕
+          </label>
+          <h3 className="text-lg font-bold">
+           Add an application
+          </h3>
+          <form onSubmit={handleSubmit}>
               <div className="mb-4">
                 <input
                   className="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -143,15 +137,15 @@ const AddApplication = () => {
               </div>
               <div className="mb-4">
                 <textarea
-                  className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline box-content h-32"
+                  className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  rows={4}
                   id="jobDetails"
                   type="text"
                   placeholder="Key details from job posting"
                   value={jobDetails}
                   onChange={handleJobDetailsChange}
                   required
-                >
-                  </textarea>
+                ></textarea>
               </div>
               <div className="mb-4">
                 <select
@@ -180,9 +174,10 @@ const AddApplication = () => {
                 </button>
               </div>
             </form>
-          </div>
         </div>
-      ) : null}
+      </div>
+
+      
     </div>
   );
 };
