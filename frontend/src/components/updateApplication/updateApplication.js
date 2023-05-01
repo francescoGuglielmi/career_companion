@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const UpdateApplication = ({application}) => {
+const UpdateApplication = ({ application }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [applicationStatus, setApplicationStatus] = useState("");
 
@@ -11,7 +11,7 @@ const UpdateApplication = ({application}) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    console.log(application)
+    console.log(application);
 
     let response = await fetch(`/applications/${application._id}`, {
       method: "put",
@@ -28,7 +28,7 @@ const UpdateApplication = ({application}) => {
       console.log("error saving your updated application");
     } else {
       console.log("your updated application saved to db");
-       window.location.reload();
+      window.location.reload();
     }
 
     setIsModalOpen(false);
@@ -77,16 +77,14 @@ const UpdateApplication = ({application}) => {
                   value={applicationStatus}
                   onChange={handleApplicationStatusChange}
                   required
-                  
                 >
                   <option value="">Select an option</option>
-                {applicationStatuses.map((status) => (
-                  <option key={status} value={status}>
-                    {status}
-                  </option>
-                ))}
-                  </select>
-                
+                  {applicationStatuses.map((status) => (
+                    <option key={status} value={status}>
+                      {status}
+                    </option>
+                  ))}
+                </select>
               </div>
               <div className="flex items-center justify-end">
                 <button
@@ -94,6 +92,12 @@ const UpdateApplication = ({application}) => {
                   type="submit"
                 >
                   Submit
+                </button>
+                <button
+                  className="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  type="submit"
+                >
+                  Delete
                 </button>
               </div>
             </form>

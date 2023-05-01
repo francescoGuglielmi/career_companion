@@ -58,13 +58,13 @@ const ApplicationsController = {
   Delete: async (req, res) => {
     try {
       const application = await Application.findById(req.params.applicationId);
-  
+
       if (!application) {
         return res.status(404).json({ error: "Application not found" });
       }
-  
+
       await application.delete();
-  
+
       res.status(200).json({ message: "OK" });
     } catch (error) {
       console.error(error);

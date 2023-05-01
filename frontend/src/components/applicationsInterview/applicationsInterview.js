@@ -17,7 +17,10 @@ const ApplicationInterview = ({ application }) => {
             >
               Link
             </a>
-            <UpdateApplication key={application._id} application={application} />
+            <UpdateApplication
+              key={application._id}
+              application={application}
+            />
           </div>
         </div>
       </article>

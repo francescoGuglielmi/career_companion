@@ -50,7 +50,7 @@ const AddApplication = () => {
       console.log("error saving your application");
     } else {
       console.log("your application saved to db");
-      window.location.reload(); 
+      window.location.reload();
     }
 
     setIsModalOpen(false);
@@ -145,16 +145,14 @@ const AddApplication = () => {
                   required
                 >
                   <option value="">Select an option</option>
-                {applicationStatuses.map((status) => (
-                  <option key={status} value={status}>
-                    {status}
-                  </option>
-                ))}
-                  </select>
-                
+                  {applicationStatuses.map((status) => (
+                    <option key={status} value={status}>
+                      {status}
+                    </option>
+                  ))}
+                </select>
               </div>
-              <div>
-              </div>
+              <div></div>
               <div className="flex items-center justify-end">
                 <button
                   className="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
