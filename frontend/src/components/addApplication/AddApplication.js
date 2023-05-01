@@ -6,6 +6,7 @@ const AddApplication = () => {
   const [jobTitle, setJobTitle] = useState("");
   const [location, setLocation] = useState("");
   const [link, setLink] = useState("");
+  const [jobDetails, setJobDetails] = useState("");
   const [applicationStatus, setApplicationStatus] = useState("");
 
   const handleCompanyChange = (event) => {
@@ -22,6 +23,10 @@ const AddApplication = () => {
 
   const handleLinkChange = (event) => {
     setLink(event.target.value);
+  };
+
+  const handleJobDetailsChange = (event) => {
+    setJobDetails(event.target.value);
   };
 
   const handleApplicationStatusChange = (event) => {
@@ -42,6 +47,7 @@ const AddApplication = () => {
         jobTitle: jobTitle,
         location: location,
         link: link,
+        jobDetails: jobDetails,
         applicationStatus: applicationStatus,
       }),
     });
@@ -134,6 +140,18 @@ const AddApplication = () => {
                   onChange={handleLinkChange}
                   required
                 />
+              </div>
+              <div className="mb-4">
+                <textarea
+                  className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline box-content h-32"
+                  id="jobDetails"
+                  type="text"
+                  placeholder="Key details from job posting"
+                  value={jobDetails}
+                  onChange={handleJobDetailsChange}
+                  required
+                >
+                  </textarea>
               </div>
               <div className="mb-4">
                 <select
