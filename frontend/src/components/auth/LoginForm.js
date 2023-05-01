@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import NavbarSI from '../navbar/navBarSI';
-import Footer from '../footer/footer'
+import Footer from '../footer/Footer'
 
 const LogInForm = ({ navigate }) => {
   const [email, setEmail] = useState("");

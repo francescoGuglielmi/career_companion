@@ -26,47 +26,11 @@ const Interview = ({ navigate }) => {
   const [feedback, setFeedback] = useState(null)
   // const [rating, setRating] = useState(null)
 
-  // FUNCTION TO SET THE JOB SELECTION 
+  
 
-  // useEffect(() => {
-  //   if(token) {
-  //     fetch("/interview", {
-  //       headers: {
-  //         //makes sure a vaild token is present
-  //         'Authorization': `Bearer ${token}`
-  //       }
-  //     })
-  //       .then(response => response.json())
-  //       .then(async data => {
-  //         window.localStorage.setItem("token", data.token)
-  //         setToken(window.localStorage.getItem("token"))
-  //         ///console.log()
-  //       })
+  
 
-  //   } else { 
-  //     return "" }
-  // })
 
-  function handleSelectionChange(event) {
-    setJobSelection(event.target.value);
-  }
-
-  // HANDLE SUBMIT
-
-  function handleSelectionSubmit(event) {
-    event.preventDefault()
-
-    openai.createChatCompletion({
-      model: "gpt-3.5-turbo",
-      messages: [{ role: "user", content: gptInputJob()}]
-    }).then((res) => {
-      const result = res.data.choices[0].message.content.split('?')
-      setQuestions(result);
-      setLoadingFormAlert("");
-    })
-
-    setLoadingFormAlert("Loading, please wait...")
-  }
 
   // SET INPUT FOR chatGPT
 
@@ -85,7 +49,11 @@ const Interview = ({ navigate }) => {
     return answersForGPT
   }
 
-  // FUNCTIONS TO SET THE ANSWERS TO THE VALUE INPUTTED
+  // OnChange FUNCTIONS
+
+  function handleSelectionChange(event) {
+    setJobSelection(event.target.value);
+  }
 
   function handleAnswer1Change(event) {
     event.preventDefault();
@@ -114,6 +82,20 @@ const Interview = ({ navigate }) => {
 
   // HANDLE SUBMIT
 
+  function handleSelectionSubmit(event) {
+    event.preventDefault()
+
+    openai.createChatCompletion({
+      model: "gpt-3.5-turbo",
+      messages: [{ role: "user", content: gptInputJob()}]
+    }).then((res) => {
+      const result = res.data.choices[0].message.content.split('?')
+      setQuestions(result);
+      setLoadingFormAlert("");
+    })
+    setLoadingFormAlert("Loading, please wait...")
+  }
+
   function handleAnswersSubmit(event) {
     event.preventDefault()
     setLoadingFeedbackAlert("Please wait, your feedback is being generated...")
@@ -126,7 +108,6 @@ const Interview = ({ navigate }) => {
       setFeedback(result);
       setLoadingFeedbackAlert("");
     })
-    
   }
 
   // function generateRating() {

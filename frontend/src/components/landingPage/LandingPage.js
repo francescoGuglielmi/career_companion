@@ -1,5 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../navbar/navBarLP';
+import Footer from '../footer/Footer';
 
 const LandingPage = () => {
 
@@ -7,6 +9,7 @@ const LandingPage = () => {
 
   return (
     <>
+      <Navbar/>
       <div className="flex flex-col md:flex-row min-h-screen bg-cream">
         <div className="w-full md:w-1/2 flex flex-col justify-center items-start px-20 py-25 md:py-0">
           <h1 className="text-navy text-4xl md:text-6xl font-bold leading-tight mb-4">We're here to help you find the dream job!</h1>
@@ -40,6 +43,7 @@ const LandingPage = () => {
         </div>
       </div>
     </div>
+    <Footer />
     </>
   );
 };

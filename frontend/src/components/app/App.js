@@ -2,7 +2,7 @@ import './App.css';
 import LandingPage from '../landingPage/LandingPage';
 import LoginForm from '../auth/LoginForm';
 import SignUpForm from '../user/SignUpForm';
-import Interview from '../Interview/Interview';
+import Interview from '../Interview/Interview.js';
 import CoverLetterGenerator from '../coverLetterGen/CoverLetterGen';
 import Profile from '../profile/Profile';
 import React, { useState } from 'react';
