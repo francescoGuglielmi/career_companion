@@ -11,8 +11,6 @@ const UpdateApplication = ({ application }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    console.log(application);
-
     let response = await fetch(`/applications/${application._id}`, {
       method: "put",
       headers: {
@@ -33,6 +31,25 @@ const UpdateApplication = ({ application }) => {
 
     setIsModalOpen(false);
   };
+
+  const handleDelete = async (event) => {
+    event.preventDefault();
+
+    let response = await fetch(`/applications/${application._id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${window.localStorage.getItem("token")}`,
+      }
+    })
+    if (response.status !== 200) {
+      console.log("error deleting your application");
+    } else {
+      console.log("your application was deleted from the db");
+      window.location.reload();
+      setIsModalOpen(false);
+    }
+  }
 
   function handleClose() {
     setIsModalOpen(false);
@@ -95,7 +112,9 @@ const UpdateApplication = ({ application }) => {
                 </button>
                 <button
                   className="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                  type="submit"
+                  id="delete"
+                  type="button"
+                  onClick={handleDelete}
                 >
                   Delete
                 </button>
