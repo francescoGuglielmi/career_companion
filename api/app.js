@@ -12,7 +12,6 @@ const usersRouter = require("./routes/users");
 const app = express();
 
 // setup for receiving JSON
-app.use(express.json())
 
 app.use(logger("dev"));
 app.use(express.json());

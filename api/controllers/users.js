@@ -1,8 +1,10 @@
 const User = require("../models/user");
+const bcrypt = require('bcrypt');
 
 const UsersController = {
-  Create: (req, res) => {
-    const user = new User(req.body);
+  Create: async (req, res) => {
+    const hashedPassword = await bcrypt.hash(req.body.password, 10)
+    const user = new User({firstName: req.body.firstName, lastName: req.body.lastName, email: req.body.email, password: hashedPassword });
     user.save((err) => {
       if (err) {
         res.status(400).json({message: 'Bad request'})
