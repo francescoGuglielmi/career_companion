@@ -39,12 +39,12 @@ const UpdateApplication = ({application}) => {
   }
 
   const applicationStatuses = [
-    "not yet applied",
-    "applied for role",
-    "invited to interview",
-    "interview successful",
-    "interview unsuccessful",
-    "no response / archive",
+    "Not yet applied",
+    "Applied for role",
+    "Invited to interview",
+    "Interview successful",
+    "Interview unsuccessful",
+    "No response / archive",
   ];
 
   return (

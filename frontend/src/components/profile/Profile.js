@@ -46,9 +46,9 @@ const Profile = ({ navigate }) => {
           <h1 className="flex justify-center pt-20 text-black text-5xl font-epilogue-regular">
             Welcome {userData.firstName}
           </h1>
-          <p>Completed applications: {applications.filter((application) => application.applicationStatus !== 'not yet applied').length}</p>
-          <p>Interviews offered: {applications.filter((application) => application.applicationStatus === 'invited to interview').length}</p>
-          <p>Applications to be completed: {applications.filter((application) => application.applicationStatus === 'not yet applied').length}</p>
+          <p>Completed applications: {applications.filter((application) => application.applicationStatus !== 'Not yet applied').length}</p>
+          <p>Interviews offered: {applications.filter((application) => application.applicationStatus === 'Invited to interview').length}</p>
+          <p>Applications to be completed: {applications.filter((application) => application.applicationStatus === 'Not yet applied').length}</p>
           <h2 className="font-dm-sans-bold text-2xl">
             What would you like to do?
           </h2>
@@ -65,7 +65,7 @@ const Profile = ({ navigate }) => {
             <h1 className="pt-2 pb-2">applications - interview </h1>
             <div className="flex flex-wrap">
             {applications
-              .filter((application) => application.applicationStatus === 'invited to interview')
+              .filter((application) => application.applicationStatus === 'Invited to interview')
               .slice(0, 3)
               .map((application) => (
                 <ApplicationInterview key={application._id} application={application} />
@@ -75,7 +75,7 @@ const Profile = ({ navigate }) => {
           <div>
           <h1 className="pt-2 pb-2">you have applied for these roles: </h1>
             {applications
-              .filter((application) => application.applicationStatus === 'applied for role')
+              .filter((application) => application.applicationStatus === 'Applied for role')
               .map((application) => (
                 <Application key={application._id} application={application} />
               ))}
@@ -83,7 +83,7 @@ const Profile = ({ navigate }) => {
           <div>
           <h1 className="pt-2 pb-2">finish your application! </h1>
             {applications
-              .filter((application) => application.applicationStatus === 'not yet applied')
+              .filter((application) => application.applicationStatus === 'Not yet applied')
               .map((application) => (
                 <Application key={application._id} application={application} />
               ))}
