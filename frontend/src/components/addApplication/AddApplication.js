@@ -59,6 +59,7 @@ const AddApplication = () => {
       console.log("error saving your application");
     } else {
       console.log("your application saved to db");
+      window.location.reload(); 
     }
 
     setIsModalOpen(false);
