@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './CoverLetterGen.css'
+import Navbar from '../navbar/navBarHP';
+import Footer from '../footer/footer';
 import { Configuration, OpenAIApi } from "openai";
 import key from '../api_key';
 
@@ -74,7 +76,8 @@ const CoverLetterGenerator = ({ navigate }) => {
   if (token) {
   return (
     <>
-      <div>
+    <Navbar />
+      <div className="cover_letter_gen">
         <h2 className="title" >Generate your tailored cover letter</h2>
         <form onSubmit={handleSubmit}>
           <h2>What's the job position you are applying for?</h2>
@@ -101,6 +104,7 @@ const CoverLetterGenerator = ({ navigate }) => {
       { coverLetter && <a href='/generator'>Try Again!</a> }
       { coverLetter && <button className="save_button" onClick={handleSaveButtonClick}>Save Cover Letter</button> }
       <br/>
+      <Footer />
     </>
   )
   } else {
