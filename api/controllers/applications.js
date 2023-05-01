@@ -40,50 +40,21 @@ const ApplicationsController = {
   Update: async (req, res) => {
     try {
       const application = await Application.findById(req.params.applicationId);
-  
-      console.log('req.body:', req.body);
 
       if (!application) {
         return res.status(404).json({ error: "Application not found" });
       }
-  
-      // Update the application properties
+
       application.applicationStatus = req.body.applicationStatus;
-  
-      // Save the updated application to the database
       await application.save();
-  
+
       res.status(201).json({ message: "OK", application });
     } catch (error) {
       console.error(error);
       res.status(500).json({ message: "Internal Server Error" });
     }
   },
-
-  // Update: async (req, res) => {
-  //     const applicationId = req.params.id;
-  //     const status = req.body.applicationStatus;
-
-  //     try {
-  //     const application = await Application.findById(applicationId);
-
-  //     if (!application) {
-  //       return res.status(404).json({ error: "Post not found"});
-  //     }
-
-  //     application.applicationStatus = status;
-  //     await application.save();
-
-  //     const token = await TokenGenerator.jsonwebtoken(req.user_id);
-  //     res.status(200).json({ message: "OK", token: token, application: application });
-  //   } catch (error) {
-  //     console.error(error);
-  //     res.status(500).json({ message: "Internal Server Error" });
-  //   }
-  // },
 };
-
-
 
 const findUser = (userId) => {
   return Users.findById(userId);
