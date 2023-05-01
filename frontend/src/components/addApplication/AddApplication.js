@@ -70,9 +70,9 @@ const AddApplication = () => {
   ];
 
   return (
-    <div>
+    <div className="flex justify-center">
       <button
-        className="bg-cream text-black font-bold py-2 px-4 rounded"
+        className="bg-cream text-blue font-poppins-bold text-2xl py-2 px-4 underline"
         onClick={() => setIsModalOpen(true)}
       >
         Add application

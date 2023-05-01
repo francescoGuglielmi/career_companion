@@ -23,7 +23,8 @@ module.exports = withMT({
       lilac: "#D2BAF4",
       blue: "#005689",
       lblue: "#007cb9",
-      lorange: "#ff895d"
+      lorange: "#ff895d",
+      grey: "#797E87"
     }
   },
  

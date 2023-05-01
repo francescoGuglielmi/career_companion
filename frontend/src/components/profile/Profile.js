@@ -41,10 +41,13 @@ const Profile = ({ navigate }) => {
     return (
       <>
         <NavbarHP />
-        <div className="min-h-screen bg-cream">
-          <h1 className="flex justify-center pt-20 text-lorange text-5xl font-poppins-bold pb-4">
+        <div className="min-h-screen bg-cream font-dm-sans-regular md:pl-10 md:pr-10">
+          <h1 className="flex justify-center pt-12 text-lorange text-6xl font-poppins-bold pb-6">
             Welcome {userData.firstName}
           </h1>
+          <div>
+            <h2 className="flex justify-center text-lorange font-poppins-bold text-xl pb-2">Track your job application progress here</h2>
+          </div>
           <div className="flex justify-center pt-8 pb-8">
           <Stats key={applications._id} application={applications} />
           </div>
@@ -54,11 +57,9 @@ const Profile = ({ navigate }) => {
             </button> */}
           </div>
           <AddApplication />
+          
           <div>
-            <h2>Track your applications</h2>
-          </div>
-          <div>
-            <p className="pt-2 pb-2">applications - interview </p>
+            <p className="pt-2 pb-2 text-lblue font-poppins-bold">Interview stage</p>
             <div className="flex flex-wrap">
               {applications
                 .filter(

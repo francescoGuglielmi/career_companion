@@ -3,7 +3,7 @@ import React from "react";
 const Stats = ({ application }) => {
   return (
     <>
-      <div data-cy="application" key={application._id} className="stats shadow">
+      <div data-cy="application" key={application._id} className="stats shadow font-dm-sans-regular">
         <div className="stat">
           <div className="stat-figure text-lblue">
             <svg
