@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { Switch } from "@material-tailwind/react";
 
-const AddApplication = () => {
+const UpdateApplication = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [company, setCompany] = useState("");
   const [jobTitle, setJobTitle] = useState("");
@@ -30,6 +31,14 @@ const AddApplication = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    // const handleToggle = () => {
+    //   setInterviewStatus(!interviewStatus);
+    // }
+
+    console.log("Company: ", company);
+    console.log("jobTitle: ", jobTitle);
+    console.log("location: ", location);
 
     let response = await fetch("/applications", {
       method: "post",
@@ -143,6 +152,7 @@ const AddApplication = () => {
                   value={applicationStatus}
                   onChange={handleApplicationStatusChange}
                   required
+                  
                 >
                   <option value="">Select an option</option>
                 {applicationStatuses.map((status) => (
@@ -154,6 +164,12 @@ const AddApplication = () => {
                 
               </div>
               <div>
+                {/* <Switch
+                  id="auto-update"
+                  label="Asked to interview?"
+                  value={interviewStatus}
+                  onChange={(event) => setInterviewStatus(event.target.checked)}
+                /> */}
               </div>
               <div className="flex items-center justify-end">
                 <button
@@ -171,4 +187,4 @@ const AddApplication = () => {
   );
 };
 
-export default AddApplication;
+export default UpdateApplication;
