@@ -21,8 +21,8 @@ export default function LandingPage() {
             <section className="bg-cream dark:bg-navy">
               <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
                 <div className="mr-auto place-self-center lg:col-span-7">
-                  <h1 className="text-navy max-w-4xl mb-6 ml-10 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-cream">We're here to help you find the dream job!</h1>
-                    <p className=" text-blue max-w-3xl mb-6 ml-10 text-2xl font-medium dark:text-gray-400">Sign up today and let Career Companion be your personal career coach.</p>
+                  <h1 className="text-navy max-w-4xl mb-6 ml-10 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-cream">Life's too short to hate your job!</h1>
+                    <p className=" text-blue max-w-3xl mb-6 ml-10 text-2xl font-medium dark:text-gray-400">Let Career Companion be your personal coach and help you build a career you'll love.</p>
                       <div className="flex flex-row items-left justify-left sm:items-center sm:justify-center mb-16 ml-10 space-x-6">
                         <a href="#about" className="w-40 inline-flex items-center justify-center bg-blue hover:bg-lblue border-2 border-blue px-5 py-3 rounded-xl text-base font-bold text-center text-cream bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900" onClick={() => window.scrollTo({ top: document.getElementById("about").offsetTop, behavior: 'smooth' })}>
                           Learn More
@@ -48,10 +48,13 @@ export default function LandingPage() {
               </div>
               <div className="w-full lg:w-2/3 p-8">
                 <p className=" text-blue mb-6 ml-10 text-2xl font-medium dark:text-gray-400">
-                  Welcome to Career Companion, your ultimate job search assistant. With Career Companion, you can easily track your job applications, manage your interviews, and receive reminders and notifications to stay on top of your job search.
+                  Welcome to <span className="text-lorange">Career Companion</span>, your ultimate job search assistant.
                 </p>
                 <p className=" text-blue mb-6 ml-10 text-2xl font-medium dark:text-gray-400">
-                  At Career Companion, we understand that job hunting can be a daunting process. That's why we're here to support you every step of the way. Whether you're a recent graduate or an experienced professional, our platform can help you land your dream job.
+                With us, you can easily track your job applications, manage your interviews, and receive reminders and notifications to stay on top of your job search.
+                </p>
+                <p className=" text-blue mb-6 ml-10 text-2xl font-medium dark:text-gray-400">
+                  At <span className="text-lorange">Career Companion</span>, we understand that job hunting can be a daunting process. That's why we're here to support you every step of the way. Whether you're a recent graduate or an experienced professional, our platform can help you land your dream job.
                 </p>
                 <p className=" text-blue ml-10 text-2xl font-medium dark:text-gray-400">
                   Before we show you the features, make sure you meet the team below!
@@ -230,7 +233,7 @@ export default function LandingPage() {
             </div>
           </section>
           <div className="w-full mx-auto lg:w-1/3 p-8 items-center justify-center" id="features">
-            <h1 className="text-navy max-w-4xl mb-6 ml-10 pb-2 text-4xl text-center font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-cream border-b-2 border-lorange border-dashed">
+            <h1 className="text-navy max-w-4xl ml-10 pb-2 text-4xl text-center font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-cream border-b-2 border-lorange border-dashed">
               FEATURES
             </h1>
           </div>
@@ -283,7 +286,7 @@ export default function LandingPage() {
             </div>
           </section>
           
-          <section className="bg-cream dark:bg-gray-900 border-2 border-lorange border-dashed">
+          <section className="bg-cream dark:bg-gray-900 border-t-2 border-lorange border-dashed">
             <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
               <div className="mx-auto max-w-screen-sm text-center">
                 <h2 className="mb-4 text-4xl tracking-tight font-extrabold leading-tight text-navy dark:text-white">Start your free trial today</h2>
