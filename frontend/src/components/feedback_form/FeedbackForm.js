@@ -37,10 +37,12 @@ const FeedbackForm = (props) => {
           <input type="radio" name="rating-2" value="4" onChange={props.handleRatingChange} className="mask mask-star-2 bg-orange-400" />
           <input type="radio" name="rating-2" value="5" onChange={props.handleRatingChange} className="mask mask-star-2 bg-orange-400" />
         </div>
-        <h1></h1>
 
         <h2>Describe your experience:</h2>
-        <textarea value={props.content} onChange={props.handleContentChange}></textarea>
+        <textarea value={props.content} onChange={props.handleContentChange}></textarea><br/><br/>
+        
+
+        <button type="submit">Submit Review</button>
 
       </form>
     </>
