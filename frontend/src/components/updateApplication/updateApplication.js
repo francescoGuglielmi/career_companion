@@ -56,7 +56,7 @@ const UpdateApplication = ({ application }) => {
 
       {isModalOpen ? (
         <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-500 bg-opacity-75">
-          <div className="bg-white rounded-lg p-8 w-1/2">
+          <div className="bg-white rounded-lg p-8 w-1/3">
             <div className="flex justify-end">
               <button
                 className="text-gray-700 hover:text-gray-900 font-bold text-xl leading-none focus:outline-none"

@@ -1,25 +1,9 @@
 import React from "react";
 import UpdateApplication from "../updateApplication/updateApplication";
+import DeleteApplication from "../deleteApplication/deleteApplication";
 
 const ApplicationInterview = ({ application }) => {
-  const handleDelete = async (event) => {
-    event.preventDefault();
-
-    let response = await fetch(`/applications/${application._id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${window.localStorage.getItem("token")}`,
-      },
-    });
-    if (response.status !== 200) {
-      console.log("error deleting your application");
-    } else {
-      console.log("your application was deleted from the db");
-      window.location.reload();
-    }
-  };
-
+  
   return (
     <>
       <article data-cy="application" key={application._id}>
@@ -39,13 +23,11 @@ const ApplicationInterview = ({ application }) => {
             >
               Details
             </button>
-
-            <button
-              className="bg-cream text-black font-bold py-2 px-4 ml-2 rounded"
-              onClick={handleDelete}
-            >
-              Delete
-            </button>
+            <DeleteApplication
+              key={application._id}
+              application={application}
+            />
+           
           </div>
         </div>
       </article>
