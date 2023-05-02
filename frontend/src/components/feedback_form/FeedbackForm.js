@@ -30,7 +30,7 @@ const FeedbackForm = (props) => {
     <>
       <form onSubmit={props.handleFormSubmit}>
         <h2>What company would you like to review?</h2>
-        <select value="" onChange={props.handleSelectionChange}>
+        <select value="" onChange={props.handleSelectCompanyChange}>
           <option value="">Select an option below</option>
           {applications
             .slice(0, 3)
@@ -38,6 +38,35 @@ const FeedbackForm = (props) => {
               <option value={application.company}>{application.company}</option>
           ))}
         </select>
+        <h2>What job position would you like to rate?</h2>
+        <select value="" onChange={props.handleJobTitleChange}>
+          <option value="">Select an option below</option>
+          { applications
+            .slice(0, 3)
+            .map((application) => (
+              // if(application.company === props.jobTitle) {
+              <option value={application.jobTitle}>{application.jobTitle}</option>
+            ))}
+        </select>
+        <div id="stars">
+          <ul>
+            <li>
+              <a></a>
+            </li>
+            <li>
+              <a></a>
+            </li>
+            <li>
+              <a></a>
+            </li>
+            <li>
+              <a></a>
+            </li>
+            <li>
+              <a></a>
+            </li>
+          </ul>
+        </div>
       </form>
     </>
   )

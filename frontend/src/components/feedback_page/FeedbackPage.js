@@ -6,13 +6,18 @@ const FeedbackPage = ({navigate}) => {
 
   const [token] = useState(window.localStorage.getItem("token"))
   const [selectedCompany, setSelectedCompany] = useState(null)
-  const [jobPosition, setJobPosition] = useState(null)
+  const [jobTitle, setJobTitle] = useState(null)
   const [rating, setRating] = useState(null)
   const [content, setContent] = useState(null)
 
-  function handleSelectionChange(event) {
-    setJobPosition(event.target.value)
+  function handleSelectCompanyChange(event) {
+    setSelectedCompany(event.target.value)
   }
+
+  function handleJobTitleChange(event) {
+    setJobTitle(event.target.value)
+  }
+
 
   function handleFormSubmit(event) {
     event.preventDefault()
@@ -25,7 +30,7 @@ const FeedbackPage = ({navigate}) => {
       body: JSON.stringify({
   
         company: selectedCompany,
-        jobPosition: jobPosition,
+        jobTitle: jobTitle,
         rating: rating,
         content: content
       }),
@@ -44,7 +49,7 @@ const FeedbackPage = ({navigate}) => {
         <NavbarHP />
         <h1>Leave Them A Feedback!</h1>
         <div className="feedback_form">
-          <FeedbackForm handleSelectionChange={handleSelectionChange} handleFormSubmit={handleFormSubmit}/>
+          <FeedbackForm handleSelectCompanyChange={handleSelectCompanyChange} handleJobTitleChange={handleJobTitleChange} handleFormSubmit={handleFormSubmit} jobTitle={jobTitle}/>
         </div>
       </>
     )
