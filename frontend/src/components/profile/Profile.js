@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Application from "../applications/Applications";
-import AddApplication from "../addApplication/AddApplication";
+import AddApplication from "../addApplicationModal/AddApplicationModal";
 import ApplicationInterview from "../applicationsInterview/applicationsInterview";
-import NavbarHP from '../navbar/navBarHP';
+import NavbarHP from "../navbar/navBarHP";
+import Stats from "../stats/Stats";
 
 const Profile = ({ navigate }) => {
   const [applications, setApplications] = useState([]);
   const [token, setToken] = useState(window.localStorage.getItem("token"));
   const [userData, setUserData] = useState({});
-  const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
     if (token) {
@@ -21,7 +21,7 @@ const Profile = ({ navigate }) => {
         .then(async (data) => {
           window.localStorage.setItem("token", data.token);
           setToken(window.localStorage.getItem("token"));
-          console.log(data.applications)
+          // console.log(data.applications)
           const filteredApplications = data.applications.filter(
             (application) => application.user._id === data.user._id
           ); //only shows user that is logged in applications
@@ -36,51 +36,104 @@ const Profile = ({ navigate }) => {
     navigate("/login");
   };
 
-  
-
   if (token) {
     return (
       <>
         <NavbarHP />
-        <div className="min-h-screen bg-cream">
-          <h1 className="flex justify-center pt-20 text-black text-5xl font-epilogue-regular">
+        <div className="min-h-screen bg-cream font-dm-sans-regular md:pl-10 md:pr-10">
+          <h1 className="flex justify-center pt-12 text-lorange text-6xl font-poppins-bold pb-6">
             Welcome {userData.firstName}
           </h1>
-          <h2 className="font-dm-sans-bold text-2xl">
-            What would you like to do?
-          </h2>
+          <div>
+            <h2 className="flex justify-center text-lorange font-poppins-bold text-xl pb-2">
+              Track your job application progress here
+            </h2>
+          </div>
+          <div className="flex justify-center pt-8 pb-8">
+            <Stats key={applications._id} application={applications} />
+          </div>
           <div className="flex flex-row">
-            <button className="font-dm-sans-bold text-lg border py-1 px-2 flex items-center justify-center">
+            {/* <button className="font-dm-sans-bold text-lg border py-1 px-2 flex items-center justify-center">
               Build CV
-            </button>
+            </button> */}
           </div>
           <AddApplication />
+
           <div>
-            <h2>Track your applications</h2>
+            <p className="pt-2 pb-2 text-lblue font-poppins-bold">
+              Interview stage
+            </p>
+            <div className="grid grid-rows-1 md:grid-cols-2 xl:grid-cols-3 justify-center gap-y-4 ">
+              {applications
+                .filter(
+                  (application) =>
+                    application.applicationStatus === "Invited to interview"
+                )
+                .map((application) => (
+                  <ApplicationInterview
+                    key={application._id}
+                    application={application}
+                  />
+                ))}
+            </div>
           </div>
           <div>
-            <h1 className="pt-2 pb-2">applications - interview </h1>
-            <div className="flex flex-wrap">
-            {applications
-              .filter((application) => application.applicationStatus === 'invited to interview')
-              .slice(0, 3)
-              .map((application) => (
-                <ApplicationInterview key={application._id} application={application} />
-              ))}
-              </div>
+            <p className="pt-8 pb-2 text-lblue font-poppins-bold">
+              Completed applications{" "}
+            </p>
+            {applications.filter(
+              (application) =>
+                application.applicationStatus === "Applied for role"
+            ).length === 0 ? (
+              <p>Nothing to show here!</p>
+            ) : (
+              applications
+                .filter(
+                  (application) =>
+                    application.applicationStatus === "Applied for role"
+                )
+                .map((application) => (
+                  <Application
+                    key={application._id}
+                    application={application}
+                  />
+                ))
+            )}
           </div>
           <div>
-          <h1 className="pt-2 pb-2">you have applied for these roles: </h1>
-            {applications
-              .filter((application) => application.applicationStatus === 'applied for role')
-              .map((application) => (
-                <Application key={application._id} application={application} />
-              ))}
+            <p className="pt-2 pb-2 text-lblue font-poppins-bold">
+              Incomplete applications
+            </p>
+            {applications.filter(
+              (application) =>
+                application.applicationStatus === "Not yet applied"
+            ).length === 0 ? (
+              <p>Nothing to show here!</p>
+            ) : (
+              applications
+                .filter(
+                  (application) =>
+                    application.applicationStatus === "Not yet applied"
+                )
+                .map((application) => (
+                  <Application
+                    key={application._id}
+                    application={application}
+                  />
+                ))
+            )}
           </div>
           <div>
-          <h1 className="pt-2 pb-2">finish your application! </h1>
+            <p className="pt-2 pb-2 text-lblue font-poppins-bold">
+              Archived applications{" "}
+            </p>
             {applications
-              .filter((application) => application.applicationStatus === 'not yet applied')
+              .filter(
+                (application) =>
+                  application.applicationStatus === "Interview successful" ||
+                  application.applicationStatus === "Interview unsuccessful" ||
+                  application.applicationStatus === "No response / archive"
+              )
               .map((application) => (
                 <Application key={application._id} application={application} />
               ))}

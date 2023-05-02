@@ -1,12 +1,11 @@
 import { useState } from "react";
-import { Switch } from "@material-tailwind/react";
 
 const AddApplication = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [company, setCompany] = useState("");
   const [jobTitle, setJobTitle] = useState("");
   const [location, setLocation] = useState("");
   const [link, setLink] = useState("");
+  const [jobDetails, setJobDetails] = useState("");
   const [applicationStatus, setApplicationStatus] = useState("");
 
   const handleCompanyChange = (event) => {
@@ -25,20 +24,16 @@ const AddApplication = () => {
     setLink(event.target.value);
   };
 
+  const handleJobDetailsChange = (event) => {
+    setJobDetails(event.target.value);
+  };
+
   const handleApplicationStatusChange = (event) => {
     setApplicationStatus(event.target.value);
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    // const handleToggle = () => {
-    //   setInterviewStatus(!interviewStatus);
-    // }
-
-    console.log("Company: ", company);
-    console.log("jobTitle: ", jobTitle);
-    console.log("location: ", location);
 
     let response = await fetch("/applications", {
       method: "post",
@@ -51,6 +46,7 @@ const AddApplication = () => {
         jobTitle: jobTitle,
         location: location,
         link: link,
+        jobDetails: jobDetails,
         applicationStatus: applicationStatus,
       }),
     });
@@ -59,47 +55,41 @@ const AddApplication = () => {
       console.log("error saving your application");
     } else {
       console.log("your application saved to db");
-      window.location.reload(); 
+      window.location.reload();
     }
 
-    setIsModalOpen(false);
   };
 
-  function handleClose() {
-    setIsModalOpen(false);
-  }
-
   const applicationStatuses = [
-    "not yet applied",
-    "applied for role",
-    "invited to interview",
-    "interview successful",
-    "interview unsuccessful",
-    "no response / archive",
+    "Not yet applied",
+    "Applied for role",
+    "Invited to interview",
+    "Interview successful",
+    "Interview unsuccessful",
+    "No response / archive",
   ];
 
   return (
-    <div>
-      <button
-        className="bg-cream text-black font-bold py-2 px-4 rounded"
-        onClick={() => setIsModalOpen(true)}
-      >
-        Add application
-      </button>
+    <div className="flex justify-center">
 
-      {isModalOpen ? (
-        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-500 bg-opacity-75">
-          <div className="bg-white rounded-lg p-8 w-1/2">
-            <div className="flex justify-end">
-              <button
-                className="text-gray-700 hover:text-gray-900 font-bold text-xl leading-none focus:outline-none"
-                onClick={handleClose}
-              >
-                &times;
-              </button>
-            </div>
-            <h2 className="text-2xl font-bold mb-4">Add an application</h2>
-            <form onSubmit={handleSubmit}>
+      {/* The button to open modal */}
+      <label htmlFor="my-modal-3" className="bg-cream text-blue font-poppins-bold text-2xl py-2 px-4 underline">
+        Add application
+      </label>
+
+      <input type="checkbox" id="my-modal-3" className="modal-toggle" />
+      <div className="modal">
+        <div className="modal-box relative">
+          <label
+            htmlFor="my-modal-3"
+            className="btn btn-sm btn-circle absolute right-2 top-2"
+          >
+            ✕
+          </label>
+          <h3 className="text-lg font-bold">
+           Add an application
+          </h3>
+          <form onSubmit={handleSubmit}>
               <div className="mb-4">
                 <input
                   className="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -145,6 +135,18 @@ const AddApplication = () => {
                 />
               </div>
               <div className="mb-4">
+                <textarea
+                  className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  rows={4}
+                  id="jobDetails"
+                  type="text"
+                  placeholder="Key details from job posting"
+                  value={jobDetails}
+                  onChange={handleJobDetailsChange}
+                  required
+                ></textarea>
+              </div>
+              <div className="mb-4">
                 <select
                   className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="applicationStatus"
@@ -152,25 +154,16 @@ const AddApplication = () => {
                   value={applicationStatus}
                   onChange={handleApplicationStatusChange}
                   required
-                  
                 >
                   <option value="">Select an option</option>
-                {applicationStatuses.map((status) => (
-                  <option key={status} value={status}>
-                    {status}
-                  </option>
-                ))}
-                  </select>
-                
+                  {applicationStatuses.map((status) => (
+                    <option key={status} value={status}>
+                      {status}
+                    </option>
+                  ))}
+                </select>
               </div>
-              <div>
-                {/* <Switch
-                  id="auto-update"
-                  label="Asked to interview?"
-                  value={interviewStatus}
-                  onChange={(event) => setInterviewStatus(event.target.checked)}
-                /> */}
-              </div>
+              <div></div>
               <div className="flex items-center justify-end">
                 <button
                   className="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
@@ -180,9 +173,10 @@ const AddApplication = () => {
                 </button>
               </div>
             </form>
-          </div>
         </div>
-      ) : null}
+      </div>
+
+      
     </div>
   );
 };

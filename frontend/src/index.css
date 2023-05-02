@@ -13,6 +13,12 @@
   src: url("../public/fonts/DMSans-Bold.ttf");
 }
 
+@font-face {
+  font-family: "Poppins Bold";
+  src: url("../public/fonts/Poppins-Bold.ttf");
+}
+
+
 
 
 @tailwind base;
