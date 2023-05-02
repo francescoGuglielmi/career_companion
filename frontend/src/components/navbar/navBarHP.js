@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import "./navBarLP.css";
 
-export default function Navbar() {
+export default function Navbar({logout, account}) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const toggleMenu = () => {
@@ -29,6 +29,12 @@ export default function Navbar() {
                 </li>
                 <li>
                     <a href="/letter">Letter Generator</a>
+                </li>
+                <li>
+                    <a href="/account" onClick={account}>Account</a>
+                </li>
+                <li>
+                    <a href="#" onClick={logout}>Logout</a>
                 </li>
             </ul>
         </nav>

@@ -4,6 +4,7 @@ import AddApplication from "../addApplicationModal/AddApplicationModal";
 import ApplicationInterview from "../applicationsInterview/applicationsInterview";
 import NavbarHP from "../navbar/navBarHP";
 import Stats from "../stats/Stats";
+import Account from "../account/Account";
 
 const Profile = ({ navigate }) => {
   const [applications, setApplications] = useState([]);
@@ -36,10 +37,17 @@ const Profile = ({ navigate }) => {
     navigate("/login");
   };
 
+  const account = () => {
+    navigate('/account', {state: { userData: userData, token: token}})
+  }
+
+
   if (token) {
     return (
       <>
-        <NavbarHP />
+        <NavbarHP logout={logout} account={account}/>
+        {/* <a href="/account"><Account userData={userData} /></a> */}
+        
         <div className="min-h-screen bg-cream font-dm-sans-regular md:pl-10 md:pr-10">
           <h1 className="flex justify-center pt-12 text-lorange text-6xl font-poppins-bold pb-6">
             Welcome {userData.firstName}
