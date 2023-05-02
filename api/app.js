@@ -40,7 +40,7 @@ const tokenChecker = (req, res, next) => {
 };
 
 // route setup
-app.use("/review", tokenChecker, feedbackRouter)
+app.use("/feedback", tokenChecker, feedbackRouter)
 app.use("/coverLetterGen", tokenChecker, coverLetterRouter);
 app.use("/applications", tokenChecker, applicationsRouter);
 app.use("/tokens", tokensRouter);

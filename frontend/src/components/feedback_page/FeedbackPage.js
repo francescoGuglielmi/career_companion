@@ -58,9 +58,10 @@ const FeedbackPage = ({navigate}) => {
       method: "post",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`
       },
       body: JSON.stringify({
-  
+        userId: window.localStorage.getItem("user_id"),
         company: selectedCompany,
         jobTitle: jobTitle,
         rating: rating,
@@ -68,9 +69,9 @@ const FeedbackPage = ({navigate}) => {
       }),
     }).then((response) => {
       if (response.status === 201) {
-        navigate("/login");
+        console.log("feedback saved successfully")
       } else {
-        navigate("/signup");
+        console.log("there was an error saving the feedback")
       }
     });
   }
