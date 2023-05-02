@@ -4,11 +4,36 @@ import FeedbackForm from "../feedback_form/FeedbackForm";
 
 const FeedbackPage = ({navigate}) => {
 
-  const [token] = useState(window.localStorage.getItem("token"))
+  const [token, setToken] = useState(window.localStorage.getItem("token"))
+  const [applications, setApplications] = useState([]);
+  const [companies, setCompanies] = useState([])
   const [selectedCompany, setSelectedCompany] = useState("")
   const [jobTitle, setJobTitle] = useState("")
-  const [rating, setRating] = useState(null)
-  const [content, setContent] = useState(null)
+  const [rating, setRating] = useState("")
+  const [content, setContent] = useState("")
+  
+  useEffect(() => {
+    if (token) {
+      fetch("/applications", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+        .then((response) => response.json())
+        .then(async (data) => {
+          window.localStorage.setItem("token", data.token);
+          window.localStorage.setItem("user", data.user);
+          setToken(data.token)
+          const filteredApplications = data.applications.filter(
+            (application) => application.user._id === data.user._id  //only shows user that is logged in applications
+          ); 
+          setApplications(filteredApplications);      
+          filteredApplications.forEach(application => {
+            companies.push(application.company)
+          })
+        });
+    }
+  }, []);
 
   function handleSelectCompanyChange(event) {
     setSelectedCompany(event.target.value)
@@ -18,6 +43,13 @@ const FeedbackPage = ({navigate}) => {
     setJobTitle(event.target.value)
   }
 
+  function handleRatingChange(event) {
+    setRating(event.target.value)
+  }
+
+  function handleContentChange(event) {
+    setContent(event.target.value)
+  }
 
   function handleFormSubmit(event) {
     event.preventDefault()
@@ -47,14 +79,20 @@ const FeedbackPage = ({navigate}) => {
     return (
       <>
         <NavbarHP />
-        <h1>Leave Them A Feedback!</h1>
+        <h1>We want to hear about your application process!</h1>
         <div className="feedback_form">
           <FeedbackForm 
           handleSelectCompanyChange={handleSelectCompanyChange} 
           handleJobTitleChange={handleJobTitleChange} 
+          handleRatingChange={handleRatingChange}
+          handleContentChange={handleContentChange}
           handleFormSubmit={handleFormSubmit} 
           jobTitle={jobTitle}
           selectedCompany={selectedCompany}
+          companies={companies}
+          applications={applications}
+          rating={rating}
+          content={content}
           />
         </div>
       </>
