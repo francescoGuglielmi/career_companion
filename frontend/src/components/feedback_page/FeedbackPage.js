@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import NavbarHP from '../navbar/navBarHP';
 import FeedbackForm from "../feedback_form/FeedbackForm";
+import Feedback from "../feedback/Feedback";
 
 const FeedbackPage = ({navigate}) => {
 
@@ -11,6 +12,7 @@ const FeedbackPage = ({navigate}) => {
   const [jobTitle, setJobTitle] = useState("")
   const [rating, setRating] = useState("")
   const [content, setContent] = useState("")
+  const [feedbacks, setFeedbacks] = useState([])
   
   useEffect(() => {
     if (token) {
@@ -31,6 +33,22 @@ const FeedbackPage = ({navigate}) => {
           filteredApplications.forEach(application => {
             companies.push(application.company)
           })
+        });
+    }
+  }, []);
+
+  useEffect(() => {
+    if (token) {
+      fetch("/feedback", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+        .then((response) => response.json())
+        .then(async (data) => {
+          window.localStorage.setItem("token", data.token);
+          setToken(data.token) 
+          setFeedbacks(data.feedbacks);      
         });
     }
   }, []);
@@ -70,6 +88,7 @@ const FeedbackPage = ({navigate}) => {
     }).then((response) => {
       if (response.status === 201) {
         console.log("feedback saved successfully")
+        window.location.reload();
       } else {
         console.log("there was an error saving the feedback")
       }
@@ -95,6 +114,10 @@ const FeedbackPage = ({navigate}) => {
           rating={rating}
           content={content}
           />
+        </div><br/><br/>
+        
+        <div>
+          <Feedback feedbacks={feedbacks}/>
         </div>
       </>
     )

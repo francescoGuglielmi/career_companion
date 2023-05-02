@@ -41,7 +41,6 @@ const FeedbackForm = (props) => {
         <h2>Describe your experience:</h2>
         <textarea value={props.content} onChange={props.handleContentChange}></textarea><br/><br/>
         
-
         <button type="submit">Submit Review</button>
 
       </form>
