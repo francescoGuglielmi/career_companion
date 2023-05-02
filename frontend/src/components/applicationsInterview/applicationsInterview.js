@@ -5,7 +5,7 @@ const ApplicationInterview = ({ application }) => {
   return (
     <>
       <article data-cy="application" key={application._id}>
-        <div className="bg-white w-96 ml-2 px-2 py-4 shadow rounded-lg">
+        <div className="bg-white w-80 lg:w-96 ml-2 px-2 py-4 shadow rounded-lg">
           <div className="dropdown dropdown-bottom flex justify-end">
             <label tabIndex={0} className="btn m-1">
               Click
@@ -15,10 +15,10 @@ const ApplicationInterview = ({ application }) => {
               className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-32"
             >
               <li>
-                <a href={application.link}>Link</a>
+                <a href={application.link} target="_blank">Link</a>
               </li>
               <li>
-                <a>Item 2</a>
+                <a >Item 2</a>
               </li>
             </ul>
           </div>

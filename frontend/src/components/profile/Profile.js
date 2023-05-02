@@ -60,7 +60,7 @@ const Profile = ({ navigate }) => {
           
           <div>
             <p className="pt-2 pb-2 text-lblue font-poppins-bold">Interview stage</p>
-            <div className="flex flex-wrap">
+            <div className="grid grid-rows-1 md:grid-cols-2 xl:grid-cols-3 justify-center gap-y-4 ">
               {applications
                 .filter(
                   (application) =>
