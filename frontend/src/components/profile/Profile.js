@@ -106,7 +106,7 @@ const Profile = ({ navigate }) => {
             </p>
             {applications.filter(
               (application) =>
-                application.applicationStatus === "Applied for role"
+                application.applicationStatus === "Not yet applied"
             ).length === 0 ? (
               <p>Nothing to show here!</p>
             ) : (
