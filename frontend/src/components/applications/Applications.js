@@ -1,5 +1,5 @@
 import React from "react";
-import UpdateApplication from "../updateApplication/updateApplication";
+import UpdateApplication from "../updateApplicationModal/updateApplicationModal";
 
 
 

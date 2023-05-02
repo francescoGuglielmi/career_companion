@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Application from "../applications/Applications";
-import AddApplication from "../addApplication/AddApplication";
+import AddApplication from "../addApplicationModal/AddApplicationModal";
 import ApplicationInterview from "../applicationsInterview/applicationsInterview";
 import NavbarHP from "../navbar/navBarHP";
 import Stats from "../stats/Stats";

@@ -1,6 +1,6 @@
 import React from "react";
-import UpdateApplication from "../updateApplication/updateApplication";
-import DeleteApplication from "../deleteApplication/deleteApplication";
+import UpdateApplication from "../updateApplicationModal/updateApplicationModal";
+import DeleteApplication from "../deleteApplicationModal/deleteApplicationModal";
 
 const ApplicationInterview = ({ application }) => {
   
