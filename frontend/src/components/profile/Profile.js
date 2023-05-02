@@ -21,6 +21,7 @@ const Profile = ({ navigate }) => {
         .then(async (data) => {
           window.localStorage.setItem("token", data.token);
           setToken(window.localStorage.getItem("token"));
+          console.log(data.applications)
           const filteredApplications = data.applications.filter(
             (application) => application.user._id === data.user._id
           ); //only shows user that is logged in applications
@@ -61,7 +62,7 @@ const Profile = ({ navigate }) => {
             <h1 className="pt-2 pb-2">applications - interview </h1>
             <div className="flex flex-wrap">
             {applications
-              .filter((application) => application.interviewStatus === true)
+              .filter((application) => application.applicationStatus === 'invited to interview')
               .slice(0, 3)
               .map((application) => (
                 <ApplicationInterview key={application._id} application={application} />
@@ -69,9 +70,17 @@ const Profile = ({ navigate }) => {
               </div>
           </div>
           <div>
-          <h1 className="pt-2 pb-2">applications - no interview </h1>
+          <h1 className="pt-2 pb-2">you have applied for these roles: </h1>
             {applications
-              .filter((application) => application.interviewStatus === false)
+              .filter((application) => application.applicationStatus === 'applied for role')
+              .map((application) => (
+                <Application key={application._id} application={application} />
+              ))}
+          </div>
+          <div>
+          <h1 className="pt-2 pb-2">finish your application! </h1>
+            {applications
+              .filter((application) => application.applicationStatus === 'not yet applied')
               .map((application) => (
                 <Application key={application._id} application={application} />
               ))}
