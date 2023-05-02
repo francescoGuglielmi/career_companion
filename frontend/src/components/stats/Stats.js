@@ -33,7 +33,7 @@ const Stats = ({ application }) => {
               ).length
             }
           </div>
-          <div className="stat-desc">21% more than last month</div>
+          <div className="stat-desc">Total applications sent</div>
         </div>
 
         <div className="stat">
@@ -61,7 +61,7 @@ const Stats = ({ application }) => {
               ).length
             }
           </div>
-          <div className="stat-desc">21% more than last month</div>
+          <div className="stat-desc">Your upcoming interviews</div>
         </div>
         <div className="stat">
           <div className="stat-figure text-lblue">
@@ -88,7 +88,7 @@ const Stats = ({ application }) => {
               ).length
             }
           </div>
-          <div className="stat-desc">21% more than last month</div>
+          <div className="stat-desc">Applications still to finish</div>
         </div>
       </div>
     </>

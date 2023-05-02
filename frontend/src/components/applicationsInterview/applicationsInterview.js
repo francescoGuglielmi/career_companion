@@ -33,6 +33,19 @@ const ApplicationInterview = ({ application }) => {
               key={application._id}
               application={application}
             />
+
+            <button
+              className="bg-cream text-black font-bold py-2 px-4 ml-2 rounded"
+            >
+              Details
+            </button>
+
+            <button
+              className="bg-cream text-black font-bold py-2 px-4 ml-2 rounded"
+              onClick={handleDelete}
+            >
+              Delete
+            </button>
           </div>
         </div>
       </article>

@@ -45,10 +45,12 @@ const Profile = ({ navigate }) => {
             Welcome {userData.firstName}
           </h1>
           <div>
-            <h2 className="flex justify-center text-lorange font-poppins-bold text-xl pb-2">Track your job application progress here</h2>
+            <h2 className="flex justify-center text-lorange font-poppins-bold text-xl pb-2">
+              Track your job application progress here
+            </h2>
           </div>
           <div className="flex justify-center pt-8 pb-8">
-          <Stats key={applications._id} application={applications} />
+            <Stats key={applications._id} application={applications} />
           </div>
           <div className="flex flex-row">
             {/* <button className="font-dm-sans-bold text-lg border py-1 px-2 flex items-center justify-center">
@@ -56,9 +58,11 @@ const Profile = ({ navigate }) => {
             </button> */}
           </div>
           <AddApplication />
-          
+
           <div>
-            <p className="pt-2 pb-2 text-lblue font-poppins-bold">Interview stage</p>
+            <p className="pt-2 pb-2 text-lblue font-poppins-bold">
+              Interview stage
+            </p>
             <div className="grid grid-rows-1 md:grid-cols-2 xl:grid-cols-3 justify-center gap-y-4 ">
               {applications
                 .filter(
@@ -74,29 +78,55 @@ const Profile = ({ navigate }) => {
             </div>
           </div>
           <div>
-            <p className="pt-8 pb-2 text-lblue font-poppins-bold">Completed applications </p>
-            {applications
-              .filter(
-                (application) =>
-                  application.applicationStatus === "Applied for role"
-              )
-              .map((application) => (
-                <Application key={application._id} application={application} />
-              ))}
+            <p className="pt-8 pb-2 text-lblue font-poppins-bold">
+              Completed applications{" "}
+            </p>
+            {applications.filter(
+              (application) =>
+                application.applicationStatus === "Applied for role"
+            ).length === 0 ? (
+              <p>Nothing to show here!</p>
+            ) : (
+              applications
+                .filter(
+                  (application) =>
+                    application.applicationStatus === "Applied for role"
+                )
+                .map((application) => (
+                  <Application
+                    key={application._id}
+                    application={application}
+                  />
+                ))
+            )}
           </div>
           <div>
-            <p className="pt-2 pb-2 text-lblue font-poppins-bold">Incomplete applications</p>
-            {applications
-              .filter(
-                (application) =>
-                  application.applicationStatus === "Not yet applied"
-              )
-              .map((application) => (
-                <Application key={application._id} application={application} />
-              ))}
+            <p className="pt-2 pb-2 text-lblue font-poppins-bold">
+              Incomplete applications
+            </p>
+            {applications.filter(
+              (application) =>
+                application.applicationStatus === "Applied for role"
+            ).length === 0 ? (
+              <p>Nothing to show here!</p>
+            ) : (
+              applications
+                .filter(
+                  (application) =>
+                    application.applicationStatus === "Not yet applied"
+                )
+                .map((application) => (
+                  <Application
+                    key={application._id}
+                    application={application}
+                  />
+                ))
+            )}
           </div>
           <div>
-            <p className="pt-2 pb-2 text-lblue font-poppins-bold">Archived applications </p>
+            <p className="pt-2 pb-2 text-lblue font-poppins-bold">
+              Archived applications{" "}
+            </p>
             {applications
               .filter(
                 (application) =>

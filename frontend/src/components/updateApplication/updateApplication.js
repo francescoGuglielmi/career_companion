@@ -51,7 +51,7 @@ const UpdateApplication = ({ application }) => {
         className="bg-cream text-black font-bold py-2 px-4 rounded"
         onClick={() => setIsModalOpen(true)}
       >
-        Update application
+        Update
       </button>
 
       {isModalOpen ? (
