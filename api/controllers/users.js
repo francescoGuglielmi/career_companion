@@ -36,9 +36,26 @@ const UsersController = {
       user.firstName = req.body.firstName;
       user.lastName = req.body.lastName;
       user.email = req.body.email;
-      await application.save();
+      await user.save();
 
-      res.status(201).json({ message: "OK", application });
+      res.status(201).json({ message: "OK", user });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: "Internal Server Error" });
+    }
+  },
+
+  Delete: async (req, res) => {
+    try {
+      const user = await User.findById(req.params.applicationId);
+
+      if (!user) {
+        return res.status(404).json({ error: "User not found" });
+      }
+
+      await user.delete();
+
+      res.status(200).json({ message: "OK" });
     } catch (error) {
       console.error(error);
       res.status(500).json({ message: "Internal Server Error" });
