@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import './SignUpForm.css'
-import NavbarSU from '../navbar/navBarSU';
-import Footer from '../footer/Footer';
+import NavbarSU from "../navbar/navBarSU";
+import Footer from "../footer/Footer";
 
 const SignUpForm = ({ navigate }) => {
   const [email, setEmail] = useState("");

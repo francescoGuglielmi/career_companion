@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import './LoginForm.css'
-import NavbarSI from '../navbar/navBarSI';
-import Footer from '../footer/Footer'
+import NavbarSI from "../navbar/navBarSI";
+import Footer from "../footer/Footer";
 
 const LogInForm = ({ navigate }) => {
   const [email, setEmail] = useState("");
@@ -32,9 +32,9 @@ const LogInForm = ({ navigate }) => {
     } else {
       let data = await response.json();
       if (data.token === undefined) {
-        console.log("token not valid")
+        console.log("token not valid");
       } else if (data.user_id === undefined) {
-        console.log("user id is undefined")
+        console.log("user id is undefined");
       }
       setLoginMessage(null)
       window.localStorage.setItem("token", data.token);
@@ -64,7 +64,6 @@ const LogInForm = ({ navigate }) => {
             onSubmit={handleSubmit}
             className="bg-cream rounded px-2 pt-6 pb-8 mb-4 font-dm-sans-regular"
           >
-
             <div className="mb-4">
               <input
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -93,7 +92,9 @@ const LogInForm = ({ navigate }) => {
                 <FontAwesomeIcon icon={faArrowRight} size="sm" className="" />
               </button>
             </div>
-            <p className="pt-4 text-sm">Don't have an account yet? Sign up now</p>
+            <p className="pt-4 text-sm">
+              Don't have an account yet? Sign up now
+            </p>
           </form>
         </div>
         <div>

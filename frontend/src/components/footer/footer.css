@@ -31,10 +31,10 @@
     color: orangered;
 }
 
-a {
+/* a {
     color: rgb(175, 175, 179);
     text-decoration: none;
-}
+} */
 
 .socialmedia {
     display: flex;

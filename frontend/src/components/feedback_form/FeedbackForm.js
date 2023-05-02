@@ -6,7 +6,7 @@ const FeedbackForm = (props) => {
   const [applications, setApplications] = useState([]);
   const [userData, setUserData] = useState({});
 
-  // useEffect(() => {
+  useEffect(() => {
     if (token) {
       fetch("/applications", {
         headers: {
@@ -24,7 +24,7 @@ const FeedbackForm = (props) => {
           setApplications(filteredApplications);
         });
     }
-  // }, []);
+  }, []);
 
   return (
     <>
