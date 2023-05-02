@@ -11,6 +11,7 @@ module.exports = withMT({
       "epilogue-regular": ["Epilogue Regular"],
       "dm-sans-regular": ["DM Sans Regular"],
       "dm-sans-bold": ["DM Sans Bold"],
+      "poppins-bold": ["Poppins Bold"],
     },
     colors: {
       navy: "#003060",
@@ -22,10 +23,11 @@ module.exports = withMT({
       lilac: "#D2BAF4",
       blue: "#005689",
       lblue: "#007cb9",
-      lorange: "#ff895d"
+      lorange: "#ff895d",
+      grey: "#797E87"
     }
   },
  
-  plugins: [],
+  plugins: [require("daisyui")],
 });
 

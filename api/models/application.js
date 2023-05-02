@@ -7,6 +7,7 @@ const ApplicationSchema = new mongoose.Schema({
   jobTitle: { type: String }, 
   location: { type: String },
   link: { type: String },
+  jobDetails: { type: String },
   applicationStatus: { type: String},
   user: {
     type: mongoose.Schema.Types.ObjectId,
