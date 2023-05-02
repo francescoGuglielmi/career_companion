@@ -6,7 +6,7 @@ const FeedbackForm = (props) => {
   const [applications, setApplications] = useState([]);
   const [userData, setUserData] = useState({});
 
-  useEffect(() => {
+  // useEffect(() => {
     if (token) {
       fetch("/applications", {
         headers: {
@@ -24,13 +24,14 @@ const FeedbackForm = (props) => {
           setApplications(filteredApplications);
         });
     }
-  }, []);
+  // }, []);
 
   return (
     <>
+      <h1></h1>
       <form onSubmit={props.handleFormSubmit}>
         <h2>What company would you like to review?</h2>
-        <select value="" onChange={props.handleSelectCompanyChange}>
+        <select value={props.selectedCompany} onChange={props.handleSelectCompanyChange}>
           <option value="">Select an option below</option>
           {applications
             .slice(0, 3)
@@ -39,34 +40,23 @@ const FeedbackForm = (props) => {
           ))}
         </select>
         <h2>What job position would you like to rate?</h2>
-        <select value="" onChange={props.handleJobTitleChange}>
+        <select value={props.jobTitle} onChange={props.handleJobTitleChange}>
           <option value="">Select an option below</option>
           { applications
             .slice(0, 3)
+            .filter((application) => application.company === props.selectedCompany)
             .map((application) => (
-              // if(application.company === props.jobTitle) {
               <option value={application.jobTitle}>{application.jobTitle}</option>
             ))}
         </select>
-        <div id="stars">
-          <ul>
-            <li>
-              <a></a>
-            </li>
-            <li>
-              <a></a>
-            </li>
-            <li>
-              <a></a>
-            </li>
-            <li>
-              <a></a>
-            </li>
-            <li>
-              <a></a>
-            </li>
-          </ul>
-        </div>
+        <br/>
+        {/* <div className="rating">
+          <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+          <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" checked />
+          <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+          <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+          <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+        </div> */}
       </form>
     </>
   )

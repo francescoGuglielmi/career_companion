@@ -5,8 +5,8 @@ import FeedbackForm from "../feedback_form/FeedbackForm";
 const FeedbackPage = ({navigate}) => {
 
   const [token] = useState(window.localStorage.getItem("token"))
-  const [selectedCompany, setSelectedCompany] = useState(null)
-  const [jobTitle, setJobTitle] = useState(null)
+  const [selectedCompany, setSelectedCompany] = useState("")
+  const [jobTitle, setJobTitle] = useState("")
   const [rating, setRating] = useState(null)
   const [content, setContent] = useState(null)
 
@@ -49,7 +49,13 @@ const FeedbackPage = ({navigate}) => {
         <NavbarHP />
         <h1>Leave Them A Feedback!</h1>
         <div className="feedback_form">
-          <FeedbackForm handleSelectCompanyChange={handleSelectCompanyChange} handleJobTitleChange={handleJobTitleChange} handleFormSubmit={handleFormSubmit} jobTitle={jobTitle}/>
+          <FeedbackForm 
+          handleSelectCompanyChange={handleSelectCompanyChange} 
+          handleJobTitleChange={handleJobTitleChange} 
+          handleFormSubmit={handleFormSubmit} 
+          jobTitle={jobTitle}
+          selectedCompany={selectedCompany}
+          />
         </div>
       </>
     )
