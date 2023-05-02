@@ -24,6 +24,26 @@ const UsersController = {
       }
     })
   },
+
+  Update: async (req, res) => {
+    try {
+      const user = await User.findById(req.params.userId);
+
+      if (!user) {
+        return res.status(404).json({ error: "User not found" });
+      }
+
+      user.firstName = req.body.firstName;
+      user.lastName = req.body.lastName;
+      user.email = req.body.email;
+      await application.save();
+
+      res.status(201).json({ message: "OK", application });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: "Internal Server Error" });
+    }
+  },
 };
 
 module.exports = UsersController;
