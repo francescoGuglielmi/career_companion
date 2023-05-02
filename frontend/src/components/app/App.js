@@ -11,10 +11,12 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import FeedbackPage from '../feedback_page/FeedbackPage';
 
 const App = () => {
     return (
         <Routes>
+          <Route path='/feedback'element={<FeedbackPage navigate={ useNavigate() }/>}/>
           <Route path='/generator' element={<CoverLetterGenerator navigate={ useNavigate() }/>}/>
           <Route path='/' element={<LandingPage  navigate={ useNavigate() }/>}/>
           <Route path='/profile' element={<Profile navigate={ useNavigate() }/>}/>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import './Profile.css'
 import Application from "../applications/Applications";
 import AddApplication from "../addApplication/AddApplication";
 import ApplicationInterview from "../applicationsInterview/applicationsInterview";
@@ -46,9 +47,15 @@ const Profile = ({ navigate }) => {
           <h1 className="flex justify-center pt-20 text-black text-5xl font-epilogue-regular">
             Welcome {userData.firstName}
           </h1>
-          <h2 className="font-dm-sans-bold text-2xl">
-            What would you like to do?
-          </h2>
+          <div id="dashboard">
+            <h2 className="font-dm-sans-bold text-2xl dashboard-title">
+              Dashboard
+            </h2>
+            <div className="applications-dashboard font-dm-sans-bold">
+              <h2>Your Applications <span className="right">Incoming Interviews</span></h2>
+              <h2 className="applications-amount" >{applications.length} <span className="applications-amount right">{applications.length}</span></h2>
+            </div>
+          </div>
           <div className="flex flex-row">
             <button className="font-dm-sans-bold text-lg border py-1 px-2 flex items-center justify-center">
               Build CV
