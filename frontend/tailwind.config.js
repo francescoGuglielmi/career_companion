@@ -5,7 +5,11 @@ module.exports = withMT({
   content: [
     "./src/**/*.{js,jsx,ts,tsx}"
   ],
+  daisyui: {
+    themes: false,
+  },
   theme: {
+
     // extend: {},
     fontFamily: {
       "epilogue-regular": ["Epilogue Regular"],
