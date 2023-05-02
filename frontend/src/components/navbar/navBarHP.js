@@ -28,7 +28,7 @@ export default function Navbar() {
                     <a href="/interview">Interview Dojo</a>
                 </li>
                 <li>
-                    <a href="/letter">Letter Generator</a>
+                    <a href="/generator">Letter Generator</a>
                 </li>
             </ul>
         </nav>
