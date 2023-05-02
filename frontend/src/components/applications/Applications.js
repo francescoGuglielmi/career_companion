@@ -1,11 +1,12 @@
 import React from "react";
 import UpdateApplication from "../updateApplication/updateApplication";
 
+
+
 const Application = ({ application }) => {
   return (
     <>
       <article data-cy="application" key={application._id}>
-        {/* {console.log(application)} */}
         {application.company} - {application.jobTitle} - {application.location}{" "}
         - Applied on {application.createdAt} -{" "}
         <a
@@ -14,7 +15,9 @@ const Application = ({ application }) => {
         >
           Link
         </a>
+        <span>
         <UpdateApplication key={application._id} application={application} />
+        </span>
       </article>
 
     </>
@@ -22,3 +25,5 @@ const Application = ({ application }) => {
 };
 
 export default Application;
+
+

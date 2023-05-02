@@ -9,7 +9,6 @@ const Profile = ({ navigate }) => {
   const [applications, setApplications] = useState([]);
   const [token, setToken] = useState(window.localStorage.getItem("token"));
   const [userData, setUserData] = useState({});
-  const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
     if (token) {
@@ -75,7 +74,7 @@ const Profile = ({ navigate }) => {
             </div>
           </div>
           <div>
-            <p className="pt-2 pb-2">you have applied for these roles: </p>
+            <p className="pt-8 pb-2 text-lblue font-poppins-bold">Completed applications </p>
             {applications
               .filter(
                 (application) =>
@@ -86,7 +85,7 @@ const Profile = ({ navigate }) => {
               ))}
           </div>
           <div>
-            <p className="pt-2 pb-2">finish your application! </p>
+            <p className="pt-2 pb-2 text-lblue font-poppins-bold">Incomplete applications</p>
             {applications
               .filter(
                 (application) =>
@@ -97,7 +96,7 @@ const Profile = ({ navigate }) => {
               ))}
           </div>
           <div>
-            <p className="pt-2 pb-2">archived applications </p>
+            <p className="pt-2 pb-2 text-lblue font-poppins-bold">Archived applications </p>
             {applications
               .filter(
                 (application) =>

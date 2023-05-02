@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 const AddApplication = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [company, setCompany] = useState("");
   const [jobTitle, setJobTitle] = useState("");
   const [location, setLocation] = useState("");
