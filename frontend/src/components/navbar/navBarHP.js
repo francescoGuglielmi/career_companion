@@ -12,7 +12,7 @@ export default function Navbar({logout, account}) {
 
     return (
         <nav className="nav">
-            <a href="/" className="site-title">
+            <a href="/profile" className="site-title">
                 Career Companion
             </a>
             <button className="menu-icon" onClick={toggleMenu}>

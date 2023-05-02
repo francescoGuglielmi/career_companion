@@ -46,7 +46,6 @@ const Profile = ({ navigate }) => {
     return (
       <>
         <NavbarHP logout={logout} account={account}/>
-        {/* <a href="/account"><Account userData={userData} /></a> */}
         
         <div className="min-h-screen bg-cream font-dm-sans-regular md:pl-10 md:pr-10">
           <h1 className="flex justify-center pt-12 text-lorange text-6xl font-poppins-bold pb-6">
