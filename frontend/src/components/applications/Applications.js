@@ -21,19 +21,19 @@ const Application = ({ application }) => {
         <div className="">
           <span>
             <UpdateApplication
-              key={application._id}
+              key={`update_${application._id}`}
               application={application}
             />
           </span>
           <span>
             <DetailsApplication
-              key={application._id}
+              key={`details_${application._id}`}
               application={application}
             />
           </span>
           <span>
             <DeleteApplication
-              key={application._id}
+              key={`delete_${application._id}`}
               application={application}
             />
           </span>

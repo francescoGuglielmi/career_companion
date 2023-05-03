@@ -6,6 +6,7 @@ import ApplicationInterview from "../applicationsInterview/applicationsInterview
 import NavbarHP from "../navbar/navBarHP";
 import Stats from "../stats/Stats";
 import Account from "../account/Account";
+import FeatureLinks from "../featureLinks/FeatureLinks";
 
 const Profile = ({ navigate }) => {
   const [applications, setApplications] = useState([]);
@@ -53,15 +54,14 @@ const Profile = ({ navigate }) => {
           <h1 className="flex justify-center pt-12 text-navy text-5xl font-poppins-bold pb-6">
             Welcome {userData.firstName}
           </h1>
-          <div>
-            <h2 className="flex justify-center text-navy font-poppins-bold text-xl pb-2">
-              Track your job application progress here
-            </h2>
-          </div>
-          <div className="flex justify-center pt-8 pb-8">
+          
+          <div className="flex justify-center pt-4 pb-8">
             <Stats key={applications._id} application={applications} />
           </div>
-          <div className="flex justify-center">
+          <div>
+            <FeatureLinks />
+          </div>
+          <div className="flex justify-center mt-10">
             <span>
               <AddApplication navigate={navigate} />
             </span>
