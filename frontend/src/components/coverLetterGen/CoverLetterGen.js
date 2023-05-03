@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './CoverLetterGen.css'
 import Navbar from '../navbar/navBarHP';
 import Footer from '../footer/Footer';
@@ -11,13 +11,41 @@ const openai = new OpenAIApi(new Configuration({
 
 const CoverLetterGenerator = ({ navigate }) => {
 
-  const [token] = useState(window.localStorage.getItem("token"))
+  const [token, setToken] = useState(window.localStorage.getItem("token"))
+  const [applications, setApplications] = useState([])
+  const [application, setApplication] = useState(null)
   const [jobPosition, setJobPosition] = useState("");
   const [companyName, setCompanyName] = useState("");
   const [reasons, setReasons] = useState("");
   const [resume, setResume] = useState("");
   const [coverLetter, setCoverLetter] = useState(null);
   const [loadingAlert, setLoadingAlert] = useState("");
+
+  useEffect(() => {
+    if (token) {
+      fetch("/applications", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+        .then((response) => response.json())
+        .then(async (data) => {
+          window.localStorage.setItem("token", data.token);
+          window.localStorage.setItem("user", data.user);
+          setToken(data.token)
+          const filteredApplications = data.applications.filter(
+            (application) => application.user._id === data.user._id  //only shows user that is logged in applications
+          ); 
+          setApplications(filteredApplications);      
+        });
+    }
+  }, []);
+
+  function handleApplicationChange(event) {
+    setApplication(event.target.value)
+    setJobPosition(event.target.value.split('-')[0])
+    setCompanyName(event.target.value.split('-')[1])
+  }
 
   function handleJobPositionChange(event) {
     setJobPosition(event.target.value)
@@ -80,11 +108,20 @@ const CoverLetterGenerator = ({ navigate }) => {
       <div className="cover_letter_gen">
         <h2 className="title" >Generate your tailored cover letter</h2>
         <form onSubmit={handleSubmit}>
+          <h3>if you have already applied for it choose from below:</h3>
+          <select value={application} onChange={handleApplicationChange}>
+            <option value="" >Select below...</option>
+            {applications && applications.map((application, index) => (
+              <option key={index} value={`${application.jobTitle}-${application.company}`} >{application.jobTitle} - {application.company}</option>
+            ))}
+          </select>
+          <br/>
+          <br/>
           <h2>What's the job position you are applying for?</h2>
-          <textarea value={jobPosition} onChange={handleJobPositionChange}></textarea>
+          <textarea value={application? application.split('-')[0] : jobPosition} onChange={handleJobPositionChange}></textarea>
           <br/>
           <h2>What's the company name?</h2>
-          <textarea value={companyName} onChange={handleCompanyNameChange}></textarea>
+          <textarea value={application? application.split('-')[1] : companyName} placeholder={application && application.split('-')[1]} onChange={handleCompanyNameChange}></textarea>
           <br/>
           <h2>Why do you want to apply for this position/company? What motivates you?</h2>
           <textarea value={reasons} onChange={handleReasonsChange}></textarea>
