@@ -177,6 +177,7 @@ const AddApplication = (props) => {
                   id="interviewDate"
                   value={interviewDate}
                   onChange={handleInterviewDateChange}
+                  required
                 />
               )}
               <div className="flex items-center justify-center">

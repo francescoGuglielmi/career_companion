@@ -54,23 +54,20 @@ const Profile = ({ navigate }) => {
           <h1 className="flex justify-center pt-12 text-navy text-5xl font-poppins-bold pb-6">
             Welcome {userData.firstName}
           </h1>
-          
+
           <div className="flex justify-center pt-4 pb-12">
             <Stats key={applications._id} application={applications} />
           </div>
           <div>
             <FeatureLinks />
           </div>
-          <div className="flex justify-center md:justify-start mt-8 md:mt-0 mb-4 ">
-            <span>
-              <AddApplication navigate={navigate} />
-            </span>
-            {/* <span className="ml-4 mr-4"><AddApplication navigate={navigate} /></span>
-            <span><AddApplication navigate={navigate} /></span> */}
-          </div>
 
           <div id="applicationSection">
-            <div></div>
+            <div className="flex justify-center md:justify-start mt-12 md:mt-0 mb-2 ">
+              <span>
+                <AddApplication navigate={navigate} />
+              </span>
+            </div>
             <p className="flex justify-center md:justify-start pt-6 pb-6 text-navy text-lg font-poppins-bold">
               Interview stage
             </p>
