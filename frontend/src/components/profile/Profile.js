@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import './Profile.css'
+import "./Profile.css";
 import Application from "../applications/Applications";
 import AddApplication from "../addApplicationModal/AddApplicationModal";
 import ApplicationInterview from "../applicationsInterview/applicationsInterview";
@@ -31,7 +31,7 @@ const Profile = ({ navigate }) => {
           setUserData(data.user);
         });
     } else {
-      navigate('/signup');
+      navigate("/signup");
     }
   }, [token, navigate]);
 
@@ -41,15 +41,14 @@ const Profile = ({ navigate }) => {
   };
 
   const account = () => {
-    navigate('/account', {state: { userData: userData, token: token}})
-  }
-
+    navigate("/account", { state: { userData: userData, token: token } });
+  };
 
   if (token) {
     return (
       <>
-        <NavbarHP logout={logout} account={account}/>
-        
+        <NavbarHP logout={logout} account={account} />
+
         <div className="min-h-screen bg-cream font-dm-sans-regular md:pl-10 md:pr-10">
           <h1 className="flex justify-center pt-12 text-navy text-5xl font-poppins-bold pb-6">
             Welcome {userData.firstName}
@@ -62,14 +61,14 @@ const Profile = ({ navigate }) => {
           <div className="flex justify-center pt-8 pb-8">
             <Stats key={applications._id} application={applications} />
           </div>
-          <div className="flex flex-row">
-            {/* <button className="font-dm-sans-bold text-lg border py-1 px-2 flex items-center justify-center">
-              Build CV
-            </button> */}
+          <div className="flex justify-center">
+            <span><AddApplication navigate={navigate} /></span>
+            {/* <span className="ml-4 mr-4"><AddApplication navigate={navigate} /></span>
+            <span><AddApplication navigate={navigate} /></span> */}
           </div>
-          <AddApplication navigate={navigate}/>
 
           <div>
+            <div></div>
             <p className="pt-2 pb-2 text-navy text-lg font-poppins-bold">
               Interview stage
             </p>
@@ -137,7 +136,9 @@ const Profile = ({ navigate }) => {
             <p className="pt-2 pb-2 text-navy text-lg font-poppins-bold">
               Archived applications{" "}
             </p>
-            <a className="underline text-navy">See archived applications here</a>
+            <a className="underline text-navy">
+              See archived applications here
+            </a>
             {applications
               .filter(
                 (application) =>
@@ -154,7 +155,7 @@ const Profile = ({ navigate }) => {
       </>
     );
   } else if (token === undefined) {
-    window.location.href = '/login'
+    window.location.href = "/login";
   }
 };
 

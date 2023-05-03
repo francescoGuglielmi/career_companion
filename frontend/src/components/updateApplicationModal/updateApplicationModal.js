@@ -3,9 +3,14 @@ import { useState } from "react";
 const UpdateApplication = ({ application }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [applicationStatus, setApplicationStatus] = useState("");
+  const [interviewDate, setInterviewDate] = useState("");
 
   const handleApplicationStatusChange = (event) => {
     setApplicationStatus(event.target.value);
+  };
+
+  const handleInterviewDateChange = (event) => {
+    setInterviewDate(event.target.value);
   };
 
   const handleSubmit = async (event) => {
@@ -19,6 +24,7 @@ const UpdateApplication = ({ application }) => {
       },
       body: JSON.stringify({
         applicationStatus: applicationStatus,
+        interviewDate: interviewDate.split("-").reverse().join("/")
       }),
     });
 
@@ -89,7 +95,7 @@ const UpdateApplication = ({ application }) => {
                   ))}
                 </select>
               </div>
-              {applicationStatus === "Invited to interview" && <input type="date" />}
+              {applicationStatus === "Invited to interview" && <input type="date" id="interviewDate" value={interviewDate} onChange={handleInterviewDateChange} />}
               <div className="flex items-center justify-center">
                 <button
                   className="bg-blue text-white text-md py-2 px-4 inline-flex items-center justify-center text-center border-2 hover:border-blue hover:bg-white hover:text-navy rounded-xl ease-in-out duration-200 "

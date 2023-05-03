@@ -14,6 +14,7 @@ const ApplicationSchema = new mongoose.Schema({
     ref: "User",
   },
   createdAt: { type: String},
+  interviewDate: {type: String},
 });
 
 const Application = mongoose.model("Application", ApplicationSchema);

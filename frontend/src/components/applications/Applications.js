@@ -7,7 +7,7 @@ const Application = ({ application }) => {
 
   return (
     <>
-      <div data-cy="application" key={application._id}>
+      <div data-cy="application" key={application._id} className="bg-white text-navy mb-4  ml-2 px-2 py-2 shadow rounded-lg pl-4">
         
         <span className="text-navy text-lg">{application.company} - </span>
         <span className="text-navy text-lg">{application.jobTitle} - </span>

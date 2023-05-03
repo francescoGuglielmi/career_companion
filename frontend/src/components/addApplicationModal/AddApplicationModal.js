@@ -124,7 +124,7 @@ const AddApplication = (props) => {
                   placeholder="Location"
                   value={location}
                   onChange={handleLocationChange}
-                  required
+                  
                 />
               </div>
               <div className="mb-4">
