@@ -1,6 +1,22 @@
+.feed-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.feed {
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  width: 80%;
+}
+
 .feedback {
-  border: 3px solid blue;
+  border: 3px solid rgb(241, 161, 32);
   background-color: rgb(190, 199, 255);
+  width: 100%;
   border-radius: 1em;
   display: flex;
   justify-content: center;
@@ -8,19 +24,35 @@
   align-items: flex-start;
   padding: 10px 30px 10px 30px;
   margin: 15px 30px 15px 30px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.feedback:hover {
+  background-color: rgb(171, 180, 243);
 }
 
 .jobPosition {
-  font-size: 26px;
+  font-size: 23px;
+  color:rgb(56, 0, 0)
 }
 
 .feedback-content {
   margin: 5px 0 5px 0;
+  background-color:rgb(254, 254, 255);
+  padding: 7px 20px 7px 20px;
+  border-radius: 1em;
 }
 
 .company {
   font-size: 16px;
-  margin-left: 10px;
+  margin-left: 8px;
+}
+
+.search {
+  display:flex;
+  
+  align-items: center;
+  margin-bottom: 15px;
 }
 
 .search_bar {
@@ -29,5 +61,6 @@
   border-radius: 0.3em;
   width: 250px;
   margin-left: 15px;
-  padding:4px;
+  
+  padding: 4px 4px 4px 4px;
 }

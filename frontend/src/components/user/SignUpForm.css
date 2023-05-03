@@ -5,3 +5,13 @@
 #password:invalid {
   border: 1px solid red;
 }
+
+.signin-message {
+  color: rgb(55, 55, 55);
+  transition: color 0.3s ease-in-out;
+}
+
+.signin-message:hover {
+  color:rgb(39, 143, 234);
+}
+
