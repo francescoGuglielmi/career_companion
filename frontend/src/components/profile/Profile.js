@@ -70,7 +70,7 @@ const Profile = ({ navigate }) => {
           <AddApplication navigate={navigate}/>
 
           <div>
-            <p className="pt-2 pb-2 text-navy font-poppins-bold">
+            <p className="pt-2 pb-2 text-navy text-lg font-poppins-bold">
               Interview stage
             </p>
             <div className="grid grid-rows-1 md:grid-cols-2 xl:grid-cols-3 justify-center gap-y-4 ">
@@ -88,14 +88,14 @@ const Profile = ({ navigate }) => {
             </div>
           </div>
           <div>
-            <p className="pt-8 pb-2 text-navy font-poppins-bold">
+            <p className="pt-8 pb-2 text-navy text-lg font-poppins-bold">
               Completed applications{" "}
             </p>
             {applications.filter(
               (application) =>
                 application.applicationStatus === "Applied for role"
             ).length === 0 ? (
-              <p>Nothing to show here!</p>
+              <p className="text-blue text-lg">Nothing to show here!</p>
             ) : (
               applications
                 .filter(
@@ -111,14 +111,14 @@ const Profile = ({ navigate }) => {
             )}
           </div>
           <div>
-            <p className="pt-2 pb-2 text-navy font-poppins-bold">
+            <p className="pt-2 pb-2 text-navy text-lg font-poppins-bold">
               Incomplete applications
             </p>
             {applications.filter(
               (application) =>
                 application.applicationStatus === "Not yet applied"
             ).length === 0 ? (
-              <p>Nothing to show here!</p>
+              <p className="text-blue text-lg">Nothing to show here!</p>
             ) : (
               applications
                 .filter(
@@ -134,9 +134,10 @@ const Profile = ({ navigate }) => {
             )}
           </div>
           <div>
-            <p className="pt-2 pb-2 text-navy font-poppins-bold">
+            <p className="pt-2 pb-2 text-navy text-lg font-poppins-bold">
               Archived applications{" "}
             </p>
+            <a className="underline text-navy">See archived applications here</a>
             {applications
               .filter(
                 (application) =>

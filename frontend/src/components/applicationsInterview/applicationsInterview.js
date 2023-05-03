@@ -4,8 +4,6 @@ import DeleteApplication from "../deleteApplicationModal/deleteApplicationModal"
 import DetailsApplication from "../detailsApplicationModal/detailsApplicationModal";
 
 const ApplicationInterview = ({ application }) => {
-  const dateParts = application.createdAt.split("T")[0].split("-");
-  const formattedDate = `${dateParts[2]}-${dateParts[1]}-${dateParts[0]}`;
 
   return (
     <>
@@ -14,7 +12,7 @@ const ApplicationInterview = ({ application }) => {
           <div className="text-lg">{application.company}</div>
           <div>{application.jobTitle}</div>
           <div>{application.location}</div>
-          <div className="mb-2">{formattedDate}</div>
+          <div className="mb-2">{application.createdAt}</div>
           <div>
             <UpdateApplication
               key={application._id}

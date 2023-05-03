@@ -48,6 +48,7 @@ const AddApplication = (props) => {
         link: link,
         jobDetails: jobDetails,
         applicationStatus: applicationStatus,
+        createdAt: new Date().toLocaleDateString()
       }),
     });
 

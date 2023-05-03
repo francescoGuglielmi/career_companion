@@ -13,11 +13,7 @@ const ApplicationSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   },
-  createdAt: {
-    type: Date,
-    immutable: true,
-    default: () => Date.now(),
-  },
+  createdAt: { type: String},
 });
 
 const Application = mongoose.model("Application", ApplicationSchema);

@@ -51,7 +51,7 @@ const UpdateApplication = ({ application }) => {
       className={`text-md py-1.5 px-4 inline-flex items-center justify-center text-center rounded-xl ease-in-out duration-100 ${
         application.applicationStatus === "Invited to interview"
           ?  "bg-transparent text-navy text-md py-1.5 px-4 inline-flex items-center justify-center text-center border-2 border-lorange hover:border-blue rounded-xl ease-in-out duration-100 "
-          : "bg-transparent text-navy underline hover:border-blue"
+          : "bg-transparent text-navy text-lg underline hover:text-blue"
       }`}
       onClick={() => setIsModalOpen(true)}
     >
@@ -71,6 +71,7 @@ const UpdateApplication = ({ application }) => {
             </div>
             <h2 className="text-xl font-bold mb-4">Update application</h2>
             <form onSubmit={handleSubmit}>
+              
               <div className="mb-4">
                 <select
                   className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -88,6 +89,7 @@ const UpdateApplication = ({ application }) => {
                   ))}
                 </select>
               </div>
+              {applicationStatus === "Invited to interview" && <input type="date" />}
               <div className="flex items-center justify-center">
                 <button
                   className="bg-blue text-white text-md py-2 px-4 inline-flex items-center justify-center text-center border-2 hover:border-blue hover:bg-white hover:text-navy rounded-xl ease-in-out duration-200 "
