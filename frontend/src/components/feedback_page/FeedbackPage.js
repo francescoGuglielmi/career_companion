@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import NavbarHP from '../navbar/navBarHP';
 import FeedbackForm from "../feedback_form/FeedbackForm";
 import Feedback from "../feedback/Feedback";
-import Footer from '../footer/Footer'
 import './FeedbackPage.css'
 
 const FeedbackPage = ({navigate}) => {
@@ -140,7 +139,6 @@ const FeedbackPage = ({navigate}) => {
           <Feedback feedbacks={feedbacks} filteredFeedbacks={filteredFeedbacks} handleQueryChange={handleQueryChange} searchQuery={searchQuery}/>
         </div>
         <br/><br/><br/>
-        <Footer />
       </>
     )
   }

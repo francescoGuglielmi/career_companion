@@ -5,6 +5,7 @@ import SignUpForm from '../user/SignUpForm';
 import Interview from '../Interview/Interview.js';
 import CoverLetterGenerator from '../coverLetterGen/CoverLetterGen';
 import Profile from '../profile/Profile';
+import Account from '../account/Account'
 import React, { useState } from 'react';
 import {
   useNavigate,
@@ -23,6 +24,7 @@ const App = () => {
           <Route path='/interview' element={<Interview navigate={ useNavigate() }/>}/>
           <Route path='/login' element={<LoginForm  navigate={ useNavigate() }/>}/>
           <Route path='/signup' element={<SignUpForm navigate={ useNavigate() }/>}/>
+          <Route path='/account' element={<Account navigate={ useNavigate() }/>}/>
         </Routes>
     );
 }

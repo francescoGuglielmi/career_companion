@@ -28,16 +28,20 @@ const DeleteApplication = ({ application }) => {
 
   return (
     <>
-      <button
-        className="bg-cream text-black font-bold py-2 px-4 rounded"
-        onClick={() => setIsModalOpen(true)}
-      >
-        Delete
-      </button>
+     <button
+      className={`text-md py-1.5 px-4 inline-flex items-center justify-center text-center rounded-xl ease-in-out duration-100 ${
+        application.applicationStatus === "Invited to interview"
+          ?  "bg-transparent text-navy text-md py-1.5 px-4 inline-flex items-center justify-center text-center border-2 border-lorange hover:border-blue rounded-xl ease-in-out duration-100 "
+          : "bg-transparent text-navy text-lg underline hover:text-blue"
+      }`}
+      onClick={() => setIsModalOpen(true)}
+    >
+      Delete
+    </button>
 
       {isModalOpen ? (
         <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-500 bg-opacity-75">
-          <div className="bg-white rounded-lg p-8 w-1/3">
+          <div className="bg-white rounded-lg p-5 w-3/4 md:w-1/3">
             <div className="flex justify-end">
               <button
                 className="text-gray-700 hover:text-gray-900 font-bold text-xl leading-none focus:outline-none"
@@ -46,12 +50,14 @@ const DeleteApplication = ({ application }) => {
                 &times;
               </button>
             </div>
-            <h2 className="text-2xl font-bold mb-4">Are you sure you want to delete this application?</h2>
-
+            <h2 className="text-xl font-bold mb-4 text-center">
+              Are you sure you want to delete this application?
+            </h2>
             <div className="flex items-center justify-center">
               <button
-                className="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                className="bg-blue text-white text-md py-2 px-4 inline-flex items-center justify-center text-center border-2 hover:border-blue hover:bg-white hover:text-navy rounded-xl ease-in-out duration-200 "
                 type="submit"
+                onClick={handleDelete}
               >
                 Yes, delete it
               </button>
