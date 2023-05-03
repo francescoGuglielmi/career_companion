@@ -300,6 +300,7 @@ export default function LandingPage() {
           </section>
         </main>
       </div>
+
     {/* <Footer /> */}
     </>
   );
