@@ -6,6 +6,7 @@ const { ObjectID } = require("mongodb");
 const FeedbackSchema = new mongoose.Schema({
   company: { type: String },
   jobPosition: { type: String }, 
+  rating: { type: String },
   content: { type: String },
   user: {
     type: mongoose.Schema.Types.ObjectId,

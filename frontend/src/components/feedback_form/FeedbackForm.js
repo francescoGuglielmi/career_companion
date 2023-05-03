@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
+import './FeedbackForm.css'
 
 const FeedbackForm = (props) => {
 
   return (
     <>
       
-      <form onSubmit={props.handleFormSubmit}>
+      <form className="form" onSubmit={props.handleFormSubmit}>
 
         <h2>What company would you like to review?</h2>
 
@@ -39,9 +40,9 @@ const FeedbackForm = (props) => {
         </div>
 
         <h2>Describe your experience:</h2>
-        <textarea value={props.content} onChange={props.handleContentChange}></textarea><br/><br/>
+        <textarea className="feedback-textarea" placeholder="Please Konrad, forgive this styling" value={props.content} onChange={props.handleContentChange}></textarea><br/><br/>
         
-        <button type="submit">Submit Review</button>
+        <button className="submit-feedback" type="submit">Submit Review</button>
 
       </form>
     </>

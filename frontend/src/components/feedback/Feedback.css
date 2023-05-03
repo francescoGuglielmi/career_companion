@@ -1,0 +1,23 @@
+.feedback {
+  border: 3px solid blue;
+  border-radius: 1em;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px 30px 10px 30px;
+  margin: 15px 30px 15px 30px;
+}
+
+.jobPosition {
+  font-size: 26px;
+}
+
+.feedback-content {
+  margin: 5px 0 5px 0;
+}
+
+.company {
+  font-size: 16px;
+  margin-left: 10px;
+}

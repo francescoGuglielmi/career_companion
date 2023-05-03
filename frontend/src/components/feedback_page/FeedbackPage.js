@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import NavbarHP from '../navbar/navBarHP';
 import FeedbackForm from "../feedback_form/FeedbackForm";
 import Feedback from "../feedback/Feedback";
+import './FeedbackPage.css'
 
 const FeedbackPage = ({navigate}) => {
 
@@ -10,7 +11,7 @@ const FeedbackPage = ({navigate}) => {
   const [companies, setCompanies] = useState([])
   const [selectedCompany, setSelectedCompany] = useState("")
   const [jobTitle, setJobTitle] = useState("")
-  const [rating, setRating] = useState("")
+  const [rating, setRating] = useState("5")
   const [content, setContent] = useState("")
   const [feedbacks, setFeedbacks] = useState([])
   
@@ -99,7 +100,9 @@ const FeedbackPage = ({navigate}) => {
     return (
       <>
         <NavbarHP />
-        <h1>We want to hear about your application process!</h1>
+        <h1 className="feedback-intro-title">We want to hear about your application process!</h1>
+        <p>To leave a review, you need to have at least 1 job application</p>
+        <br/>
         <div className="feedback_form">
           <FeedbackForm 
           handleSelectCompanyChange={handleSelectCompanyChange} 
@@ -117,6 +120,8 @@ const FeedbackPage = ({navigate}) => {
         </div><br/><br/>
         
         <div>
+          <h1 className="feedback-intro-title">Reviews</h1>
+          <br/>
           <Feedback feedbacks={feedbacks}/>
         </div>
       </>
