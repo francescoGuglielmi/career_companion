@@ -1,18 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import './CoverLetterGen.css'
+import React, { useState, useEffect } from "react";
+import "./CoverLetterGen.css";
 import { Configuration, OpenAIApi } from "openai";
-import key from '../api_key';
-import NavbarHP from '../navbar/navBarHP';
+import key from "../api_key";
+import NavbarHP from "../navbar/navBarHP";
 
-const openai = new OpenAIApi(new Configuration({
-  apiKey: key
-}))
+const openai = new OpenAIApi(
+  new Configuration({
+    apiKey: key,
+  })
+);
 
 const CoverLetterGenerator = ({ navigate }) => {
-
-  const [token, setToken] = useState(window.localStorage.getItem("token"))
-  const [applications, setApplications] = useState([])
-  const [application, setApplication] = useState(null)
+  const [token, setToken] = useState(window.localStorage.getItem("token"));
+  const [applications, setApplications] = useState([]);
+  const [application, setApplication] = useState(null);
   const [jobPosition, setJobPosition] = useState("");
   const [companyName, setCompanyName] = useState("");
   const [reasons, setReasons] = useState("");
@@ -31,130 +32,174 @@ const CoverLetterGenerator = ({ navigate }) => {
         .then(async (data) => {
           window.localStorage.setItem("token", data.token);
           window.localStorage.setItem("user", data.user);
-          setToken(data.token)
+          setToken(data.token);
           const filteredApplications = data.applications.filter(
-            (application) => application.user._id === data.user._id  //only shows user that is logged in applications
-          ); 
-          setApplications(filteredApplications);      
+            (application) => application.user._id === data.user._id //only shows user that is logged in applications
+          );
+          setApplications(filteredApplications);
         });
     }
   }, []);
 
   function handleApplicationChange(event) {
-    setApplication(event.target.value)
-    setJobPosition(event.target.value.split('-')[0])
-    setCompanyName(event.target.value.split('-')[1])
+    setApplication(event.target.value);
+    setJobPosition(event.target.value.split("-")[0]);
+    setCompanyName(event.target.value.split("-")[1]);
   }
 
   function handleJobPositionChange(event) {
-    setJobPosition(event.target.value)
+    setJobPosition(event.target.value);
   }
 
   function handleCompanyNameChange(event) {
-    setCompanyName(event.target.value)
+    setCompanyName(event.target.value);
   }
 
   function handleReasonsChange(event) {
-    setReasons(event.target.value)
+    setReasons(event.target.value);
   }
 
   function handleResumeChange(event) {
-    setResume(event.target.value)
+    setResume(event.target.value);
   }
 
   function handleSubmit(event) {
-    event.preventDefault()
+    event.preventDefault();
 
-    setLoadingAlert("Please wait, your cover letter is being generated...")
+    setLoadingAlert("Please wait, your cover letter is being generated...");
 
-    openai.createChatCompletion({
-      model: "gpt-3.5-turbo",
-      messages: [{ role: "user", content: `I am applying for a position as a ${jobPosition} at ${companyName} and the reasons that motivate me to apply for this position are: '${reasons}'. A text copy of my resume is: ${resume}. Can you generate a short tailored cover letter that shows personality for this position that will likely get me hired?`}]
-    }).then((res) => {
-      const result = res.data.choices[0].message.content
-      setCoverLetter(result);
-      setLoadingAlert("");
-    })
+    openai
+      .createChatCompletion({
+        model: "gpt-3.5-turbo",
+        messages: [
+          {
+            role: "user",
+            content: `I am applying for a position as a ${jobPosition} at ${companyName} and the reasons that motivate me to apply for this position are: '${reasons}'. A text copy of my resume is: ${resume}. Can you generate a short tailored cover letter that shows personality for this position that will likely get me hired?`,
+          },
+        ],
+      })
+      .then((res) => {
+        const result = res.data.choices[0].message.content;
+        setCoverLetter(result);
+        setLoadingAlert("");
+      });
   }
 
   async function handleSaveButtonClick() {
-
-    let response = await fetch('/coverLetterGen', {
+    let response = await fetch("/coverLetterGen", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${window.localStorage.getItem("token")}`
+        Authorization: `Bearer ${window.localStorage.getItem("token")}`,
       },
       body: JSON.stringify({
         companyName: companyName,
         jobPosition: jobPosition,
-        content: coverLetter
-      })
-
-    })
+        content: coverLetter,
+      }),
+    });
     if (response.status === 201) {
       navigate("/profile");
     } else {
       return "There was an error saving your cover letter, refresh the page to try again.";
     }
-      
-  } 
+  }
 
   if (token) {
-  return (
-    <>
-    <NavbarHP />
-        <div className="min-h-screen bg-cream font-dm-sans-regular md:pl-10 md:pr-10">
+    return (
+      <>
+        <NavbarHP />
+        <div className="min-h-screen bg-cream font-dm-sans-regular md:pl-10 md:pr-10 pr-5 pl-5">
           <h2 className="flex justify-center text-lorange font-poppins-bold text-2xl pb-2 pt-8">
             Cover Letter Generator
           </h2>
-      <div>
-        <h2 className="title" >Generate your tailored cover letter</h2>
-        <form onSubmit={handleSubmit}>
-          <h3>if you have already applied for it choose from below:</h3>
-          <select value={application} onChange={handleApplicationChange}>
-            <option value="" >Select below...</option>
-            {applications && applications.map((application, index) => (
-              <option key={index} value={`${application.jobTitle}-${application.company}`} >{application.jobTitle} - {application.company}</option>
-            ))}
-          </select>
-          <br/>
-          <br/>
-          <h2>What's the job position you are applying for?</h2>
-          <textarea value={application? application.split('-')[0] : jobPosition} onChange={handleJobPositionChange}></textarea>
-          <br/>
-          <h2>What's the company name?</h2>
-          <textarea value={application? application.split('-')[1] : companyName} placeholder={application && application.split('-')[1]} onChange={handleCompanyNameChange}></textarea>
-          <br/>
-          <h2>Why do you want to apply for this position/company? What motivates you?</h2>
-          <textarea value={reasons} onChange={handleReasonsChange}></textarea>
-          <br/>
-          <h2>Please, paste a text copy of your cv here:</h2>
-          <textarea value={resume} onChange={handleResumeChange}></textarea>
-          <br/>
-          <button className="submit" type="submit">Generate</button>
-        </form>
-      </div>
-      <br/>
-      <h2>{ loadingAlert }</h2> 
-      { coverLetter && <div className="cover_letter">
-        <h3>{ coverLetter }</h3>
-      </div> }
-      <br/>
-      { coverLetter && <a href='/generator'>Try Again!</a> }
-      { coverLetter && <button className="save_button" onClick={handleSaveButtonClick}>Save Cover Letter</button> }
-      <br/>
-      </div>
-    </>
-  )
+          <div className="mt-6">
+            <h2 className="font-poppins-bold text-lg mb-4">
+              Generate your tailored cover letter
+            </h2>
+            <form onSubmit={handleSubmit}>
+              <h3>
+                if you have already started an application for it, choose from
+                below:
+              </h3>
+              <select
+                value={application}
+                onChange={handleApplicationChange}
+                className="shadow border h-10 w-96 text-md mb-4 md:mb-8"
+              >
+                <option value="">Select below...</option>
+                {applications &&
+                  applications.map((application, index) => (
+                    <option
+                      key={index}
+                      value={`${application.jobTitle}-${application.company}`}
+                    >
+                      {application.jobTitle} - {application.company}
+                    </option>
+                  ))}
+              </select>
+              <h2>What's the job position you are applying for?</h2>
+              <textarea
+                value={application ? application.split("-")[0] : jobPosition}
+                onChange={handleJobPositionChange}
+                className="w-11/12 md:w-1/2 border-2 h-12 border-gray-100 shadow mb-4 mt-2"
+              ></textarea>
+              <h2>What's the company name?</h2>
+              <textarea
+                value={application ? application.split("-")[1] : companyName}
+                placeholder={application && application.split("-")[1]}
+                onChange={handleCompanyNameChange}
+                className="w-11/12 md:w-1/2 border-2 h-10 border-gray-100 shadow mb-4 mt-2"
+              ></textarea>
+              <h2>
+                Why do you want to apply for this position/company? What
+                motivates you?
+              </h2>
+              <textarea
+                value={reasons}
+                onChange={handleReasonsChange}
+                className="w-11/12 md:w-4/5 border-2 h-20 border-gray-100 shadow mb-4 mt-2"
+              ></textarea>
+              <h2>Please, paste a text copy of your cv here:</h2>
+              <textarea
+                value={resume}
+                onChange={handleResumeChange}
+                className="w-11/12 md:w-4/5 border-2 h-20 border-gray-100 shadow mb-4 mt-2"
+              ></textarea>
+              <button type="submit"  className="bg-blue text-white text-md py-2 px-4 md:ml-2 mb-4 inline-flex items-center justify-center text-center border-2 hover:border-blue hover:bg-lblue rounded-xl ease-in-out duration-200 ">
+                Generate
+              </button>
+            </form>
+          </div>
+          <br />
+          <h2>{loadingAlert}</h2>
+          {coverLetter && (
+            <div className="cover_letter">
+              <h3>{coverLetter}</h3>
+            </div>
+          )}
+          <br />
+          {coverLetter && <a href="/generator">Try Again!</a>}
+          {coverLetter && (
+            <button
+              className="bg-blue text-white text-md py-2 px-4 md:ml-2 mb-4 inline-flex items-center justify-center text-center border-2 hover:border-blue hover:bg-lblue rounded-xl ease-in-out duration-200 "
+              onClick={handleSaveButtonClick}
+            >
+              Save Cover Letter
+            </button>
+          )}
+          <br />
+        </div>
+      </>
+    );
   } else {
     return (
       <>
-        <h1>Please  Sign in to access this resource</h1>
-        <a href='/login'>Sign in</a>
+        <h1>Please Sign in to access this resource</h1>
+        <a href="/login">Sign in</a>
       </>
-    )
+    );
   }
-}
+};
 
 export default CoverLetterGenerator;
