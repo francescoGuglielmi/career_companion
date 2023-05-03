@@ -46,6 +46,7 @@ const ApplicationsController = {
       }
 
       application.applicationStatus = req.body.applicationStatus;
+      application.interviewDate = req.body.interviewDate;
       await application.save();
 
       res.status(201).json({ message: "OK", application });

@@ -48,6 +48,7 @@ const AddApplication = (props) => {
         link: link,
         jobDetails: jobDetails,
         applicationStatus: applicationStatus,
+        createdAt: new Date().toLocaleDateString()
       }),
     });
 
@@ -76,8 +77,8 @@ const AddApplication = (props) => {
     <div className="flex justify-center">
 
       {/* The button to open modal */}
-      <label htmlFor="my-modal-3" className="bg-cream text-blue font-poppins-bold text-2xl py-2 px-4 underline">
-        Add application
+      <label htmlFor="my-modal-3" className="bg-cream text-navy font-poppins-bold text-xl py-2 px-4 inline-flex items-center justify-center text-center border-2 border-lorange hover:border-blue rounded-xl ease-in-out duration-100 ">
+        Add new application
       </label>
 
       <input type="checkbox" id="my-modal-3" className="modal-toggle" />
@@ -123,7 +124,7 @@ const AddApplication = (props) => {
                   placeholder="Location"
                   value={location}
                   onChange={handleLocationChange}
-                  required
+                  
                 />
               </div>
               <div className="mb-4">
