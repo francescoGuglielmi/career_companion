@@ -10,9 +10,15 @@ const Application = ({ application }) => {
   const formattedDate = `${dateParts[2]}-${dateParts[1]}-${dateParts[0]}`;
   return (
     <>
-      <article data-cy="application" key={application._id}>
-        {application.company} - {application.jobTitle} - {application.location}{" "}
-        - Applied on {formattedDate} -{" "}
+      <div data-cy="application" key={application._id}>
+        <div>
+        <span>{application.company} - </span>
+        <span>{application.jobTitle} - </span>
+        <span>{application.location} - </span>
+        <span>{formattedDate}</span>
+        
+        
+        </div>
         <span>
           <UpdateApplication key={application._id} application={application} />
         </span>
@@ -22,7 +28,7 @@ const Application = ({ application }) => {
         <span>
           <DeleteApplication key={application._id} application={application} />
         </span>
-      </article>
+      </div>
     </>
   );
 };

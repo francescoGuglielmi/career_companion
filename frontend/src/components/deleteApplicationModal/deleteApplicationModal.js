@@ -28,12 +28,16 @@ const DeleteApplication = ({ application }) => {
 
   return (
     <>
-      <button
-        className="bg-transparent text-navy text-md py-1.5 px-4 inline-flex items-center justify-center text-center border-2 border-lorange hover:border-blue rounded-xl ease-in-out duration-100 "
-        onClick={() => setIsModalOpen(true)}
-      >
-        Delete
-      </button>
+     <button
+      className={`text-md py-1.5 px-4 inline-flex items-center justify-center text-center rounded-xl ease-in-out duration-100 ${
+        application.applicationStatus === "Invited to interview"
+          ?  "bg-transparent text-navy text-md py-1.5 px-4 inline-flex items-center justify-center text-center border-2 border-lorange hover:border-blue rounded-xl ease-in-out duration-100 "
+          : "bg-transparent text-navy underline hover:border-blue"
+      }`}
+      onClick={() => setIsModalOpen(true)}
+    >
+      Delete
+    </button>
 
       {isModalOpen ? (
         <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-500 bg-opacity-75">
