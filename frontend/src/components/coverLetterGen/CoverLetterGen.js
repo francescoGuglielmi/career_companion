@@ -166,9 +166,11 @@ const CoverLetterGenerator = ({ navigate }) => {
                 onChange={handleResumeChange}
                 className="w-11/12 md:w-4/5 border-2 h-20 border-gray-100 shadow mb-4 mt-2"
               ></textarea>
+              <div>
               <button type="submit"  className="bg-blue text-white text-md py-2 px-4 md:ml-2 mb-4 inline-flex items-center justify-center text-center border-2 hover:border-blue hover:bg-lblue rounded-xl ease-in-out duration-200 ">
                 Generate
               </button>
+              </div>
             </form>
           </div>
           <br />
