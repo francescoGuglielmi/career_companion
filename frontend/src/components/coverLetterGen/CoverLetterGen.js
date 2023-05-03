@@ -142,14 +142,14 @@ const CoverLetterGenerator = ({ navigate }) => {
               <textarea
                 value={application ? application.split("-")[0] : jobPosition}
                 onChange={handleJobPositionChange}
-                className="w-11/12 md:w-1/2 border-2 h-12 border-gray-100 shadow mb-4 mt-2"
+                className="w-full md:w-1/2 border-2 h-12 border-gray-100 shadow mb-4 mt-2"
               ></textarea>
               <h2>What's the company name?</h2>
               <textarea
                 value={application ? application.split("-")[1] : companyName}
                 placeholder={application && application.split("-")[1]}
                 onChange={handleCompanyNameChange}
-                className="w-11/12 md:w-1/2 border-2 h-10 border-gray-100 shadow mb-4 mt-2"
+                className="w-full md:w-1/2 border-2 h-12 border-gray-100 shadow mb-4 mt-2"
               ></textarea>
               <h2>
                 Why do you want to apply for this position/company? What
@@ -158,16 +158,16 @@ const CoverLetterGenerator = ({ navigate }) => {
               <textarea
                 value={reasons}
                 onChange={handleReasonsChange}
-                className="w-11/12 md:w-4/5 border-2 h-20 border-gray-100 shadow mb-4 mt-2"
+                className="w-full md:w-4/5 border-2 h-20 border-gray-100 shadow mb-4 mt-2"
               ></textarea>
               <h2>Please, paste a text copy of your cv here:</h2>
               <textarea
                 value={resume}
                 onChange={handleResumeChange}
-                className="w-11/12 md:w-4/5 border-2 h-20 border-gray-100 shadow mb-4 mt-2"
+                className="w-full md:w-4/5 border-2 h-20 border-gray-100 shadow mb-4 mt-2"
               ></textarea>
               <div>
-              <button type="submit"  className="bg-blue text-white text-md py-2 px-4 md:ml-2 mb-4 inline-flex items-center justify-center text-center border-2 hover:border-blue hover:bg-lblue rounded-xl ease-in-out duration-200 ">
+              <button type="submit"  className="bg-blue text-white text-md py-2 px-4 mb-4 inline-flex items-center justify-center text-center border-2 hover:border-blue hover:bg-lblue rounded-xl ease-in-out duration-200 ">
                 Generate
               </button>
               </div>
@@ -184,7 +184,7 @@ const CoverLetterGenerator = ({ navigate }) => {
           {coverLetter && <a href="/generator">Try Again!</a>}
           {coverLetter && (
             <button
-              className="bg-blue text-white text-md py-2 px-4 md:ml-2 mb-4 inline-flex items-center justify-center text-center border-2 hover:border-blue hover:bg-lblue rounded-xl ease-in-out duration-200 "
+              className="bg-blue text-white text-md py-2 px-4 mb-4 inline-flex items-center justify-center text-center border-2 hover:border-blue hover:bg-lblue rounded-xl ease-in-out duration-200 "
               onClick={handleSaveButtonClick}
             >
               Save Cover Letter
