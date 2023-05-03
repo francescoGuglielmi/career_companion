@@ -5,34 +5,65 @@ import { BsFillMoonStarsFill } from "react-icons/bs";
 import { BsTwitter } from "react-icons/bs";
 import { BsGithub } from "react-icons/bs";
 import { HiOutlineDocumentText } from "react-icons/hi";
+import { HiMenuAlt3 } from "react-icons/hi";
 
 export default function LandingPage() {
   const[darkMode, setDarkMode] = useState(false);
   const navigate = useNavigate();
-  
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <>
       <div className={darkMode ? "dark" : ""}>
         <main className="bg-cream dark:bg-navy">
-          <section className="min-h-fit mb-56">
-            <div className="w-full flex items-center justify-center pt-20">
-            <BsFillMoonStarsFill
-                  onClick={() => setDarkMode(!darkMode)}
-                  className="cursor-pointer text-2xl text-navy dark:text-lorange"
-                />
+          <nav className="sticky top-0 z-50 bg-cream dark:bg-navy dark:text-white flex justify-center items-center">
+            <div className="w-full h-44 flex justify-between">
+              <div className="">
+                <img src="/cc-logo.png" className="h-44 px-10" />
+              </div>
+              <div className="py-16">
+                <HiMenuAlt3 className="cursor-pointer text-4xl mr-5 text-navy xl:hidden lg:hidden md:hidden" onClick={toggleMenu} />
+                <ul className={isMenuOpen ? "menu-open" : ""}>
+                  <button className="close-icon cursor-pointer text-right text-4xl text-navy xl:hidden lg:hidden md:hidden" onClick={toggleMenu}>×</button>
+                  <li className="py-2 mr-2">
+                    <BsFillMoonStarsFill
+                      onClick={() => setDarkMode(!darkMode)}
+                      className="cursor-pointer text-2xl text-navy dark:text-lorange"
+                    />
+                  </li>
+                  <li>
+                    <a href="/#about" className="border-none w-40 inline-flex items-center justify-center py-3 text-base font-bold text-center bg-cream dark:bg-cream hover:text-lblue hover:dark:bg-lorange  text-blue dark:text-blue border-2  hover:border-blue rounded-xl dark:border-gray-700 dark:hover:bg-gray-700" onClick={() => navigate('/#about')}>ABOUT</a>
+                  </li>
+                  <li>
+                    <a href="/#team" className="border-none w-40 inline-flex items-center justify-center py-3 text-base font-bold text-center bg-cream dark:bg-cream hover:text-lblue hover:dark:bg-lorange  text-blue dark:text-blue border-2  hover:border-blue rounded-xl dark:border-gray-700 dark:hover:bg-gray-700" onClick={() => navigate('/#team')}>TEAM</a>
+                  </li>
+                  <li>
+                    <a href="/#features" className="border-none w-40 inline-flex items-center justify-center py-3 mr-5 text-base font-bold text-center bg-cream dark:bg-cream hover:text-lblue hover:dark:bg-lorange  text-blue dark:text-blue border-2  hover:border-blue rounded-xl dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800" onClick={() => navigate('/#features')}>FEATURES</a>
+                  </li>
+                  <li>
+                    <a href="/login" className="w-48 inline-flex items-center justify-center px-5 py-3 mr-10 text-base font-bold text-center bg-lorange dark:bg-cream hover:bg-lorange hover:dark:bg-lorange  text-navy dark:text-blue border-2 border-lorange hover:border-blue rounded-xl dark:border-gray-700 dark:hover:bg-gray-700" onClick={() => navigate('/login')}>LOGIN</a>
+                  </li>
+                </ul>
+              </div>
             </div>
+          </nav>
+          <section className="min-h-fit mt-20 mb-56">
             <section className="bg-cream dark:bg-navy">
               <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
                 <div className="mr-auto place-self-center lg:col-span-7">
                   <h1 className="text-navy max-w-4xl mb-6 ml-10 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-cream">Life's too short to hate your job!</h1>
                     <p className=" text-blue max-w-3xl mb-6 ml-10 text-2xl font-medium dark:text-gray-400">Let Career Companion be your personal coach and help you build a career you'll love.</p>
-                      <div className="flex flex-row items-left justify-left  mb-16 ml-10 space-x-6">
-                        <a href="#about" className="w-40 inline-flex items-center justify-center bg-blue dark:bg-lblue hover:bg-lblue hover:dark:bg-blue border-2 border-blue px-5 py-3 rounded-xl text-base font-bold text-center text-cream bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900" onClick={() => window.scrollTo({ top: document.getElementById("about").offsetTop, behavior: 'smooth' })}>
-                          Learn More
+                      <div className="flex flex-row items-left justify-left mb-16 ml-10 space-x-6">
+                        <a href="#about" className="w-48 inline-flex items-center justify-center bg-blue dark:bg-lblue hover:bg-lblue hover:dark:bg-blue border-2 border-blue px-5 py-3 rounded-xl text-base font-bold text-center text-cream bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900" onClick={() => window.scrollTo({ top: document.getElementById("about").offsetTop, behavior: 'smooth' })}>
+                          LEARN MORE
                           <svg className="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                         </a>
-                        <a href="/signup" className="w-40 inline-flex items-center justify-center px-5 py-3 text-base font-bold text-center bg-lorange dark:bg-cream hover:bg-lorange hover:dark:bg-lorange  text-navy dark:text-blue border-2 border-lorange hover:border-blue rounded-xl focus:ring-4 focus:ring-gray-100 dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800" onClick={() => navigate('/signup')}>
-                          Sign Up
+                        <a href="/signup" className="w-48 inline-flex items-center justify-center px-5 py-3 text-base font-bold text-center bg-lorange dark:bg-cream hover:bg-lorange hover:dark:bg-lorange  text-navy dark:text-blue border-2 border-lorange hover:border-blue rounded-xl focus:ring-4 focus:ring-gray-100 dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800" onClick={() => navigate('/signup')}>
+                          SIGN UP
                         </a> 
                       </div>
                 </div>
@@ -113,7 +144,7 @@ export default function LandingPage() {
                   </a>
                   <div className="">
                     <h3 className="text-xl font-bold tracking-tight text-navy dark:text-cream px-2">
-                      Francesco Guglielmi
+                      Francesco 'Franchie' Guglielmi
                     </h3>
                     <span className="text-blue dark:text-gray-200 px-2">Back-end Engineer</span>
                     <p className="mt-3 mb-4 font-light text-lblue dark:text-gray-300 px-2">Francesco is a rebel at heart. He expresses it by always putting pineapple on a pizza.</p>
