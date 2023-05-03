@@ -1,64 +1,62 @@
 import React from 'react';
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import Navbar from '../navbar/navBarLP';
 import { BsFillMoonStarsFill } from "react-icons/bs";
 import { BsTwitter } from "react-icons/bs";
 import { BsGithub } from "react-icons/bs";
 import { HiOutlineDocumentText } from "react-icons/hi";
 import { HiMenuAlt3 } from "react-icons/hi";
 
-
 export default function LandingPage() {
   const[darkMode, setDarkMode] = useState(false);
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
+  const onToggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   return (
     <>
-      <Navbar />
       <div className={darkMode ? "dark" : ""}>
-        <main className="bg-cream dark:bg-navy">
-          <nav className="sticky top-0 z-50 bg-cream dark:bg-navy dark:text-white flex justify-center items-center">
-            <div className="w-full h-44 flex justify-between">
-              <div className="">
-                <img src="/cc-logo.png" className="h-44 px-10" />
-              </div>
-              <div className="py-16">
-                <HiMenuAlt3 className="cursor-pointer text-4xl mr-5 text-navy xl:hidden lg:hidden md:hidden" onClick={toggleMenu} />
-                <ul className={isMenuOpen ? "menu-open" : ""}>
-                  <button className="close-icon cursor-pointer text-right text-4xl text-navy xl:hidden lg:hidden md:hidden" onClick={toggleMenu}>×</button>
-                  <li className="py-2 mr-2">
-                    <BsFillMoonStarsFill
-                      onClick={() => setDarkMode(!darkMode)}
-                      className="cursor-pointer text-2xl text-navy dark:text-lorange"
-                    />
-                  </li>
-                  <li>
-                    <a href="/#about" className="border-none w-40 inline-flex items-center justify-center py-3 text-base font-bold text-center bg-cream dark:bg-cream hover:text-lblue hover:dark:bg-lorange  text-blue dark:text-blue border-2  hover:border-blue rounded-xl dark:border-gray-700 dark:hover:bg-gray-700" onClick={() => navigate('/#about')}>ABOUT</a>
-                  </li>
-                  <li>
-                    <a href="/#team" className="border-none w-40 inline-flex items-center justify-center py-3 text-base font-bold text-center bg-cream dark:bg-cream hover:text-lblue hover:dark:bg-lorange  text-blue dark:text-blue border-2  hover:border-blue rounded-xl dark:border-gray-700 dark:hover:bg-gray-700" onClick={() => navigate('/#team')}>TEAM</a>
-                  </li>
-                  <li>
-                    <a href="/#features" className="border-none w-40 inline-flex items-center justify-center py-3 mr-5 text-base font-bold text-center bg-cream dark:bg-cream hover:text-lblue hover:dark:bg-lorange  text-blue dark:text-blue border-2  hover:border-blue rounded-xl dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800" onClick={() => navigate('/#features')}>FEATURES</a>
-                  </li>
-                  <li>
-                    <a href="/login" className="w-48 inline-flex items-center justify-center px-5 py-3 mr-10 text-base font-bold text-center bg-lorange dark:bg-cream hover:bg-lorange hover:dark:bg-lorange  text-navy dark:text-blue border-2 border-lorange hover:border-blue rounded-xl dark:border-gray-700 dark:hover:bg-gray-700" onClick={() => navigate('/login')}>LOGIN</a>
-                  </li>
-                </ul>
+        <header className="bg-cream dark:bg-navy">
+          <nav className="flex justify-between items-center w-[92%] mx-auto">
+            <div className="">
+              <img src="/cc-logo.png" className="h-40 sticky top-0" alt="Career Companion Logo" />
+            </div>
+            <div className={`nav-links duration-500 justify-center md:static md:flex-row md:items-end absolute bg-cream min-h-screen md:min-h-fit left-0 ${isMenuOpen ? 'top-0' : '-top-full'} md:w-auto w-full flex flex-col items-center px-5`}>
+              <div className="flex items-center h-full md:h-auto">
+              <ul className="flex flex-col items-center md:items-stretch md:flex-row md:justify-center md:gap-[4vw] gap-8">
+                <li>
+                  <a href="/#about" className="text-5xl border-b-1 md:border-cream border-b-lorange hover:border-b-lorange w-[80vw] md:w-40 inline-flex items-center justify-center py-3 md:text-2xl font-bold text-center bg-cream dark:bg-cream hover:text-lblue hover:dark:bg-lorange  text-blue dark:text-blue border-2 dark:border-gray-700 dark:hover:bg-gray-700" onClick={() => navigate('/#about')}>ABOUT</a>
+                </li>
+                <li>
+                  <a href="/#team" className="text-5xl border-b-1 md:border-cream border-b-lorange hover:border-b-lorange w-[80vw] md:w-40 inline-flex items-center justify-center py-3 md:text-2xl font-bold text-center bg-cream dark:bg-cream hover:text-lblue hover:dark:bg-lorange  text-blue dark:text-blue border-2 dark:border-gray-700 dark:hover:bg-gray-700" onClick={() => navigate('/#team')}>TEAM</a>
+                </li>
+                <li>
+                  <a href="/#features" className="text-5xl border-b-1 md:border-cream border-b-lorange hover:border-b-lorange w-[80vw] md:w-40 inline-flex items-center justify-center py-3 md:text-2xl font-bold text-center bg-cream dark:bg-cream hover:text-lblue hover:dark:bg-lorange  text-blue dark:text-blue border-2 dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800" onClick={() => navigate('/#features')}>FEATURES</a>
+                </li>
+              </ul>
               </div>
             </div>
+            <div className="flex items-center gap-6">
+              <BsFillMoonStarsFill
+                onClick={() => setDarkMode(!darkMode)}
+                className="cursor-pointer text-2xl mr-2 text-blue dark:text-lorange"
+              />
+              <button className="sm:hidden w-48 inline-flex items-center justify-center px-5 py-3 text-base font-bold text-center bg-lorange dark:bg-cream hover:bg-lorange hover:dark:bg-lorange  text-navy dark:text-blue border-2 border-lorange hover:border-blue rounded-xl dark:border-gray-700 dark:hover:bg-gray-700" onClick={() => navigate('/login')}>LOGIN</button>
+              <HiMenuAlt3 onClick={() => onToggleMenu()} name="menu" className="sticky top-0 text-5xl cursor-pointer text-navy dark:text-cream md:hidden" />
+            </div>
           </nav>
-          <section className="min-h-fit mt-20 mb-56">
+        </header>
+
+        <main className="bg-cream dark:bg-navy">
+          
+          <section className="min-h-fit py-20 mb-56">
             <section className="bg-cream dark:bg-navy">
               <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
                 <div className="mr-auto place-self-center lg:col-span-7">
-                  <h1 className="text-navy max-w-4xl mb-6 ml-10 text-4xl font-poppins-bold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-cream">Life's too short to hate your job!</h1>
+                  <h1 className="text-navy max-w-4xl mb-6 ml-10 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-cream">Life's too short to hate your job!</h1>
                     <p className=" text-blue max-w-3xl mb-6 ml-10 text-2xl font-medium dark:text-gray-400">Let Career Companion be your personal coach and help you build a career you'll love.</p>
                       <div className="flex flex-row items-left justify-left mb-16 ml-10 space-x-6">
                         <a href="#about" className="w-48 inline-flex items-center justify-center bg-blue dark:bg-lblue hover:bg-lblue hover:dark:bg-blue border-2 border-blue px-5 py-3 rounded-xl text-base font-bold text-center text-cream bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900" onClick={() => window.scrollTo({ top: document.getElementById("about").offsetTop, behavior: 'smooth' })}>
@@ -147,7 +145,7 @@ export default function LandingPage() {
                   </a>
                   <div className="">
                     <h3 className="text-xl font-bold tracking-tight text-navy dark:text-cream px-2">
-                      Francesco 'Franchie' Guglielmi
+                      Francesco Guglielmi
                     </h3>
                     <span className="text-blue dark:text-gray-200 px-2">Back-end Engineer</span>
                     <p className="mt-3 mb-4 font-light text-lblue dark:text-gray-300 px-2">Francesco is a rebel at heart. He expresses it by always putting pineapple on a pizza.</p>
@@ -334,8 +332,6 @@ export default function LandingPage() {
           </section>
         </main>
       </div>
-
-    {/* <Footer /> */}
     </>
   );
 };

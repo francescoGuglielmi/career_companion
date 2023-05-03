@@ -1,0 +1,40 @@
+.hamburger-menu {
+  width: 28px;
+  height: 20px;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+.hamburger-menu .bar {
+  background-color: #1e3a8a; /* Change this to match the color of your hamburger menu icon */
+  display: block;
+  height: 3px;
+  position: absolute;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+}
+
+.hamburger-menu .bar:first-child {
+  top: 0;
+}
+
+.hamburger-menu .bar:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hamburger-menu .bar:last-child {
+  bottom: 0;
+}
+
+.hamburger-menu.open .bar:first-child {
+  transform: translateY(50%) rotate(45deg);
+}
+
+.hamburger-menu.open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-menu.open .bar:last-child {
+  transform: translateY(-50%) rotate(-45deg);
+}
