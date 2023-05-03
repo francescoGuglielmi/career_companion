@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import './Profile.css'
 import Application from "../applications/Applications";
 import AddApplication from "../addApplicationModal/AddApplicationModal";
 import ApplicationInterview from "../applicationsInterview/applicationsInterview";
@@ -66,7 +67,7 @@ const Profile = ({ navigate }) => {
               Build CV
             </button> */}
           </div>
-          <AddApplication />
+          <AddApplication navigate={navigate}/>
 
           <div>
             <p className="pt-2 pb-2 text-lblue font-poppins-bold">
@@ -151,8 +152,8 @@ const Profile = ({ navigate }) => {
         </div>
       </>
     );
-  } else {
-    navigate("/signup");
+  } else if (token === undefined) {
+    window.location.href = '/login'
   }
 };
 

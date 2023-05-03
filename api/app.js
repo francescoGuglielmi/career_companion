@@ -4,6 +4,7 @@ const path = require("path");
 const logger = require("morgan");
 const JWT = require("jsonwebtoken");
 
+const feedbackRouter = require("./routes/feedbacks")
 const coverLetterRouter = require("./routes/coverLetters")
 const applicationsRouter = require("./routes/applications");
 const tokensRouter = require("./routes/tokens");
@@ -39,6 +40,7 @@ const tokenChecker = (req, res, next) => {
 };
 
 // route setup
+app.use("/feedback", tokenChecker, feedbackRouter)
 app.use("/coverLetterGen", tokenChecker, coverLetterRouter);
 app.use("/applications", tokenChecker, applicationsRouter);
 app.use("/tokens", tokensRouter);
