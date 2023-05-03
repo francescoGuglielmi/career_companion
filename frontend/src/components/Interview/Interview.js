@@ -3,8 +3,6 @@ import key from '../api_key';
 import SelectJobPosition from '../jobSelection/JobSelection';
 import QuestionsForm from '../questionsForm/QuestionsForm';
 import './Interview.css';
-import Navbar from '../navbar/navBarHP';
-import Footer from '../footer/Footer';
 import { Configuration, OpenAIApi } from "openai";
 import NavbarHP from '../navbar/navBarHP';
 

@@ -2,7 +2,6 @@ import React from 'react';
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../navbar/navBarLP';
-import Footer from '../footer/Footer';
 import { BsFillMoonStarsFill } from "react-icons/bs";
 
 
@@ -301,8 +300,8 @@ export default function LandingPage() {
           </section>
         </main>
       </div>
-    </div>
-    <Footer />
+
+    {/* <Footer /> */}
     </>
   );
 };

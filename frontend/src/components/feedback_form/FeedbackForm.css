@@ -14,19 +14,19 @@ select {
   width: 300px;
 }
 
-h2 {
+/* h2 {
   font-weight: 900;
-}
+} */
 
 .rating {
   margin-bottom: 15px;
   margin-top: -15px;
 }
 
-form, p {
+/* form, p {
   margin-left: 30px;
   margin-top: 10px;
-}
+} */
 
 .feedback-textarea {
   border-radius: 0.4em;

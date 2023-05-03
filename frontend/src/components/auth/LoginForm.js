@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import './LoginForm.css'
 import NavbarSI from "../navbar/navBarSI";
-import Footer from "../footer/Footer";
+
 
 const LogInForm = ({ navigate }) => {
   const [email, setEmail] = useState("");
@@ -101,7 +101,7 @@ const LogInForm = ({ navigate }) => {
           <img src="/cc-login.png" width={600} className="pl-40" alt="" />
         </div>
       </div>
-      <Footer />
+    
     </>
   );
 };

@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import './CoverLetterGen.css'
-import Navbar from '../navbar/navBarHP';
-import Footer from '../footer/Footer';
 import { Configuration, OpenAIApi } from "openai";
 import key from '../api_key';
 import NavbarHP from '../navbar/navBarHP';
