@@ -44,23 +44,6 @@ const UsersController = {
       res.status(500).json({ message: "Internal Server Error" });
     }
   },
-
-  Delete: async (req, res) => {
-    try {
-      const user = await User.findById(req.params.applicationId);
-
-      if (!user) {
-        return res.status(404).json({ error: "User not found" });
-      }
-
-      await user.delete();
-
-      res.status(200).json({ message: "OK" });
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ message: "Internal Server Error" });
-    }
-  },
 };
 
 module.exports = UsersController;

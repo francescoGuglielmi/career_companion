@@ -4,36 +4,43 @@ import NavbarHP from "../navbar/navBarHP";
 
 const Account = ({ navigate }) => {
   const { state } = useLocation();
+  console.log('state:', state);
+
   const userData = state.userData;
   const token = state.token;
+
 
   const [firstName, setFirstName] = useState(userData.firstName);
   const [lastName, setLastName] = useState(userData.lastName);
   const [email, setEmail] = useState(userData.email);
 
+  useEffect(() => {
+    const updateUser = async () => {
+      let response = await fetch(`/users/${userData._id}`, {
+        method: "put",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${window.localStorage.getItem("token")}`,
+        },
+        body: JSON.stringify({
+          firstName: firstName,
+          lastName: lastName,
+          email: email,
+        }),
+      });
+
+      if (response.status !== 201) {
+        console.log("error saving your updated user");
+      } else {
+        console.log("your updated user saved to db");
+      }
+    };
+
+    updateUser();
+  }, [firstName, lastName, email, userData._id]);
   
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    let response = await fetch(`/users/${userData._id}`, {
-      method: "put",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${window.localStorage.getItem("token")}`,
-      },
-      body: JSON.stringify({
-        firstName: firstName,
-        lastName: lastName,
-        email: email
-      }),
-    });
-
-    if (response.status !== 201) {
-      console.log("error saving your updated user");
-    } else {
-      console.log("your updated user saved to db");
-    }
-
     navigate('/profile')
   };
 
@@ -55,9 +62,9 @@ const Account = ({ navigate }) => {
       
         <NavbarHP />
         <div className="min-h-screen bg-cream font-dm-sans-regular md:pl-10 md:pr-10">
-          <h1 className="text-lorange text-6xl font-poppins-bold">
+          <h2 className="flex justify-center text-lorange font-poppins-bold text-2xl pb-2 pt-8">
             Account information
-          </h1>
+          </h2>
           <form onSubmit={handleSubmit}>
             <h3 className="text-blue text-lg font-poppins-bold">
               Personal details
@@ -99,8 +106,13 @@ const Account = ({ navigate }) => {
         </div>
       </>
     );
-  } else {
-    navigate("/signin");
+  }  else {
+    return (
+      <>
+        <h1>Please  Sign in to access this resource</h1>
+        <a href='/login'>Sign in</a>
+      </>
+    )
   }
 };
 

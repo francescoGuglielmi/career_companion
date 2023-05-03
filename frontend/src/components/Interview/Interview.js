@@ -4,6 +4,7 @@ import SelectJobPosition from '../jobSelection/JobSelection';
 import QuestionsForm from '../questionsForm/QuestionsForm';
 import './Interview.css';
 import { Configuration, OpenAIApi } from "openai";
+import NavbarHP from '../navbar/navBarHP';
 
 const openai = new OpenAIApi(new Configuration({
   apiKey: key
@@ -144,6 +145,12 @@ const Interview = ({ navigate }) => {
   if (token) {
     console.log(typeof token)
     return (
+      <>
+      <NavbarHP />
+        <div className="min-h-screen bg-cream font-dm-sans-regular md:pl-10 md:pr-10">
+          <h2 className="flex justify-center text-lorange font-poppins-bold text-2xl pb-2 pt-8">
+            Interview dojo
+          </h2>
       <div className="dojo_container">
         <h2 id="title">Welcome to the interview dojo!</h2>
         <br/>
@@ -165,6 +172,8 @@ const Interview = ({ navigate }) => {
           </div>
         </> } */}
       </div>
+      </div>
+      </>
     )
   } else {
   return (

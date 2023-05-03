@@ -22,19 +22,19 @@ export default function Navbar({logout, account}) {
             </button>
             <ul className={isMenuOpen ? "menu-open" : ""}>
                 <li className="active">
-                    <a href="/community">Community</a>
+                    <a href="/#">Community</a>
                 </li>
                 <li>
                     <a href="/interview">Interview Dojo</a>
                 </li>
                 <li>
-                    <a href="/letter">Letter Generator</a>
+                    <a href="/generator">Letter Generator</a>
                 </li>
                 <li>
                     <a href="/account" onClick={account}>Account</a>
                 </li>
                 <li>
-                    <a href="#" onClick={logout}>Logout</a>
+                    <a href="/login" onClick={logout}>Logout</a>
                 </li>
             </ul>
         </nav>

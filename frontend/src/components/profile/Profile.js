@@ -29,8 +29,10 @@ const Profile = ({ navigate }) => {
           setApplications(filteredApplications);
           setUserData(data.user);
         });
+    } else {
+      navigate('/signup');
     }
-  }, []);
+  }, [token, navigate]);
 
   const logout = () => {
     window.localStorage.removeItem("token");
@@ -48,7 +50,7 @@ const Profile = ({ navigate }) => {
         <NavbarHP logout={logout} account={account}/>
         
         <div className="min-h-screen bg-cream font-dm-sans-regular md:pl-10 md:pr-10">
-          <h1 className="flex justify-center pt-12 text-lorange text-6xl font-poppins-bold pb-6">
+          <h1 className="flex justify-center pt-12 text-lorange text-5xl font-poppins-bold pb-6">
             Welcome {userData.firstName}
           </h1>
           <div>
@@ -150,7 +152,7 @@ const Profile = ({ navigate }) => {
       </>
     );
   } else {
-    navigate("/signin");
+    navigate("/signup");
   }
 };
 
