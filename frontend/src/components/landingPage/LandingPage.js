@@ -6,6 +6,7 @@ import { BsTwitter } from "react-icons/bs";
 import { BsGithub } from "react-icons/bs";
 import { HiOutlineDocumentText } from "react-icons/hi";
 import { HiMenuAlt3 } from "react-icons/hi";
+import './LandingPage.css';
 
 export default function LandingPage() {
   const[darkMode, setDarkMode] = useState(false);
@@ -19,22 +20,22 @@ export default function LandingPage() {
   return (
     <>
       <div className={darkMode ? "dark" : ""}>
-        <header className="bg-cream dark:bg-navy">
-          <nav className="flex justify-between items-center w-[92%] mx-auto">
+        <header className="bg-cream dark:bg-navy p-6">
+          <nav className="flex justify-between items-center w-full">
             <div className="">
-              <img src="/cc-logo.png" className="h-40 sticky top-0" alt="Career Companion Logo" />
+              <img src="/cc-logo.png" className="h-40 sticky top-0 px-10" alt="Career Companion Logo" />
             </div>
             <div className={`nav-links duration-500 justify-center md:static md:flex-row md:items-end absolute bg-cream min-h-screen md:min-h-fit left-0 ${isMenuOpen ? 'top-0' : '-top-full'} md:w-auto w-full flex flex-col items-center px-5`}>
               <div className="flex items-center h-full md:h-auto">
               <ul className="flex flex-col items-center md:items-stretch md:flex-row md:justify-center md:gap-[4vw] gap-8">
                 <li>
-                  <a href="/#about" className="text-5xl border-b-1 md:border-cream border-b-lorange hover:border-b-lorange w-[80vw] md:w-40 inline-flex items-center justify-center py-3 md:text-2xl font-bold text-center bg-cream dark:bg-cream hover:text-lblue hover:dark:bg-lorange  text-blue dark:text-blue border-2 dark:border-gray-700 dark:hover:bg-gray-700" onClick={() => navigate('/#about')}>ABOUT</a>
+                  <a href="/#about" className="text-5xl border-b-1 border-r-0 border-t-0 border-l-0 md:border-cream border-b-lorange hover:border-b-lorange w-[80vw] md:w-40 inline-flex items-center justify-center py-3 md:text-2xl font-bold text-center bg-cream dark:bg-cream hover:text-lblue hover:dark:bg-lorange  text-blue dark:text-blue border-2 dark:border-gray-700 dark:hover:bg-gray-700" onClick={() => navigate('/#about')}>ABOUT</a>
                 </li>
                 <li>
-                  <a href="/#team" className="text-5xl border-b-1 md:border-cream border-b-lorange hover:border-b-lorange w-[80vw] md:w-40 inline-flex items-center justify-center py-3 md:text-2xl font-bold text-center bg-cream dark:bg-cream hover:text-lblue hover:dark:bg-lorange  text-blue dark:text-blue border-2 dark:border-gray-700 dark:hover:bg-gray-700" onClick={() => navigate('/#team')}>TEAM</a>
+                  <a href="/#team" className="text-5xl border-b-1 border-r-0 border-t-0 border-l-0 md:border-cream border-b-lorange hover:border-b-lorange w-[80vw] md:w-40 inline-flex items-center justify-center py-3 md:text-2xl font-bold text-center bg-cream dark:bg-cream hover:text-lblue hover:dark:bg-lorange  text-blue dark:text-blue border-2 dark:border-gray-700 dark:hover:bg-gray-700" onClick={() => navigate('/#team')}>TEAM</a>
                 </li>
                 <li>
-                  <a href="/#features" className="text-5xl border-b-1 md:border-cream border-b-lorange hover:border-b-lorange w-[80vw] md:w-40 inline-flex items-center justify-center py-3 md:text-2xl font-bold text-center bg-cream dark:bg-cream hover:text-lblue hover:dark:bg-lorange  text-blue dark:text-blue border-2 dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800" onClick={() => navigate('/#features')}>FEATURES</a>
+                  <a href="/#features" className="text-5xl border-b-1 border-r-0 border-t-0 border-l-0 md:border-cream border-b-lorange hover:border-b-lorange w-[80vw] md:w-40 inline-flex items-center justify-center py-3 md:text-2xl font-bold text-center bg-cream dark:bg-cream hover:text-lblue hover:dark:bg-lorange  text-blue dark:text-blue border-2 dark:border-gray-700 dark:hover:bg-gray-700" onClick={() => navigate('/#features')}>FEATURES</a>
                 </li>
               </ul>
               </div>
@@ -42,10 +43,14 @@ export default function LandingPage() {
             <div className="flex items-center gap-6">
               <BsFillMoonStarsFill
                 onClick={() => setDarkMode(!darkMode)}
-                className="cursor-pointer text-2xl mr-2 text-blue dark:text-lorange"
+                className="cursor-pointer text-2xl mr-8 text-blue dark:text-lorange"
               />
               <button className="sm:hidden w-48 inline-flex items-center justify-center px-5 py-3 text-base font-bold text-center bg-lorange dark:bg-cream hover:bg-lorange hover:dark:bg-lorange  text-navy dark:text-blue border-2 border-lorange hover:border-blue rounded-xl dark:border-gray-700 dark:hover:bg-gray-700" onClick={() => navigate('/login')}>LOGIN</button>
-              <HiMenuAlt3 onClick={() => onToggleMenu()} name="menu" className="sticky top-0 text-5xl cursor-pointer text-navy dark:text-cream md:hidden" />
+              <div onClick={() => onToggleMenu()} className={`hamburger-menu cursor-pointer md:hidden ${isMenuOpen ? 'open' : ''}`}>
+                <span className="bar"></span>
+                <span className="bar"></span>
+                <span className="bar"></span>
+              </div>
             </div>
           </nav>
         </header>

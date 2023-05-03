@@ -5,7 +5,7 @@ import SignUpForm from '../user/SignUpForm';
 import Interview from '../Interview/Interview.js';
 import CoverLetterGenerator from '../coverLetterGen/CoverLetterGen';
 import Profile from '../profile/Profile';
-import Account from '../account/Account'
+import Account from '../account/Account';
 import React, { useState } from 'react';
 import {
   useNavigate,
