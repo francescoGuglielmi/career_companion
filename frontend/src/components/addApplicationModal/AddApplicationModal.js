@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const AddApplication = () => {
+const AddApplication = (props) => {
   const [company, setCompany] = useState("");
   const [jobTitle, setJobTitle] = useState("");
   const [location, setLocation] = useState("");
@@ -53,6 +53,9 @@ const AddApplication = () => {
 
     if (response.status !== 201) {
       console.log("error saving your application");
+      if (response.status === 401) {
+        window.location.href = '/login'
+      }
     } else {
       console.log("your application saved to db");
       window.location.reload();

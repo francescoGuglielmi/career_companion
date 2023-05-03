@@ -3,6 +3,8 @@ import key from '../api_key';
 import SelectJobPosition from '../jobSelection/JobSelection';
 import QuestionsForm from '../questionsForm/QuestionsForm';
 import './Interview.css';
+import Navbar from '../navbar/navBarHP';
+import Footer from '../footer/Footer';
 import { Configuration, OpenAIApi } from "openai";
 
 const openai = new OpenAIApi(new Configuration({
@@ -26,66 +28,12 @@ const Interview = ({ navigate }) => {
   const [feedback, setFeedback] = useState(null)
   // const [rating, setRating] = useState(null)
 
-  // FUNCTION TO SET THE JOB SELECTION 
 
-  // useEffect(() => {
-  //   if(token) {
-  //     fetch("/interview", {
-  //       headers: {
-  //         //makes sure a vaild token is present
-  //         'Authorization': `Bearer ${token}`
-  //       }
-  //     })
-  //       .then(response => response.json())
-  //       .then(async data => {
-  //         window.localStorage.setItem("token", data.token)
-  //         setToken(window.localStorage.getItem("token"))
-  //         ///console.log()
-  //       })
-
-  //   } else { 
-  //     return "" }
-  // })
+  // OnChange FUNCTIONS
 
   function handleSelectionChange(event) {
     setJobSelection(event.target.value);
   }
-
-  // HANDLE SUBMIT
-
-  function handleSelectionSubmit(event) {
-    event.preventDefault()
-
-    openai.createChatCompletion({
-      model: "gpt-3.5-turbo",
-      messages: [{ role: "user", content: gptInputJob()}]
-    }).then((res) => {
-      const result = res.data.choices[0].message.content.split('?')
-      setQuestions(result);
-      setLoadingFormAlert("");
-    })
-
-    setLoadingFormAlert("Loading, please wait...")
-  }
-
-  // SET INPUT FOR chatGPT
-
-  function gptInputJob() {
-    return `Give me 5 of the most asked questions in a job interview for a ${jobSelection} position without any additional text`
-  }
-
-  function gptInputAnswers() {
-    let answersForGPT = `Knowing that the answers to these questions are for an interview for a ${jobSelection} position, could you give a feedback on how the answers to these questions could be improved to have more complete information?` +
-    `Question 1: ${questions[0]} Answer: ${answer1}` +
-    `Question 2: ${questions[1]} Answer: ${answer2}` +
-    `Question 3: ${questions[2]} Answer: ${answer3}` +
-    `Question 4: ${questions[3]} Answer: ${answer4}` +
-    `Question 5: ${questions[4]} Answer: ${answer5}`
-
-    return answersForGPT
-  }
-
-  // FUNCTIONS TO SET THE ANSWERS TO THE VALUE INPUTTED
 
   function handleAnswer1Change(event) {
     event.preventDefault();
@@ -112,7 +60,37 @@ const Interview = ({ navigate }) => {
     setAnswer5(event.target.value);
   }
 
-  // HANDLE SUBMIT
+  // JOB SELECTION
+
+  function gptInputJob() {
+    return `Give me 5 of the most asked questions in a job interview for a ${jobSelection} position without any additional text`
+  }
+
+  function handleSelectionSubmit(event) {
+    event.preventDefault()
+
+    openai.createChatCompletion({
+      model: "gpt-3.5-turbo",
+      messages: [{ role: "user", content: gptInputJob()}]
+    }).then((res) => {
+      const result = res.data.choices[0].message.content.split('?')
+      setQuestions(result);
+      setLoadingFormAlert("");
+    })
+    setLoadingFormAlert("Loading, please wait...")
+  }
+
+  // ANSWERS
+
+  function gptInputAnswers() {
+    let answersForGPT = `Knowing that the answers to these questions are for an interview for a ${jobSelection} position, could you give a feedback on how the answers to these questions could be improved to have more complete information?` +
+    `Question 1: ${questions[0]} Answer: ${answer1}` +
+    `Question 2: ${questions[1]} Answer: ${answer2}` +
+    `Question 3: ${questions[2]} Answer: ${answer3}` +
+    `Question 4: ${questions[3]} Answer: ${answer4}` +
+    `Question 5: ${questions[4]} Answer: ${answer5}`
+    return answersForGPT
+  }
 
   function handleAnswersSubmit(event) {
     event.preventDefault()
@@ -126,26 +104,17 @@ const Interview = ({ navigate }) => {
       setFeedback(result);
       setLoadingFeedbackAlert("");
     })
-    
   }
 
-  // function generateRating() {
-  //   openai.createChatCompletion({
-  //     model: "gpt-3.5-turbo",
-  //     messages: [{ role: "user", content: `Please just give me a one word answer as a rating for the questionaire you gave a feedback above: Very Bad, Bad, Incomplete, Average, Satisfactory, Good or Excellent. Beware that to give a good rating the answer must be complete and well argumented`}]
-  //   }).then((res) => {
-  //     const result = res.data.choices[0].message.content;
-  //     setRating(result)
-  //   })
-  // }
-
-  // RENDERED FUNCTIONS:
+  // RENDERING:
 
   if (token) {
     console.log(typeof token)
     return (
+      <>
+      <Navbar />
+      <h2 className="interview_title">Welcome to the interview dojo!</h2>
       <div className="dojo_container">
-        <h2 id="title">Welcome to the interview dojo!</h2>
         <br/>
         <SelectJobPosition handleSelectionSubmit={handleSelectionSubmit} handleSelectionChange={handleSelectionChange} jobSelection={jobSelection}/> 
         <h2>{loadingFormAlert}</h2>
@@ -165,6 +134,9 @@ const Interview = ({ navigate }) => {
           </div>
         </> } */}
       </div>
+      <Footer />
+      </>
+
     )
   } else {
   return (
@@ -177,3 +149,16 @@ const Interview = ({ navigate }) => {
 }
 
 export default Interview;
+
+
+// TO BE FIXED
+
+  // function generateRating() {
+  //   openai.createChatCompletion({
+  //     model: "gpt-3.5-turbo",
+  //     messages: [{ role: "user", content: `Please just give me a one word answer as a rating for the questionaire you gave a feedback above: Very Bad, Bad, Incomplete, Average, Satisfactory, Good or Excellent. Beware that to give a good rating the answer must be complete and well argumented`}]
+  //   }).then((res) => {
+  //     const result = res.data.choices[0].message.content;
+  //     setRating(result)
+  //   })
+  // }
