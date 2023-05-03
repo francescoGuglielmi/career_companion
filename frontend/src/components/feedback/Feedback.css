@@ -1,5 +1,6 @@
 .feedback {
   border: 3px solid blue;
+  background-color: rgb(190, 199, 255);
   border-radius: 1em;
   display: flex;
   justify-content: center;
@@ -20,4 +21,13 @@
 .company {
   font-size: 16px;
   margin-left: 10px;
+}
+
+.search_bar {
+  background-color: rgb(48, 0, 169);
+  color: white;
+  border-radius: 0.3em;
+  width: 250px;
+  margin-left: 15px;
+  padding:4px;
 }

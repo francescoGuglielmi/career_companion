@@ -1,6 +1,7 @@
 .form {
   margin: 0 30px 0 30px;
   border: 1px solid red;
+  background-color: rgb(253, 225, 166);
   border-radius: 1em;
   padding: 15px;
   display: flex;
@@ -10,6 +11,7 @@
 
 select {
   margin: 8px;
+  width: 300px;
 }
 
 h2 {

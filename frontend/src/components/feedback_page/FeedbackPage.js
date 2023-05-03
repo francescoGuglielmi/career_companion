@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import NavbarHP from '../navbar/navBarHP';
 import FeedbackForm from "../feedback_form/FeedbackForm";
 import Feedback from "../feedback/Feedback";
+import Footer from '../footer/Footer'
 import './FeedbackPage.css'
 
 const FeedbackPage = ({navigate}) => {
@@ -14,6 +15,8 @@ const FeedbackPage = ({navigate}) => {
   const [rating, setRating] = useState("5")
   const [content, setContent] = useState("")
   const [feedbacks, setFeedbacks] = useState([])
+  const [searchQuery, setSearchQuery] = useState("")
+  const [filteredFeedbacks, setFilteredFeedbacks] = useState(feedbacks)
   
   useEffect(() => {
     if (token) {
@@ -53,6 +56,14 @@ const FeedbackPage = ({navigate}) => {
         });
     }
   }, []);
+
+  useEffect(() => {
+    setFilteredFeedbacks(
+      feedbacks.filter((feedback) =>
+        feedback.company.toLowerCase().includes(searchQuery.toLowerCase())
+      )
+    );
+  }, [feedbacks, searchQuery]);
 
   function handleSelectCompanyChange(event) {
     setSelectedCompany(event.target.value)
@@ -96,6 +107,10 @@ const FeedbackPage = ({navigate}) => {
     });
   }
 
+  function handleQueryChange(event) {
+    setSearchQuery(event.target.value)
+  }
+
   if(token) {
     return (
       <>
@@ -122,8 +137,10 @@ const FeedbackPage = ({navigate}) => {
         <div>
           <h1 className="feedback-intro-title">Reviews</h1>
           <br/>
-          <Feedback feedbacks={feedbacks}/>
+          <Feedback feedbacks={feedbacks} filteredFeedbacks={filteredFeedbacks} handleQueryChange={handleQueryChange} searchQuery={searchQuery}/>
         </div>
+        <br/><br/><br/>
+        <Footer />
       </>
     )
   }
