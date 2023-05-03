@@ -4,9 +4,9 @@ const FeatureLinks = () => {
   return (
     <>
       <div className="grid grid-cols-5 lg:grid-cols-5 place-items-center">
-        <div className="grid md:grid-rows-2 justify-center items-center">
-          <div className="flex flex-col items-center">
-            <div className="w-7 h-7 rounded-full bg-primary-100 dark:bg-primary-900 text-lblue flex justify-center text-center">
+        <a href="#applicationSection" className="grid md:grid-rows-2 justify-center items-center">
+          <div className="flex flex-col items-center hover:text-lorange ease-in-out duration-200">
+            <div className="w-7 h-7 rounded-full bg-primary-100 dark:bg-primary-900 text-lblue hover:text-lorange ease-in-out duration-200 flex justify-center text-center">
               <svg
                 className="text-primary-600 dark:text-primary-300"
                 fill="currentColor"
@@ -20,17 +20,17 @@ const FeatureLinks = () => {
                 ></path>
               </svg>
             </div>
-            <h3 className="hidden md:block text-md font-bold text-navy dark:text-white text-center">
+            <h3 className="hidden md:block text-md font-bold text-navy dark:text-white text-center ">
               Job Applications Tracker
             </h3>
           </div>
-        </div>
+        </a>
 
-        <div className="grid md:grid-rows-2 justify-center items-center">
+        <a href="/interview" className="grid md:grid-rows-2 justify-center items-center">
           <div className="flex flex-col items-center">
-            <div className="w-7 h-7 rounded-full bg-primary-100 dark:bg-primary-900 text-lblue flex justify-center text-center">
+            <div className="w-7 h-7 rounded-full bg-primary-100 dark:bg-primary-900 text-lblue hover:text-lorange ease-in-out duration-200 flex justify-center text-center">
               <svg
-                className="w-5 h-5 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300"
+                className="text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300"
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
@@ -42,13 +42,13 @@ const FeatureLinks = () => {
               Interview Training
             </h3>
           </div>
-        </div>
+        </a>
 
-        <div className="grid md:grid-rows-2 justify-center items-center">
+        <a href="resume" className="grid md:grid-rows-2 justify-center items-center">
           <div className="flex flex-col items-center">
-            <div className="w-7 h-7 rounded-full bg-primary-100 dark:bg-primary-900 text-lblue flex justify-center text-center">
+            <div className="w-7 h-7 rounded-full bg-primary-100 dark:bg-primary-900 text-lblue hover:text-lorange ease-in-out duration-200 flex justify-center text-center">
               <svg
-                className="w-5 h-5 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300"
+                className="text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300"
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
@@ -65,13 +65,13 @@ const FeatureLinks = () => {
               Resume Builder
             </h3>
           </div>
-        </div>
+        </a>
 
-        <div className="grid md:grid-rows-2 justify-center items-center">
+        <a href="generator" className="grid md:grid-rows-2 justify-center items-center">
           <div className="flex flex-col items-center">
-            <div className="w-7 h-7 rounded-full bg-primary-100 dark:bg-primary-900 text-lblue flex justify-center text-center">
+            <div className="w-7 h-7 rounded-full bg-primary-100 dark:bg-primary-900 text-lblue  hover:text-lorange ease-in-out duration-200 flex justify-center text-center">
               <svg
-                className="w-5 h-5 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300"
+                className="text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300"
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
@@ -83,13 +83,13 @@ const FeatureLinks = () => {
               Cover Letter Generator
             </h3>
           </div>
-        </div>
+        </a>
 
-        <div className="grid md:grid-rows-2 justify-center items-center">
+        <a href="/feedback" className="grid md:grid-rows-2 justify-center items-center">
           <div className="flex flex-col items-center">
-            <div className="w-7 h-7 rounded-full bg-primary-100 dark:bg-primary-900 text-lblue flex justify-center text-center">
+            <div className="w-7 h-7 rounded-full bg-primary-100 dark:bg-primary-900 text-lblue hover:text-lorange ease-in-out duration-200 flex justify-center text-center">
               <svg
-                className="w-5 h-5 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300"
+                className="text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300"
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
@@ -105,7 +105,7 @@ const FeatureLinks = () => {
               Research Companies
             </h3>
           </div>
-        </div>
+        </a>
       </div>
     </>
   );

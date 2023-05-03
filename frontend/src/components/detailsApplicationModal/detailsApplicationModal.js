@@ -10,10 +10,10 @@ const DetailsApplication = ({ application }) => {
   return (
     <>
       <button
-      className={`text-md py-1.5 px-4 inline-flex items-center justify-center text-center rounded-xl ease-in-out duration-100 ${
+      className={`text-md bg-transparent mr-2 ml-2 text-navy inline-flex items-center justify-center text-center border border-lorange hover:border-blue  rounded-xl ease-in-out duration-200 ${
         application.applicationStatus === "Invited to interview"
-          ?  "bg-transparent text-navy ml-2 mr-2 text-md py-1.5 px-4 inline-flex items-center justify-center text-center border border-lorange hover:border-blue rounded-xl ease-in-out duration-100 "
-          : "bg-transparent text-navy text-md underline hover:text-blue"
+          ?  "py-1.5 px-4 "
+          : "py-1 px-3"
       }`}
       onClick={() => setIsModalOpen(true)}
     >

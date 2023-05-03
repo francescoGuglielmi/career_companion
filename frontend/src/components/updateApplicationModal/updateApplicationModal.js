@@ -54,10 +54,10 @@ const UpdateApplication = ({ application }) => {
   return (
     <>
     <button
-      className={`text-md py-1.5 px-4 inline-flex items-center justify-center text-center rounded-xl ease-in-out duration-100 ${
+      className={`text-md bg-transparent text-navy inline-flex items-center justify-center text-center border border-lorange hover:border-blue rounded-xl ease-in-out duration-200 ${
         application.applicationStatus === "Invited to interview"
-          ?  "bg-transparent text-navy text-md py-1.5 px-4 inline-flex items-center justify-center text-center border border-lorange hover:border-blue rounded-xl ease-in-out duration-100 "
-          : "bg-transparent text-navy text-md ml-0 underline inline-flex items-start justify-start text-start py-0 px-0  hover:text-blue "
+          ?  "py-1.5 px-4 "
+          : "py-1 px-3"
       }`}
       onClick={() => setIsModalOpen(true)}
     >

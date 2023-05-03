@@ -83,21 +83,21 @@ const AddApplication = (props) => {
       {/* The button to open modal */}
       <label
         htmlFor="my-modal-3"
-        className="bg-cream text-lorange font-poppins-bold text-lg inline-flex items-start justify-start text-start underline hover:border-blue rounded-xl ease-in-out duration-100 "
+        className="bg-cream text-lorange font-poppins-bold text-lg cursor-pointer inline-flex items-start justify-start text-start underline hover:text-lblue rounded-xl ease-in-out duration-200 "
       >
         Add new application
       </label>
-      <div className="flex justify-center">
+      <div className="flex justify-center text-navy">
         <input type="checkbox" id="my-modal-3" className="modal-toggle" />
         <div className="modal">
           <div className="modal-box relative">
             <label
               htmlFor="my-modal-3"
-              className="btn btn-sm btn-circle absolute right-2 top-2"
+              className="btn btn-sm btn-circle absolute right-2 top-2 bg-transparent text-navy hover:bg-transparent"
             >
               ✕
             </label>
-            <h3 className="text-lg font-bold">Add an application</h3>
+            <h3 className="text-lg font-bold mb-4">Add an application</h3>
             <form onSubmit={handleSubmit}>
               <div className="mb-4">
                 <input
@@ -179,10 +179,10 @@ const AddApplication = (props) => {
                   onChange={handleInterviewDateChange}
                 />
               )}
-              <div className="flex items-center justify-end">
+              <div className="flex items-center justify-center">
                 <button
-                  className="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                  type="submit"
+                className="bg-blue text-white text-md py-2 px-4 inline-flex items-center justify-center text-center border-2 hover:border-blue hover:bg-white hover:text-navy rounded-xl ease-in-out duration-200 "
+                type="submit"
                 >
                   Submit
                 </button>
