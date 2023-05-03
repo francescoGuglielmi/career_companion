@@ -57,7 +57,7 @@ const UpdateApplication = ({ application }) => {
       className={`text-md py-1.5 px-4 inline-flex items-center justify-center text-center rounded-xl ease-in-out duration-100 ${
         application.applicationStatus === "Invited to interview"
           ?  "bg-transparent text-navy text-md py-1.5 px-4 inline-flex items-center justify-center text-center border-2 border-lorange hover:border-blue rounded-xl ease-in-out duration-100 "
-          : "bg-transparent text-navy text-lg underline hover:text-blue"
+          : "bg-transparent text-navy text-md ml-0 underline inline-flex items-start justify-start text-start py-0 px-0  hover:text-blue "
       }`}
       onClick={() => setIsModalOpen(true)}
     >

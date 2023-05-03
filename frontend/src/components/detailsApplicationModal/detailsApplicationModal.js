@@ -13,7 +13,7 @@ const DetailsApplication = ({ application }) => {
       className={`text-md py-1.5 px-4 inline-flex items-center justify-center text-center rounded-xl ease-in-out duration-100 ${
         application.applicationStatus === "Invited to interview"
           ?  "bg-transparent text-navy ml-2 mr-2 text-md py-1.5 px-4 inline-flex items-center justify-center text-center border-2 border-lorange hover:border-blue rounded-xl ease-in-out duration-100 "
-          : "bg-transparent text-navy text-lg underline hover:text-blue"
+          : "bg-transparent text-navy text-md underline hover:text-blue"
       }`}
       onClick={() => setIsModalOpen(true)}
     >

@@ -62,7 +62,9 @@ const Profile = ({ navigate }) => {
             <Stats key={applications._id} application={applications} />
           </div>
           <div className="flex justify-center">
-            <span><AddApplication navigate={navigate} /></span>
+            <span>
+              <AddApplication navigate={navigate} />
+            </span>
             {/* <span className="ml-4 mr-4"><AddApplication navigate={navigate} /></span>
             <span><AddApplication navigate={navigate} /></span> */}
           </div>
@@ -90,47 +92,51 @@ const Profile = ({ navigate }) => {
             <p className="pt-8 pb-2 text-navy text-lg font-poppins-bold">
               Completed applications{" "}
             </p>
-            {applications.filter(
-              (application) =>
-                application.applicationStatus === "Applied for role"
-            ).length === 0 ? (
-              <p className="text-blue text-lg">Nothing to show here!</p>
-            ) : (
-              applications
-                .filter(
-                  (application) =>
-                    application.applicationStatus === "Applied for role"
-                )
-                .map((application) => (
-                  <Application
-                    key={application._id}
-                    application={application}
-                  />
-                ))
-            )}
+            <div className="grid grid-rows-1 md:grid-cols-2 xl:grid-cols-3 justify-center gap-y-4">
+              {applications.filter(
+                (application) =>
+                  application.applicationStatus === "Applied for role"
+              ).length === 0 ? (
+                <p className="text-blue text-lg">Nothing to show here!</p>
+              ) : (
+                applications
+                  .filter(
+                    (application) =>
+                      application.applicationStatus === "Applied for role"
+                  )
+                  .map((application) => (
+                    <Application
+                      key={application._id}
+                      application={application}
+                    />
+                  ))
+              )}
+            </div>
           </div>
           <div>
             <p className="pt-2 pb-2 text-navy text-lg font-poppins-bold">
               Incomplete applications
             </p>
-            {applications.filter(
-              (application) =>
-                application.applicationStatus === "Not yet applied"
-            ).length === 0 ? (
-              <p className="text-blue text-lg">Nothing to show here!</p>
-            ) : (
-              applications
-                .filter(
-                  (application) =>
-                    application.applicationStatus === "Not yet applied"
-                )
-                .map((application) => (
-                  <Application
-                    key={application._id}
-                    application={application}
-                  />
-                ))
-            )}
+            <div className="grid grid-rows-1 md:grid-cols-2 xl:grid-cols-3 justify-center gap-y-4">
+              {applications.filter(
+                (application) =>
+                  application.applicationStatus === "Not yet applied"
+              ).length === 0 ? (
+                <p className="text-blue text-lg">Nothing to show here!</p>
+              ) : (
+                applications
+                  .filter(
+                    (application) =>
+                      application.applicationStatus === "Not yet applied"
+                  )
+                  .map((application) => (
+                    <Application
+                      key={application._id}
+                      application={application}
+                    />
+                  ))
+              )}
+            </div>
           </div>
           <div>
             <p className="pt-2 pb-2 text-navy text-lg font-poppins-bold">
