@@ -55,13 +55,13 @@ const Profile = ({ navigate }) => {
             Welcome {userData.firstName}
           </h1>
           
-          <div className="flex justify-center pt-4 pb-8">
+          <div className="flex justify-center pt-4 pb-12">
             <Stats key={applications._id} application={applications} />
           </div>
           <div>
             <FeatureLinks />
           </div>
-          <div className="flex justify-center mt-10">
+          <div className="flex justify-start mb-4">
             <span>
               <AddApplication navigate={navigate} />
             </span>
