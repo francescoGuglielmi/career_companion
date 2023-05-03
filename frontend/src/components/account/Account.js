@@ -5,7 +5,7 @@ import NavbarHP from "../navbar/navBarHP";
 const Account = ({ navigate }) => {
   const { state } = useLocation();
   console.log('state:', state);
-
+console.log('userdata:', state.userData)  
   const userData = state.userData;
   const token = state.token;
 
@@ -89,10 +89,11 @@ const Account = ({ navigate }) => {
             </div>
             <div className="mb-4">
               <input
-                type="text"
+                type="email"
                 className="border border-gray-400 rounded w-96 h-10 shadow py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 placeholder={userData.email}
                 value={email}
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                 onChange={handleEmailChange}
               />
             </div>
