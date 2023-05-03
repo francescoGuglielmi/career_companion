@@ -9,9 +9,9 @@ const ApplicationInterview = ({ application }) => {
     <>
       <article data-cy="application" key={application._id}>
         <div className="bg-white text-navy w-80 lg:w-96 ml-2 px-2 py-4 shadow rounded-lg pl-4">
-          <div className="text-lg">{application.company}</div>
-          <div className="text-lg">{application.jobTitle}</div>
-          <div className="text-lg">{application.location}</div>
+          <div className="text-lg font-bold">{application.company}</div>
+          <div className="text-md">{application.jobTitle}</div>
+          <div className="text-md">{application.location}</div>
           <div className="mb-2 text-md text-bold">Interview date: {application.interviewDate}</div>
           <div>
             <UpdateApplication

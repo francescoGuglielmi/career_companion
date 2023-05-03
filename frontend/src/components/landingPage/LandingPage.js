@@ -77,7 +77,7 @@ export default function LandingPage() {
                 <h2 className="text-navy max-w-4xl mb-6 ml-10 pb-2 text-4xl text-center font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-cream border-b-2 border-lorange border-dashed">OUR TEAM</h2>
               </div> 
               <div className="grid gap-8 mb-6 lg:mb-16 md:grid-cols-2">
-                <div className="h-72 items-center bg-cream border-2 border-lorange rounded-lg shadow sm:flex dark:bg-gray-800 dark:border-gray-700">
+                <div className="items-center bg-cream border-2 border-lorange rounded-lg shadow sm:flex dark:bg-gray-800 dark:border-gray-700">
                   <a href="#">
                     <img className="rounded-full p-2" src="/sarah-avatar.png" alt="Sarah Avatar" />
                   </a>
