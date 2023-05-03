@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import './LoginForm.css'
 import NavbarSI from "../navbar/navBarSI";
-import Footer from "../footer/footer";
+
 
 const LogInForm = ({ navigate }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loginMessage, setLoginMessage] = useState(null)
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -22,6 +24,11 @@ const LogInForm = ({ navigate }) => {
     if (response.status !== 201) {
       let data = await response.json();
       console.log(data._id);
+      if (response.status === 404) {
+        setLoginMessage("There is no account with this email address. Please Sign up.")
+      } else if (response.status === 401) {
+        setLoginMessage("Password doesn't match, try again.")
+      }
     } else {
       let data = await response.json();
       if (data.token === undefined) {
@@ -29,6 +36,7 @@ const LogInForm = ({ navigate }) => {
       } else if (data.user_id === undefined) {
         console.log("user id is undefined");
       }
+      setLoginMessage(null)
       window.localStorage.setItem("token", data.token);
       window.localStorage.setItem("user_id", data.user_id);
       navigate("/profile");
@@ -51,6 +59,7 @@ const LogInForm = ({ navigate }) => {
           <h1 className="text-5xl font-epilogue-regular text-black pt-4">
             Sign in
           </h1>
+          {loginMessage && <h2 className="login_message">{loginMessage}</h2>}
           <form
             onSubmit={handleSubmit}
             className="bg-cream rounded px-2 pt-6 pb-8 mb-4 font-dm-sans-regular"
@@ -92,7 +101,7 @@ const LogInForm = ({ navigate }) => {
           <img src="/cc-login.png" width={600} className="pl-40" alt="" />
         </div>
       </div>
-      <Footer />
+    
     </>
   );
 };

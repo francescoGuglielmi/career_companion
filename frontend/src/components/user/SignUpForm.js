@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import './SignUpForm.css'
 import NavbarSU from "../navbar/navBarSU";
-import Footer from "../footer/footer";
+import Footer from "../footer/Footer";
 
 const SignUpForm = ({ navigate }) => {
   const [email, setEmail] = useState("");
@@ -54,7 +55,7 @@ const SignUpForm = ({ navigate }) => {
       <NavbarSU />
       <div className="flex flex-row items-start justify-start h-screen md:pl-60 md:pt-40 bg-cream">
         <div className="w-full max-w-xs">
-          <h1 className="text-5xl font-epilogue-regular text-black pt-4">
+          <h1 className="text-5xl font-poppins-bold text-black pt-4">
             Sign up
           </h1>
           <form

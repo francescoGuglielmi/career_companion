@@ -1,0 +1,33 @@
+.feedback {
+  border: 3px solid blue;
+  background-color: rgb(190, 199, 255);
+  border-radius: 1em;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px 30px 10px 30px;
+  margin: 15px 30px 15px 30px;
+}
+
+.jobPosition {
+  font-size: 26px;
+}
+
+.feedback-content {
+  margin: 5px 0 5px 0;
+}
+
+.company {
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+.search_bar {
+  background-color: rgb(48, 0, 169);
+  color: white;
+  border-radius: 0.3em;
+  width: 250px;
+  margin-left: 15px;
+  padding:4px;
+}

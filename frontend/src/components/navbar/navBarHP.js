@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import "./navBarLP.css";
 
-export default function Navbar() {
+export default function Navbar({logout, account}) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const toggleMenu = () => {
@@ -12,7 +12,7 @@ export default function Navbar() {
 
     return (
         <nav className="nav">
-            <a href="/" className="site-title">
+            <a href="/profile" className="site-title">
                 Career Companion
             </a>
             <button className="menu-icon" onClick={toggleMenu}>
@@ -22,13 +22,19 @@ export default function Navbar() {
             </button>
             <ul className={isMenuOpen ? "menu-open" : ""}>
                 <li className="active">
-                    <a href="/community">Community</a>
+                    <a href="/#">Community</a>
                 </li>
                 <li>
                     <a href="/interview">Interview Dojo</a>
                 </li>
                 <li>
-                    <a href="/letter">Letter Generator</a>
+                    <a href="/generator">Letter Generator</a>
+                </li>
+                <li>
+                    <a href="/account" onClick={account}>Account</a>
+                </li>
+                <li>
+                    <a href="/login" onClick={logout}>Logout</a>
                 </li>
             </ul>
         </nav>
