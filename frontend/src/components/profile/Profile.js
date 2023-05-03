@@ -51,11 +51,11 @@ const Profile = ({ navigate }) => {
         <NavbarHP logout={logout} account={account}/>
         
         <div className="min-h-screen bg-cream font-dm-sans-regular md:pl-10 md:pr-10">
-          <h1 className="flex justify-center pt-12 text-lorange text-5xl font-poppins-bold pb-6">
+          <h1 className="flex justify-center pt-12 text-navy text-5xl font-poppins-bold pb-6">
             Welcome {userData.firstName}
           </h1>
           <div>
-            <h2 className="flex justify-center text-lorange font-poppins-bold text-xl pb-2">
+            <h2 className="flex justify-center text-navy font-poppins-bold text-xl pb-2">
               Track your job application progress here
             </h2>
           </div>
@@ -70,7 +70,7 @@ const Profile = ({ navigate }) => {
           <AddApplication navigate={navigate}/>
 
           <div>
-            <p className="pt-2 pb-2 text-lblue font-poppins-bold">
+            <p className="pt-2 pb-2 text-navy font-poppins-bold">
               Interview stage
             </p>
             <div className="grid grid-rows-1 md:grid-cols-2 xl:grid-cols-3 justify-center gap-y-4 ">
@@ -88,7 +88,7 @@ const Profile = ({ navigate }) => {
             </div>
           </div>
           <div>
-            <p className="pt-8 pb-2 text-lblue font-poppins-bold">
+            <p className="pt-8 pb-2 text-navy font-poppins-bold">
               Completed applications{" "}
             </p>
             {applications.filter(
@@ -111,7 +111,7 @@ const Profile = ({ navigate }) => {
             )}
           </div>
           <div>
-            <p className="pt-2 pb-2 text-lblue font-poppins-bold">
+            <p className="pt-2 pb-2 text-navy font-poppins-bold">
               Incomplete applications
             </p>
             {applications.filter(
@@ -134,7 +134,7 @@ const Profile = ({ navigate }) => {
             )}
           </div>
           <div>
-            <p className="pt-2 pb-2 text-lblue font-poppins-bold">
+            <p className="pt-2 pb-2 text-navy font-poppins-bold">
               Archived applications{" "}
             </p>
             {applications
