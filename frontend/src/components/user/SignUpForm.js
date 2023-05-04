@@ -57,7 +57,7 @@ const SignUpForm = ({ navigate }) => {
 
   return (
     <>
-      <header className="bg-cream dark:bg-navy p-6">
+      <header className="bg-cream dark:bg-navy">
           <nav className="flex justify-between items-center w-full font-poppins-regular">
             <div className="">
               <a href="/"><img src="/cc-logo.png" className="h-40 sticky top-0 px-10" alt="Career Companion Logo" /></a>

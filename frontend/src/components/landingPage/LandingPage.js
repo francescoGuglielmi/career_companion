@@ -20,7 +20,7 @@ export default function LandingPage() {
   return (
     <>
       <div className={darkMode ? "dark" : ""}>
-        <header className="bg-cream dark:bg-navy p-6 font-poppins-regular">
+        <header className="bg-cream dark:bg-navy font-poppins-regular">
           <nav className="flex justify-between items-center w-full">
             <div className="">
               <img src="/cc-logo.png" className="h-40 sticky top-0 px-10" alt="Career Companion Logo" />
@@ -56,7 +56,7 @@ export default function LandingPage() {
         </header>
 
         <main className="bg-cream dark:bg-navy">
-          <section className="min-h-fit py-20 mb-56">
+          <section className="min-h-fit mb-56">
             <section className="bg-cream dark:bg-navy">
               <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
                 <div className="mr-auto place-self-center lg:col-span-7">
