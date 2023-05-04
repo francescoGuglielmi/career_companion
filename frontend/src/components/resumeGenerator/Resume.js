@@ -1,5 +1,6 @@
 import React from 'react';
 import "./resume.css"
+import NavbarHP from "../navbar/navBarHP";
 
 function Resume() {
     return (
