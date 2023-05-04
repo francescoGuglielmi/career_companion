@@ -325,7 +325,7 @@ export default function LandingPage() {
             </div>
           </section>
           
-          <section className="bg-cream dark:bg-blue border-t-2 border-lorange border-dashed">
+          <section className="bg-cream dark:bg-blue">
             <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
               <div className="mx-auto max-w-screen-sm text-center">
                 <h2 className="mb-4 text-4xl tracking-tight font-extrabold leading-tight text-navy dark:text-white">Start your free trial today</h2>
@@ -336,6 +336,13 @@ export default function LandingPage() {
           </section>
         </main>
       </div>
+      <footer className="bg-cream dark:bg-navy p-6">
+        <div className="w-full bg-cream pt-16 pb-10 h-100 border-t-2 border-lorange border-dashed">
+          <h4 className="text-xl text-center text-blue">
+            Made with ❤️ and ☕️ by Sarah, Francesco, Adnan, Konrad & Kassandra!
+          </h4>
+        </div>
+      </footer>
     </>
   );
 };
