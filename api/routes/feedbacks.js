@@ -4,6 +4,6 @@ const FeedbackController = require('../controllers/feedbacks')
 
 router.post("/", FeedbackController.Create);
 router.get("/", FeedbackController.Index)
-router.delete("/", FeedbackController.Delete);
+router.delete("/:feedbackId", FeedbackController.Delete);
 
 module.exports = router;

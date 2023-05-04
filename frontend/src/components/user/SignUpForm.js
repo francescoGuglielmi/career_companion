@@ -159,12 +159,8 @@ const SignUpForm = ({ navigate }) => {
           <img src="/cc-signup.png" width={600} className="hidden md:visible overflow-visible w-4/6 mx-auto lg:mt-0 lg:col-span-5 lg:flex lg:w-1/2" />
         </div>
       </div>
-      <footer className="bg-cream dark:bg-navy p-6 font-dm-sans-regular">
-          <div className="w-full bg-cream dark:bg-navy pb-10 h-100 ">
-            <h4 className="text-md text-center text-blue dark:text-cream">
-              Made with ❤️ and ☕️ by Sarah, Francesco, Adnan, Konrad & Kassandra!
-            </h4>
-          </div>
+      <footer className="bg-cream dark:bg-navy p-6 font-dm-sans-regular pb-12 ">
+        
         </footer>
     </>
   );
