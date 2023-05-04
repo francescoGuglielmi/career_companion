@@ -335,14 +335,14 @@ export default function LandingPage() {
             </div>
           </section>
         </main>
+        <footer className="bg-cream dark:bg-navy p-6">
+          <div className="w-full bg-cream dark:bg-navy pt-16 pb-10 h-100">
+            <h4 className="text-xl text-center text-blue dark:text-cream">
+              Made with ❤️ and ☕️ by Sarah, Francesco, Adnan, Konrad & Kassandra!
+            </h4>
+          </div>
+        </footer>
       </div>
-      <footer className="bg-cream dark:bg-navy p-6">
-        <div className="w-full bg-cream pt-16 pb-10 h-100 border-t-2 border-lorange border-dashed">
-          <h4 className="text-xl text-center text-blue">
-            Made with ❤️ and ☕️ by Sarah, Francesco, Adnan, Konrad & Kassandra!
-          </h4>
-        </div>
-      </footer>
     </>
   );
 };
