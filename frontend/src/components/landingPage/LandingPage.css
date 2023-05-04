@@ -1,0 +1,46 @@
+.hamburger-menu {
+  width: 36px;
+  height: 36px;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+.hamburger-menu .bar {
+  background-color: #ff895d;
+  display: block;
+  height: 4px;
+  position: absolute;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+}
+
+.hamburger-menu.dark .bar {
+  background-color: #F4F3EF;
+}
+
+.hamburger-menu .bar:first-child {
+  top: 0;
+}
+
+.hamburger-menu .bar:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hamburger-menu .bar:last-child {
+  bottom: 0;
+  width: 16px;
+  right: 0;
+}
+
+.hamburger-menu.open .bar:first-child {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger-menu.open .bar:nth-child(2) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+.hamburger-menu.open .bar:last-child {
+  opacity: 0;
+}
