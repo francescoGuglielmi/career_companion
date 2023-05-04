@@ -55,12 +55,12 @@ export default function LandingPage() {
           </nav>
         </header>
 
-        <main className="bg-cream dark:bg-navy">
+        <main className="bg-cream dark:bg-navy font-dm-sans-regular">
           <section className="min-h-fit mb-56">
             <section className="bg-cream dark:bg-navy">
               <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
                 <div className="mr-auto place-self-center lg:col-span-7">
-                  <h1 className="text-navy max-w-4xl mb-6 ml-10 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-cream">Life's too short to hate your job!</h1>
+                  <h1 className="text-navy max-w-4xl mb-6 ml-10 text-4xl font-extrabold font-poppins-bold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-cream">Life's too short to hate your job!</h1>
                     <p className=" text-blue max-w-3xl mb-6 ml-10 text-2xl font-medium dark:text-gray-400">Let Career Companion be your personal coach and help you build a career you'll love.</p>
                       <div className="flex flex-row items-left justify-left mb-16 ml-10 space-x-6">
                         <a href="#about" className="w-48 inline-flex items-center justify-center bg-blue dark:bg-lblue hover:bg-lblue hover:dark:bg-blue border-2 border-blue px-5 py-3 rounded-xl text-base font-bold text-center text-cream bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900" onClick={() => window.scrollTo({ top: document.getElementById("about").offsetTop, behavior: 'smooth' })}>
@@ -81,7 +81,7 @@ export default function LandingPage() {
           <section className="min-h-fit mb-44 bg-cream dark:bg-navy" id="about">
             <div className="flex flex-col lg:flex-row items-center justify-center">
               <div className="w-full lg:w-1/3 p-8 items-center justify-center">
-                <h1 className="text-navy max-w-4xl mb-6 ml-10 pb-2 text-4xl text-center font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-cream border-b-2 border-lorange border-dashed">
+                <h1 className="text-navy max-w-4xl mb-6 ml-10 pb-2 text-4xl text-center font-poppins-bold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-cream border-b-2 border-lorange border-dashed">
                   ABOUT
                 </h1>
               </div>
@@ -110,7 +110,7 @@ export default function LandingPage() {
           <section className="bg-cream dark:bg-navy" id="team">
             <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
               <div className="mx-auto max-w-screen-sm text-center mb-8 lg:mb-16">
-                <h2 className="text-navy max-w-4xl mb-6 ml-10 pb-2 text-4xl text-center font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-cream border-b-2 border-lorange border-dashed">OUR TEAM</h2>
+                <h2 className="text-navy max-w-4xl mb-6 ml-10 pb-2 text-4xl text-center font-poppins-bold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-cream border-b-2 border-lorange border-dashed">OUR TEAM</h2>
               </div> 
               <div className="grid gap-8 mb-6 lg:mb-16 md:grid-cols-2">
                 <div className="h-72 items-center bg-[#FFFFFF] border-2 border-lorange rounded-lg shadow sm:flex dark:bg-blue dark:border-lorange">
@@ -272,7 +272,7 @@ export default function LandingPage() {
             </div>
           </section>
           <div className="w-full mx-auto lg:w-1/3 p-8 items-center justify-center" id="features">
-            <h1 className="text-navy max-w-4xl ml-10 pb-2 text-4xl text-center font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-cream border-b-2 border-lorange border-dashed">
+            <h1 className="text-navy max-w-4xl ml-10 pb-2 text-4xl text-center font-poppins-bold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-cream border-b-2 border-lorange border-dashed">
               FEATURES
             </h1>
           </div>
@@ -335,7 +335,7 @@ export default function LandingPage() {
             </div>
           </section>
         </main>
-        <footer className="bg-cream dark:bg-navy p-6">
+        <footer className="bg-cream dark:bg-navy p-6 font-dm-sans-regular">
           <div className="w-full bg-cream dark:bg-navy pt-16 pb-10 h-100 ">
             <h4 className="text-xl text-center text-blue dark:text-cream">
               Made with ❤️ and ☕️ by Sarah, Francesco, Adnan, Konrad & Kassandra!

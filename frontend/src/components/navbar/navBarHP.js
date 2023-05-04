@@ -64,11 +64,11 @@ export default function Navbar() {
           <a href="/profile">
             <img
               src="/cc-logo.png"
-              className="h-20 sticky top-0 "
+              className="h-20 sticky top-0 pl-6 pr-2"
               alt="Career Companion Logo"
             />
           </a>
-          <h2><span className=" font-poppins-bold text-lg text-lorange"> Career </span><span className=" font-poppins-bold text-lg text-blue"> Companion </span> </h2>
+          <h2><span className=" font-poppins-bold text-lg text-blue"> Career </span><span className=" font-poppins-bold text-lg text-blue"> Companion </span> </h2>
         </div>
 
         
@@ -81,7 +81,7 @@ export default function Navbar() {
                     <span className="menu-icon__line"></span>
                 </button> */}
         <ul
-          className={(isMenuOpen ? "active" : "") + " nav-menu"}
+          className={(isMenuOpen ? "active" : "") + " nav-menu bg-white"}
           onClick={toggleMenu}
         >
           <li className="active nav-item">
@@ -105,7 +105,6 @@ export default function Navbar() {
             </a>
           </li>
           <li className="nav-item">
-            <img className="logout-icon" src="/logout.png" />
             <a
               className="nav-link font-dm-sans-bold"
               href="/login"

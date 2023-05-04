@@ -4,16 +4,12 @@
   box-sizing: border-box;
 }
 
-header{
-  background-color: #262626;
-}
-
 li{
   list-style: none;
 }
 
 a{
-  color: #333;
+  color: #003060;
   text-decoration: none;
 }
 
@@ -43,7 +39,7 @@ a{
 }
 
 .nav-link:hover{
-  color: dodgerblue;
+  color: #007cb9;
 }
 
 .hamburger{
@@ -90,7 +86,7 @@ a{
   top:70px;
   gap: 0;
   flex-direction: column;
-  background-color: #ddd;
+  background-color: #fff;
   width: 100%;
   text-align: left;
   transition: all 0.3s ease;
