@@ -207,3 +207,22 @@ const displayCV = (userData) => {
     showListData(userData.experiences, experiencesDsp);
 }
 
+// generate CV
+const generateCV = () => {
+    let userData = getUserInputs();
+    displayCV(userData);
+    console.log(userData);
+}
+
+function previewImage() {
+    let oFReader = new FileReader();
+    oFReader.readAsDataURL(imageElem.files[0]);
+    oFReader.onload = function (ofEvent) {
+        imageDsp.src = ofEvent.target.result;
+    }
+}
+
+// print CV
+function printCV() {
+    window.print();
+}
