@@ -9,7 +9,7 @@ const Stats = ({ application }) => {
         className="stats stats-vertical md:stats-horizontal shadow font-dm-sans-regular"
       >
         <div className="stat">
-          <div className="stat-figure text-lblue">
+          <div className="stat-figure text-blue">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -25,7 +25,7 @@ const Stats = ({ application }) => {
             </svg>
           </div>
           <div className="stat-title">Completed</div>
-          <div className="stat-value text-lblue">
+          <div className="stat-value text-lorange">
             {
               application.filter(
                 (application) =>
@@ -37,7 +37,7 @@ const Stats = ({ application }) => {
         </div>
 
         <div className="stat">
-          <div className="stat-figure text-lorange">
+          <div className="stat-figure text-blue">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -64,7 +64,7 @@ const Stats = ({ application }) => {
           <div className="stat-desc">Your upcoming interviews</div>
         </div>
         <div className="stat">
-          <div className="stat-figure text-lblue">
+          <div className="stat-figure text-blue">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -80,7 +80,7 @@ const Stats = ({ application }) => {
             </svg>
           </div>
           <div className="stat-title">Incomplete</div>
-          <div className="stat-value text-lblue">
+          <div className="stat-value text-lorange">
             {
               application.filter(
                 (application) =>
