@@ -108,6 +108,7 @@ const AddApplication = (props) => {
                   value={company}
                   onChange={handleCompanyChange}
                   required
+                  autocomplete="off"
                 />
               </div>
               <div className="mb-4">
@@ -119,6 +120,7 @@ const AddApplication = (props) => {
                   value={jobTitle}
                   onChange={handleJobTitleChange}
                   required
+                  autocomplete="off"
                 />
               </div>
               <div className="mb-4">
@@ -129,6 +131,8 @@ const AddApplication = (props) => {
                   placeholder="Location"
                   value={location}
                   onChange={handleLocationChange}
+                  required
+                  autocomplete="off"
                 />
               </div>
               <div className="mb-4">
@@ -140,6 +144,7 @@ const AddApplication = (props) => {
                   value={link}
                   onChange={handleLinkChange}
                   required
+                  autocomplete="off"
                 />
               </div>
               <div className="mb-4">
@@ -152,6 +157,7 @@ const AddApplication = (props) => {
                   value={jobDetails}
                   onChange={handleJobDetailsChange}
                   required
+                  autocomplete="off"
                 ></textarea>
               </div>
               <div className="mb-4">

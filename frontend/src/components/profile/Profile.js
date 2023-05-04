@@ -7,9 +7,7 @@ import NavbarHP from "../navbar/navBarHP";
 import Stats from "../stats/Stats";
 import Account from "../account/Account";
 import FeatureLinks from "../featureLinks/FeatureLinks";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { BsFillMoonStarsFill } from "react-icons/bs";
+
 
 const Profile = ({ navigate }) => {
   const [applications, setApplications] = useState([]);
@@ -19,7 +17,6 @@ const Profile = ({ navigate }) => {
   const [toggleAFR, setToggleAFR] = useState(true);
   const [toggleNYA, setToggleNYA] = useState(false);
   const [toggleArchived, setToggleArchived] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     if (token) {
@@ -68,10 +65,6 @@ const Profile = ({ navigate }) => {
   function switchToggleArchived() {
     setToggleArchived(!toggleArchived);
   }
-
-  const onToggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
 
   if (token) {
     return (
@@ -221,13 +214,10 @@ const Profile = ({ navigate }) => {
             )}
           </div>
         </div>
-        <footer className="bg-cream dark:bg-navy p-6 font-dm-sans-regular">
-          <div className="w-full bg-cream dark:bg-navy h-100 ">
-          <h4 className="text-md text-center text-blue dark:text-cream">
-              <span><a>My Account |</a></span> Terms & Conditions
-            </h4>
-            <h4 className="text-md text-center text-blue pt-2 dark:text-cream">
-              Made with ❤️ and ☕️ by Sarah, Francesco, Adnan, Konrad & Kassandra!
+        <footer className="bg-cream p-6 font-dm-sans-regular">
+          <div className="w-full bg-cream h-100 ">
+          <h4 className="text-md text-center text-navy dark:text-cream cursor-pointer">
+              <span><a href="/" onclick={account} >About |</a></span> Terms & Conditions
             </h4>
           </div>
         </footer>

@@ -57,7 +57,7 @@ a{
   margin: 5px auto;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  background-color: #333;
+  background-color: #003060;
 }
 
 @media(max-width: 2000px) {

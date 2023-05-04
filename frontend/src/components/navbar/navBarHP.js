@@ -46,7 +46,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import "./navBarHP.css";
 
-export default function Navbar() {
+export default function Navbar({account}) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -68,13 +68,10 @@ export default function Navbar() {
               alt="Career Companion Logo"
             />
           </a>
-          <h2><span className=" font-poppins-bold text-lg text-blue"> Career </span><span className=" font-poppins-bold text-lg text-blue"> Companion </span> </h2>
+          <a href="/profile"><span className=" font-poppins-bold text-lg text-blue"> Career </span><span className=" font-poppins-bold text-lg text-blue"> Companion </span> </a>
         </div>
 
-        
-          
-        
-
+    
         {/* <button className="menu-icon" onClick={toggleMenu}>
                     <span className="menu-icon__line"></span>
                     <span className="menu-icon__line"></span>
@@ -109,7 +106,15 @@ export default function Navbar() {
               Resume Generator
             </a>
           </li>
-       
+          <li className="nav-item">
+            <a
+              className="nav-link font-dm-sans-bold"
+              href="/account"
+              onClick={account}
+            >
+              Account
+            </a>
+          </li>
           <li className="nav-item">
             <a
               className="nav-link font-dm-sans-bold"

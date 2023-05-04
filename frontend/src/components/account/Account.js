@@ -65,9 +65,9 @@ console.log('userdata:', state.userData)
           <h2 className="flex justify-center text-lorange font-poppins-bold text-4xl pb-2 pt-8">
             Account information
           </h2>
-          <div className="flex justify-center items-center">
+          <div className="flex justify-center items-center pt-6">
           <form onSubmit={handleSubmit}>
-            <h3 className="text-blue text-lg font-poppins-bold">
+            <h3 className="flex justify-center md:justify-start text-blue text-lg font-poppins-bold pb-4">
               Personal details
             </h3>
             <div className="mb-4">
