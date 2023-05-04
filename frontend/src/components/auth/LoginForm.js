@@ -186,12 +186,8 @@ const LogInForm = ({ navigate }) => {
           />
         </div>
       </div>
-      <footer className="bg-cream dark:bg-navy p-6 font-dm-sans-regular">
-        <div className="w-full bg-cream dark:bg-navy pb-10 h-100 ">
-          <h4 className="text-md text-center text-blue dark:text-cream">
-            Made with ❤️ and ☕️ by Sarah, Francesco, Adnan, Konrad & Kassandra!
-          </h4>
-        </div>
+      <footer className="bg-cream dark:bg-navy p-6 pb-12 font-dm-sans-regular">
+        
       </footer>
     </>
   );
