@@ -110,7 +110,7 @@ const CoverLetterGenerator = ({ navigate }) => {
       <>
         <NavbarHP />
         <div className="min-h-screen bg-cream font-dm-sans-regular md:pl-10 md:pr-10 pr-5 pl-5">
-          <h2 className="flex justify-center text-lorange font-poppins-bold text-2xl pb-2 pt-8">
+          <h2 className="flex justify-center text-lorange font-poppins-bold text-4xl pb-2 pt-8">
             Cover Letter Generator
           </h2>
           <div className="mt-6">
@@ -125,7 +125,7 @@ const CoverLetterGenerator = ({ navigate }) => {
               <select
                 value={application}
                 onChange={handleApplicationChange}
-                className="shadow border h-10 w-96 text-md mb-4 md:mb-8"
+                className="shadow border h-10 w-96 text-md mb-4 md:mb-8 rounded "
               >
                 <option value="">Select below...</option>
                 {applications &&
@@ -142,14 +142,14 @@ const CoverLetterGenerator = ({ navigate }) => {
               <textarea
                 value={application ? application.split("-")[0] : jobPosition}
                 onChange={handleJobPositionChange}
-                className="w-full md:w-1/2 border-2 h-12 border-gray-100 shadow mb-4 mt-2"
+                className="w-full md:w-1/2 border-2 h-12 border-gray-100 shadow mb-4 mt-2 rounded-lg p-2"
               ></textarea>
               <h2>What's the company name?</h2>
               <textarea
                 value={application ? application.split("-")[1] : companyName}
                 placeholder={application && application.split("-")[1]}
                 onChange={handleCompanyNameChange}
-                className="w-full md:w-1/2 border-2 h-12 border-gray-100 shadow mb-4 mt-2"
+                className="w-full md:w-1/2 border-2 h-12 border-gray-100 shadow mb-4 mt-2 rounded-lg p-2"
               ></textarea>
               <h2>
                 Why do you want to apply for this position/company? What
@@ -158,30 +158,40 @@ const CoverLetterGenerator = ({ navigate }) => {
               <textarea
                 value={reasons}
                 onChange={handleReasonsChange}
-                className="w-full md:w-4/5 border-2 h-20 border-gray-100 shadow mb-4 mt-2"
+                className="w-full md:w-4/5 border-2 h-20 border-gray-100 shadow mb-4 mt-2 rounded-lg p-2"
               ></textarea>
               <h2>Please, paste a text copy of your cv here:</h2>
               <textarea
                 value={resume}
                 onChange={handleResumeChange}
-                className="w-full md:w-4/5 border-2 h-20 border-gray-100 shadow mb-4 mt-2"
+                className="w-full md:w-4/5 border-2 h-20 border-gray-100 shadow mb-4 mt-2 rounded-lg p-2"
               ></textarea>
               <div>
-              <button type="submit"  className="bg-blue text-white text-md py-2 px-4 mb-4 inline-flex items-center justify-center text-center border-2 hover:border-blue hover:bg-lblue rounded-xl ease-in-out duration-200 ">
-                Generate
-              </button>
+                <button
+                  type="submit"
+                  className="bg-blue text-white text-md py-2 px-4 mb-4 inline-flex items-center justify-center text-center border-2 hover:border-blue hover:bg-lblue rounded-xl ease-in-out duration-200 "
+                >
+                  Generate
+                </button>
               </div>
             </form>
           </div>
           <br />
           <h2>{loadingAlert}</h2>
           {coverLetter && (
-            <div className="cover_letter">
+            <div className="bg-white mt-2 p-4 rounded-lg shadow">
               <h3>{coverLetter}</h3>
             </div>
           )}
           <br />
-          {coverLetter && <a href="/generator">Try Again!</a>}
+          {coverLetter && (
+            <a
+              href="/generator"
+              className="bg-lorange mr-2 text-white text-md py-2 px-4 mb-4 inline-flex items-center justify-center text-center border-2 hover:border-blue hover:bg-lblue rounded-xl ease-in-out duration-200 "
+            >
+              Try Again!
+            </a>
+          )}
           {coverLetter && (
             <button
               className="bg-blue text-white text-md py-2 px-4 mb-4 inline-flex items-center justify-center text-center border-2 hover:border-blue hover:bg-lblue rounded-xl ease-in-out duration-200 "

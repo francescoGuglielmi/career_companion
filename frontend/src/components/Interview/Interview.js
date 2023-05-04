@@ -118,7 +118,7 @@ const Interview = ({ navigate }) => {
       <>
         <NavbarHP />
         <div className="min-h-screen bg-cream font-dm-sans-regular md:pl-10 md:pr-10 pr-5 pl-5">
-          <h2 className="flex justify-center text-lorange font-poppins-bold text-2xl pb-2 pt-8">
+          <h2 className="flex justify-center text-lorange font-poppins-bold text-4xl pb-2 pt-8">
             Interview dojo
           </h2>
           <div className="dojo_container">
@@ -145,14 +145,15 @@ const Interview = ({ navigate }) => {
                 answer5={answer5}
               />
             )}
-            <br />
-            <h2>{loadingFeedbackAlert}</h2>
-            {feedback && <h3 className="feedback">{feedback}</h3>}
+            <h2 className="mt-8">{loadingFeedbackAlert}</h2>
+            {feedback && <h3 className="bg-white mt-2 p-4 rounded-lg shadow">{feedback}</h3>}
             {/* { feedback && generateRating()} */}
-            <br />
-            <br />
+
             {feedback && (
-              <a className="start_again" href="/interview">
+              <a
+                className="bg-blue text-white text-md py-2 px-4 mt-4 inline-flex items-center justify-center text-center border-2 hover:border-blue hover:bg-lblue rounded-xl ease-in-out duration-200 "
+                href="/interview"
+              >
                 Start Again!
               </a>
             )}

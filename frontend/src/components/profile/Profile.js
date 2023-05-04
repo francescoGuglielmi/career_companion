@@ -13,7 +13,7 @@ const Profile = ({ navigate }) => {
   const [token, setToken] = useState(window.localStorage.getItem("token"));
   const [userData, setUserData] = useState({});
   const [toggleITI, setToggleITI] = useState(true)
-  const [toggleAFR, setToggleAFR] = useState(false)
+  const [toggleAFR, setToggleAFR] = useState(true)
   const [toggleNYA, setToggleNYA] = useState(false)
   const [toggleArchived, setToggleArchived] = useState(false)
 
@@ -71,7 +71,7 @@ const Profile = ({ navigate }) => {
         <NavbarHP logout={logout} account={account} />
 
         <div className="min-h-screen bg-cream font-dm-sans-regular md:pl-20 md:pr-20">
-          <h1 className="flex justify-center pt-12 text-navy text-5xl font-poppins-bold pb-6">
+          <h1 className="flex justify-center items-center pt-12 text-3xl text-navy md:text-5xl font-poppins-bold pb-6">
             Welcome {userData.firstName}
           </h1>
 

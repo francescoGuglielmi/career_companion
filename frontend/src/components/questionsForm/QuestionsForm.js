@@ -8,35 +8,35 @@ function QuestionsForm(props) {
         <textarea
           value={props.answer1}
           onChange={props.handleAnswer1Change}
-          className="w-full md:w-4/5  h-20 border-2 border-gray-100 shadow mb-4 mt-2"
+          className="w-full md:w-4/5  h-20 border-2 border-gray-100 shadow mb-4 mt-2 rounded-lg p-2"
         ></textarea>
 
         <h3>Question {props.questions[1]}?</h3>
         <textarea
           value={props.answer2}
           onChange={props.handleAnswer2Change}
-          className="w-full md:w-4/5  h-20 border-2 border-gray-100 shadow mb-4 mt-2"
+          className="w-full md:w-4/5  h-20 border-2 border-gray-100 shadow mb-4 mt-2 rounded-lg p-2"
         ></textarea>
 
         <h3>Question {props.questions[2]}?</h3>
         <textarea
           value={props.answer3}
           onChange={props.handleAnswer3Change}
-          className="w-full md:w-4/5  h-20 border-2 border-gray-100 shadow mb-4 mt-2"
+          className="w-full md:w-4/5  h-20 border-2 border-gray-100 shadow mb-4 mt-2 rounded-lg p-2"
         ></textarea>
 
         <h3>Question {props.questions[3]}?</h3>
         <textarea
           value={props.answer4}
           onChange={props.handleAnswer4Change}
-          className="w-full md:w-4/5  h-20 border-2 border-gray-100 shadow mb-4 mt-2"
+          className="w-full md:w-4/5  h-20 border-2 border-gray-100 shadow mb-4 mt-2 rounded-lg p-2"
         ></textarea>
 
         <h3>Question {props.questions[4]}?</h3>
         <textarea
           value={props.answer5}
           onChange={props.handleAnswer5Change}
-          className="w-full md:w-4/5  h-20 border-2 border-gray-100 shadow mb-4 mt-2"
+          className="w-full md:w-4/5  h-20 border-2 border-gray-100 shadow mb-4 mt-2 rounded-lg p-2"
         ></textarea>
         <div>
           <button

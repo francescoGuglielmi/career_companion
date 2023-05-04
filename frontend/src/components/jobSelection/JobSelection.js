@@ -10,7 +10,7 @@ function SelectJobPosition(props) {
         <select
           value={props.jobSelection}
           onChange={props.handleSelectionChange}
-          className="shadow border h-10 w-96 text-md mb-4 md:mb-8"
+          className="shadow border h-10 w-11/12 md:w-96 text-md mb-4 md:mb-8 rounded"
         >
           <option value="" className="shadow border">
             Generic Job Position (select below)

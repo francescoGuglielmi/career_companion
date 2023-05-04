@@ -121,7 +121,7 @@ const FeedbackPage = ({navigate}) => {
       <>
         <NavbarHP />
         <div className="min-h-screen bg-cream font-dm-sans-regular md:pl-10 md:pr-10 pr-5 pl-5">
-        <h2 className="flex justify-center text-lorange font-poppins-bold text-2xl pb-6 pt-8">
+        <h2 className="flex justify-center text-lorange font-poppins-bold text-4xl pb-6 pt-8">
           Leave a review
           </h2>
         <h2 className="font-poppins-bold text-lg text-blue mb-4 flex justify-center md:justify-start text-center md:text-start">We want to hear about your application process!</h2>

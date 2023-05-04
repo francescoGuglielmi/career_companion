@@ -83,7 +83,7 @@ const AddApplication = (props) => {
       {/* The button to open modal */}
       <label
         htmlFor="my-modal-3"
-        className="bg-cream text-lorange font-poppins-bold text-lg cursor-pointer inline-flex items-start justify-start text-start underline hover:text-lblue rounded-xl ease-in-out duration-200 "
+        className="bg-cream text-blue font-poppins-bold text-lg cursor-pointer inline-flex items-start justify-start text-start border-blue border-2 py-2 px-4 hover:text-lorange hover:border-lorange rounded-xl ease-in-out duration-200 "
       >
         Add new application
       </label>
