@@ -7,6 +7,7 @@ const AddApplication = (props) => {
   const [link, setLink] = useState("");
   const [jobDetails, setJobDetails] = useState("");
   const [applicationStatus, setApplicationStatus] = useState("");
+  const [interviewDate, setInterviewDate] = useState("");
 
   const handleCompanyChange = (event) => {
     setCompany(event.target.value);
@@ -32,6 +33,10 @@ const AddApplication = (props) => {
     setApplicationStatus(event.target.value);
   };
 
+  const handleInterviewDateChange = (event) => {
+    setInterviewDate(event.target.value);
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -48,20 +53,20 @@ const AddApplication = (props) => {
         link: link,
         jobDetails: jobDetails,
         applicationStatus: applicationStatus,
-        createdAt: new Date().toLocaleDateString()
+        createdAt: new Date().toLocaleDateString(),
+        interviewDate: interviewDate.split("-").reverse().join("/"),
       }),
     });
 
     if (response.status !== 201) {
       console.log("error saving your application");
       if (response.status === 401) {
-        window.location.href = '/login'
+        window.location.href = "/login";
       }
     } else {
       console.log("your application saved to db");
       window.location.reload();
     }
-
   };
 
   const applicationStatuses = [
@@ -74,26 +79,26 @@ const AddApplication = (props) => {
   ];
 
   return (
-    <div className="flex justify-center">
-
+    <>
       {/* The button to open modal */}
-      <label htmlFor="my-modal-3" className="bg-cream text-navy font-poppins-bold text-xl py-2 px-4 inline-flex items-center justify-center text-center border-2 border-lorange hover:border-blue rounded-xl ease-in-out duration-100 ">
+      <label
+        htmlFor="my-modal-3"
+        className="bg-cream text-lorange font-poppins-bold text-lg cursor-pointer inline-flex items-start justify-start text-start underline hover:text-lblue rounded-xl ease-in-out duration-200 "
+      >
         Add new application
       </label>
-
-      <input type="checkbox" id="my-modal-3" className="modal-toggle" />
-      <div className="modal">
-        <div className="modal-box relative">
-          <label
-            htmlFor="my-modal-3"
-            className="btn btn-sm btn-circle absolute right-2 top-2"
-          >
-            ✕
-          </label>
-          <h3 className="text-lg font-bold">
-           Add an application
-          </h3>
-          <form onSubmit={handleSubmit}>
+      <div className="flex justify-center text-navy">
+        <input type="checkbox" id="my-modal-3" className="modal-toggle" />
+        <div className="modal">
+          <div className="modal-box relative">
+            <label
+              htmlFor="my-modal-3"
+              className="btn btn-sm btn-circle absolute right-2 top-2 bg-transparent text-navy hover:bg-transparent"
+            >
+              ✕
+            </label>
+            <h3 className="text-lg font-bold mb-4">Add an application</h3>
+            <form onSubmit={handleSubmit}>
               <div className="mb-4">
                 <input
                   className="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -124,7 +129,6 @@ const AddApplication = (props) => {
                   placeholder="Location"
                   value={location}
                   onChange={handleLocationChange}
-                  
                 />
               </div>
               <div className="mb-4">
@@ -167,21 +171,27 @@ const AddApplication = (props) => {
                   ))}
                 </select>
               </div>
-              <div></div>
-              <div className="flex items-center justify-end">
+              {applicationStatus === "Invited to interview" && (
+                <input
+                  type="date"
+                  id="interviewDate"
+                  value={interviewDate}
+                  onChange={handleInterviewDateChange}
+                />
+              )}
+              <div className="flex items-center justify-center">
                 <button
-                  className="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                  type="submit"
+                className="bg-blue text-white text-md py-2 px-4 inline-flex items-center justify-center text-center border-2 hover:border-blue hover:bg-white hover:text-navy rounded-xl ease-in-out duration-200 "
+                type="submit"
                 >
                   Submit
                 </button>
               </div>
             </form>
+          </div>
         </div>
       </div>
-
-      
-    </div>
+    </>
   );
 };
 

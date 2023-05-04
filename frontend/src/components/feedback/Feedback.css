@@ -4,50 +4,6 @@
   flex-direction: column;
 }
 
-.feed {
-  
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  
-  width: 80%;
-}
-
-.feedback {
-  border: 3px solid rgb(241, 161, 32);
-  background-color: rgb(190, 199, 255);
-  width: 100%;
-  border-radius: 1em;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 10px 30px 10px 30px;
-  margin: 15px 30px 15px 30px;
-  transition: background-color 0.3s ease-in-out;
-}
-
-.feedback:hover {
-  background-color: rgb(171, 180, 243);
-}
-
-.jobPosition {
-  font-size: 23px;
-  color:rgb(56, 0, 0)
-}
-
-.feedback-content {
-  margin: 5px 0 5px 0;
-  background-color:rgb(254, 254, 255);
-  padding: 7px 20px 7px 20px;
-  border-radius: 1em;
-}
-
-.company {
-  font-size: 16px;
-  margin-left: 8px;
-}
-
 .search {
   display:flex;
   
@@ -58,9 +14,91 @@
 .search_bar {
   background-color: rgb(48, 0, 169);
   color: white;
-  border-radius: 0.3em;
+  border-radius: 0.6em;
   width: 250px;
   margin-left: 15px;
+  padding: 6px 15px 6px 15px;
+}
+
+.feed {
   
-  padding: 4px 4px 4px 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  width: 60%;
+}
+
+.feedback {
+  border: 2px solid rgb(6, 0, 113);
+  background-color: rgb(190, 199, 255);
+  width: 100%;
+  border-radius: 1em;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px 30px 10px 30px;
+  margin: 15px 30px 15px 30px;
+  transition: background-color 0.3s ease-in-out;
+  box-shadow: 2px 5px 6px rgb(3,3,3);
+}
+
+.feedback:hover {
+  background-color: rgb(181, 190, 251);
+}
+
+#author {
+  font-size: 20px;
+  margin-top: 8px;
+}
+
+.rated {
+  font-size: 14px;
+  
+}
+
+.star {
+  width: 16px;
+  background-color: rgb(237, 169, 9);
+}
+
+.jobPosition {
+  font-size: 18px;
+  color:rgb(56, 0, 0)
+}
+
+.company {
+  font-size: 20px;
+  color:rgb(255, 117, 58);
+}
+
+.feedback-content {
+  margin: 5px 0 5px 0;
+  background-color:rgb(254, 254, 255);
+  padding: 7px 20px 7px 20px;
+  border-radius: 1em;
+  transition: color 0.1s linear;
+  color: rgb(65, 65, 65);
+}
+
+.feedback-content:hover {
+  color: black;
+}
+
+.delete-feedback-button {
+  margin-top: 10px;
+  background-color:rgb(11, 142, 230);
+  border: 2px solid rgb(92, 84, 255);
+  color:aliceblue;
+  padding: 2px 10px 2px 10px;
+  border-radius: 0.7rem;
+  transition: all 0.4s ease;
+  font-size: 13px;
+}
+
+.delete-feedback-button:hover {
+  background-color:rgb(208, 63, 1);
+  border-color:rgb(156, 18, 0);
+  color: rgb(255, 255, 149);
 }
