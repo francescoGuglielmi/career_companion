@@ -25,17 +25,17 @@ export default function LandingPage() {
             <div className="">
               <img src="/cc-logo.png" className="h-40 sticky top-0 px-10" alt="Career Companion Logo" />
             </div>
-            <div className={`nav-links duration-500 justify-center md:static md:flex-row md:items-end absolute bg-cream min-h-screen md:min-h-fit left-0 ${isMenuOpen ? 'top-0' : '-top-full'} md:w-auto w-full flex flex-col items-center px-5`}>
+            <div className={`nav-links duration-500 justify-center md:static md:flex-row md:items-end absolute bg-cream dark:bg-navy min-h-screen md:min-h-fit left-0 ${isMenuOpen ? 'top-0' : '-top-full'} md:w-auto w-full flex flex-col items-center px-5`}>
               <div className="flex items-center h-full md:h-auto">
               <ul className="flex flex-col items-center md:items-stretch md:flex-row md:justify-center md:gap-[4vw] gap-8">
                 <li>
-                  <a href="/#about" className="text-5xl border-b-1 border-r-0 border-t-0 border-l-0 md:border-cream border-b-lorange hover:border-b-lorange w-[80vw] md:w-40 inline-flex items-center justify-center py-3 md:text-2xl font-bold text-center bg-cream dark:bg-cream hover:text-lblue hover:dark:bg-lorange  text-blue dark:text-blue border-2 dark:border-gray-700 dark:hover:bg-gray-700" onClick={() => navigate('/#about')}>ABOUT</a>
+                  <a href="/#about" className="text-5xl border-b-1 border-r-0 border-t-0 border-l-0 md:border-cream border-b-lorange dark:border-b-cream hover:border-b-lorange w-[80vw] md:w-40 inline-flex items-center justify-center py-3 md:text-2xl font-bold text-center bg-cream dark:bg-navy text-navy hover:text-lblue dark:text-cream border-2 dark:hover:border-lorange" onClick={() => navigate('/#about')}>ABOUT</a>
                 </li>
                 <li>
-                  <a href="/#team" className="text-5xl border-b-1 border-r-0 border-t-0 border-l-0 md:border-cream border-b-lorange hover:border-b-lorange w-[80vw] md:w-40 inline-flex items-center justify-center py-3 md:text-2xl font-bold text-center bg-cream dark:bg-cream hover:text-lblue hover:dark:bg-lorange  text-blue dark:text-blue border-2 dark:border-gray-700 dark:hover:bg-gray-700" onClick={() => navigate('/#team')}>TEAM</a>
+                  <a href="/#team" className="text-5xl border-b-1 border-r-0 border-t-0 border-l-0 md:border-cream border-b-lorange dark:border-b-cream hover:border-b-lorange w-[80vw] md:w-40 inline-flex items-center justify-center py-3 md:text-2xl font-bold text-center bg-cream dark:bg-navy text-navy hover:text-lblue dark:text-cream border-2 dark:hover:border-lorange" onClick={() => navigate('/#team')}>TEAM</a>
                 </li>
                 <li>
-                  <a href="/#features" className="text-5xl border-b-1 border-r-0 border-t-0 border-l-0 md:border-cream border-b-lorange hover:border-b-lorange w-[80vw] md:w-40 inline-flex items-center justify-center py-3 md:text-2xl font-bold text-center bg-cream dark:bg-cream hover:text-lblue hover:dark:bg-lorange  text-blue dark:text-blue border-2 dark:border-gray-700 dark:hover:bg-gray-700" onClick={() => navigate('/#features')}>FEATURES</a>
+                  <a href="/#features" className="text-5xl border-b-1 border-r-0 border-t-0 border-l-0 md:border-cream border-b-lorange dark:border-b-cream hover:border-b-lorange w-[80vw] md:w-40 inline-flex items-center justify-center py-3 md:text-2xl font-bold text-center bg-cream dark:bg-navy text-navy hover:text-lblue dark:text-cream border-2 dark:hover:border-lorange" onClick={() => navigate('/#features')}>FEATURES</a>
                 </li>
               </ul>
               </div>
@@ -56,7 +56,6 @@ export default function LandingPage() {
         </header>
 
         <main className="bg-cream dark:bg-navy">
-          
           <section className="min-h-fit py-20 mb-56">
             <section className="bg-cream dark:bg-navy">
               <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
@@ -114,7 +113,7 @@ export default function LandingPage() {
                 <h2 className="text-navy max-w-4xl mb-6 ml-10 pb-2 text-4xl text-center font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-cream border-b-2 border-lorange border-dashed">OUR TEAM</h2>
               </div> 
               <div className="grid gap-8 mb-6 lg:mb-16 md:grid-cols-2">
-                <div className="h-72 items-center bg-cream border-2 border-lorange rounded-lg shadow sm:flex dark:bg-blue dark:border-lorange">
+                <div className="h-72 items-center bg-[#FFFFFF] border-2 border-lorange rounded-lg shadow sm:flex dark:bg-blue dark:border-lorange">
                   <a href="#">
                     <img className="rounded-full p-2" src="/sarah-avatar.png" alt="Sarah Avatar" />
                   </a>
@@ -144,7 +143,7 @@ export default function LandingPage() {
                   </div>
                 </div>
 
-                <div className="h-72 items-center bg-cream border-2 border-lorange rounded-lg shadow sm:flex dark:bg-blue dark:border-lorange">
+                <div className="h-72 items-center bg-[#FFFFFF] border-2 border-lorange rounded-lg shadow sm:flex dark:bg-blue dark:border-lorange">
                   <a href="#">
                     <img className="rounded-full p-2" src="/francesco-avatar.png" alt="Francesco Avatar" />
                   </a>
@@ -174,7 +173,7 @@ export default function LandingPage() {
                   </div>
                 </div>
                 
-                <div className="h-72 items-center bg-cream border-2 border-lorange rounded-lg shadow sm:flex dark:bg-blue dark:border-lorange">
+                <div className="h-72 items-center bg-[#FFFFFF] border-2 border-lorange rounded-lg shadow sm:flex dark:bg-blue dark:border-lorange">
                   <a href="#">
                     <img className="rounded-full p-2" src="/adnan-avatar.png" alt="Adnan Avatar" />
                   </a>
@@ -204,7 +203,7 @@ export default function LandingPage() {
                   </div>
                 </div>
 
-                <div className="h-72 items-center bg-cream border-2 border-lorange rounded-lg shadow sm:flex dark:bg-blue dark:border-lorange">
+                <div className="h-72 items-center bg-[#FFFFFF] border-2 border-lorange rounded-lg shadow sm:flex dark:bg-blue dark:border-lorange">
                   <a href="#">
                     <img className="rounded-full p-2" src="/konrad-avatar.png" alt="Konrad Avatar" />
                   </a>
@@ -234,7 +233,7 @@ export default function LandingPage() {
                   </div>
                 </div>
 
-                <div className="h-72 items-center bg-cream border-2 border-lorange rounded-lg shadow sm:flex dark:bg-blue dark:border-lorange">
+                <div className="h-72 items-center bg-[#FFFFFF] border-2 border-lorange rounded-lg shadow sm:flex dark:bg-blue dark:border-lorange">
                   <a href="#">
                     <img className="rounded-full p-2" src="/kassandra-avatar.png" alt="Kassandra Avatar" />
                   </a>

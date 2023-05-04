@@ -6,12 +6,16 @@
 }
 
 .hamburger-menu .bar {
-  background-color: #003060;
+  background-color: #05DBF2;
   display: block;
   height: 4px;
   position: absolute;
   transition: all 0.3s ease-in-out;
   width: 100%;
+}
+
+.hamburger-menu.dark .bar {
+  background-color: #F4F3EF;
 }
 
 .hamburger-menu .bar:first-child {
