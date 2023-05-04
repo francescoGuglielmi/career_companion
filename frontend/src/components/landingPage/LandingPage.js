@@ -302,7 +302,7 @@ export default function LandingPage() {
                 </div>
                 <div>
                   <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900 text-light-blue-500">
-                    <svg className="w-5 h-5 text-primary-600 lg:w-6 lg:h-6 dark:dark:text-lorange" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z"></path></svg>
+                    <svg className="w-5 h-5 text-primary-600 lg:w-6 lg:h-6 dark:text-lorange" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z"></path></svg>
                   </div>
                   <h3 className="mb-2 text-xl text-navy font-bold dark:text-white">Cover Letter Generator</h3>
                   <p className="text-blue dark:text-gray-200">Craft a compelling cover letter that stands out from the crowd, with customizable templates, expert guidance, and real-time previews that help you highlight your strengths and explain why you're the right candidate for the job.</p>

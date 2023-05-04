@@ -15,15 +15,15 @@ const ApplicationInterview = ({ application }) => {
           <div className="mb-2 text-md text-bold">Interview date: {application.interviewDate}</div>
           <div>
             <UpdateApplication
-              key={application._id}
+              key={`update__${application._id}`}
               application={application}
             />
             <DetailsApplication
-              key={application._id}
+              key={`details__${application._id}`}
               application={application}
             />
             <DeleteApplication
-              key={application._id}
+              key={`delete__${application._id}`}
               application={application}
             />
           </div>

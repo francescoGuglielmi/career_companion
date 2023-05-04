@@ -221,6 +221,16 @@ const Profile = ({ navigate }) => {
             )}
           </div>
         </div>
+        <footer className="bg-cream dark:bg-navy p-6 font-dm-sans-regular">
+          <div className="w-full bg-cream dark:bg-navy h-100 ">
+          <h4 className="text-md text-center text-blue dark:text-cream">
+              <span><a>My Account |</a></span> Terms & Conditions
+            </h4>
+            <h4 className="text-md text-center text-blue pt-2 dark:text-cream">
+              Made with ❤️ and ☕️ by Sarah, Francesco, Adnan, Konrad & Kassandra!
+            </h4>
+          </div>
+        </footer>
       </>
     );
   } else if (token === undefined) {
