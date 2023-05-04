@@ -1,7 +1,15 @@
+.form-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 .form {
-  margin: 0 30px 0 30px;
-  border: 1px solid red;
-  background-color: rgb(253, 225, 166);
+  margin: 0;
+  width: 80%;
+  border: 2px solid rgb(20, 15, 132);
+  background-color: rgb(255, 255, 255);
+  box-shadow: 2px 5px 6px rgb(3,3,3);
   border-radius: 1em;
   padding: 15px;
   display: flex;
@@ -9,14 +17,14 @@
   align-items: center;
 }
 
-/* select {
-  margin: 8px;
+.feedback-select {
+  padding: 4px 10px 4px 10px;
   width: 300px;
-} */
-
-/* h2 {
-  font-weight: 900;
-} */
+  border-radius: 0.7em;
+  background-color: rgb(48, 0, 169);
+  color:white;
+  font-size: 15px;
+}
 
 .rating {
   margin-bottom: 15px;
@@ -30,20 +38,29 @@
 
 .feedback-textarea {
   border-radius: 0.4em;
-  color: orange;
+  color: rgb(36, 36, 36);
   padding: 15px;
   width: 70%;
   height: 150px;
-  background: linear-gradient(180deg, rgb(7, 0, 99), rgb(0, 2, 144));
+  background: rgb(181, 190, 251);
 }
 
 .submit-feedback {
-  background: linear-gradient(45deg, rgb(201, 95, 2), rgb(169, 78, 4));
-  padding: 10px;
+  background-color: rgb(255, 116, 2);
+  padding: 10px 15px 10px 15px;
   margin-top: -20px;
   margin-bottom: 10px;
   color: white;
-  border-radius: 0.3em;
+  border-radius: 1em;
+  transition: all 0.5s ease;
 }
+
+.submit-feedback:hover {
+  color: rgb(255, 187, 0);
+  background-color: rgb(4, 17, 89);
+  box-shadow: 0px 0px 30px rgb(252, 227, 0);
+}
+
+
 
 

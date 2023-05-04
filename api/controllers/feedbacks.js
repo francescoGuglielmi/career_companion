@@ -34,6 +34,23 @@ const FeedbackController = {
       const token = await TokenGenerator.jsonwebtoken(req.user_id);
       res.status(201).json({ message: "OK", token: token });
     });
+  },
+
+  Delete: async (req, res) => {
+    try {
+      const feedback = await Feedback.findById(req.body.feedbackId);
+
+      if (!feedback) {
+        return res.status(404).json({ error: "Feedback not found" });
+      }
+
+      await feedback.delete();
+
+      res.status(200).json({ message: "OK" });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: "Internal Server Error" });
+    }
   }
 
 }

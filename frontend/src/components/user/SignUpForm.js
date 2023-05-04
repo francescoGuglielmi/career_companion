@@ -150,7 +150,9 @@ const SignUpForm = ({ navigate }) => {
                 <FontAwesomeIcon icon={faArrowRight} size="sm" className="" />
               </button>
             </div>
-            <p className="pt-4 text-sm">Already have an account? Sign in <span className="text-lorange text-bold"><a href="/login">HERE</a></span></p>
+
+            <p className="pt-4 text-sm">Already have an account? <span className="text-lorange"><a href="/login">Sign in here</a></span></p>
+
           </form>
         </div>
         <div>
