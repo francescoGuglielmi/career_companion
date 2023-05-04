@@ -4,6 +4,7 @@ import "./FeedbackForm.css";
 const FeedbackForm = (props) => {
   return (
     <>
+<<<<<<< HEAD
       <form className="font-bold" onSubmit={props.handleFormSubmit}>
         <h2>What company would you like to review?</h2>
 
@@ -12,23 +13,40 @@ const FeedbackForm = (props) => {
           onChange={props.handleSelectCompanyChange}
           className="shadow border h-10 w-96 text-md mb-2 md:mb-4"
         >
+=======
+    <div className="form-container">
+      <form className="form" onSubmit={props.handleFormSubmit}>
+
+        <h2>What company would you like to review?</h2>
+
+        <select className="feedback-select" value={props.selectedCompany} onChange={props.handleSelectCompanyChange}>
+>>>>>>> origin/main
           <option value="">Select an option below</option>
           {props.companies
             .filter((company, index, array) => array.indexOf(company) === index)
             .map((company, index) => (
+<<<<<<< HEAD
               <option key={index} value={company}>
                 {company}
               </option>
             ))}
+=======
+              <option  key={index} value={company}>{company}</option>
+          ))}
+>>>>>>> origin/main
         </select>
 
         <h2>What job position would you like to rate?</h2>
 
+<<<<<<< HEAD
         <select
           value={props.jobTitle}
           onChange={props.handleJobTitleChange}
           className="shadow border h-10 w-96 text-md mb-2 md:mb-4"
         >
+=======
+        <select className="feedback-select" value={props.jobTitle} onChange={props.handleJobTitleChange}>
+>>>>>>> origin/main
           <option value="">Select an option below</option>
           {props.applications
             .filter(
@@ -85,6 +103,7 @@ const FeedbackForm = (props) => {
         </div>
 
         <h2>Describe your experience:</h2>
+<<<<<<< HEAD
         <textarea
           className="w-full md:w-4/5  h-20 border-2 border-gray-100 shadow mb-4 mt-2"
           placeholder="Please Konrad, forgive this styling"
@@ -99,7 +118,14 @@ const FeedbackForm = (props) => {
             Submit Review
           </button>
         </div>
+=======
+        <textarea className="feedback-textarea"  value={props.content} onChange={props.handleContentChange}></textarea><br/><br/>
+        
+        <button className="submit-feedback" type="submit">Submit Review</button>
+
+>>>>>>> origin/main
       </form>
+    </div>
     </>
   );
 };

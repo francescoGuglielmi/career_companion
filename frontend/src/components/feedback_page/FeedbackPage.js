@@ -4,8 +4,10 @@ import FeedbackForm from "../feedback_form/FeedbackForm";
 import Feedback from "../feedback/Feedback";
 import "./FeedbackPage.css";
 
-const FeedbackPage = ({ navigate }) => {
-  const [token, setToken] = useState(window.localStorage.getItem("token"));
+const FeedbackPage = ({navigate}) => {
+
+  const [token, setToken] = useState(window.localStorage.getItem("token"))
+  const [user, setUser] = useState(window.localStorage.getItem("user"))
   const [applications, setApplications] = useState([]);
   const [companies, setCompanies] = useState([]);
   const [selectedCompany, setSelectedCompany] = useState("");
@@ -26,7 +28,7 @@ const FeedbackPage = ({ navigate }) => {
         .then((response) => response.json())
         .then(async (data) => {
           window.localStorage.setItem("token", data.token);
-          window.localStorage.setItem("user", data.user);
+          setUser(data.user);
           setToken(data.token);
           const filteredApplications = data.applications.filter(
             (application) => application.user._id === data.user._id //only shows user that is logged in applications
@@ -55,10 +57,15 @@ const FeedbackPage = ({ navigate }) => {
     }
   }, []);
 
+
+
   useEffect(() => {
     setFilteredFeedbacks(
       feedbacks.filter((feedback) =>
-        feedback.company.toLowerCase().includes(searchQuery.toLowerCase())
+        (feedback.company.toLowerCase().includes(searchQuery.toLowerCase()) || 
+        feedback.jobPosition.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        feedback.user.firstName.toLowerCase().includes(searchQuery.toLowerCase())
+        )
       )
     );
   }, [feedbacks, searchQuery]);
@@ -113,43 +120,29 @@ const FeedbackPage = ({ navigate }) => {
     return (
       <>
         <NavbarHP />
-        <div className="min-h-screen bg-cream font-dm-sans-regular md:pl-10 md:pr-10 pr-5 pl-5">
-          <h1 className="flex justify-center text-lorange font-poppins-bold text-2xl pb-2 pt-8 mb-2">
-            Leave a review
-          </h1>
-          <p>To leave a review, you need to have at least 1 job application</p>
-          <br />
-          <div className="feedback_form">
-            <FeedbackForm
-              handleSelectCompanyChange={handleSelectCompanyChange}
-              handleJobTitleChange={handleJobTitleChange}
-              handleRatingChange={handleRatingChange}
-              handleContentChange={handleContentChange}
-              handleFormSubmit={handleFormSubmit}
-              jobTitle={jobTitle}
-              selectedCompany={selectedCompany}
-              companies={companies}
-              applications={applications}
-              rating={rating}
-              content={content}
-            />
-          </div>
-          <br />
-          <br />
-
-          <div>
-            <h1 className="feedback-intro-title">Reviews</h1>
-            <br />
-            <Feedback
-              feedbacks={feedbacks}
-              filteredFeedbacks={filteredFeedbacks}
-              handleQueryChange={handleQueryChange}
-              searchQuery={searchQuery}
-            />
-          </div>
-          <br />
-          <br />
-          <br />
+        <h1 className="feedback-intro-title">We want to hear about your application process!</h1>
+        <p>To leave a review, you need to have at least 1 job application</p>
+        <br/>
+        <div className="feedback_form">
+          <FeedbackForm 
+          handleSelectCompanyChange={handleSelectCompanyChange} 
+          handleJobTitleChange={handleJobTitleChange} 
+          handleRatingChange={handleRatingChange}
+          handleContentChange={handleContentChange}
+          handleFormSubmit={handleFormSubmit} 
+          jobTitle={jobTitle}
+          selectedCompany={selectedCompany}
+          companies={companies}
+          applications={applications}
+          rating={rating}
+          content={content}
+          />
+        </div><br/><br/>
+        
+        <div>
+          <h1 className="feedback-intro-title">Reviews</h1>
+          <br/>
+          <Feedback feedbacks={feedbacks} filteredFeedbacks={filteredFeedbacks} handleQueryChange={handleQueryChange} searchQuery={searchQuery} user={user}/>
         </div>
       </>
     );

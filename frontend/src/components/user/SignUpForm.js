@@ -112,7 +112,7 @@ const SignUpForm = ({ navigate }) => {
                 <FontAwesomeIcon icon={faArrowRight} size="sm" className="" />
               </button>
             </div>
-            <p className="pt-4 text-sm">Already have an account? Sign in now</p>
+            <p className="pt-4 text-sm">Already have an account? <a className="signin-message" href="/login">Sign in</a> now</p>
           </form>
         </div>
         <div>

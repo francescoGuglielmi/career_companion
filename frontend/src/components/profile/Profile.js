@@ -12,6 +12,10 @@ const Profile = ({ navigate }) => {
   const [applications, setApplications] = useState([]);
   const [token, setToken] = useState(window.localStorage.getItem("token"));
   const [userData, setUserData] = useState({});
+  const [toggleITI, setToggleITI] = useState(true)
+  const [toggleAFR, setToggleAFR] = useState(false)
+  const [toggleNYA, setToggleNYA] = useState(false)
+  const [toggleArchived, setToggleArchived] = useState(false)
 
   useEffect(() => {
     if (token) {
@@ -45,6 +49,22 @@ const Profile = ({ navigate }) => {
     navigate("/account", { state: { userData: userData, token: token } });
   };
 
+  function switchToggleAFR() {
+    setToggleAFR(!toggleAFR)
+  }
+
+  function switchToggleITI() {
+    setToggleITI(!toggleITI)
+  }
+
+  function switchToggleNYA() {
+    setToggleNYA(!toggleNYA)
+  }
+
+  function switchToggleArchived() {
+    setToggleArchived(!toggleArchived)
+  }
+
   if (token) {
     return (
       <>
@@ -70,7 +90,9 @@ const Profile = ({ navigate }) => {
             </div>
             <p className="flex justify-center md:justify-start pt-6 pb-6 text-navy text-lg font-poppins-bold">
               Interview stage
+              <span><button className="toggle-switch" onClick={switchToggleITI}>&#10010;</button></span>
             </p>
+            {toggleITI && 
             <div className="grid grid-rows-1 md:grid-cols-2 xl:grid-cols-3 justify-center gap-y-4 ">
               {applications
                 .filter(
@@ -83,12 +105,14 @@ const Profile = ({ navigate }) => {
                     application={application}
                   />
                 ))}
-            </div>
+            </div> }
           </div>
           <div>
             <p className="flex justify-center md:justify-start pt-6 pb-6 text-navy text-lg font-poppins-bold">
               Completed applications{" "}
+              <span><button className="toggle-switch" onClick={switchToggleAFR}>&#10010;</button></span>
             </p>
+            {toggleAFR && 
             <div className="grid grid-rows-1 md:grid-cols-2 xl:grid-cols-3 justify-center gap-y-4">
               {applications.filter(
                 (application) =>
@@ -108,12 +132,14 @@ const Profile = ({ navigate }) => {
                     />
                   ))
               )}
-            </div>
+            </div>}
           </div>
           <div>
             <p className="flex justify-center md:justify-start pt-6 pb-6 text-navy text-lg font-poppins-bold">
               Incomplete applications
+              <span><button className="toggle-switch" onClick={switchToggleNYA}>&#10010;</button></span>
             </p>
+            { toggleNYA && 
             <div className="grid grid-rows-1 md:grid-cols-2 xl:grid-cols-3 justify-center gap-y-4">
               {applications.filter(
                 (application) =>
@@ -133,12 +159,14 @@ const Profile = ({ navigate }) => {
                     />
                   ))
               )}
-            </div>
+            </div> }
           </div>
           <div>
             <p className="flex justify-center md:justify-start pt-6 pb-6 text-navy text-lg font-poppins-bold">
               Archived applications{" "}
+              <span><button className="toggle-switch" onClick={switchToggleArchived}>&#10010;</button></span>
             </p>
+            { toggleArchived && <>
             <a className="underline text-navy">
               See archived applications here
             </a>
@@ -152,8 +180,8 @@ const Profile = ({ navigate }) => {
               .map((application) => (
                 <Application key={application._id} application={application} />
               ))}
+              </>}
           </div>
-          <button onClick={logout}>Logout</button>
         </div>
       </>
     );

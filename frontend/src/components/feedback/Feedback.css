@@ -1,6 +1,38 @@
-/* .feedback {
-  border: 3px solid blue;
+.feed-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.search {
+  display:flex;
+  
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.search_bar {
+  background-color: rgb(48, 0, 169);
+  color: white;
+  border-radius: 0.6em;
+  width: 250px;
+  margin-left: 15px;
+  padding: 6px 15px 6px 15px;
+}
+
+.feed {
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  width: 60%;
+}
+
+.feedback {
+  border: 2px solid rgb(6, 0, 113);
   background-color: rgb(190, 199, 255);
+  width: 100%;
   border-radius: 1em;
   display: flex;
   justify-content: center;
@@ -8,26 +40,65 @@
   align-items: flex-start;
   padding: 10px 30px 10px 30px;
   margin: 15px 30px 15px 30px;
+  transition: background-color 0.3s ease-in-out;
+  box-shadow: 2px 5px 6px rgb(3,3,3);
+}
+
+.feedback:hover {
+  background-color: rgb(181, 190, 251);
+}
+
+#author {
+  font-size: 20px;
+  margin-top: 8px;
+}
+
+.rated {
+  font-size: 14px;
+  
+}
+
+.star {
+  width: 16px;
+  background-color: rgb(237, 169, 9);
 }
 
 .jobPosition {
-  font-size: 26px;
+  font-size: 18px;
+  color:rgb(56, 0, 0)
+}
+
+.company {
+  font-size: 20px;
+  color:rgb(255, 117, 58);
 }
 
 .feedback-content {
   margin: 5px 0 5px 0;
+  background-color:rgb(254, 254, 255);
+  padding: 7px 20px 7px 20px;
+  border-radius: 1em;
+  transition: color 0.1s linear;
+  color: rgb(65, 65, 65);
 }
 
-.company {
-  font-size: 16px;
-  margin-left: 10px;
+.feedback-content:hover {
+  color: black;
 }
 
-.search_bar {
-  background-color: rgb(48, 0, 169);
-  color: white;
-  border-radius: 0.3em;
-  width: 250px;
-  margin-left: 15px;
-  padding:4px;
-} */
+.delete-feedback-button {
+  margin-top: 10px;
+  background-color:rgb(11, 142, 230);
+  border: 2px solid rgb(92, 84, 255);
+  color:aliceblue;
+  padding: 2px 10px 2px 10px;
+  border-radius: 0.7rem;
+  transition: all 0.4s ease;
+  font-size: 13px;
+}
+
+.delete-feedback-button:hover {
+  background-color:rgb(208, 63, 1);
+  border-color:rgb(156, 18, 0);
+  color: rgb(255, 255, 149);
+}
