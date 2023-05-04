@@ -336,7 +336,7 @@ export default function LandingPage() {
           </section>
         </main>
         <footer className="bg-cream dark:bg-navy p-6">
-          <div className="w-full bg-cream dark:bg-navy pt-16 pb-10 h-100">
+          <div className="w-full bg-cream dark:bg-navy pt-16 pb-10 h-100 ">
             <h4 className="text-xl text-center text-blue dark:text-cream">
               Made with ❤️ and ☕️ by Sarah, Francesco, Adnan, Konrad & Kassandra!
             </h4>
