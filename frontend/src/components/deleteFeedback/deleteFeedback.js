@@ -6,14 +6,13 @@ const DeleteFeedback = (props) => {
   const handleFeedbackDeleteClick = async (event) => {
     event.preventDefault();
 
-    console.log(props)
-
     let response = await fetch(`/feedback/${props.feedback._id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${window.localStorage.getItem("token")}`,
       },
+      
     });
     if (response.status !== 200) {
       console.log("error deleting your feedback");

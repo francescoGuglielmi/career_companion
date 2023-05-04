@@ -48,8 +48,8 @@ const FeedbackForm = (props) => {
               ))}
           </select>
           <br />
-
-          <div className="rating mt-4 mb-4">
+          <h2>Choose a rating:</h2>
+          <div className="rating mt-0 mb-6">
             <input
               type="radio"
               name="rating-2"
@@ -89,7 +89,7 @@ const FeedbackForm = (props) => {
 
           <h2>Describe your experience:</h2>
           <textarea
-            className="w-full md:w-4/5 border-2 h-20 border-gray-100 shadow mb-2 mt-2"
+            className="w-full md:w-4/5 border-2 h-20 border-gray-100 shadow mb-2 mt-2 p-2"
             value={props.content}
             onChange={props.handleContentChange}
           ></textarea>

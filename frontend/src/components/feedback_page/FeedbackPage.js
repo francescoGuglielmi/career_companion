@@ -143,7 +143,7 @@ const FeedbackPage = ({navigate}) => {
           />
         </div><br/><br/>
         
-        <div>
+        <div className="pb-12">
           <h2 className="flex justify-center text-lorange font-poppins-bold text-2xl">Reviews</h2>
           <br/>
           <Feedback feedbacks={feedbacks} filteredFeedbacks={filteredFeedbacks} handleQueryChange={handleQueryChange} searchQuery={searchQuery} user={user}/>
