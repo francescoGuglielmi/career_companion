@@ -20,7 +20,7 @@ export default function LandingPage() {
   return (
     <>
       <div className={darkMode ? "dark" : ""}>
-        <header className="bg-cream dark:bg-navy p-6">
+        <header className="bg-cream dark:bg-navy p-6 font-poppins-regular">
           <nav className="flex justify-between items-center w-full">
             <div className="">
               <img src="/cc-logo.png" className="h-40 sticky top-0 px-10" alt="Career Companion Logo" />
@@ -325,7 +325,7 @@ export default function LandingPage() {
             </div>
           </section>
           
-          <section className="bg-cream dark:bg-blue border-t-2 border-lorange border-dashed">
+          <section className="bg-cream dark:bg-blue">
             <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
               <div className="mx-auto max-w-screen-sm text-center">
                 <h2 className="mb-4 text-4xl tracking-tight font-extrabold leading-tight text-navy dark:text-white">Start your free trial today</h2>
@@ -335,6 +335,13 @@ export default function LandingPage() {
             </div>
           </section>
         </main>
+        <footer className="bg-cream dark:bg-navy p-6">
+          <div className="w-full bg-cream dark:bg-navy pt-16 pb-10 h-100 ">
+            <h4 className="text-xl text-center text-blue dark:text-cream">
+              Made with ❤️ and ☕️ by Sarah, Francesco, Adnan, Konrad & Kassandra!
+            </h4>
+          </div>
+        </footer>
       </div>
     </>
   );
