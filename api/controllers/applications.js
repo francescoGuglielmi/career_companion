@@ -12,6 +12,7 @@ const ApplicationsController = {
         path: "user",
         select: "email",
       })
+      .sort({ createdAt: -1 })
       .exec(async (err, applications) => {
         if (err) {
           throw err;

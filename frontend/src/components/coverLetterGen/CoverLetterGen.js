@@ -114,7 +114,7 @@ const CoverLetterGenerator = ({ navigate }) => {
             Cover Letter Generator
           </h2>
           <div className="mt-6">
-            <h2 className="font-poppins-bold text-lg mb-4">
+            <h2 className="font-poppins-bold text-lg text-blue mb-4">
               Generate your tailored cover letter
             </h2>
             <form onSubmit={handleSubmit}>
