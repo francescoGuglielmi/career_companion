@@ -29,13 +29,13 @@ export default function LandingPage() {
               <div className="flex items-center h-full md:h-auto">
               <ul className="flex flex-col items-center md:items-stretch md:flex-row md:justify-center md:gap-[4vw] gap-8">
                 <li>
-                  <a href="/#about" className="text-5xl border-b-1 border-r-0 border-t-0 border-l-0 md:border-cream border-b-lorange dark:border-b-cream hover:border-b-lorange w-[80vw] md:w-40 inline-flex items-center justify-center py-3 md:text-2xl font-bold text-center bg-cream dark:bg-navy text-navy hover:text-lblue dark:text-cream border-2 dark:hover:border-lorange" onClick={() => navigate('/#about')}>ABOUT</a>
+                  <a href="/#about" className="text-5xl border-b-1 border-r-0 border-t-0 border-l-0 md:border-blue border-b-lblue dark:border-b-cream hover:border-b-lorange w-[80vw] md:w-40 inline-flex items-center justify-center py-3 md:text-2xl font-bold text-center bg-cream dark:bg-navy text-navy dark:text-cream border-2 dark:border-blue dark:hover:border-lorange" onClick={() => navigate('/#about')}>ABOUT</a>
                 </li>
                 <li>
-                  <a href="/#team" className="text-5xl border-b-1 border-r-0 border-t-0 border-l-0 md:border-cream border-b-lorange dark:border-b-cream hover:border-b-lorange w-[80vw] md:w-40 inline-flex items-center justify-center py-3 md:text-2xl font-bold text-center bg-cream dark:bg-navy text-navy hover:text-lblue dark:text-cream border-2 dark:hover:border-lorange" onClick={() => navigate('/#team')}>TEAM</a>
+                  <a href="/#team" className="text-5xl border-b-1 border-r-0 border-t-0 border-l-0 md:border-blue border-b-lblue dark:border-b-cream hover:border-b-lorange w-[80vw] md:w-40 inline-flex items-center justify-center py-3 md:text-2xl font-bold text-center bg-cream dark:bg-navy text-navy dark:text-cream border-2 dark:border-blue dark:hover:border-lorange" onClick={() => navigate('/#team')}>TEAM</a>
                 </li>
                 <li>
-                  <a href="/#features" className="text-5xl border-b-1 border-r-0 border-t-0 border-l-0 md:border-cream border-b-lorange dark:border-b-cream hover:border-b-lorange w-[80vw] md:w-40 inline-flex items-center justify-center py-3 md:text-2xl font-bold text-center bg-cream dark:bg-navy text-navy hover:text-lblue dark:text-cream border-2 dark:hover:border-lorange" onClick={() => navigate('/#features')}>FEATURES</a>
+                  <a href="/#features" className="text-5xl border-b-1 border-r-0 border-t-0 border-l-0 md:border-blue border-b-lblue dark:border-b-cream hover:border-b-lorange w-[80vw] md:w-40 inline-flex items-center justify-center py-3 md:text-2xl font-bold text-center bg-cream dark:bg-navy text-navy dark:text-cream border-2 dark:border-blue dark:hover:border-lorange" onClick={() => navigate('/#features')}>FEATURES</a>
                 </li>
               </ul>
               </div>
