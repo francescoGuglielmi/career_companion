@@ -20,7 +20,7 @@ export default function LandingPage() {
   return (
     <>
       <div className={darkMode ? "dark" : ""}>
-        <header className="bg-cream dark:bg-navy p-6">
+        <header className="bg-cream dark:bg-navy p-6 font-poppins-regular">
           <nav className="flex justify-between items-center w-full">
             <div className="">
               <img src="/cc-logo.png" className="h-40 sticky top-0 px-10" alt="Career Companion Logo" />

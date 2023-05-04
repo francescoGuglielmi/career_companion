@@ -16,6 +16,7 @@ module.exports = withMT({
       "dm-sans-regular": ["DM Sans Regular"],
       "dm-sans-bold": ["DM Sans Bold"],
       "poppins-bold": ["Poppins Bold"],
+      "poppins-regular": ["Poppins Regular"],
     },
     colors: {
       navy: "#003060",

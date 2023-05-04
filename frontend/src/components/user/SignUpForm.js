@@ -58,7 +58,7 @@ const SignUpForm = ({ navigate }) => {
   return (
     <>
       <header className="bg-cream dark:bg-navy p-6">
-          <nav className="flex justify-between items-center w-full">
+          <nav className="flex justify-between items-center w-full font-poppins-regular">
             <div className="">
               <a href="/"><img src="/cc-logo.png" className="h-40 sticky top-0 px-10" alt="Career Companion Logo" /></a>
             </div>
@@ -91,7 +91,7 @@ const SignUpForm = ({ navigate }) => {
             </div>
           </nav>
         </header>
-      <div className="w-full flex flex-col md:flex-row items-center justify-center min-h-[80vh] md:pl-60 bg-cream">
+      <div className="w-full flex flex-col md:flex-row items-center justify-center min-h-[70vh] md:pl-60 bg-cream">
         <div className="min-w-1/3">
           <h1 className="text-5xl font-poppins-bold text-navy">
             Sign up
