@@ -120,8 +120,12 @@ const FeedbackPage = ({navigate}) => {
     return (
       <>
         <NavbarHP />
-        <h1 className="feedback-intro-title">We want to hear about your application process!</h1>
-        <p>To leave a review, you need to have at least 1 job application</p>
+        <div className="min-h-screen bg-cream font-dm-sans-regular md:pl-10 md:pr-10 pr-5 pl-5">
+        <h2 className="flex justify-center text-lorange font-poppins-bold text-2xl pb-6 pt-8">
+          Leave a review
+          </h2>
+        <h2 className="font-poppins-bold text-lg text-blue mb-4 flex justify-center md:justify-start text-center md:text-start">We want to hear about your application process!</h2>
+        <p className="text-sm">To leave a review, you need to have at least 1 job application</p>
         <br/>
         <div className="feedback_form">
           <FeedbackForm 
@@ -140,9 +144,10 @@ const FeedbackPage = ({navigate}) => {
         </div><br/><br/>
         
         <div>
-          <h1 className="feedback-intro-title">Reviews</h1>
+          <h2 className="flex justify-center text-lorange font-poppins-bold text-2xl">Reviews</h2>
           <br/>
           <Feedback feedbacks={feedbacks} filteredFeedbacks={filteredFeedbacks} handleQueryChange={handleQueryChange} searchQuery={searchQuery} user={user}/>
+        </div>
         </div>
       </>
     );

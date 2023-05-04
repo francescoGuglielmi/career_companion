@@ -4,128 +4,105 @@ import "./FeedbackForm.css";
 const FeedbackForm = (props) => {
   return (
     <>
-<<<<<<< HEAD
-      <form className="font-bold" onSubmit={props.handleFormSubmit}>
-        <h2>What company would you like to review?</h2>
+      <div className="">
+        <form className="" onSubmit={props.handleFormSubmit}>
+          <h2 className="mb-2">What company would you like to review?</h2>
 
-        <select
-          value={props.selectedCompany}
-          onChange={props.handleSelectCompanyChange}
-          className="shadow border h-10 w-96 text-md mb-2 md:mb-4"
-        >
-=======
-    <div className="form-container">
-      <form className="form" onSubmit={props.handleFormSubmit}>
-
-        <h2>What company would you like to review?</h2>
-
-        <select className="feedback-select" value={props.selectedCompany} onChange={props.handleSelectCompanyChange}>
->>>>>>> origin/main
-          <option value="">Select an option below</option>
-          {props.companies
-            .filter((company, index, array) => array.indexOf(company) === index)
-            .map((company, index) => (
-<<<<<<< HEAD
-              <option key={index} value={company}>
-                {company}
-              </option>
-            ))}
-=======
-              <option  key={index} value={company}>{company}</option>
-          ))}
->>>>>>> origin/main
-        </select>
-
-        <h2>What job position would you like to rate?</h2>
-
-<<<<<<< HEAD
-        <select
-          value={props.jobTitle}
-          onChange={props.handleJobTitleChange}
-          className="shadow border h-10 w-96 text-md mb-2 md:mb-4"
-        >
-=======
-        <select className="feedback-select" value={props.jobTitle} onChange={props.handleJobTitleChange}>
->>>>>>> origin/main
-          <option value="">Select an option below</option>
-          {props.applications
-            .filter(
-              (application) => application.company === props.selectedCompany
-            )
-            .filter(
-              (application, index, array) =>
-                array.indexOf(application) === index
-            )
-            .map((application, index) => (
-              <option key={index} value={application.jobTitle}>
-                {application.jobTitle}
-              </option>
-            ))}
-        </select>
-        <br />
-
-        <div className="rating">
-          <input
-            type="radio"
-            name="rating-2"
-            value="1"
-            onChange={props.handleRatingChange}
-            className="mask mask-star-2 bg-lorange"
-          />
-          <input
-            type="radio"
-            name="rating-2"
-            value="2"
-            onChange={props.handleRatingChange}
-            className="mask mask-star-2 bg-lorange"
-          />
-          <input
-            type="radio"
-            name="rating-2"
-            value="3"
-            onChange={props.handleRatingChange}
-            className="mask mask-star-2 bg-lorange"
-          />
-          <input
-            type="radio"
-            name="rating-2"
-            value="4"
-            onChange={props.handleRatingChange}
-            className="mask mask-star-2 bg-lorange"
-          />
-          <input
-            type="radio"
-            name="rating-2"
-            value="5"
-            onChange={props.handleRatingChange}
-            className="mask mask-star-2 bg-lorange"
-          />
-        </div>
-
-        <h2>Describe your experience:</h2>
-<<<<<<< HEAD
-        <textarea
-          className="w-full md:w-4/5  h-20 border-2 border-gray-100 shadow mb-4 mt-2"
-          placeholder="Please Konrad, forgive this styling"
-          value={props.content}
-          onChange={props.handleContentChange}
-        ></textarea>
-        <div>
-          <button
-            className="bg-blue text-white text-md py-2 px-4 mb-4 inline-flex items-center justify-center text-center border-2 hover:border-blue hover:bg-lblue rounded-xl ease-in-out duration-200 "
-            type="submit"
+          <select
+            className="shadow border h-10 w-11/12 md:w-96 text-md mb-4 md:mb-8"
+            value={props.selectedCompany}
+            onChange={props.handleSelectCompanyChange}
           >
-            Submit Review
-          </button>
-        </div>
-=======
-        <textarea className="feedback-textarea"  value={props.content} onChange={props.handleContentChange}></textarea><br/><br/>
-        
-        <button className="submit-feedback" type="submit">Submit Review</button>
+            <option value="">Select an option below</option>
+            {props.companies
+              .filter(
+                (company, index, array) => array.indexOf(company) === index
+              )
+              .map((company, index) => (
+                <option key={index} value={company}>
+                  {company}
+                </option>
+              ))}
+          </select>
 
->>>>>>> origin/main
-      </form>
-    </div>
+          <h2 className="mb-2">What job position would you like to rate?</h2>
+
+          <select
+            className="shadow border h-10 w-11/12 md:w-96 text-md mb-4 md:mb-8"
+            value={props.jobTitle}
+            onChange={props.handleJobTitleChange}
+          >
+            <option value="">Select an option below</option>
+            {props.applications
+              .filter(
+                (application) => application.company === props.selectedCompany
+              )
+              .filter(
+                (application, index, array) =>
+                  array.indexOf(application) === index
+              )
+              .map((application, index) => (
+                <option key={index} value={application.jobTitle}>
+                  {application.jobTitle}
+                </option>
+              ))}
+          </select>
+          <br />
+
+          <div className="rating mt-4 mb-4">
+            <input
+              type="radio"
+              name="rating-2"
+              value="1"
+              onChange={props.handleRatingChange}
+              className="mask mask-star-2 bg-lorange"
+            />
+            <input
+              type="radio"
+              name="rating-2"
+              value="2"
+              onChange={props.handleRatingChange}
+              className="mask mask-star-2 bg-lorange"
+            />
+            <input
+              type="radio"
+              name="rating-2"
+              value="3"
+              onChange={props.handleRatingChange}
+              className="mask mask-star-2 bg-lorange"
+            />
+            <input
+              type="radio"
+              name="rating-2"
+              value="4"
+              onChange={props.handleRatingChange}
+              className="mask mask-star-2 bg-lorange"
+            />
+            <input
+              type="radio"
+              name="rating-2"
+              value="5"
+              onChange={props.handleRatingChange}
+              className="mask mask-star-2 bg-lorange"
+            />
+          </div>
+
+          <h2>Describe your experience:</h2>
+          <textarea
+            className="w-full md:w-4/5 border-2 h-20 border-gray-100 shadow mb-2 mt-2"
+            value={props.content}
+            onChange={props.handleContentChange}
+          ></textarea>
+          <div className="flex justify-center items-center md:justify-start md:items-center">
+            <button
+              className="bg-blue text-white text-md mt-2 py-2 px-4 mb-4 inline-flex items-center justify-center text-center border-2 hover:border-blue hover:bg-lblue rounded-xl ease-in-out duration-200 "
+              type="submit"
+            >
+              Submit Review
+            </button>
+          </div>
+        </form>
+      </div>
     </>
   );
 };
