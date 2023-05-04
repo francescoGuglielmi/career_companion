@@ -93,7 +93,7 @@ const LogInForm = ({ navigate }) => {
               </button>
             </div>
             <p className="pt-4 text-sm">
-              Don't have an account yet? Sign up now
+              Don't have an account yet? <a className="signup-message" href="/signup">Sign up</a> now
             </p>
           </form>
         </div>

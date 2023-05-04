@@ -32,3 +32,13 @@
 .applications-amount .right {
   margin-left: 455px;
 }
+
+.toggle-switch {
+  margin-left: 20px;
+  font-size: 25px;
+  transition: color 0.3s ease-in-out;
+}
+
+.toggle-switch:hover {
+  color: rgb(255, 111, 0);
+}

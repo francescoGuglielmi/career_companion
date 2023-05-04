@@ -7,6 +7,7 @@ import './FeedbackPage.css'
 const FeedbackPage = ({navigate}) => {
 
   const [token, setToken] = useState(window.localStorage.getItem("token"))
+  const [user, setUser] = useState(window.localStorage.getItem("user"))
   const [applications, setApplications] = useState([]);
   const [companies, setCompanies] = useState([])
   const [selectedCompany, setSelectedCompany] = useState("")
@@ -27,8 +28,8 @@ const FeedbackPage = ({navigate}) => {
         .then((response) => response.json())
         .then(async (data) => {
           window.localStorage.setItem("token", data.token);
-          window.localStorage.setItem("user", data.user);
-          setToken(data.token)
+          setUser(data.user);
+          setToken(data.token);
           const filteredApplications = data.applications.filter(
             (application) => application.user._id === data.user._id  //only shows user that is logged in applications
           ); 
@@ -56,10 +57,15 @@ const FeedbackPage = ({navigate}) => {
     }
   }, []);
 
+
+
   useEffect(() => {
     setFilteredFeedbacks(
       feedbacks.filter((feedback) =>
-        feedback.company.toLowerCase().includes(searchQuery.toLowerCase())
+        (feedback.company.toLowerCase().includes(searchQuery.toLowerCase()) || 
+        feedback.jobPosition.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        feedback.user.firstName.toLowerCase().includes(searchQuery.toLowerCase())
+        )
       )
     );
   }, [feedbacks, searchQuery]);
@@ -136,7 +142,7 @@ const FeedbackPage = ({navigate}) => {
         <div>
           <h1 className="feedback-intro-title">Reviews</h1>
           <br/>
-          <Feedback feedbacks={feedbacks} filteredFeedbacks={filteredFeedbacks} handleQueryChange={handleQueryChange} searchQuery={searchQuery}/>
+          <Feedback feedbacks={feedbacks} filteredFeedbacks={filteredFeedbacks} handleQueryChange={handleQueryChange} searchQuery={searchQuery} user={user}/>
         </div>
         <br/><br/><br/>
       </>

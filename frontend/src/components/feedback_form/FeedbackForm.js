@@ -5,23 +5,23 @@ const FeedbackForm = (props) => {
 
   return (
     <>
-      
+    <div className="form-container">
       <form className="form" onSubmit={props.handleFormSubmit}>
 
         <h2>What company would you like to review?</h2>
 
-        <select value={props.selectedCompany} onChange={props.handleSelectCompanyChange}>
+        <select className="feedback-select" value={props.selectedCompany} onChange={props.handleSelectCompanyChange}>
           <option value="">Select an option below</option>
           {props.companies
             .filter((company, index, array) => array.indexOf(company) === index)
             .map((company, index) => (
-              <option key={index} value={company}>{company}</option>
+              <option  key={index} value={company}>{company}</option>
           ))}
         </select>
 
         <h2>What job position would you like to rate?</h2>
 
-        <select value={props.jobTitle} onChange={props.handleJobTitleChange}>
+        <select className="feedback-select" value={props.jobTitle} onChange={props.handleJobTitleChange}>
           <option value="">Select an option below</option>
           { props.applications
             .filter((application) => application.company === props.selectedCompany)
@@ -40,11 +40,12 @@ const FeedbackForm = (props) => {
         </div>
 
         <h2>Describe your experience:</h2>
-        <textarea className="feedback-textarea" placeholder="Please Konrad, forgive this styling" value={props.content} onChange={props.handleContentChange}></textarea><br/><br/>
+        <textarea className="feedback-textarea"  value={props.content} onChange={props.handleContentChange}></textarea><br/><br/>
         
         <button className="submit-feedback" type="submit">Submit Review</button>
 
       </form>
+    </div>
     </>
   )
 }
