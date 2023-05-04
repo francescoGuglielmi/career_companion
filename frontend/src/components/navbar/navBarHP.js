@@ -63,8 +63,8 @@ export default function Navbar({account}) {
         <div className="flex justify-content items-center">
           <a href="/profile">
             <img
-              src="/cc-trimmed-logo.png"
-              className="h-16 sticky top-0 pl-6 pr-2"
+              src="/cc-logo-icon.png"
+              className="h-12 sticky top-0 pl-6 pr-2"
               alt="Career Companion Logo"
             />
           </a>
