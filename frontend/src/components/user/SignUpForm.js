@@ -57,7 +57,7 @@ const SignUpForm = ({ navigate }) => {
 
   return (
     <>
-      <header className="bg-cream dark:bg-navy p-6">
+      <header className="bg-cream dark:bg-navy">
           <nav className="flex justify-between items-center w-full font-poppins-regular">
             <div className="">
               <a href="/"><img src="/cc-logo.png" className="h-40 sticky top-0 px-10" alt="Career Companion Logo" /></a>
@@ -92,13 +92,13 @@ const SignUpForm = ({ navigate }) => {
           </nav>
         </header>
       <div className="w-full flex flex-col md:flex-row items-center justify-center min-h-[70vh] md:pl-60 bg-cream">
-        <div className="min-w-1/3">
+        <div className="w-1/4">
           <h1 className="text-5xl font-poppins-bold text-navy">
             Sign up
           </h1>
           <form
             onSubmit={handleSubmit}
-            className="bg-cream px-2 pt-6 pb-8 mb-4 font-dm-sans-regular"
+            className="bg-cream pt-6 pb-8 mb-4 font-dm-sans-regular"
           >
             <div className="mb-4">
               <input
@@ -151,7 +151,7 @@ const SignUpForm = ({ navigate }) => {
               </button>
             </div>
 
-            <p className="pt-4 text-sm">Already have an account? <span className="text-lorange"><a href="/login">Sign in here</a></span></p>
+            <p className="pt-4 text-sm text-navy">Already have an account? <span><a className="text-lorange" href="/login">Sign in</a></span></p>
 
           </form>
         </div>
@@ -159,9 +159,9 @@ const SignUpForm = ({ navigate }) => {
           <img src="/cc-signup.png" width={600} className="hidden md:visible overflow-visible w-4/6 mx-auto lg:mt-0 lg:col-span-5 lg:flex lg:w-1/2" />
         </div>
       </div>
-      <footer className="bg-cream dark:bg-navy p-6">
-          <div className="w-full bg-cream dark:bg-navy pt-16 pb-10 h-100 ">
-            <h4 className="text-xl text-center text-blue dark:text-cream">
+      <footer className="bg-cream dark:bg-navy p-6 font-dm-sans-regular">
+          <div className="w-full bg-cream dark:bg-navy pb-10 h-100 ">
+            <h4 className="text-md text-center text-blue dark:text-cream">
               Made with ❤️ and ☕️ by Sarah, Francesco, Adnan, Konrad & Kassandra!
             </h4>
           </div>

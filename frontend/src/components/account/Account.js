@@ -62,11 +62,12 @@ console.log('userdata:', state.userData)
       
         <NavbarHP />
         <div className="min-h-screen bg-cream font-dm-sans-regular md:pl-10 md:pr-10">
-          <h2 className="flex justify-center text-lorange font-poppins-bold text-2xl pb-2 pt-8">
+          <h2 className="flex justify-center text-lorange font-poppins-bold text-4xl pb-2 pt-8">
             Account information
           </h2>
+          <div className="flex justify-center items-center pt-6">
           <form onSubmit={handleSubmit}>
-            <h3 className="text-blue text-lg font-poppins-bold">
+            <h3 className="flex justify-center md:justify-start text-blue text-lg font-poppins-bold pb-4">
               Personal details
             </h3>
             <div className="mb-4">
@@ -98,12 +99,13 @@ console.log('userdata:', state.userData)
               />
             </div>
             <button
-                  className="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                  type="submit"
+              className="bg-blue text-white text-md py-2 px-4 mb-4 inline-flex items-center justify-center text-center border-2 hover:border-blue hover:bg-lblue rounded-xl ease-in-out duration-200 "
+              type="submit"
                 >
                   Submit
                 </button>
           </form>
+          </div>
         </div>
       </>
     );

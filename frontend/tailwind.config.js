@@ -29,7 +29,8 @@ module.exports = withMT({
       blue: "#005689",
       lblue: "#007cb9",
       lorange: "#ff895d",
-      grey: "#797E87"
+      grey: "#797E87",
+      aqua: "#00CCFF"
     }
   },
  

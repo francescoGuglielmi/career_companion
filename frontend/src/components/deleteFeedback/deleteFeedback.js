@@ -31,7 +31,7 @@ const DeleteFeedback = (props) => {
 
   return (
     <>
-     <button className="delete-feedback-button" onClick={() => setIsModalOpen(true)}>
+     <button className="text-md py-1 px-3 bg-transparent text-navy inline-flex items-center justify-center text-center border border-lorange hover:border-blue rounded-xl ease-in-out duration-200" onClick={() => setIsModalOpen(true)}>
       Delete
     </button>
 

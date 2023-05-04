@@ -2,8 +2,6 @@
     display: flex;
     justify-content: space-between;
     align-items: stretch;
-    padding: 1rem;
-    background-color: #fff;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 

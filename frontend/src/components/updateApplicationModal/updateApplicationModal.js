@@ -95,7 +95,7 @@ const UpdateApplication = ({ application }) => {
                   ))}
                 </select>
               </div>
-              {applicationStatus === "Invited to interview" && <input type="date" id="interviewDate" value={interviewDate} onChange={handleInterviewDateChange} />}
+              {applicationStatus === "Invited to interview" && <input type="date" id="interviewDate" value={interviewDate} onChange={handleInterviewDateChange} required />}
               <div className="flex items-center justify-center">
                 <button
                   className="bg-blue text-white text-md py-2 px-4 inline-flex items-center justify-center text-center border-2 hover:border-blue hover:bg-white hover:text-navy rounded-xl ease-in-out duration-200 "

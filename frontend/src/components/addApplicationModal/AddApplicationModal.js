@@ -83,7 +83,7 @@ const AddApplication = (props) => {
       {/* The button to open modal */}
       <label
         htmlFor="my-modal-3"
-        className="bg-cream text-lorange font-poppins-bold text-lg cursor-pointer inline-flex items-start justify-start text-start underline hover:text-lblue rounded-xl ease-in-out duration-200 "
+        className="bg-cream text-blue font-poppins-bold text-lg cursor-pointer inline-flex items-start justify-start text-start border-blue border-2 py-2 px-4 hover:text-lorange hover:border-lorange rounded-xl ease-in-out duration-200 "
       >
         Add new application
       </label>
@@ -108,6 +108,7 @@ const AddApplication = (props) => {
                   value={company}
                   onChange={handleCompanyChange}
                   required
+                  autocomplete="off"
                 />
               </div>
               <div className="mb-4">
@@ -119,6 +120,7 @@ const AddApplication = (props) => {
                   value={jobTitle}
                   onChange={handleJobTitleChange}
                   required
+                  autocomplete="off"
                 />
               </div>
               <div className="mb-4">
@@ -129,6 +131,8 @@ const AddApplication = (props) => {
                   placeholder="Location"
                   value={location}
                   onChange={handleLocationChange}
+                  required
+                  autocomplete="off"
                 />
               </div>
               <div className="mb-4">
@@ -140,6 +144,7 @@ const AddApplication = (props) => {
                   value={link}
                   onChange={handleLinkChange}
                   required
+                  autocomplete="off"
                 />
               </div>
               <div className="mb-4">
@@ -152,6 +157,7 @@ const AddApplication = (props) => {
                   value={jobDetails}
                   onChange={handleJobDetailsChange}
                   required
+                  autocomplete="off"
                 ></textarea>
               </div>
               <div className="mb-4">
@@ -177,6 +183,7 @@ const AddApplication = (props) => {
                   id="interviewDate"
                   value={interviewDate}
                   onChange={handleInterviewDateChange}
+                  required
                 />
               )}
               <div className="flex items-center justify-center">

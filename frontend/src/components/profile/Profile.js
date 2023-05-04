@@ -8,14 +8,15 @@ import Stats from "../stats/Stats";
 import Account from "../account/Account";
 import FeatureLinks from "../featureLinks/FeatureLinks";
 
+
 const Profile = ({ navigate }) => {
   const [applications, setApplications] = useState([]);
   const [token, setToken] = useState(window.localStorage.getItem("token"));
   const [userData, setUserData] = useState({});
-  const [toggleITI, setToggleITI] = useState(true)
-  const [toggleAFR, setToggleAFR] = useState(false)
-  const [toggleNYA, setToggleNYA] = useState(false)
-  const [toggleArchived, setToggleArchived] = useState(false)
+  const [toggleITI, setToggleITI] = useState(true);
+  const [toggleAFR, setToggleAFR] = useState(true);
+  const [toggleNYA, setToggleNYA] = useState(false);
+  const [toggleArchived, setToggleArchived] = useState(false);
 
   useEffect(() => {
     if (token) {
@@ -50,142 +51,176 @@ const Profile = ({ navigate }) => {
   };
 
   function switchToggleAFR() {
-    setToggleAFR(!toggleAFR)
+    setToggleAFR(!toggleAFR);
   }
 
   function switchToggleITI() {
-    setToggleITI(!toggleITI)
+    setToggleITI(!toggleITI);
   }
 
   function switchToggleNYA() {
-    setToggleNYA(!toggleNYA)
+    setToggleNYA(!toggleNYA);
   }
 
   function switchToggleArchived() {
-    setToggleArchived(!toggleArchived)
+    setToggleArchived(!toggleArchived);
   }
 
   if (token) {
     return (
       <>
+        
         <NavbarHP logout={logout} account={account} />
 
         <div className="min-h-screen bg-cream font-dm-sans-regular md:pl-20 md:pr-20">
-          <h1 className="flex justify-center pt-12 text-navy text-5xl font-poppins-bold pb-6">
+          <h1 className="flex justify-center items-center pt-12 text-3xl text-navy md:text-5xl font-poppins-bold pb-6">
             Welcome {userData.firstName}
           </h1>
-          
+
           <div className="flex justify-center pt-4 pb-12">
             <Stats key={applications._id} application={applications} />
           </div>
           <div>
             <FeatureLinks />
           </div>
-          <div className="flex justify-center md:justify-start mt-8 md:mt-0 mb-4 ">
-            <span>
-              <AddApplication navigate={navigate} />
-            </span>
-            {/* <span className="ml-4 mr-4"><AddApplication navigate={navigate} /></span>
-            <span><AddApplication navigate={navigate} /></span> */}
-          </div>
 
           <div id="applicationSection">
-            <div></div>
+            <div className="flex justify-center md:justify-start mt-12 md:mt-0 mb-2 ">
+              <span>
+                <AddApplication navigate={navigate} />
+              </span>
+            </div>
             <p className="flex justify-center md:justify-start pt-6 pb-6 text-navy text-lg font-poppins-bold">
               Interview stage
-              <span><button className="toggle-switch" onClick={switchToggleITI}>&#10010;</button></span>
+              <span>
+                <button className="toggle-switch" onClick={switchToggleITI}>
+                  &#10010;
+                </button>
+              </span>
             </p>
-            {toggleITI && 
-            <div className="grid grid-rows-1 md:grid-cols-2 xl:grid-cols-3 justify-center gap-y-4 ">
-              {applications
-                .filter(
-                  (application) =>
-                    application.applicationStatus === "Invited to interview"
-                )
-                .map((application) => (
-                  <ApplicationInterview
-                    key={application._id}
-                    application={application}
-                  />
-                ))}
-            </div> }
+            {toggleITI && (
+              <div className="grid grid-rows-1 md:grid-cols-2 xl:grid-cols-3 justify-center gap-y-4 ">
+                {applications
+                  .filter(
+                    (application) =>
+                      application.applicationStatus === "Invited to interview"
+                  )
+                  .map((application) => (
+                    <ApplicationInterview
+                      key={application._id}
+                      application={application}
+                    />
+                  ))}
+              </div>
+            )}
           </div>
           <div>
             <p className="flex justify-center md:justify-start pt-6 pb-6 text-navy text-lg font-poppins-bold">
               Completed applications{" "}
-              <span><button className="toggle-switch" onClick={switchToggleAFR}>&#10010;</button></span>
+              <span>
+                <button className="toggle-switch" onClick={switchToggleAFR}>
+                  &#10010;
+                </button>
+              </span>
             </p>
-            {toggleAFR && 
-            <div className="grid grid-rows-1 md:grid-cols-2 xl:grid-cols-3 justify-center gap-y-4">
-              {applications.filter(
-                (application) =>
-                  application.applicationStatus === "Applied for role"
-              ).length === 0 ? (
-                <p className="text-blue text-lg">Nothing to show here!</p>
-              ) : (
-                applications
-                  .filter(
-                    (application) =>
-                      application.applicationStatus === "Applied for role"
-                  )
-                  .map((application) => (
-                    <Application
-                      key={application._id}
-                      application={application}
-                    />
-                  ))
-              )}
-            </div>}
+            {toggleAFR && (
+              <div className="grid grid-rows-1 md:grid-cols-2 xl:grid-cols-3 justify-center gap-y-4">
+                {applications.filter(
+                  (application) =>
+                    application.applicationStatus === "Applied for role"
+                ).length === 0 ? (
+                  <p className="text-blue text-lg">Nothing to show here!</p>
+                ) : (
+                  applications
+                    .filter(
+                      (application) =>
+                        application.applicationStatus === "Applied for role"
+                    )
+                    .map((application) => (
+                      <Application
+                        key={application._id}
+                        application={application}
+                      />
+                    ))
+                )}
+              </div>
+            )}
           </div>
           <div>
             <p className="flex justify-center md:justify-start pt-6 pb-6 text-navy text-lg font-poppins-bold">
               Incomplete applications
-              <span><button className="toggle-switch" onClick={switchToggleNYA}>&#10010;</button></span>
+              <span>
+                <button className="toggle-switch" onClick={switchToggleNYA}>
+                  &#10010;
+                </button>
+              </span>
             </p>
-            { toggleNYA && 
-            <div className="grid grid-rows-1 md:grid-cols-2 xl:grid-cols-3 justify-center gap-y-4">
-              {applications.filter(
-                (application) =>
-                  application.applicationStatus === "Not yet applied"
-              ).length === 0 ? (
-                <p className="text-blue text-lg">Nothing to show here!</p>
-              ) : (
-                applications
+            {toggleNYA && (
+              <div className="grid grid-rows-1 md:grid-cols-2 xl:grid-cols-3 justify-center gap-y-4">
+                {applications.filter(
+                  (application) =>
+                    application.applicationStatus === "Not yet applied"
+                ).length === 0 ? (
+                  <p className="text-blue text-lg">Nothing to show here!</p>
+                ) : (
+                  applications
+                    .filter(
+                      (application) =>
+                        application.applicationStatus === "Not yet applied"
+                    )
+                    .map((application) => (
+                      <Application
+                        key={application._id}
+                        application={application}
+                      />
+                    ))
+                )}
+              </div>
+            )}
+          </div>
+          <div>
+            <p className="flex justify-center md:justify-start pt-6 pb-6 text-navy text-lg font-poppins-bold">
+              Archived applications{" "}
+              <span>
+                <button
+                  className="toggle-switch"
+                  onClick={switchToggleArchived}
+                >
+                  &#10010;
+                </button>
+              </span>
+            </p>
+            {toggleArchived && (
+              <>
+                <a className="underline text-navy">
+                  See archived applications here
+                </a>
+                {applications
                   .filter(
                     (application) =>
-                      application.applicationStatus === "Not yet applied"
+                      application.applicationStatus ===
+                        "Interview successful" ||
+                      application.applicationStatus ===
+                        "Interview unsuccessful" ||
+                      application.applicationStatus === "No response / archive"
                   )
                   .map((application) => (
                     <Application
                       key={application._id}
                       application={application}
                     />
-                  ))
-              )}
-            </div> }
-          </div>
-          <div>
-            <p className="flex justify-center md:justify-start pt-6 pb-6 text-navy text-lg font-poppins-bold">
-              Archived applications{" "}
-              <span><button className="toggle-switch" onClick={switchToggleArchived}>&#10010;</button></span>
-            </p>
-            { toggleArchived && <>
-            <a className="underline text-navy">
-              See archived applications here
-            </a>
-            {applications
-              .filter(
-                (application) =>
-                  application.applicationStatus === "Interview successful" ||
-                  application.applicationStatus === "Interview unsuccessful" ||
-                  application.applicationStatus === "No response / archive"
-              )
-              .map((application) => (
-                <Application key={application._id} application={application} />
-              ))}
-              </>}
+                  ))}
+              </>
+            )}
           </div>
         </div>
+        <footer className="bg-cream p-6 font-dm-sans-regular">
+          <div className="w-full bg-cream h-100 ">
+          <h4 className="text-md text-center text-navy dark:text-cream cursor-pointer">
+              <span><a href="/" onclick={account} >About |</a></span> Terms & Conditions
+            </h4>
+          </div>
+        </footer>
       </>
     );
   } else if (token === undefined) {
