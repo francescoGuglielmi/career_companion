@@ -38,7 +38,7 @@ const FeedbackController = {
 
   Delete: async (req, res) => {
     try {
-      const feedback = await Feedback.findById(req.body.feedbackId);
+      const feedback = await Feedback.findById(req.params.feedbackId);
 
       if (!feedback) {
         return res.status(404).json({ error: "Feedback not found" });
