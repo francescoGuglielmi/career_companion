@@ -63,12 +63,12 @@ export default function Navbar({account}) {
         <div className="flex justify-content items-center">
           <a href="/profile">
             <img
-              src="/cc-logo.png"
-              className="h-20 sticky top-0 pl-6 pr-2"
+              src="/cc-trimmed-logo.png"
+              className="h-16 sticky top-0 pl-6 pr-2"
               alt="Career Companion Logo"
             />
           </a>
-          <a href="/profile"><span className=" font-poppins-bold text-lg text-blue"> Career </span><span className=" font-poppins-bold text-lg text-blue"> Companion </span> </a>
+          <a href="/profile"><span className=" font-poppins-bold text-lg ml-4 pt-2 text-blue"> Career </span><span className=" font-poppins-bold text-lg text-blue"> Companion </span> </a>
         </div>
 
     
