@@ -146,6 +146,7 @@ const SignUpForm = ({ navigate }) => {
               <button
                 className="text-lorange text-5xl font-thin rounded focus:outline-none focus:shadow-outline flex items-center justify-center"
                 type="submit"
+                id="submit"
               >
                 <FontAwesomeIcon icon={faArrowRight} size="sm" className="" />
               </button>
