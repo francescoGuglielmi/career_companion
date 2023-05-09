@@ -42,7 +42,6 @@
 
 // UNCOMMENT BELOW TO TRY A DIFFERENT NAVBAR MENU
 
-import { Link } from "react-router-dom";
 import { useState } from "react";
 import "./navBarHP.css";
 

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import "./LoginForm.css";
-import NavbarSI from "../navbar/navBarSI";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 
 const LogInForm = ({ navigate }) => {
@@ -182,6 +181,7 @@ const LogInForm = ({ navigate }) => {
           <img
             src="/cc-login.png"
             width={600}
+            alt="illustration of login page"
             className="hidden md:visible overflow-visible w-2/6 mx-auto lg:mt-0 lg:col-span-5 lg:flex lg:w-1/2"
           />
         </div>
