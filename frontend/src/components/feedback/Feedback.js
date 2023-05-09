@@ -34,7 +34,8 @@ const Feedback = (props) => {
 
         <div className="w-11/12 lg:w-8/12">
           {props.filteredFeedbacks &&
-            props.filteredFeedbacks.map((feedback, index) => (
+            props.filteredFeedbacks
+            .map((feedback, index) => (
               <div key={index} className="bg-white text-navy mt-4 mb-4 px-2 py-4 shadow rounded-lg pl-4">
                 <h2 id="author">
                   {feedback.user.firstName}{" "}
@@ -51,7 +52,8 @@ const Feedback = (props) => {
                   <DeleteFeedback feedback={feedback} />
                 )}
               </div>
-            ))}
+            ))
+            .reverse()}
         </div>
       </div>
     </>
