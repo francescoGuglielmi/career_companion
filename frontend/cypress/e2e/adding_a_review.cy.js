@@ -11,7 +11,5 @@ describe("Signing in", () => {
   it("redirects to the review page", () => {
     cy.get("#feedbackLink").click();
     cy.url().should("include", "/feedback");
-    
   });
-
 });
