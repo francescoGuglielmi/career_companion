@@ -29,7 +29,7 @@ const Profile = ({ navigate }) => {
         .then(async (data) => {
           window.localStorage.setItem("token", data.token);
           setToken(window.localStorage.getItem("token"));
-          // console.log(data.applications)
+          console.log(data.applications)
           const filteredApplications = data.applications.filter(
             (application) => application.user._id === data.user._id
           ); //only shows user that is logged in applications
@@ -219,7 +219,7 @@ const Profile = ({ navigate }) => {
         <footer className="bg-cream p-6 font-dm-sans-regular">
           <div className="w-full bg-cream h-100 ">
           <h4 className="text-md text-center text-navy dark:text-cream cursor-pointer">
-              <span><a href="/" onclick={account} >About |</a></span> Terms & Conditions
+              <span><a href="/" onClick={account} >About |</a></span> Terms & Conditions
             </h4>
           </div>
         </footer>

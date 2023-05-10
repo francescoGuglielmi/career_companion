@@ -109,7 +109,7 @@ const AddApplication = (props) => {
                   value={company}
                   onChange={handleCompanyChange}
                   required
-                  autocomplete="off"
+                  autoComplete="off"
                 />
               </div>
               <div className="mb-4">
@@ -121,7 +121,7 @@ const AddApplication = (props) => {
                   value={jobTitle}
                   onChange={handleJobTitleChange}
                   required
-                  autocomplete="off"
+                  autoComplete="off"
                 />
               </div>
               <div className="mb-4">
@@ -133,7 +133,7 @@ const AddApplication = (props) => {
                   value={location}
                   onChange={handleLocationChange}
                   required
-                  autocomplete="off"
+                  autoComplete="off"
                 />
               </div>
               <div className="mb-4">
@@ -145,7 +145,7 @@ const AddApplication = (props) => {
                   value={link}
                   onChange={handleLinkChange}
                   required
-                  autocomplete="off"
+                  autoComplete="off"
                 />
               </div>
               <div className="mb-4">
@@ -158,7 +158,7 @@ const AddApplication = (props) => {
                   value={jobDetails}
                   onChange={handleJobDetailsChange}
                   required
-                  autocomplete="off"
+                  autoComplete="off"
                 ></textarea>
               </div>
               <div className="mb-4">
@@ -191,7 +191,7 @@ const AddApplication = (props) => {
                 <button
                 className="bg-blue text-white text-md py-2 px-4 inline-flex items-center justify-center text-center border-2 hover:border-blue hover:bg-white hover:text-navy rounded-xl ease-in-out duration-200 "
                 type="submit"
-                id="submit"
+                id="submit-application"
                 >
                   Submit
                 </button>

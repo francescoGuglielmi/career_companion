@@ -10,6 +10,7 @@ const Application = ({ application }) => {
         data-cy="application"
         key={application._id}
         className="bg-white text-navy w-80 lg:w-96 ml-2 px-2 py-4 shadow rounded-lg pl-4"
+        id="application"
       >
         <div className="text-navy text-md font-bold">{application.company} </div>
         <div className="text-navy text-md">{application.jobTitle}</div>
