@@ -146,6 +146,7 @@ const SignUpForm = ({ navigate }) => {
               <button
                 className="text-lorange text-5xl font-thin rounded focus:outline-none focus:shadow-outline flex items-center justify-center"
                 type="submit"
+                id="submit"
               >
                 <FontAwesomeIcon icon={faArrowRight} size="sm" className="" />
               </button>
@@ -156,7 +157,7 @@ const SignUpForm = ({ navigate }) => {
           </form>
         </div>
         <div>
-          <img src="/cc-signup.png" width={600} className="hidden md:visible overflow-visible w-4/6 mx-auto lg:mt-0 lg:col-span-5 lg:flex lg:w-1/2" />
+          <img src="/cc-signup.png" alt="illustration of sign up form" width={600} className="hidden md:visible overflow-visible w-4/6 mx-auto lg:mt-0 lg:col-span-5 lg:flex lg:w-1/2" />
         </div>
       </div>
       <footer className="bg-cream dark:bg-navy p-6 font-dm-sans-regular pb-20 ">

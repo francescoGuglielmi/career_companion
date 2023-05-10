@@ -1,29 +1,87 @@
 # career_companion
 ## The Idea
 
-This is a tool to help job-seekers manage their job applications in an organized manner and increase their chances of being hired.
+Career Companion is your ultimate job search assistant.
 
-We thought that applying for jobs can be overwhelming at times, the amount of applications companies receive is huge.
-The amount of them which include a cover letter is less.
-The amount of them that really gets their attention is possible to be counted on one hand.
+With us, you can easily track your job applications, manage your interviews, and receive reminders and notifications to stay on top of your job search.
 
-Therefore, we designed a solution to keep the application pace high for the job hunter, get ready to face the interviews having an idea of what's coming and check people's reviews about a particular company to have an idea on how's the hiring process.
+At Career Companion, we understand that job hunting can be a daunting process. That's why we're here to support you every step of the way. Whether you're a recent graduate or an experienced professional, our platform can help you land your dream job.
 
 **Main features:**
 
-- The landing page presents the page.
-- Users can create accounts, sign in and out and perform actions as the logged in user.
-- Users can add a job application and update the status of it.
+- The landing page gives an overview of our application.
+- Users can create an account, sign in and out and perform actions as the logged in user.
+- Users can add and track job applications, update the status, add key details and add an interview date.
 - Users can generate a tailored resume and cover letter through AI.
-- Users can train for tech job interviews receiving a feedback from an AI on their answers to the provided questions.
-- Users can leave a review about the quality of the companies's hiring system and rate them.
+- Users can train for tech job interviews receiving feedback from AI on their answers to the provided questions.
+- Users can leave a review about the quality of the companies's hiring system and rate them. 
 
-## Packages Used
+## Technologies
 
-**Backend:**
+Here's an overview of the technologies used to build this application. 
 
-Node.js, Express.js, MongoDB & Mongoose, Bcrypt, Dotenv, Jest, JWT, Nodemon.
+- MongoDB
+- Express
+- React
+- Node.js
+- OopenAI API
+- Tailwind
+- Daisy UI
+- Bcrypt
+- JWT 
+- Nodemon
+- Jest
+- Cypress
+- ESLint
 
-**Frontend:**
+## Quickstart
 
-React.js, Tailwind.css, Cypress, OpenAI Api, DaisyUI, ESLint.
+### Set up your project
+
+1. Clone this repo 
+    ```
+   git clone https://github.com/francescoGuglielmi/career_companion.git
+   ```
+
+2. Install NPM dependencies
+   ```
+   ; cd api
+   ; npm install
+   ; cd ../frontend
+   ; npm install
+   ```
+3. Install MongoDB
+   ```
+   brew tap mongodb/brew
+   brew install mongodb-community@5.0
+   ```
+4. Start MongoDB
+   ```
+   brew services start mongodb-community@5.0
+   ```
+### Start
+
+1. Start the server
+   ```
+   ; cd api
+   ; JWT_SECRET=SUPER_SECRET npm start
+   ```
+2. Start the front end
+
+  In a new terminal session...
+
+  ```
+  ; cd frontend
+  ; npm start
+  ```
+
+Browse to [http://localhost:3000/](http://localhost:3000/)
+
+## Contributors 
+
+This was a group project, created by: 
+- Sarah Davies [https://www.linkedin.com/in/sarahdavies1/](LinkedIn/) 
+- Konrad Duński [https://www.linkedin.com/in/konraddunski/](LinkedIn/)
+- Francesco Guglielmi [https://www.linkedin.com/in/francesco-guglielmi-4a238714b/](LinkedIn/)
+- Adnan Mann [https://www.linkedin.com/in/adnanmann/](LinkedIn/)
+- With thanks to Kassandra Kalejaye for supporting with the planning stages
