@@ -46,5 +46,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@cypress/code-coverage": "^3.10.4",
+    "babel-plugin-istanbul": "^6.1.1"
   }
 }

@@ -3,7 +3,7 @@ describe("Signing up", () => {
     cy.visit("/signup");
     cy.get("#firstName").type("sarah");
     cy.get("#lastName").type("davies");
-    cy.get("#email").type("sarah@example.com");
+    cy.get("#email").type("sarah@example.co.uk");
     cy.get("#password").type("password");
     cy.get("#submit").click();
 
