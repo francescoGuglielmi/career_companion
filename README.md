@@ -80,7 +80,7 @@ Browse to [http://localhost:3000/](http://localhost:3000/)
 ## Contributors 
 
 This was a group project, created by: 
-- Sarah Davies [https://www.linkedin.com/in/sarahdavies1/](LinkedIn/)
+- Sarah Davies [https://www.linkedin.com/in/sarahdavies1/](LinkedIn/) 
 - Konrad Duński [https://www.linkedin.com/in/konraddunski/](LinkedIn/)
 - Francesco Guglielmi [https://www.linkedin.com/in/francesco-guglielmi-4a238714b/](LinkedIn/)
 - Adnan Mann [https://www.linkedin.com/in/adnanmann/](LinkedIn/)
