@@ -35,6 +35,7 @@ const DeleteApplication = ({ application }) => {
           : "py-1 px-3"
       }`}
       onClick={() => setIsModalOpen(true)}
+      id="deleteApplicationButton"
     >
       Delete
     </button>
@@ -58,6 +59,7 @@ const DeleteApplication = ({ application }) => {
                 className="bg-blue text-white text-md py-2 px-4 inline-flex items-center justify-center text-center border-2 hover:border-blue hover:bg-white hover:text-navy rounded-xl ease-in-out duration-200 "
                 type="submit"
                 onClick={handleDelete}
+                id="submitDeleteApplicationButton"
               >
                 Yes, delete it
               </button>

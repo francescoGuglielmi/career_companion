@@ -1,5 +1,5 @@
 describe("Signing in", () => {
-  before(() => {
+  beforeEach(() => {
     cy.signup("some", "one", "test@example.com", "password123");
     cy.login("test@example.com", "password123");
   });
@@ -18,6 +18,8 @@ describe("Signing in", () => {
     cy.get("#applicationStatus").select("Applied for role");
     cy.get("#submit-application").click();
     cy.contains("Company Example");
+    cy.get("#deleteApplicationButton").click();
+    cy.get("#submitDeleteApplicationButton").click();
   });
 
   it("displays the details of an application when details button is clicked", () => {
@@ -32,6 +34,8 @@ describe("Signing in", () => {
     cy.get("#updateButton").click();
     cy.contains("Application details");
     cy.get("#closeModal").click();
+    cy.get("#deleteApplicationButton").click();
+    cy.get("#submitDeleteApplicationButton").click();
   });
 
   it("allows user to add an interview date", () => {
@@ -45,5 +49,7 @@ describe("Signing in", () => {
     cy.get("#interviewDate").type("2023-05-12");
     cy.get("#submit-application").click();
     cy.contains("12/05/2023");
+    cy.get("#deleteApplicationButton").click();
+    cy.get("#submitDeleteApplicationButton").click();
   });
 });
