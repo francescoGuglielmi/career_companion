@@ -186,7 +186,7 @@ const LogInForm = ({ navigate }) => {
           />
         </div>
       </div>
-      <footer className="bg-cream dark:bg-navy p-6 pb-12 font-dm-sans-regular">
+      <footer className="bg-cream dark:bg-navy p-6 pb-20 font-dm-sans-regular">
         
       </footer>
     </>

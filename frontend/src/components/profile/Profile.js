@@ -142,7 +142,8 @@ const Profile = ({ navigate }) => {
                         application={application}
                       />
                     ))
-                )}
+                )
+                .reverse()}
               </div>
             )}
           </div>
@@ -174,7 +175,8 @@ const Profile = ({ navigate }) => {
                         application={application}
                       />
                     ))
-                )}
+                )
+                .reverse()}
               </div>
             )}
           </div>

@@ -117,7 +117,7 @@ const Interview = ({ navigate }) => {
     return (
       <>
         <NavbarHP />
-        <div className="min-h-screen bg-cream font-dm-sans-regular md:pl-10 md:pr-10 pr-5 pl-5">
+        <div className="min-h-screen bg-cream font-dm-sans-regular md:pl-10 md:pr-10 pr-5 pl-5 pb-20 ">
           <h2 className="flex justify-center text-lorange font-poppins-bold text-4xl pb-2 pt-8">
             Interview dojo
           </h2>
