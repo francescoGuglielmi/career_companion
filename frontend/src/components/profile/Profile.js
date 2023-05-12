@@ -73,7 +73,7 @@ const Profile = ({ navigate }) => {
         <NavbarHP logout={logout} account={account} />
 
         <div className="min-h-screen bg-cream font-dm-sans-regular md:pl-20 md:pr-20">
-          <h1 className="flex justify-center items-center pt-12 text-3xl text-navy md:text-5xl font-poppins-bold pb-6">
+          <h1 className="flex justify-center items-center pt-8 text-3xl text-navy md:text-5xl font-poppins-bold pb-6">
             Welcome {userData.firstName}
           </h1>
 
