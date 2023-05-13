@@ -49,4 +49,8 @@ describe("Feedback model", () => {
   it("has a content", () => {
     expect(feedback.content).toEqual("it was a positive experience");
   })
+
+  it("has a user", () => {
+    expect(feedback.user).toEqual(user._id);
+  })
 })
