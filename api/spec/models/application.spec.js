@@ -54,4 +54,8 @@ describe("Application model", () => {
   it("has a link", () => {
     expect(application.link).toEqual("https://github.com/francescoGuglielmi")
   })
+
+  it("has job details", () => {
+    expect(application.jobDetails).toEqual("10 years of experience")
+  })
 })
