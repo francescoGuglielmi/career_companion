@@ -34,4 +34,7 @@ describe("Feedback model", () => {
     await mongoose.connection.collections.users.deleteMany();
   });
 
+  it("has a company", () => {
+    expect(feedback.company).toEqual("Company LTD");
+  })
 })
