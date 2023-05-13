@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const Users = require("./user");
+const User = require("./user");
 const { ObjectID } = require("mongodb");
 
 const FeedbackSchema = new mongoose.Schema({
