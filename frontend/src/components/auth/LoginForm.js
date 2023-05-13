@@ -59,20 +59,18 @@ const LogInForm = ({ navigate }) => {
   };
 
   return (
-    <>
-      <header className="bg-cream dark:bg-navy">
-        <nav className="flex justify-between items-center w-full font-poppins-regular">
-          <div className="">
-            <a href="/">
-              <img
-                src="/cc-logo.png"
-                className="h-40 sticky top-0 px-10"
-                alt="Career Companion Logo"
-              />
-            </a>
-          </div>
+    <section className="bg-cream pb-24 h-screen">
+       <header className="bg-cream dark:bg-navy font-poppins-regular">
+        <nav className="flex justify-between items-evenly px-4 pt-4 w-full">
+          <a href="/">
+            <img
+              src="/cc-logo.png"
+              className="h-20 lg:h-40 sticky top-0 md:px-10"
+              alt="Career Companion Logo"
+            />
+          </a>
           <div
-            className={`nav-links duration-500 justify-center md:static md:flex-row md:items-end absolute bg-cream dark:bg-navy min-h-screen md:min-h-fit left-0 ${
+            className={`nav-links duration-500 justify-center lg:static lg:flex-row lg:items-center absolute bg-cream dark:bg-navy min-h-screen md:min-h-fit left-0 ${
               isMenuOpen ? "top-0" : "-top-full"
             } md:w-auto w-full flex flex-col items-center px-5`}
           >
@@ -114,14 +112,14 @@ const LogInForm = ({ navigate }) => {
               className="cursor-pointer text-2xl mr-8 text-blue dark:text-lorange"
             />
             <button
-              className="sm:hidden w-48 inline-flex items-center justify-center px-5 py-3 text-base font-bold text-center bg-lorange dark:bg-cream hover:bg-lorange hover:dark:bg-lorange  text-navy dark:text-blue border-2 border-lorange hover:border-blue rounded-xl dark:border-gray-700 dark:hover:bg-gray-700"
-              onClick={() => navigate("/login")}
+              className="lg:hidden w-24 inline-flex items-center justify-center px-4 py-3 text-base font-bold text-center bg-lorange dark:bg-cream hover:bg-lorange hover:dark:bg-lorange  text-navy dark:text-blue border-2 border-lorange hover:border-blue rounded-xl dark:border-gray-700 dark:hover:bg-gray-700"
+              onClick={() => navigate("/signup")}
             >
-              LOGIN
+              Sign up
             </button>
             <div
               onClick={() => onToggleMenu()}
-              className={`hamburger-menu cursor-pointer md:hidden ${
+              className={`hamburger-menu cursor-pointer lg:hidden ${
                 isMenuOpen ? "open" : ""
               }`}
             >
@@ -132,8 +130,9 @@ const LogInForm = ({ navigate }) => {
           </div>
         </nav>
       </header>
-      <div className="w-full flex flex-col md:flex-row items-center justify-center min-h-[70vh] md:pl-60 bg-cream">
-      <div className="w-1/4">
+
+      <div className="grid grid-cols-1 lg:grid-cols-12 items-center justify-center bg-cream pt-20 lg:pt-10">
+        <div className="w-2/3 md:w-2/4 place-self-center lg:col-span-5">
           <h1 className="text-5xl font-poppins-bold text-navy">Sign in</h1>
           {loginMessage && <h2 className="login_message">{loginMessage}</h2>}
           <form
@@ -170,7 +169,9 @@ const LogInForm = ({ navigate }) => {
               </button>
             </div>
 
-            <p className="pt-4 text-sm text-navy">Don't have an account yet? <span>
+            <p className="pt-4 text-sm text-navy">
+              Don't have an account yet?{" "}
+              <span>
                 <a className="text-lorange" href="/signup">
                   Sign up
                 </a>
@@ -178,19 +179,17 @@ const LogInForm = ({ navigate }) => {
             </p>
           </form>
         </div>
-        <div>
+        <div className="lg:col-span-7">
           <img
             src="/cc-login.png"
             width={600}
             alt="illustration of login page"
-            className="hidden md:visible overflow-visible w-2/6 mx-auto lg:mt-0 lg:col-span-5 lg:flex lg:w-1/2"
+            className="hidden md:visible overflow-visible w-4/6 mx-auto lg:mt-0 lg:col-span-5 lg:flex lg:w-7/12"
           />
         </div>
       </div>
-      <footer className="bg-cream dark:bg-navy p-6 pb-20 font-dm-sans-regular">
-        
-      </footer>
-    </>
+      <footer className="bg-cream dark:bg-navy p-6 pb-20 font-dm-sans-regular"></footer>
+    </section>
   );
 };
 

@@ -21,9 +21,9 @@ export default function LandingPage() {
     <>
       <div className={darkMode ? "dark" : ""}>
         <header className="bg-cream dark:bg-navy font-poppins-regular">
-          <nav className="flex justify-between items-center w-full">
+          <nav className="flex justify-between items-evenly px-4 pt-4 w-full">
             <div className="">
-              <img src="/cc-logo.png" className="h-40 sticky top-0 px-10" alt="Career Companion Logo" />
+              <img src="/cc-logo.png" className="h-20 md:h-40 sticky top-0 md:px-10" alt="Career Companion Logo" />
             </div>
             <div className={`nav-links duration-500 justify-center md:static md:flex-row md:items-end absolute bg-cream dark:bg-navy min-h-screen md:min-h-fit left-0 ${isMenuOpen ? 'top-0' : '-top-full'} md:w-auto w-full flex flex-col items-center px-5`}>
               <div className="flex items-center h-full md:h-auto">
@@ -45,7 +45,7 @@ export default function LandingPage() {
                 onClick={() => setDarkMode(!darkMode)}
                 className="cursor-pointer text-2xl mr-8 text-blue dark:text-lorange"
               />
-              <button className="sm:hidden w-48 inline-flex items-center justify-center px-5 py-3 text-base font-bold text-center bg-lorange dark:bg-cream hover:bg-lorange hover:dark:bg-lorange  text-navy dark:text-blue border-2 border-lorange hover:border-blue rounded-xl dark:border-gray-700 dark:hover:bg-gray-700" onClick={() => navigate('/login')}>LOGIN</button>
+              <button className="sm:hidden w-24 inline-flex items-center justify-center px-4 py-3 text-base font-bold text-center bg-lorange dark:bg-cream hover:bg-lorange hover:dark:bg-lorange  text-navy dark:text-blue border-2 border-lorange hover:border-blue rounded-xl dark:border-gray-700 dark:hover:bg-gray-700" onClick={() => navigate('/login')}>LOGIN</button>
               <div onClick={() => onToggleMenu()} className={`hamburger-menu cursor-pointer md:hidden ${isMenuOpen ? 'open' : ''}`}>
                 <span className="bar"></span>
                 <span className="bar"></span>
@@ -55,19 +55,19 @@ export default function LandingPage() {
           </nav>
         </header>
 
-        <main className="bg-cream dark:bg-navy font-dm-sans-regular">
-          <section className="min-h-fit mb-56">
+        <main className="bg-cream dark:bg-navy font-dm-sans-regular pt-10">
+          <section className="min-h-fit mb-10 md:mb-56">
             <section className="bg-cream dark:bg-navy">
               <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
                 <div className="mr-auto place-self-center lg:col-span-7">
                   <h1 className="text-navy max-w-4xl mb-6 ml-10 text-4xl font-extrabold font-poppins-bold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-cream">Life's too short to hate your job!</h1>
-                    <p className=" text-blue max-w-3xl mb-6 ml-10 text-2xl font-medium dark:text-gray-400">Let Career Companion be your personal coach and help you build a career you'll love.</p>
+                    <p className=" text-blue max-w-xl mb-6 ml-10 text-2xl font-medium dark:text-gray-400">Let Career Companion be your personal coach and help you build a career you'll love.</p>
                       <div className="flex flex-row items-left justify-left mb-16 ml-10 space-x-6">
-                        <a href="#about" className="w-48 inline-flex items-center justify-center bg-blue dark:bg-lblue hover:bg-lblue hover:dark:bg-blue border-2 border-blue px-5 py-3 rounded-xl text-base font-bold text-center text-cream bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900" onClick={() => window.scrollTo({ top: document.getElementById("about").offsetTop, behavior: 'smooth' })}>
+                        <a href="#about" className="md:w-48 inline-flex items-center justify-center bg-blue dark:bg-lblue hover:bg-lblue hover:dark:bg-blue border-2 border-blue px-5 py-3 rounded-xl text-base font-bold text-center text-cream bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900" onClick={() => window.scrollTo({ top: document.getElementById("about").offsetTop, behavior: 'smooth' })}>
                           LEARN MORE
                           <svg className="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                         </a>
-                        <a href="/signup" className="w-48 inline-flex items-center justify-center px-5 py-3 text-base font-bold text-center bg-lorange dark:bg-cream hover:bg-lorange hover:dark:bg-lorange  text-navy dark:text-blue border-2 border-lorange hover:border-blue rounded-xl focus:ring-4 focus:ring-gray-100 dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800" onClick={() => navigate('/signup')}>
+                        <a href="/signup" className="md:w-48 inline-flex items-center justify-center px-5 py-3 text-base font-bold text-center bg-lorange dark:bg-cream hover:bg-lorange hover:dark:bg-lorange  text-navy dark:text-blue border-2 border-lorange hover:border-blue rounded-xl focus:ring-4 focus:ring-gray-100 dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800" onClick={() => navigate('/signup')}>
                           SIGN UP
                         </a> 
                       </div>
@@ -78,24 +78,24 @@ export default function LandingPage() {
               </div>
             </section>
           </section>
-          <section className="min-h-fit mb-44 bg-cream dark:bg-navy" id="about">
+          <section className="min-h-fit mb-10 md:mb-44 bg-cream dark:bg-navy" id="about">
             <div className="flex flex-col lg:flex-row items-center justify-center">
               <div className="w-full lg:w-1/3 p-8 items-center justify-center">
                 <h1 className="text-navy max-w-4xl mb-6 ml-10 pb-2 text-4xl text-center font-poppins-bold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-cream border-b-2 border-lorange border-dashed">
                   ABOUT
                 </h1>
               </div>
-              <div className="w-full lg:w-2/3 p-8">
-                <p className=" text-blue mb-6 ml-10 text-2xl font-medium dark:text-gray-400">
+              <div className="text-center md:text-left w-full lg:w-2/3 p-8">
+                <p className=" text-blue mb-6 md:ml-10 text-2xl font-medium dark:text-gray-400">
                   Welcome to <span className="text-lorange">Career Companion</span>, your ultimate job search assistant.
                 </p>
-                <p className=" text-blue mb-6 ml-10 text-2xl font-medium dark:text-gray-400">
+                <p className=" text-blue mb-6 md:ml-10 text-2xl font-medium dark:text-gray-400">
                 With us, you can easily track your job applications, manage your interviews, and receive reminders and notifications to stay on top of your job search.
                 </p>
-                <p className=" text-blue mb-6 ml-10 text-2xl font-medium dark:text-gray-400">
+                <p className=" text-blue mb-6 md:ml-10 text-2xl font-medium dark:text-gray-400">
                   At <span className="text-lorange">Career Companion</span>, we understand that job hunting can be a daunting process. That's why we're here to support you every step of the way. Whether you're a recent graduate or an experienced professional, our platform can help you land your dream job.
                 </p>
-                <p className=" text-blue ml-10 text-2xl font-medium dark:text-gray-400">
+                <p className=" text-blue md:ml-10 text-2xl font-medium dark:text-gray-400">
                   Before we show you the features, make sure you meet the team below!
                 </p>
               </div>                
@@ -113,7 +113,7 @@ export default function LandingPage() {
                 <h2 className="text-navy max-w-4xl mb-6 ml-10 pb-2 text-4xl text-center font-poppins-bold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-cream border-b-2 border-lorange border-dashed">OUR TEAM</h2>
               </div> 
               <div className="grid gap-8 mb-6 lg:mb-16 md:grid-cols-2">
-                <div className="h-72 items-center bg-[#FFFFFF] border-2 border-lorange rounded-lg shadow sm:flex dark:bg-blue dark:border-lorange">
+                <div className="md:h-72 p-4 md:p-0 items-center bg-[#FFFFFF] border-2 border-lorange rounded-lg shadow sm:flex dark:bg-blue dark:border-lorange">
                   <a href="#">
                     <img className="rounded-full p-2" src="/sarah-avatar.png" alt="Sarah Avatar" />
                   </a>
@@ -143,7 +143,7 @@ export default function LandingPage() {
                   </div>
                 </div>
 
-                <div className="h-72 items-center bg-[#FFFFFF] border-2 border-lorange rounded-lg shadow sm:flex dark:bg-blue dark:border-lorange">
+                <div className="md:h-72 p-4 md:p-0 items-center bg-[#FFFFFF] border-2 border-lorange rounded-lg shadow sm:flex dark:bg-blue dark:border-lorange">
                   <a href="#">
                     <img className="rounded-full p-2" src="/francesco-avatar.png" alt="Francesco Avatar" />
                   </a>
@@ -173,7 +173,7 @@ export default function LandingPage() {
                   </div>
                 </div>
                 
-                <div className="h-72 items-center bg-[#FFFFFF] border-2 border-lorange rounded-lg shadow sm:flex dark:bg-blue dark:border-lorange">
+                <div className="md:h-72 p-4 md:p-0 items-center bg-[#FFFFFF] border-2 border-lorange rounded-lg shadow sm:flex dark:bg-blue dark:border-lorange">
                   <a href="#">
                     <img className="rounded-full p-2" src="/adnan-avatar.png" alt="Adnan Avatar" />
                   </a>
@@ -203,7 +203,7 @@ export default function LandingPage() {
                   </div>
                 </div>
 
-                <div className="h-72 items-center bg-[#FFFFFF] border-2 border-lorange rounded-lg shadow sm:flex dark:bg-blue dark:border-lorange">
+                <div className="md:h-72 p-4 md:p-0 items-center bg-[#FFFFFF] border-2 border-lorange rounded-lg shadow sm:flex dark:bg-blue dark:border-lorange">
                   <a href="#">
                     <img className="rounded-full p-2" src="/konrad-avatar.png" alt="Konrad Avatar" />
                   </a>
@@ -233,7 +233,7 @@ export default function LandingPage() {
                   </div>
                 </div>
 
-                <div className="h-72 items-center bg-[#FFFFFF] border-2 border-lorange rounded-lg shadow sm:flex dark:bg-blue dark:border-lorange">
+                <div className="md:h-72 p-4 md:p-0 items-center bg-[#FFFFFF] border-2 border-lorange rounded-lg shadow sm:flex dark:bg-blue dark:border-lorange">
                   <a href="#">
                     <img className="rounded-full p-2" src="/kassandra-avatar.png" alt="Kassandra Avatar" />
                   </a>
@@ -264,8 +264,8 @@ export default function LandingPage() {
                 </div>
               </div>  
             </div>
-            <div className="w-full flex items-center justify-center pt-20 lg:pt-5">
-              <a href="#features" className="w-52 inline-flex items-center justify-center bg-blue dark:bg-lblue hover:bg-lblue hover:dark:bg-blue px-5 py-3 mb-36 rounded-xl text-base font-bold text-center text-cream bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
+            <div className="w-full flex items-center justify-center md:pt-20 lg:pt-5 mb-10 md:mb-36 ">
+              <a href="#features" className="w-52 inline-flex items-center justify-center bg-blue dark:bg-lblue hover:bg-lblue hover:dark:bg-blue px-5 py-3 rounded-xl text-base font-bold text-center text-cream bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
                 See Features
                 <svg className="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
               </a>
@@ -277,7 +277,7 @@ export default function LandingPage() {
             </h1>
           </div>
           <section className="bg-cream dark:bg-navy">
-            <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
+            <div className="py-8 px-8 md:px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
               <div className="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
                 <div>
                   <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900 text-navy">
@@ -335,7 +335,7 @@ export default function LandingPage() {
             </div>
           </section>
         </main>
-        <footer className="bg-cream dark:bg-navy p-6 font-dm-sans-regular">
+        <footer className="bg-cream dark:bg-navy px-4 md:p-6 font-dm-sans-regular">
           <div className="w-full bg-cream dark:bg-navy pt-16 pb-10 h-100 ">
             <h4 className="text-xl text-center text-blue dark:text-cream">
               Made with ❤️ and ☕️ by Sarah, Francesco, Adnan, Konrad & Kassandra!
