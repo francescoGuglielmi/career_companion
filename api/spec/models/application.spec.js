@@ -26,7 +26,6 @@ describe("Application model", () => {
       applicationStatus: "Applied for role",
       user: user._id,
       createdAt: new Date().toLocaleDateString(),
-      interviewDate: date.setDate(date.getDate() + 10)
     })
   })
 
@@ -69,5 +68,12 @@ describe("Application model", () => {
 
   it("has a created at date", () => {
     expect(application.createdAt).toEqual(new Date().toLocaleDateString())
+  })
+
+  it("can list all applications", async () => {
+    await Application.find((err, applications) => {
+      expect(err).toBeNull();
+      expect(applications).toEqual([]);
+    })
   })
 })
