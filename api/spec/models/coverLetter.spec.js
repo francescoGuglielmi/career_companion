@@ -57,4 +57,27 @@ describe("CoverLetter model", () => {
     })
   })
 
+  it("can save a cover letter", async () => {
+    const savedCoverLetter = await new Promise((resolve, reject) => {
+      coverLetter.save((err, savedCoverLetter) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(savedCoverLetter);
+        }
+      });
+    });
+
+    expect(savedCoverLetter).toBeDefined();
+
+    const coverletters = await CoverLetter.find();
+    expect(coverletters[0]).toMatchObject({
+      company: "Some company",
+      jobPosition: "Some job position",
+      content: "Cover letter content",
+      user: user._id
+    });
+
+  })
+
 })
