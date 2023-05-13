@@ -47,4 +47,7 @@ describe("Application model", () => {
     expect(application.jobTitle).toEqual("Senior Employee 2")
   })
 
+  it("has a location", () => {
+    expect(application.location).toEqual("London")
+  })
 })
