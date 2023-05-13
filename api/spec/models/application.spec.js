@@ -25,7 +25,7 @@ describe("Application model", () => {
       jobDetails: "10 years of experience",
       applicationStatus: "Applied for role",
       user: user._id,
-      createdAt: date.toLocaleDateString(),
+      createdAt: new Date().toLocaleDateString(),
       interviewDate: date.setDate(date.getDate() + 10)
     })
   })
@@ -65,5 +65,9 @@ describe("Application model", () => {
 
   it("has a user", () => {
     expect(application.user).toEqual(user._id)
+  })
+
+  it("has a created at date", () => {
+    expect(application.createdAt).toEqual(new Date().toLocaleDateString())
   })
 })
