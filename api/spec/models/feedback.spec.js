@@ -45,4 +45,8 @@ describe("Feedback model", () => {
   it("has a rating", () => {
     expect(feedback.rating).toEqual("5");
   })
+
+  it("has a content", () => {
+    expect(feedback.content).toEqual("it was a positive experience");
+  })
 })
