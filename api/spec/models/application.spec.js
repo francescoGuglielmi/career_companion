@@ -58,4 +58,8 @@ describe("Application model", () => {
   it("has job details", () => {
     expect(application.jobDetails).toEqual("10 years of experience")
   })
+
+  it("has an application status", () => {
+    expect(application.applicationStatus).toEqual("Applied for role")
+  })
 })
