@@ -50,4 +50,8 @@ describe("Application model", () => {
   it("has a location", () => {
     expect(application.location).toEqual("London")
   })
+
+  it("has a link", () => {
+    expect(application.link).toEqual("https://github.com/francescoGuglielmi")
+  })
 })
