@@ -67,7 +67,7 @@ export default function Navbar({account}) {
               alt="Career Companion Logo"
             />
           </a>
-          <a href="/profile"><span className=" font-poppins-bold text-lg ml-4 pt-2 text-blue"> Career </span><span className=" font-poppins-bold text-lg text-blue"> Companion </span> </a>
+          <a href="/profile"><span className=" font-poppins-bold md:text-lg ml-4 pt-2 text-blue"> Career </span><span className=" font-poppins-bold md:text-lg text-blue"> Companion </span> </a>
         </div>
 
     
