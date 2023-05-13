@@ -54,48 +54,51 @@ Here's an overview of the technologies used to build this application.
 
 1. install npm
 
-   ```
-   npm install npm@latest -g
-   ```
+```
+npm install npm@latest -g
+```
 
 2. Clone this repo
 
-   ```
-   git clone https://github.com/francescoGuglielmi/career_companion.git
-   ```
+```
+git clone https://github.com/francescoGuglielmi/career_companion.git
+```
 
 3. Install NPM dependencies
-   ```
-   ; cd api
-   ; npm install
-   ; cd ../frontend
-   ; npm install
-   ```
+```
+; cd api
+; npm install
+; cd ../frontend
+; npm install
+```
+
 4. Install MongoDB
-   ```
-   brew tap mongodb/brew
-   brew install mongodb-community@5.0
-   ```
+```
+brew tap mongodb/brew
+brew install mongodb-community@5.0
+```
+
 5. Start MongoDB
-   ```
-   brew services start mongodb-community@5.0
-   ```
+```
+brew services start mongodb-community@5.0
+```
 
 ### Start
 
 1. Start the server
-   ```
-   ; cd api
-   ; JWT_SECRET=SUPER_SECRET npm start
-   ```
+```
+; cd api
+; JWT_SECRET=SUPER_SECRET npm start
+```
+
 2. Start the front end
 
 In a new terminal session...
 
-   ```
-   ; cd frontend
-   ; npm start
-   ```
+```
+; cd frontend
+; npm start
+```
 
 Browse to [http://localhost:3000/](http://localhost:3000/)
 
@@ -107,17 +110,17 @@ Browse to [http://localhost:3000/](http://localhost:3000/)
 
 Start the server in test mode (so that it connects to the test DB)
 
-   ```
-   ; cd api
-   ; JWT_SECRET=SUPER_SECRET npm run start:test
-   ```
+```
+; cd api
+; JWT_SECRET=SUPER_SECRET npm run start:test
+```
 
 Then run the tests in a new terminal session
 
-   ```
-   ; cd api
-   ; JWT_SECRET=SUPER_SECRET npm run test
-   ```
+```
+; cd api
+; JWT_SECRET=SUPER_SECRET npm run test
+```
 
 #### The frontend (React)
 
@@ -125,24 +128,24 @@ Then run the tests in a new terminal session
 
 Start the server in test mode (so that it connects to the test DB)
 
-   ```
-   ; cd api
-   ; JWT_SECRET=SUPER_SECRET npm run start:test
-   ```
+```
+; cd api
+; JWT_SECRET=SUPER_SECRET npm run start:test
+```
 
 Then start the front end in a new terminal session
 
-   ```
-   ; cd frontend
-   ; JWT_SECRET=SUPER_SECRET npm start
-   ```
+```
+; cd frontend
+; JWT_SECRET=SUPER_SECRET npm start
+```
 
 Then run the tests in a new terminal session
 
-   ```
-   ; cd frontend
-   ; JWT_SECRET=SUPER_SECRET npm run test
-   ```
+```
+; cd frontend
+; JWT_SECRET=SUPER_SECRET npm run test
+```
 
 ## Demo
 
