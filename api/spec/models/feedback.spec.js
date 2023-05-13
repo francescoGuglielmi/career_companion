@@ -37,4 +37,8 @@ describe("Feedback model", () => {
   it("has a company", () => {
     expect(feedback.company).toEqual("Company LTD");
   })
+
+  it("has a job position", () => {
+    expect(feedback.jobPosition).toEqual("Senior Employee");
+  })
 })
