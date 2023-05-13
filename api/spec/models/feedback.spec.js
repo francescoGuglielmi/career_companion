@@ -16,7 +16,7 @@ describe("Feedback model", () => {
       password: "password123"
     }).save();
 
-    feedback = ({
+    feedback = new Feedback({
       company: "Company LTD",
       jobPosition: "Senior Employee",
       rating: "5",
@@ -52,5 +52,12 @@ describe("Feedback model", () => {
 
   it("has a user", () => {
     expect(feedback.user).toEqual(user._id);
+  })
+
+  it("can list all feedbacks", async () => {
+    await Feedback.find((err, feedbacks) => {
+      expect(err).toBeNull();
+      expect(feedbacks).toEqual([]);
+    })
   })
 })
