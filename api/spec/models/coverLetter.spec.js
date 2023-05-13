@@ -46,4 +46,8 @@ describe("CoverLetter model", () => {
     expect(coverLetter.content).toEqual("Cover letter content")
   })
 
+  it("has a user", () => {
+    expect(coverLetter.user).toEqual(user._id)
+  })
+
 })
