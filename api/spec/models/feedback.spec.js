@@ -41,4 +41,8 @@ describe("Feedback model", () => {
   it("has a job position", () => {
     expect(feedback.jobPosition).toEqual("Senior Employee");
   })
+
+  it("has a rating", () => {
+    expect(feedback.rating).toEqual("5");
+  })
 })
