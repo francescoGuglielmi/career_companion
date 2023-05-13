@@ -60,4 +60,28 @@ describe("Feedback model", () => {
       expect(feedbacks).toEqual([]);
     })
   })
+
+  it("can save a feedback", async () => {
+    const savedFeedback = await new Promise((resolve, reject) => {
+      feedback.save((err, savedFeedback) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(savedFeedback);
+        }
+      });
+    });
+
+    expect(savedFeedback).toBeDefined();
+
+    const feedbacks = await Feedback.find();
+    expect(feedbacks[0]).toMatchObject({
+      company: "Company LTD",
+      jobPosition: "Senior Employee",
+      rating: "5",
+      content: "it was a positive experience",
+      user: user._id
+    });
+
+  })
 })
