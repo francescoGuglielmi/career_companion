@@ -62,4 +62,8 @@ describe("Application model", () => {
   it("has an application status", () => {
     expect(application.applicationStatus).toEqual("Applied for role")
   })
+
+  it("has a user", () => {
+    expect(application.user).toEqual(user._id)
+  })
 })
