@@ -3,6 +3,12 @@ const bcrypt = require('bcrypt');
 
 const UsersController = {
   Create: async (req, res) => {
+
+    if (!req.body.password || req.body.password.trim() === '') {
+      res.status(400).json({ message: 'Password is required' });
+      return;
+    }
+
     const hashedPassword = await bcrypt.hash(req.body.password, 10)
     const user = new User({firstName: req.body.firstName, lastName: req.body.lastName, email: req.body.email, password: hashedPassword });
     user.save((err) => {
