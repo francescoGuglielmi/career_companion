@@ -42,4 +42,9 @@ describe("Application model", () => {
   it("has a company", () => {
     expect(application.company).toEqual("Company 2 LTD")
   })
+
+  it("has a jobTitle", () => {
+    expect(application.jobTitle).toEqual("Senior Employee 2")
+  })
+
 })
