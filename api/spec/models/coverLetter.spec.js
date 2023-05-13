@@ -42,4 +42,8 @@ describe("CoverLetter model", () => {
     expect(coverLetter.jobPosition).toEqual("Some job position")
   })
 
+  it("has a content", () => {
+    expect(coverLetter.content).toEqual("Cover letter content")
+  })
+
 })
