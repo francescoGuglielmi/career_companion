@@ -77,7 +77,6 @@ describe("CoverLetter model", () => {
       content: "Cover letter content",
       user: user._id
     });
-
   })
 
 })

@@ -25,7 +25,7 @@ describe("Application model", () => {
       jobDetails: "10 years of experience",
       applicationStatus: "Applied for role",
       user: user._id,
-      createdAt: new Date().toLocaleDateString(),
+      createdAt: new Date().toLocaleDateString()
     })
   })
 
@@ -75,5 +75,32 @@ describe("Application model", () => {
       expect(err).toBeNull();
       expect(applications).toEqual([]);
     })
+  })
+
+  it("can save an application", async () => {
+    const savedApplication = await new Promise((resolve, reject) => {
+      application.save((err, savedApplication) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(savedApplication);
+        }
+      });
+    });
+
+    expect(savedApplication).toBeDefined();
+
+    const applications = await Application.find();
+    expect(applications[0]).toMatchObject({
+      company: "Company 2 LTD",
+      jobTitle: "Senior Employee 2",
+      location: "London",
+      link: "https://github.com/francescoGuglielmi",
+      jobDetails: "10 years of experience",
+      applicationStatus: "Applied for role",
+      user: user._id,
+      createdAt: new Date().toLocaleDateString()
+    });
+
   })
 })
