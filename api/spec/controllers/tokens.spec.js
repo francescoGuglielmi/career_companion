@@ -25,7 +25,7 @@ describe("/tokens", () => {
   })
 
 
-  xit("a token is not returned when creds are invalid", async () => {
+  it("a token is not returned when creds are invalid", async () => {
     let response = await request(app)
       .post("/tokens")
       .send({email: "test@test.com", password: "123"})
