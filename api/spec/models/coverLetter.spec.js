@@ -8,7 +8,6 @@ let coverLetter
 describe("CoverLetter model", () => {
 
   beforeAll(async () => {
-    await mongoose.connection.createCollection("coverletters");
 
     user = await new User({
       firstName: "firstName",
@@ -26,7 +25,7 @@ describe("CoverLetter model", () => {
   });
 
   afterAll(async () => {
-    await mongoose.connection.collections.coverletters.drop()
+    await mongoose.connection.collections.coverletters.deleteMany()
   })
 
   beforeEach(async () => {

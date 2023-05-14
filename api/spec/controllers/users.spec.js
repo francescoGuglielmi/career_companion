@@ -73,7 +73,7 @@ describe("/users", () => {
       let response = await request(app)
         .put(`/users/${user._id}`)
         .send({firstName: "John", lastName: "Doe", email:"johndoe@example.com"})
-        expect(response.statusCode).toBe(201)
+      expect(response.statusCode).toBe(201)
     })
   })
 })
