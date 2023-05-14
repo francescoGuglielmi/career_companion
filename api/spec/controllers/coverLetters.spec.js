@@ -42,9 +42,9 @@ describe("CoverLettersController", () => {
       expect(response.statusCode).toBe(201)
     })
 
-    it("returns status code 201", async () => {
+    it("a cover letter is created", async () => {
       let retrievedUser = await User.findOne({ email: "test@test.com" })
-      let response = await request(app)
+      await request(app)
         .post("/coverLetterGen")
         .set({ Authorization: `Bearer ${token}` })
         .send({ 
@@ -53,7 +53,13 @@ describe("CoverLettersController", () => {
           content: "some content here", 
           user: retrievedUser._id 
         })
-      expect(response.statusCode).toBe(201)
+      let response = await CoverLetter.find()
+      expect(response.length).toEqual(1)
+      expect(response[0].company).toEqual("Company LTD")
+      expect(response[0].jobPosition).toEqual("Senior Employee")
+      expect(response[0].content).toEqual("some content here")
+      expect(response[0].user).toEqual(retrievedUser._id)
     })
+
   })
 })
