@@ -4,7 +4,7 @@ require("../mongodb_helper");
 const User = require('../../models/user')
 
 describe("/users", () => {
-  beforeEach( async () => {
+  beforeEach(async () => {
     await User.deleteMany({});
   });
 

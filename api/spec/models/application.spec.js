@@ -101,6 +101,5 @@ describe("Application model", () => {
       user: user._id,
       createdAt: new Date().toLocaleDateString()
     });
-
-  })
+  });
 })
