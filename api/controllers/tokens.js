@@ -8,7 +8,7 @@ const SessionsController = {
     const email = req.body.email;
     const password = req.body.password;
 
-    User.findOne({ email: email }).then(async (user) => {
+    let user = await User.findOne({ email: email })
       if (!user) {
         console.log("auth error: user not found")
         res.status(404).json({ message: "auth error" });
@@ -19,7 +19,7 @@ const SessionsController = {
         const token = await TokenGenerator.jsonwebtoken(user.id)
         res.status(201).json({ token: token, message: "OK", user_id: user.id });
       }
-    });
+    
   }
 };
 

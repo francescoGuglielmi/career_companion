@@ -4,6 +4,7 @@ beforeAll(function (done) {
   mongoose.connect("mongodb://0.0.0.0/career_companion_test", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useCreateIndex : true
   });
 
   var db = mongoose.connection;

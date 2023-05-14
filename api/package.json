@@ -7,7 +7,7 @@
   "scripts": {
     "start": "nodemon ./bin/www",
     "start:test": "MONGODB_URL='mongodb://0.0.0.0/career_companion_test' npm start",
-    "test": "jest"
+    "test": "jest --detectOpenHandles"
   },
   "engines": {
     "node": ">=18.1.0"

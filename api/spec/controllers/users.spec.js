@@ -8,7 +8,11 @@ describe("/users", () => {
     await User.deleteMany({});
   });
 
-  describe("POST, when email and password are provided", () => {
+  afterAll(async () => {
+    await User.deleteMany({});
+  })
+
+  describe("POST, when email, password and full name are provided", () => {
     it("the response code is 201", async () => {
       let response = await request(app)
         .post("/users")
@@ -21,8 +25,8 @@ describe("/users", () => {
         .post("/users")
         .send({email: "scarlett@email.com", password: "password1234", firstName: "some", lastName: "one"})
       let users = await User.find()
-      let newUser = users[users.length - 1]
-      expect(newUser.email).toEqual("scarlett@email.com")
+        let newUser = users[users.length - 1]
+        expect(newUser.email).toEqual("scarlett@email.com")
     })
   })
 
@@ -58,5 +62,18 @@ describe("/users", () => {
       let users = await User.find()
       expect(users.length).toEqual(0)
     });
+  })
+
+  describe("PUT, when firstName, lastName or email are provided", () => {
+    it("response code is 200", async () => {
+      await request(app)
+        .post("/users")
+        .send({email: "poppy@email.com", password: "password1234",  firstName: "some", lastName: "one"})
+      let user = await User.findOne({ email: "poppy@email.com" })
+      let response = await request(app)
+        .put(`/users/${user._id}`)
+        .send({firstName: "John", lastName: "Doe", email:"johndoe@example.com"})
+        expect(response.statusCode).toBe(201)
+    })
   })
 })
