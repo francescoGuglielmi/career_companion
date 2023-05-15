@@ -1,11 +1,11 @@
-const Users = require("../models/user");
+const User = require("../models/user");
 const Application = require("../models/application");
 const TokenGenerator = require("../models/token_generator");
 const { application } = require("express");
 
 const ApplicationsController = {
   Index: async (req, res) => {
-    const user = await findUser(req.user_id);
+    const user = await User.findById(req.user_id);
 
     Application.find()
       .populate({
@@ -73,10 +73,6 @@ const ApplicationsController = {
       res.status(500).json({ message: "Internal Server Error" });
     }
   },
-};
-
-const findUser = (userId) => {
-  return Users.findById(userId);
 };
 
 module.exports = ApplicationsController;
