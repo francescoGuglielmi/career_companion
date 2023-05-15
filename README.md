@@ -38,7 +38,7 @@ Here's an overview of the technologies used to build this application.
 - Express
 - React
 - Node.js
-- OopenAI API
+- OpenAI API
 - Tailwind
 - Daisy UI
 - Bcrypt
