@@ -7,7 +7,7 @@ let feedback
 
 describe("Feedback model", () => {
   beforeAll(async () => {
-    await mongoose.connection.createCollection("feedbacks");
+    // await mongoose.connection.createCollection("feedbacks");
 
     user = await new User({
       firstName: "firstName",

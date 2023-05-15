@@ -45,6 +45,27 @@ describe("FeedbackController", () => {
       expect(response.statusCode).toBe(201)
     })
 
+    it("a feedback is created", async () => {
+      await request(app)
+        .post("/feedback")
+        .set({ Authorization: `Bearer ${token}` })
+        .send({ 
+          company: "Company LTD", 
+          jobTitle: "Senior Employee", 
+          rating: "5",
+          content: "some content here", 
+          userId: retrievedUser._id 
+        })
+      let response = await Feedback.find()
+      expect(response.length).toBe(1)
+      expect(response[0].company).toEqual("Company LTD")
+      expect(response[0].jobPosition).toEqual("Senior Employee")
+      expect(response[0].rating).toEqual("5")
+      expect(response[0].content).toEqual("some content here")
+      expect(response[0].user._id).toEqual(retrievedUser._id)
+    })
+
+
   })
 
 })
