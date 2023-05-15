@@ -4,19 +4,20 @@ require("../mongodb_helper");
 const bcrypt = require("bcrypt")
 const User = require('../../models/user');
 const CoverLetter = require("../../models/coverLetter");
-let user
+let retrievedUser
 let token
 
 describe("CoverLettersController", () => {
 
   beforeAll(async () => {
     let hashedPassword = await bcrypt.hash("password2", 10)
-    user = new User({ email: "test@test.com", password: hashedPassword, firstName: "some", lastName: "one" })
+    let user = new User({ email: "test@test.com", password: hashedPassword, firstName: "some", lastName: "one" })
     await user.save()
     let tokenResponse = await request(app)
       .post("/tokens")
       .send({email: "test@test.com", password: "password2"})
     token = tokenResponse.body.token
+    retrievedUser = await User.findOne({ email: "test@test.com" })
   });
 
   beforeEach(async () => {
@@ -30,7 +31,6 @@ describe("CoverLettersController", () => {
 
   describe("POST, when company, jobPosition, content and user are provided", () => {
     it("returns status code 201", async () => {
-      let retrievedUser = await User.findOne({ email: "test@test.com" })
       let response = await request(app)
         .post("/coverLetterGen")
         .set({ Authorization: `Bearer ${token}` })
@@ -44,7 +44,6 @@ describe("CoverLettersController", () => {
     })
 
     it("a cover letter is created", async () => {
-      let retrievedUser = await User.findOne({ email: "test@test.com" })
       await request(app)
         .post("/coverLetterGen")
         .set({ Authorization: `Bearer ${token}` })
@@ -74,7 +73,6 @@ describe("CoverLettersController", () => {
     })
 
     it("returns the cover letters in the database", async () => {
-      let retrievedUser = await User.findOne({ email: "test@test.com" })
       const coverLetter = new CoverLetter({
         company: "Google",
         jobPosition: "Data Analyst",
