@@ -76,4 +76,39 @@ describe("ApplicationController", () => {
     })
   })
 
+  describe("GET /applications", () => {
+    it("returns an empty array", async () => {
+      let response = await request(app)
+        .get("/applications")
+        .set({ Authorization: `Bearer ${token}` })
+
+      expect(response.statusCode).toBe(200)
+      expect(response.body.applications).toEqual([])
+    })
+
+    xit("returns the cover letters in the database", async () => {
+      const feedback = new Feedback({
+        company: "Google",
+        jobPosition: "Data Analyst",
+        rating: "5",
+        content: "This is the feedback's body",
+        userId: retrievedUser._id
+      })
+      await feedback.save()
+
+      let response = await request(app)
+        .get("/feedback")
+        .set({ Authorization: `Bearer ${token}` })
+
+      expect(response.statusCode).toBe(200)
+      expect(response.body.feedbacks.length).toBe(1)
+      expect(response.body.feedbacks[0].company).toEqual("Google")
+      expect(response.body.feedbacks[0].jobPosition).toEqual("Data Analyst")
+      expect(response.body.feedbacks[0].rating).toEqual("5")
+      expect(response.body.feedbacks[0].content).toEqual("This is the feedback's body")
+      expect(response.body.user.email).toEqual("test@test.com")
+    })
+  })
+
+
 })
