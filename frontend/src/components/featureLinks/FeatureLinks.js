@@ -4,7 +4,7 @@ const FeatureLinks = () => {
   return (
     <>
       <div className="grid grid-cols-5 lg:grid-cols-5 place-items-center">
-        <a href="#applicationSection" className="grid md:grid-rows-2 justify-center items-center">
+        <a href="#applicationSection" id="applicationsLink" className="grid md:grid-rows-2 justify-center items-center">
           <div className="flex flex-col items-center hover:text-lorange ease-in-out duration-200">
             <div className="w-7 h-7 rounded-full bg-primary-100 dark:bg-primary-900 text-lblue hover:text-lorange ease-in-out duration-200 flex justify-center text-center">
               <svg
@@ -26,7 +26,7 @@ const FeatureLinks = () => {
           </div>
         </a>
 
-        <a href="/interview" className="grid md:grid-rows-2 justify-center items-center">
+        <a href="/interview" id="interviewLink" className="grid md:grid-rows-2 justify-center items-center">
           <div className="flex flex-col items-center">
             <div className="w-7 h-7 rounded-full bg-primary-100 dark:bg-primary-900 text-lblue hover:text-lorange ease-in-out duration-200 flex justify-center text-center">
               <svg
@@ -44,7 +44,7 @@ const FeatureLinks = () => {
           </div>
         </a>
 
-        <a href="resume" className="grid md:grid-rows-2 justify-center items-center">
+        <a href="resume" id="resumeLink" className="grid md:grid-rows-2 justify-center items-center">
           <div className="flex flex-col items-center">
             <div className="w-7 h-7 rounded-full bg-primary-100 dark:bg-primary-900 text-lblue hover:text-lorange ease-in-out duration-200 flex justify-center text-center">
               <svg
@@ -67,7 +67,7 @@ const FeatureLinks = () => {
           </div>
         </a>
 
-        <a href="generator" className="grid md:grid-rows-2 justify-center items-center">
+        <a href="generator" id="coverLetterLink" className="grid md:grid-rows-2 justify-center items-center">
           <div className="flex flex-col items-center">
             <div className="w-7 h-7 rounded-full bg-primary-100 dark:bg-primary-900 text-lblue  hover:text-lorange ease-in-out duration-200 flex justify-center text-center">
               <svg
@@ -85,7 +85,7 @@ const FeatureLinks = () => {
           </div>
         </a>
 
-        <a href="/feedback" className="grid md:grid-rows-2 justify-center items-center">
+        <a href="/feedback" id="feedbackLink" className="grid md:grid-rows-2 justify-center items-center">
           <div className="flex flex-col items-center">
             <div className="w-7 h-7 rounded-full bg-primary-100 dark:bg-primary-900 text-lblue hover:text-lorange ease-in-out duration-200 flex justify-center text-center">
               <svg

@@ -27,11 +27,11 @@
   transform: translateY(-50%);
 }
 
-.hamburger-menu .bar:last-child {
+/* .hamburger-menu .bar:last-child {
   bottom: 0;
   width: 16px;
   right: 0;
-}
+} */
 
 .hamburger-menu.open .bar:first-child {
   transform: translateY(9px) rotate(45deg);
