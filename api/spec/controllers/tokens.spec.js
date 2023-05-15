@@ -33,4 +33,14 @@ describe("/tokens", () => {
     expect(response.body.token).toEqual(undefined)
     expect(response.body.message).toEqual("auth error")
   })
+
+  it("returns status code 404 if the user doesn't exist", async () => {
+    await User.deleteMany()
+    let response = await request(app)
+      .post("/tokens")
+      .send({email: "test@test.com", password: "123"})
+    expect(response.status).toEqual(404)
+    expect(response.body.token).toEqual(undefined)
+    expect(response.body.message).toEqual("auth error")
+  })
 })
