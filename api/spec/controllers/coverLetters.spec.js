@@ -25,6 +25,7 @@ describe("CoverLettersController", () => {
 
   afterAll( async () => {
     await User.deleteMany({})
+    await CoverLetter.deleteMany({})
   })
 
   describe("POST, when company, jobPosition, content and user are provided", () => {
@@ -70,6 +71,26 @@ describe("CoverLettersController", () => {
         .set({ Authorization: `Bearer ${token}` })
       expect(response.statusCode).toBe(200)
       expect(response.body.coverLetters).toEqual([])
+    })
+
+    it("returns the cover letters in the database", async () => {
+      let retrievedUser = await User.findOne({ email: "test@test.com" })
+      const coverLetter = new CoverLetter({
+        company: "Google",
+        jobPosition: "Data Analyst",
+        content: "This is the cover letter's body",
+        user: retrievedUser._id
+      })
+      await coverLetter.save()
+      
+      let response = await request(app)
+        .get("/coverLetterGen")
+        .set({ Authorization: `Bearer ${token}` })
+      expect(response.statusCode).toBe(200)
+      expect(response.body.coverLetters[0].company).toEqual("Google")
+      expect(response.body.coverLetters[0].jobPosition).toEqual("Data Analyst")
+      expect(response.body.coverLetters[0].content).toEqual("This is the cover letter's body")
+      expect(response.body.coverLetters[0].user.email).toEqual("test@test.com")
     })
   })
 
