@@ -1,11 +1,11 @@
-const Users = require("../models/user");
+const User = require("../models/user");
 const Feedback = require('../models/feedback')
 const TokenGenerator = require("../models/token_generator");
 
 const FeedbackController = {
 
   Index: async (req, res) => {
-    const user = await findUser(req.user_id);
+    const user = await User.findById(req.user_id);
 
     Feedback.find()
       .populate({
@@ -54,9 +54,5 @@ const FeedbackController = {
   }
 
 }
-
-const findUser = (userId) => {
-  return Users.findById(userId);
-};
 
 module.exports = FeedbackController;
