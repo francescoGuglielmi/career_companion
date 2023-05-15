@@ -8,8 +8,6 @@ const date = new Date();
 
 describe("Application model", () => {
   beforeAll(async () => {
-    await mongoose.connection.createCollection("applications")
-
     user = await new User({
       firstName: "firstName2",
       lastName: "lastName2",

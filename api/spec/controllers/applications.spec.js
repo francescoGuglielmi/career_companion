@@ -32,7 +32,7 @@ describe("ApplicationController", () => {
   describe("POST, when company, jobTitle, location, link, jobDetails, applicationStatus, user and createdAt are provided", () => {
     it("returns status code 201", async () => {
       let response = await request(app)
-        .post("/feedback")
+        .post("/applications")
         .set({ Authorization: `Bearer ${token}` })
         .send({ 
           company: "Company 2 LTD",
@@ -48,25 +48,31 @@ describe("ApplicationController", () => {
       expect(response.statusCode).toBe(201)
     })
 
-    xit("a feedback is created", async () => {
+    it("an application is created", async () => {
       await request(app)
-        .post("/feedback")
+        .post("/applications")
         .set({ Authorization: `Bearer ${token}` })
         .send({ 
-          company: "Company LTD", 
-          jobTitle: "Senior Employee", 
-          rating: "5",
-          content: "some content here", 
-          userId: retrievedUser._id 
+          company: "Company 2 LTD",
+          jobTitle: "Senior Employee 2",
+          location: "London",
+          link: "https://github.com/francescoGuglielmi",
+          jobDetails: "10 years of experience",
+          applicationStatus: "Applied for role",
+          user: retrievedUser._id,
+          createdAt: new Date().toLocaleDateString()
         })
-      let response = await Feedback.find()
+      let applications = await Application.find()
 
-      expect(response.length).toBe(1)
-      expect(response[0].company).toEqual("Company LTD")
-      expect(response[0].jobPosition).toEqual("Senior Employee")
-      expect(response[0].rating).toEqual("5")
-      expect(response[0].content).toEqual("some content here")
-      expect(response[0].user._id).toEqual(retrievedUser._id)
+      expect(applications.length).toBe(1)
+      expect(applications[0].company).toEqual("Company 2 LTD")
+      expect(applications[0].jobTitle).toEqual("Senior Employee 2")
+      expect(applications[0].location).toEqual("London")
+      expect(applications[0].link).toEqual("https://github.com/francescoGuglielmi")
+      expect(applications[0].jobDetails).toEqual("10 years of experience")
+      expect(applications[0].applicationStatus).toEqual("Applied for role")
+      expect(applications[0].user).toEqual(retrievedUser._id)
+      expect(applications[0].createdAt).toEqual(new Date().toLocaleDateString())
     })
   })
 
