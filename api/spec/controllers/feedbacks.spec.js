@@ -65,6 +65,17 @@ describe("FeedbackController", () => {
       expect(response[0].user._id).toEqual(retrievedUser._id)
     })
 
+  })
+
+  describe("GET /feedback", () => {
+
+    it("returns an empty array", async () => {
+      let response = await request(app)
+        .get("/feedback")
+        .set({ Authorization: `Bearer ${token}` })
+      expect(response.statusCode).toBe(200)
+      expect(response.body.feedbacks).toEqual([])
+    })
 
   })
 
