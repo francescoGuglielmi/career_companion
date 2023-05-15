@@ -60,6 +60,17 @@ describe("CoverLettersController", () => {
       expect(response[0].content).toEqual("some content here")
       expect(response[0].user).toEqual(retrievedUser._id)
     })
+  })
 
+  describe("GET /coverLetterGen", () => {
+
+    it("returns an empty array", async () => {
+      let response = await request(app)
+        .get("/coverLetterGen")
+        .set({ Authorization: `Bearer ${token}` })
+      expect(response.statusCode).toBe(200)
+      expect(response.body.coverLetters).toEqual([])
+    })
   })
 })
+
