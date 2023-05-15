@@ -70,10 +70,17 @@ describe("/users", () => {
         .post("/users")
         .send({email: "poppy@email.com", password: "password1234",  firstName: "some", lastName: "one"})
       let user = await User.findOne({ email: "poppy@email.com" })
+
       let response = await request(app)
         .put(`/users/${user._id}`)
         .send({firstName: "John", lastName: "Doe", email:"johndoe@example.com"})
       expect(response.statusCode).toBe(201)
+      
+      let users = await User.find()
+      expect(users.length).toEqual(1)
+      expect(users[0].firstName).toEqual("John")
+      expect(users[0].lastName).toEqual("Doe")
+      expect(users[0].email).toEqual("johndoe@example.com")
     })
   })
 })

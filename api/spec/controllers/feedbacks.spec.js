@@ -77,6 +77,65 @@ describe("FeedbackController", () => {
       expect(response.body.feedbacks).toEqual([])
     })
 
+    it("returns the cover letters in the database", async () => {
+      const feedback = new Feedback({
+        company: "Google",
+        jobPosition: "Data Analyst",
+        rating: "5",
+        content: "This is the feedback's body",
+        userId: retrievedUser._id
+      })
+      await feedback.save()
+      let response = await request(app)
+        .get("/feedback")
+        .set({ Authorization: `Bearer ${token}` })
+      expect(response.statusCode).toBe(200)
+      expect(response.body.feedbacks.length).toBe(1)
+      expect(response.body.feedbacks[0].company).toEqual("Google")
+      expect(response.body.feedbacks[0].jobPosition).toEqual("Data Analyst")
+      expect(response.body.feedbacks[0].rating).toEqual("5")
+      expect(response.body.feedbacks[0].content).toEqual("This is the feedback's body")
+      expect(response.body.user.email).toEqual("test@test.com")
+    })
+
+  })
+
+  describe("DELETE /feedback/:feedbackId", () => {
+
+    describe("when a feedback doesn't exist", () => {
+
+      it("returns a status code 404", async () => {
+        let response = await request(app)
+        .delete(`/feedback/${retrievedUser._id}`)
+        .set({ Authorization: `Bearer ${token}` })
+        expect(response.statusCode).toBe(404)
+      })
+
+    })
+
+    describe("when a feedback exists", () => {
+
+      it("deletes the feedback with a specific id", async () => {
+        await request(app)
+        .post("/feedback")
+        .set({ Authorization: `Bearer ${token}` })
+        .send({ 
+          company: "Company LTD", 
+          jobPosition: "Senior Employee", 
+          rating: "5",
+          content: "some content here", 
+          user: retrievedUser._id 
+        })
+        let feedbacks = await Feedback.find()
+
+        let response = await request(app)
+          .delete(`/feedback/${feedbacks[0]._id}`)
+          .set({ Authorization: `Bearer ${token}` })
+        expect(response.statusCode).toBe(200)
+      })
+      
+    })
+
   })
 
 })
