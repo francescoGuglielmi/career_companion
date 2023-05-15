@@ -64,23 +64,66 @@ describe("/users", () => {
     });
   })
 
-  describe("PUT, when firstName, lastName or email are provided", () => {
-    it("response code is 200", async () => {
-      await request(app)
-        .post("/users")
-        .send({email: "poppy@email.com", password: "password1234",  firstName: "some", lastName: "one"})
-      let user = await User.findOne({ email: "poppy@email.com" })
+  describe("PUT /users/:id", () => {
 
-      let response = await request(app)
-        .put(`/users/${user._id}`)
-        .send({firstName: "John", lastName: "Doe", email:"johndoe@example.com"})
-      expect(response.statusCode).toBe(201)
-      
-      let users = await User.find()
-      expect(users.length).toEqual(1)
-      expect(users[0].firstName).toEqual("John")
-      expect(users[0].lastName).toEqual("Doe")
-      expect(users[0].email).toEqual("johndoe@example.com")
+    describe("when firstName, lastName or email are provided", () => {
+
+      it("response code is 201", async () => {
+        await request(app)
+          .post("/users")
+          .send({email: "poppy@email.com", password: "password1234",  firstName: "some", lastName: "one"})
+        let user = await User.findOne({ email: "poppy@email.com" })
+
+        let response = await request(app)
+          .put(`/users/${user._id}`)
+          .send({firstName: "John", lastName: "Doe", email:"johndoe@example.com"})
+        expect(response.statusCode).toBe(201)
+        
+        let users = await User.find()
+        expect(users.length).toEqual(1)
+        expect(users[0].firstName).toEqual("John")
+        expect(users[0].lastName).toEqual("Doe")
+        expect(users[0].email).toEqual("johndoe@example.com")
+      })
+
+      it("updates the existing user", async () => {
+        await request(app)
+          .post("/users")
+          .send({email: "poppy@email.com", password: "password1234",  firstName: "some", lastName: "one"})
+        let user = await User.findOne({ email: "poppy@email.com" })
+
+        await request(app)
+          .put(`/users/${user._id}`)
+          .send({firstName: "John", lastName: "Doe", email:"johndoe@example.com"})
+        
+        let users = await User.find()
+        expect(users.length).toEqual(1)
+        expect(users[0].firstName).toEqual("John")
+        expect(users[0].lastName).toEqual("Doe")
+        expect(users[0].email).toEqual("johndoe@example.com")
+      })
+  
     })
+
+    describe("when a user doesn't exist or parameters are invalid", () => {
+
+      it("returns status code 404", async () => {
+        await request(app)
+          .put(`/users/64625bff7f52984d855b1e68`)
+          .send({firstName: "John", lastName: "Doe", email:"johndoe@example.com"})
+          .expect(404)
+      })
+
+      it("returns status code 500", async () => {
+        await request(app)
+          .put(`/users/1`)
+          .send({firstName: "John", lastName: "Doe", email:"johndoe@example.com"})
+          .expect(500)
+      })
+
+    })
+
   })
+
+  
 })

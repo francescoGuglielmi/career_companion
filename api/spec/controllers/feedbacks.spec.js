@@ -77,7 +77,7 @@ describe("FeedbackController", () => {
       expect(response.body.feedbacks).toEqual([])
     })
 
-    it("returns the cover letters in the database", async () => {
+    it("returns the feedbacks in the database", async () => {
       const feedback = new Feedback({
         company: "Google",
         jobPosition: "Data Analyst",
@@ -136,25 +136,24 @@ describe("FeedbackController", () => {
       })
     })
 
-    // describe("when a feedback exists but the deletion query has invalid id", () => {
-    //   it("returns a status code 500", async () => {
-    //     await request(app)
-    //     .post("/feedback")
-    //     .set({ Authorization: `Bearer ${token}` })
-    //     .send({ 
-    //       company: "Company LTD", 
-    //       jobPosition: "Senior Employee", 
-    //       rating: "5",
-    //       content: "some content here", 
-    //       user: retrievedUser._id 
-    //     })
-    //     let response = await request(app)
-    //       .delete(`/feedback/1`)
-    //       .set({ Authorization: `Bearer ${token}` })
-
-    //     expect(response.statusCode).toBe(500)
-    //   })
-    // })
+    describe("when a feedback exists but the deletion query has invalid id", () => {
+      it("returns a status code 500", async () => {
+        await request(app)
+        .post("/feedback")
+        .set({ Authorization: `Bearer ${token}` })
+        .send({ 
+          company: "Company LTD", 
+          jobPosition: "Senior Employee", 
+          rating: "5",
+          content: "some content here", 
+          user: retrievedUser._id 
+        })
+        let response = await request(app)
+          .delete(`/feedback/1`)
+          .set({ Authorization: `Bearer ${token}` })
+        expect(response.statusCode).toBe(500)
+      })
+    })
 
   })
 
