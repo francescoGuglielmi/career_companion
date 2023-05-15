@@ -4,7 +4,7 @@ const TokenGenerator = require("../models/token_generator");
 
 const CoverLettersController = {
   Index: async (req, res) => {
-    const user = await findUser(req.user_id);
+    const user = await Users.findById(req.user_id) 
 
     CoverLetter.find()
       .populate({
@@ -35,10 +35,6 @@ const CoverLettersController = {
       res.status(201).json({ message: "OK", token: token });
     });
   },
-};
-
-const findUser = (userId) => {
-  return Users.findById(userId);
 };
 
 module.exports = CoverLettersController;

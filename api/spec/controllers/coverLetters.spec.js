@@ -72,5 +72,6 @@ describe("CoverLettersController", () => {
       expect(response.body.coverLetters).toEqual([])
     })
   })
+
 })
 
