@@ -3,7 +3,7 @@ const request = require("supertest");
 require("../mongodb_helper");
 const bcrypt = require("bcrypt")
 const User = require('../../models/user');
-const CoverLetter = require("../../models/coverLetter");
+let CoverLetter = require("../../models/coverLetter");
 let retrievedUser
 let token
 

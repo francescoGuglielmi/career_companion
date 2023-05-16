@@ -46,3 +46,28 @@ describe('tokenChecker', () => {
       .expect(200);
   });
 });
+
+describe("catch 404 and error handler", () => {
+
+  it('should handle 404 error', async () => {
+    const response = await request(app)
+      .get('/nonexistent-route')
+      .expect(404);
+
+    expect(response.body.message).toBe('Not Found');
+  });
+
+  it('should handle server errors', async () => {
+    await request(app).delete('/feedback/1', (req, res, next) => {
+      next(new Error('Sample error'));
+    });
+  
+    const response = await request(app)
+      .delete('/feedback/1')
+      .set('Authorization', `Bearer ${token}`)
+      .expect(500);
+  
+    expect(response.body.message).toBe('Internal Server Error');
+  });
+
+})

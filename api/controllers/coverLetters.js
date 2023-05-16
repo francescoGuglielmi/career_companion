@@ -12,9 +12,9 @@ const CoverLettersController = {
         select: "email",
       })
       .exec(async (err, coverLetters) => {
-        if (err) {
-          throw err;
-        }
+        // if (err) {
+        //   throw err;
+        // }
         const token = await TokenGenerator.jsonwebtoken(req.user_id);
         res.locals.user_id = req.user_id;
         res
@@ -27,9 +27,9 @@ const CoverLettersController = {
     let CoverLetterContent = { ...req.body, user: req.user_id };
     const coverLetter = new CoverLetter(CoverLetterContent);
     coverLetter.save(async (err) => {
-      if (err) {
-        throw err;
-      }
+      // if (err) {
+      //   throw err;
+      // }
 
       const token = await TokenGenerator.jsonwebtoken(req.user_id);
       res.status(201).json({ message: "OK", token: token });

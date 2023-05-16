@@ -13,9 +13,9 @@ const FeedbackController = {
         select: "firstName",
       })
       .exec(async (err, feedbacks) => {
-        if (err) {
-          throw err;
-        }
+        // if (err) {
+        //   throw err;
+        // }
         const token = await TokenGenerator.jsonwebtoken(req.user_id);
         res.locals.user_id = req.user_id;
         res
@@ -28,9 +28,9 @@ const FeedbackController = {
     let feedbackData = { company: req.body.company, jobPosition: req.body.jobTitle, rating: req.body.rating, content: req.body.content, user: req.body.userId }
     const feedback = new Feedback(feedbackData)
     feedback.save(async (err) => {
-      if (err) {
-        throw err;
-      }
+      // if (err) {
+      //   throw err;
+      // }
       const token = await TokenGenerator.jsonwebtoken(req.user_id);
       res.status(201).json({ message: "OK", token: token });
     });
