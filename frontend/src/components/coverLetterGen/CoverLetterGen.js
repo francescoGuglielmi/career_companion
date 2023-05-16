@@ -13,7 +13,7 @@ const openai = new OpenAIApi(
 const CoverLetterGenerator = ({ navigate }) => {
   const [token, setToken] = useState(window.localStorage.getItem("token"));
   const [applications, setApplications] = useState([]);
-  const [application, setApplication] = useState(null);
+  const [application, setApplication] = useState("");
   const [jobPosition, setJobPosition] = useState("");
   const [companyName, setCompanyName] = useState("");
   const [reasons, setReasons] = useState("");

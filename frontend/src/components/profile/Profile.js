@@ -29,9 +29,9 @@ const Profile = ({ navigate }) => {
         .then(async (data) => {
           window.localStorage.setItem("token", data.token);
           setToken(window.localStorage.getItem("token"));
-          console.log(data.applications)
+          // console.log(data.applications)
           const filteredApplications = data.applications.filter(
-            (application) => application.user._id === data.user._id
+            (application) => application.user._id === window.localStorage.getItem("user_id")
           ); //only shows user that is logged in applications
           setApplications(filteredApplications);
           setUserData(data.user);
