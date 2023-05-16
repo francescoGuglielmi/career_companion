@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-
 require("../mongodb_helper");
 const User = require("../../models/user");
 
@@ -8,6 +7,26 @@ describe("User model", () => {
     mongoose.connection.collections.users.drop(() => {
       done();
     });
+  });
+
+  it("has a first name", () => {
+    const user = new User({
+      email: "someone@example.com",
+      password: "password",
+      firstName: "some",
+      lastName: "one"
+    });
+    expect(user.firstName).toEqual("some");
+  });
+
+  it("has a last name", () => {
+    const user = new User({
+      email: "someone@example.com",
+      password: "password",
+      firstName: "some",
+      lastName: "one"
+    });
+    expect(user.lastName).toEqual("one");
   });
 
   it("has an email address", () => {

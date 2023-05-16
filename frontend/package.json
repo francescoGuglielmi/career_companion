@@ -22,7 +22,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts --openssl-legacy-provider start",
+    "start": "react-app-rewired start",
     "build": "react-scripts build",
     "test": "npm run test:unit && npm run test:feature",
     "test:unit": "cypress run --component",
@@ -49,6 +49,7 @@
   },
   "devDependencies": {
     "@cypress/code-coverage": "^3.10.4",
-    "babel-plugin-istanbul": "^6.1.1"
+    "babel-plugin-istanbul": "^6.1.1",
+    "react-app-rewired": "^2.2.1"
   }
 }

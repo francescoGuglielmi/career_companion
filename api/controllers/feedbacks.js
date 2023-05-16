@@ -1,11 +1,11 @@
-const Users = require("../models/user");
+const User = require("../models/user");
 const Feedback = require('../models/feedback')
 const TokenGenerator = require("../models/token_generator");
 
 const FeedbackController = {
 
   Index: async (req, res) => {
-    const user = await findUser(req.user_id);
+    const user = await User.findById(req.user_id);
 
     Feedback.find()
       .populate({
@@ -13,9 +13,9 @@ const FeedbackController = {
         select: "firstName",
       })
       .exec(async (err, feedbacks) => {
-        if (err) {
-          throw err;
-        }
+        // if (err) {
+        //   throw err;
+        // }
         const token = await TokenGenerator.jsonwebtoken(req.user_id);
         res.locals.user_id = req.user_id;
         res
@@ -28,9 +28,9 @@ const FeedbackController = {
     let feedbackData = { company: req.body.company, jobPosition: req.body.jobTitle, rating: req.body.rating, content: req.body.content, user: req.body.userId }
     const feedback = new Feedback(feedbackData)
     feedback.save(async (err) => {
-      if (err) {
-        throw err;
-      }
+      // if (err) {
+      //   throw err;
+      // }
       const token = await TokenGenerator.jsonwebtoken(req.user_id);
       res.status(201).json({ message: "OK", token: token });
     });
@@ -48,15 +48,11 @@ const FeedbackController = {
 
       res.status(200).json({ message: "OK" });
     } catch (error) {
-      console.error(error);
+      // console.error(error);
       res.status(500).json({ message: "Internal Server Error" });
     }
   }
 
 }
-
-const findUser = (userId) => {
-  return Users.findById(userId);
-};
 
 module.exports = FeedbackController;

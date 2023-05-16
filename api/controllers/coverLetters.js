@@ -4,7 +4,7 @@ const TokenGenerator = require("../models/token_generator");
 
 const CoverLettersController = {
   Index: async (req, res) => {
-    const user = await findUser(req.user_id);
+    const user = await Users.findById(req.user_id) 
 
     CoverLetter.find()
       .populate({
@@ -12,9 +12,9 @@ const CoverLettersController = {
         select: "email",
       })
       .exec(async (err, coverLetters) => {
-        if (err) {
-          throw err;
-        }
+        // if (err) {
+        //   throw err;
+        // }
         const token = await TokenGenerator.jsonwebtoken(req.user_id);
         res.locals.user_id = req.user_id;
         res
@@ -27,18 +27,14 @@ const CoverLettersController = {
     let CoverLetterContent = { ...req.body, user: req.user_id };
     const coverLetter = new CoverLetter(CoverLetterContent);
     coverLetter.save(async (err) => {
-      if (err) {
-        throw err;
-      }
+      // if (err) {
+      //   throw err;
+      // }
 
       const token = await TokenGenerator.jsonwebtoken(req.user_id);
       res.status(201).json({ message: "OK", token: token });
     });
   },
-};
-
-const findUser = (userId) => {
-  return Users.findById(userId);
 };
 
 module.exports = CoverLettersController;

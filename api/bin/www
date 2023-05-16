@@ -24,6 +24,7 @@ var mongoDbUrl = process.env.MONGODB_URL || "mongodb://0.0.0.0/career_companion"
 mongoose.connect(mongoDbUrl, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  useCreateIndex : true
 });
 
 var db = mongoose.connection;

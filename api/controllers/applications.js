@@ -1,11 +1,11 @@
-const Users = require("../models/user");
+const User = require("../models/user");
 const Application = require("../models/application");
 const TokenGenerator = require("../models/token_generator");
 const { application } = require("express");
 
 const ApplicationsController = {
   Index: async (req, res) => {
-    const user = await findUser(req.user_id);
+    const user = await User.findById(req.user_id);
 
     Application.find()
       .populate({
@@ -14,9 +14,9 @@ const ApplicationsController = {
       })
       .sort({ createdAt: -1 })
       .exec(async (err, applications) => {
-        if (err) {
-          throw err;
-        }
+        // if (err) {
+        //   throw err;
+        // }
         const token = await TokenGenerator.jsonwebtoken(req.user_id);
         res.locals.user_id = req.user_id;
         res
@@ -29,9 +29,9 @@ const ApplicationsController = {
     let applicationContent = { ...req.body, user: req.user_id };
     const application = new Application(applicationContent);
     application.save(async (err) => {
-      if (err) {
-        throw err;
-      }
+      // if (err) {
+      //   throw err;
+      // }
 
       const token = await TokenGenerator.jsonwebtoken(req.user_id);
       res.status(201).json({ message: "OK", token: token });
@@ -52,7 +52,7 @@ const ApplicationsController = {
 
       res.status(201).json({ message: "OK", application });
     } catch (error) {
-      console.error(error);
+      // console.error(error);
       res.status(500).json({ message: "Internal Server Error" });
     }
   },
@@ -69,14 +69,10 @@ const ApplicationsController = {
 
       res.status(200).json({ message: "OK" });
     } catch (error) {
-      console.error(error);
+      // console.error(error);
       res.status(500).json({ message: "Internal Server Error" });
     }
   },
-};
-
-const findUser = (userId) => {
-  return Users.findById(userId);
 };
 
 module.exports = ApplicationsController;
