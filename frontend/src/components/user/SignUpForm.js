@@ -31,13 +31,17 @@ const SignUpForm = ({ navigate }) => {
         lastName: lastName,
       }),
     })  
-    .then((response) => {
-      console.log(response.json());
-      if (response.status === 201) {
+    .then((response) => response.json()) // Parse the response as JSON
+    .then((data) => {
+      console.log(data);
+      if (data.status === 201) {
         navigate("/login");
       } else {
         navigate("/signup");
       }
+    })
+    .catch((error) => {
+      console.error(error);
     });
   };
 
