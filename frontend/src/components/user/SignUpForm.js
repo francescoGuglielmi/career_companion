@@ -30,11 +30,9 @@ const SignUpForm = ({ navigate }) => {
         firstName: firstName,
         lastName: lastName,
       }),
-    }).then((data) => {
-      console.log(data); // Check the parsed JSON data
-    })
+    })  
     .then((response) => {
-      console.log(response);
+      console.log(response.json());
       if (response.status === 201) {
         navigate("/login");
       } else {
