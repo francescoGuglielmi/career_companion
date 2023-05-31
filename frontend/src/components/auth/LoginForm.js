@@ -27,6 +27,7 @@ const LogInForm = ({ navigate }) => {
     });
 
     if (response.status !== 201) {
+      console.log(response)
       let data = await response.json();
       console.log(data._id);
       if (response.status === 404) {
