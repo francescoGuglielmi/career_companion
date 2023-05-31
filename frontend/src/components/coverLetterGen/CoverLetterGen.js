@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./CoverLetterGen.css";
 import { Configuration, OpenAIApi } from "openai";
-import key from "../api_key";
+// import key from "../api_key";
 import NavbarHP from "../navbar/navBarHP";
 
 const openai = new OpenAIApi(
   new Configuration({
-    apiKey: key,
+    apiKey: process.env.API_KEY,
   })
 );
 
