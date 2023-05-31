@@ -11,12 +11,16 @@ const tokensRouter = require("./routes/tokens");
 const usersRouter = require("./routes/users");
 
 const app = express();
+const cors = require("cors");
 
 // setup for receiving JSON
 
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
+app.use(cors({
+  origin: "https://career-companion-39n4.onrender.com/"
+}));
 
 // middleware function to check for valid tokens
 const tokenChecker = (req, res, next) => {
