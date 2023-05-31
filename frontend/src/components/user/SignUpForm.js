@@ -31,6 +31,7 @@ const SignUpForm = ({ navigate }) => {
         lastName: lastName,
       }),
     }).then((response) => {
+      console.log(response);
       if (response.status === 201) {
         navigate("/login");
       } else {
