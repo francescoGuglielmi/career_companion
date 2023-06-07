@@ -28,6 +28,7 @@ const SignUpForm = ({ navigate }) => {
         email: email,
         password: password,
         firstName: firstName,
+
         lastName: lastName
       })
     }).then((response) => {
@@ -36,6 +37,9 @@ const SignUpForm = ({ navigate }) => {
       } else {
         navigate("/signup");
       }
+    })
+    .catch((error) => {
+      console.error(error);
     });
   };
 
