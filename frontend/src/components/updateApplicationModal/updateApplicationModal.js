@@ -16,7 +16,7 @@ const UpdateApplication = ({ application }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    let response = await fetch(`/applications/${application._id}`, {
+    let response = await fetch(`https://career-companion-0vnx.onrender.com/applications/${application._id}`, {
       method: "put",
       headers: {
         "Content-Type": "application/json",

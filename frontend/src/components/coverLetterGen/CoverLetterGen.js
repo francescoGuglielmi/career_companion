@@ -23,7 +23,7 @@ const CoverLetterGenerator = ({ navigate }) => {
 
   useEffect(() => {
     if (token) {
-      fetch("/applications", {
+      fetch("https://career-companion-0vnx.onrender.com/applications", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -86,7 +86,7 @@ const CoverLetterGenerator = ({ navigate }) => {
   }
 
   async function handleSaveButtonClick() {
-    let response = await fetch("/coverLetterGen", {
+    let response = await fetch("https://career-companion-0vnx.onrender.com/coverLetterGen", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
