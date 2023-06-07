@@ -19,10 +19,10 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
-// const allowedOrigins = ["localhost:3000", "https://career-companion-39n4.onrender.com/"]
-// app.use(cors({
-//   origin: allowedOrigins
-// }));
+const allowedOrigins = ["localhost:3000", "https://career-companion-39n4.onrender.com"]
+app.use(cors({
+  origin: allowedOrigins
+}));
 
 // middleware function to check for valid tokens
 const tokenChecker = (req, res, next) => {
