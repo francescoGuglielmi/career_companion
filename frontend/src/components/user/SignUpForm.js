@@ -28,8 +28,8 @@ const SignUpForm = ({ navigate }) => {
         email: email,
         password: password,
         firstName: firstName,
-        lastName: lastName,
-      }),
+        lastName: lastName
+      })
     }).then((response) => {
       if (response.status === 201) {
         navigate("/login");
