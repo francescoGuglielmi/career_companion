@@ -28,13 +28,11 @@ const SignUpForm = ({ navigate }) => {
         email: email,
         password: password,
         firstName: firstName,
-        lastName: lastName,
-      }),
-    })  
-    .then((response) => response.json()) // Parse the response as JSON
-    .then((data) => {
-      console.log(data);
-      if (data.status === 201) {
+
+        lastName: lastName
+      })
+    }).then((response) => {
+      if (response.status === 201) {
         navigate("/login");
       } else {
         navigate("/signup");
