@@ -20,7 +20,7 @@ const Profile = ({ navigate }) => {
 
   useEffect(() => {
     if (token) {
-      fetch("/applications", {
+      fetch("https://career-companion-0vnx.onrender.com/applications", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

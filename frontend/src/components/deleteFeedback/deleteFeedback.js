@@ -6,7 +6,7 @@ const DeleteFeedback = (props) => {
   const handleFeedbackDeleteClick = async (event) => {
     event.preventDefault();
 
-    let response = await fetch(`/feedback/${props.feedback._id}`, {
+    let response = await fetch(`https://career-companion-0vnx.onrender.com/feedback/${props.feedback._id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

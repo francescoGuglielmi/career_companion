@@ -20,7 +20,7 @@ const FeedbackPage = ({navigate}) => {
 
   useEffect(() => {
     if (token) {
-      fetch("/applications", {
+      fetch("https://career-companion-0vnx.onrender.com/applications", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -43,7 +43,7 @@ const FeedbackPage = ({navigate}) => {
 
   useEffect(() => {
     if (token) {
-      fetch("/feedback", {
+      fetch("https://career-companion-0vnx.onrender.com/feedback", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

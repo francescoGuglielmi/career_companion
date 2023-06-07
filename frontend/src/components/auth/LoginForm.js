@@ -18,7 +18,7 @@ const LogInForm = ({ navigate }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    let response = await fetch("/tokens", {
+    let response = await fetch("https://career-companion-0vnx.onrender.com/tokens", {
       method: "post",
       headers: {
         "Content-Type": "application/json",
