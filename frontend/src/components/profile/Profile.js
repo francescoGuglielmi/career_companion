@@ -25,11 +25,14 @@ const Profile = ({ navigate }) => {
           Authorization: `Bearer ${token}`,
         },
       })
-        .then((response) => response.json())
+        .then((response) => {
+          console.log(response)
+          response.json()
+        })
         .then(async (data) => {
           window.localStorage.setItem("token", data.token);
           setToken(window.localStorage.getItem("token"));
-          // console.log(data.applications)
+          console.log(data.applications)
           const filteredApplications = data.applications.filter(
             (application) => application.user._id === window.localStorage.getItem("user_id")
           ); //only shows user that is logged in applications
