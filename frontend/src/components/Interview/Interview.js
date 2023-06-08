@@ -70,6 +70,7 @@ const Interview = ({ navigate }) => {
     })
       .then((response) => response.json())
       .then((data) => {
+        console.log(data)
         setQuestions(data.questions);
         setLoadingFeedbackAlert("");
     });

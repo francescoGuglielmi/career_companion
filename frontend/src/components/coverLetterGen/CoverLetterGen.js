@@ -60,7 +60,7 @@ const CoverLetterGenerator = ({ navigate }) => {
 
     setLoadingAlert("Please wait, your cover letter is being generated...");
 
-    fetch(`${window.BACKEND_API_SERVER_ADDRESS}/openai/interviewQuestions`, {
+    fetch(`${window.BACKEND_API_SERVER_ADDRESS}/openai/coverLetter`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
