@@ -40,7 +40,7 @@ const AddApplication = (props) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    let response = await fetch("https://career-companion-0vnx.onrender.com/applications", {
+    let response = await fetch(`${window.BACKEND_API_SERVER_ADDRESS}/applications`, {
       method: "post",
       headers: {
         "Content-Type": "application/json",

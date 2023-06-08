@@ -8,8 +8,13 @@ import './components/navbar/navBarLP.css';
 import { disableReactDevTools } from '@fvilers/disable-react-devtools';
 
 if (process.env.NODE_ENV === "production") {
+  window.BACKEND_API_SERVER_ADDRESS = "https://career-companion-0vnx.onrender.com"
   disableReactDevTools();
+} else {
+  window.BACKEND_API_SERVER_ADDRESS = ""
 }
+
+console.log("helloo")
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

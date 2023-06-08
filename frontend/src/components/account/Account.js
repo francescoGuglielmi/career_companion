@@ -16,7 +16,7 @@ console.log('userdata:', state.userData)
 
   useEffect(() => {
     const updateUser = async () => {
-      let response = await fetch(`https://career-companion-0vnx.onrender.com/users/${userData._id}`, {
+      let response = await fetch(`${window.BACKEND_API_SERVER_ADDRESS}/users/${userData._id}`, {
         method: "put",
         headers: {
           "Content-Type": "application/json",

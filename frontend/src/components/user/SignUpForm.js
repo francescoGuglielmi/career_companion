@@ -19,7 +19,7 @@ const SignUpForm = ({ navigate }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    fetch("https://career-companion-0vnx.onrender.com/users", {
+    fetch(`${window.BACKEND_API_SERVER_ADDRESS}/users`, {
       method: "post",
       headers: {
         "Content-Type": "application/json",

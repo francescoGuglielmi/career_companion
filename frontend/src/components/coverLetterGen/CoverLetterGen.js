@@ -24,7 +24,7 @@ const CoverLetterGenerator = ({ navigate }) => {
 
   useEffect(() => {
     if (token) {
-      fetch("https://career-companion-0vnx.onrender.com/apiKey", {
+      fetch(`${window.BACKEND_API_SERVER_ADDRESS}/apiKey`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -40,7 +40,7 @@ const CoverLetterGenerator = ({ navigate }) => {
 
   useEffect(() => {
     if (token) {
-      fetch("https://career-companion-0vnx.onrender.com/applications", {
+      fetch(`${window.BACKEND_API_SERVER_ADDRESS}/applications`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -103,7 +103,7 @@ const CoverLetterGenerator = ({ navigate }) => {
   }
 
   async function handleSaveButtonClick() {
-    let response = await fetch("https://career-companion-0vnx.onrender.com/coverLetterGen", {
+    let response = await fetch(`${window.BACKEND_API_SERVER_ADDRESS}/coverLetterGen`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

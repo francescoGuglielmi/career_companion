@@ -20,14 +20,14 @@ const Profile = ({ navigate }) => {
 
   useEffect(() => {
     if (token) {
-      fetch("https://career-companion-0vnx.onrender.com/applications", {
+      fetch(`${window.BACKEND_API_SERVER_ADDRESS}/applications`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
         .then((response) => {
           console.log(response)
-          response.json()
+          return response.json()
         })
         .then(async (data) => {
           window.localStorage.setItem("token", data.token);

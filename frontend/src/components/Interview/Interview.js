@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import key from "../api_key";
+import key from "../api_key";
 import SelectJobPosition from "../jobSelection/JobSelection";
 import QuestionsForm from "../questionsForm/QuestionsForm";
 import "./Interview.css";
@@ -23,15 +23,17 @@ const Interview = ({ navigate }) => {
   const [feedback, setFeedback] = useState(null);
   const [apiKey, setApiKey] = useState(null)
 
+  console.log(key)
+
   const openai = new OpenAIApi(
     new Configuration({
-      key: apiKey,
+      apiKey: key,
     })
   );
 
   useEffect(() => {
     if (token) {
-      fetch("https://career-companion-0vnx.onrender.com/apiKey", {
+      fetch(`${window.BACKEND_API_SERVER_ADDRESS}/apiKey`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -130,7 +132,7 @@ const Interview = ({ navigate }) => {
   // RENDERING:
 
   if (token) {
-    console.log(typeof token);
+    // console.log(typeof token);
     return (
       <>
         <NavbarHP />
