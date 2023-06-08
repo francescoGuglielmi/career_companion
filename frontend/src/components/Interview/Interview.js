@@ -3,7 +3,6 @@ import key from "../api_key";
 import SelectJobPosition from "../jobSelection/JobSelection";
 import QuestionsForm from "../questionsForm/QuestionsForm";
 import "./Interview.css";
-import { Configuration, OpenAIApi } from "openai";
 import NavbarHP from "../navbar/navBarHP";
 
 const Interview = ({ navigate }) => {
@@ -21,31 +20,7 @@ const Interview = ({ navigate }) => {
   const [answer5, setAnswer5] = useState("");
   const [loadingFeedbackAlert, setLoadingFeedbackAlert] = useState("");
   const [feedback, setFeedback] = useState(null);
-  const [apiKey, setApiKey] = useState(null)
 
-  console.log(key)
-
-  const openai = new OpenAIApi(
-    new Configuration({
-      apiKey: key,
-    })
-  );
-
-  useEffect(() => {
-    if (token) {
-      fetch(`${window.BACKEND_API_SERVER_ADDRESS}/apiKey`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-        .then((response) => response.json())
-        .then(async (data) => {
-          setApiKey(data.apiKey)
-        });
-    } else {
-      navigate("/signup");
-    }
-  }, [token, navigate]);
 
   // OnChange FUNCTIONS
 
@@ -80,59 +55,55 @@ const Interview = ({ navigate }) => {
 
   // JOB SELECTION
 
-  function gptInputJob() {
-    return `Give me 5 of the most asked questions in a job interview for a ${jobSelection} position without any additional text`;
-  }
-
   function handleSelectionSubmit(event) {
     event.preventDefault();
-
-    openai
-      .createChatCompletion({
-        model: "gpt-3.5-turbo",
-        messages: [{ role: "user", content: gptInputJob() }],
-      })
-      .then((res) => {
-        const result = res.data.choices[0].message.content.split("?");
-        setQuestions(result);
-        setLoadingFormAlert("");
-      });
     setLoadingFormAlert("Loading, please wait...");
+
+    fetch(`${window.BACKEND_API_SERVER_ADDRESS}/openai/interviewQuestions`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      body: {
+        jobSelection: jobSelection
+      }
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setQuestions(data.questions);
+        setLoadingFeedbackAlert("");
+    });
+    
   }
 
   // ANSWERS
-
-  function gptInputAnswers() {
-    let answersForGPT =
-      `Knowing that the answers to these questions are for an interview for a ${jobSelection} position, could you give a feedback on how the answers to these questions could be improved to have more complete information?` +
-      `Question 1: ${questions[0]} Answer: ${answer1}` +
-      `Question 2: ${questions[1]} Answer: ${answer2}` +
-      `Question 3: ${questions[2]} Answer: ${answer3}` +
-      `Question 4: ${questions[3]} Answer: ${answer4}` +
-      `Question 5: ${questions[4]} Answer: ${answer5}`;
-    return answersForGPT;
-  }
 
   function handleAnswersSubmit(event) {
     event.preventDefault();
     setLoadingFeedbackAlert("Please wait, your feedback is being generated...");
 
-    openai
-      .createChatCompletion({
-        model: "gpt-3.5-turbo",
-        messages: [{ role: "user", content: gptInputAnswers() }],
-      })
-      .then((res) => {
-        const result = res.data.choices[0].message.content;
-        setFeedback(result);
+    fetch(`${window.BACKEND_API_SERVER_ADDRESS}/openai/interviewFeedback`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      body: {
+        questions: questions,
+        answers: [answer1, answer2, answer3, answer4, answer5],
+        jobSelection: jobSelection
+      }
+    })
+      .then((response) => response.json())
+      .then(async (data) => {
+        setFeedback(data.feedback);
         setLoadingFeedbackAlert("");
-      });
+    });
+
   }
 
   // RENDERING:
 
   if (token) {
-    // console.log(typeof token);
     return (
       <>
         <NavbarHP />

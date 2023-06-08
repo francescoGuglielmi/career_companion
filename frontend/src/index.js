@@ -14,8 +14,6 @@ if (process.env.NODE_ENV === "production") {
   window.BACKEND_API_SERVER_ADDRESS = ""
 }
 
-console.log("helloo")
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>

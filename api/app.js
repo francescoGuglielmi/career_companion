@@ -9,7 +9,7 @@ const coverLetterRouter = require("./routes/coverLetters")
 const applicationsRouter = require("./routes/applications");
 const tokensRouter = require("./routes/tokens");
 const usersRouter = require("./routes/users");
-const apiKeyRouter = require("./routes/apiKeyRoute")
+const openaiRouter = require("./routes/openaiRouter")
 
 const app = express();
 const cors = require("cors");
@@ -50,7 +50,7 @@ const tokenChecker = (req, res, next) => {
 app.use("/feedback", tokenChecker, feedbackRouter)
 app.use("/coverLetterGen", tokenChecker, coverLetterRouter);
 app.use("/applications", tokenChecker, applicationsRouter);
-app.use("/apiKey", tokenChecker, apiKeyRouter)
+app.use("/openai", tokenChecker, openaiRouter)
 app.use("/tokens", tokensRouter);
 app.use("/users", usersRouter);
 
