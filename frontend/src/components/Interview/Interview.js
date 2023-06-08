@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import key from "../api_key";
 import SelectJobPosition from "../jobSelection/JobSelection";
 import QuestionsForm from "../questionsForm/QuestionsForm";
 import "./Interview.css";
