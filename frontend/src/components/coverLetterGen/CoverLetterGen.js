@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./CoverLetterGen.css";
 import { Configuration, OpenAIApi } from "openai";
-import apiKey from "../../../api_key";
+// import key from "../api_key";
 import NavbarHP from "../navbar/navBarHP";
 
 const CoverLetterGenerator = ({ navigate }) => {
@@ -14,12 +14,29 @@ const CoverLetterGenerator = ({ navigate }) => {
   const [resume, setResume] = useState("");
   const [coverLetter, setCoverLetter] = useState(null);
   const [loadingAlert, setLoadingAlert] = useState("");
+  const [apiKey, setApiKey] = useState(null)
 
   const openai = new OpenAIApi(
     new Configuration({
-      key: apiKey
+      key: apiKey,
     })
   );
+
+  useEffect(() => {
+    if (token) {
+      fetch("https://career-companion-0vnx.onrender.com/apiKey", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+        .then((response) => response.json())
+        .then(async (data) => {
+          setApiKey(data.apiKey)
+        });
+    } else {
+      navigate("/signup");
+    }
+  }, [token, navigate]);
 
   useEffect(() => {
     if (token) {
