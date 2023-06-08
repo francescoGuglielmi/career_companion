@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./CoverLetterGen.css";
-import { Configuration, OpenAIApi } from "openai";
-// import key from "../api_key";
 import NavbarHP from "../navbar/navBarHP";
 
 const CoverLetterGenerator = ({ navigate }) => {
@@ -14,29 +12,6 @@ const CoverLetterGenerator = ({ navigate }) => {
   const [resume, setResume] = useState("");
   const [coverLetter, setCoverLetter] = useState(null);
   const [loadingAlert, setLoadingAlert] = useState("");
-  const [apiKey, setApiKey] = useState(null)
-
-  const openai = new OpenAIApi(
-    new Configuration({
-      key: apiKey,
-    })
-  );
-
-  useEffect(() => {
-    if (token) {
-      fetch(`${window.BACKEND_API_SERVER_ADDRESS}/apiKey`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-        .then((response) => response.json())
-        .then(async (data) => {
-          setApiKey(data.apiKey)
-        });
-    } else {
-      navigate("/signup");
-    }
-  }, [token, navigate]);
 
   useEffect(() => {
     if (token) {
@@ -85,21 +60,25 @@ const CoverLetterGenerator = ({ navigate }) => {
 
     setLoadingAlert("Please wait, your cover letter is being generated...");
 
-    openai
-      .createChatCompletion({
-        model: "gpt-3.5-turbo",
-        messages: [
-          {
-            role: "user",
-            content: `I am applying for a position as a ${jobPosition} at ${companyName} and the reasons that motivate me to apply for this position are: '${reasons}'. A text copy of my resume is: ${resume}. Can you generate a short tailored cover letter that shows personality for this position that will likely get me hired?`,
-          },
-        ],
-      })
-      .then((res) => {
-        const result = res.data.choices[0].message.content;
-        setCoverLetter(result);
+    fetch(`${window.BACKEND_API_SERVER_ADDRESS}/openai/interviewQuestions`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      body: {
+        jobPosition: jobPosition,
+        companyName: companyName,
+        reasons: reasons,
+        resume: resume
+      }
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setCoverLetter(data.coverLetter);
         setLoadingAlert("");
-      });
+    });
+
+    
   }
 
   async function handleSaveButtonClick() {

@@ -61,7 +61,33 @@ const OpenaiController = {
     }
   },
 
+  GenerateCoverLetter: (req, res) => {
+    const jobPosition = req.body.jobPosition
+    const companyName = req.body.companyName
+    const reasons = req.body.reasons
+    const resume = req.body.resume
+    const result = ""
+    
+    try {
+      openai.createChatCompletion({
+        model: "gpt-3.5-turbo",
+        messages: [
+          {
+            role: "user",
+            content: `I am applying for a position as a ${jobPosition} at ${companyName} and the reasons that motivate me to apply for this position are: '${reasons}'. A text copy of my resume is: ${resume}. Can you generate a short tailored cover letter that shows professionality for this position that will likely get me hired?`,
+          },
+        ],
+      })
+      .then((res) => {
+        result = res.data.choices[0].message.content;
+      });
 
+      res.status(201).json({ message: "OK", coverLetter: result})
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: "Internal Server Error" });
+    }
+  }
   
 };
 
