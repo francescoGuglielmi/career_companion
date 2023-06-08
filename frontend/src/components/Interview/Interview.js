@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 // import key from "../api_key";
 import SelectJobPosition from "../jobSelection/JobSelection";
 import QuestionsForm from "../questionsForm/QuestionsForm";
@@ -6,13 +6,8 @@ import "./Interview.css";
 import { Configuration, OpenAIApi } from "openai";
 import NavbarHP from "../navbar/navBarHP";
 
-const openai = new OpenAIApi(
-  new Configuration({
-    apiKey: process.env.API_KEY,
-  })
-);
-
 const Interview = ({ navigate }) => {
+
   //  HOOKS
 
   const [token] = useState(window.localStorage.getItem("token"));
@@ -26,7 +21,29 @@ const Interview = ({ navigate }) => {
   const [answer5, setAnswer5] = useState("");
   const [loadingFeedbackAlert, setLoadingFeedbackAlert] = useState("");
   const [feedback, setFeedback] = useState(null);
-  // const [rating, setRating] = useState(null)
+  const [apiKey, setApiKey] = useState(null)
+
+  const openai = new OpenAIApi(
+    new Configuration({
+      key: apiKey,
+    })
+  );
+
+  useEffect(() => {
+    if (token) {
+      fetch("https://career-companion-0vnx.onrender.com/apiKey", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+        .then((response) => response.json())
+        .then(async (data) => {
+          setApiKey(data.apiKey)
+        });
+    } else {
+      navigate("/signup");
+    }
+  }, [token, navigate]);
 
   // OnChange FUNCTIONS
 
