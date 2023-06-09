@@ -2,12 +2,11 @@ const { Configuration, OpenAIApi } = require("openai");
 
 const openai = new OpenAIApi(
   new Configuration({
-    apiKey: process.env.API_KEY
+    apiKey: process.env.API_KEY,
   })
 );
 
 const OpenaiController = {
-
   GenerateFeedback: (req, res) => {
     const questions = req.body.questions;
     const answers = req.body.answers;
@@ -20,47 +19,50 @@ const OpenaiController = {
       `Question 3: ${questions[2]} Answer: ${answers[2]}` +
       `Question 4: ${questions[3]} Answer: ${answers[3]}` +
       `Question 5: ${questions[4]} Answer: ${answers[4]}`;
-    
-    openai.createChatCompletion({
-      model: "gpt-3.5-turbo",
-      messages: [{ role: "user", content: answersForGPT }],
-    })
-    .then((res) => {
-      let result = res.data.choices[0].message.content;
-      res.status(201).json({ message: "OK", feedback: result})
-    })
-    .catch((error) => {
-      console.error(error);
-      res.status(500).json({ message: "Internal Server Error" });
-    })
+
+    openai
+      .createChatCompletion({
+        model: "gpt-3.5-turbo",
+        messages: [{ role: "user", content: answersForGPT }],
+      })
+      .then((res) => {
+        let result = res.data.choices[0].message.content;
+        res.status(201).json({ message: "OK", feedback: result });
+      })
+      .catch((error) => {
+        console.error(error);
+        res.status(500).json({ message: "Internal Server Error" });
+      });
   },
 
   GenerateQuestions: (req, res) => {
     const jobSelection = req.body.jobSelection;
     let gptInputJob = `Give me 5 of the most asked questions in a job interview for a ${jobSelection} position without any additional text`;
 
-    openai.createChatCompletion({
-      model: "gpt-3.5-turbo",
-      messages: [{ role: "user", content: gptInputJob }],
-    })
-    .then((response) => {
-      let result = response.data.choices[0].message.content.split("?");
-      console.log(result)
-      res.status(201).json({ message: "OK", questions: result})
-    })
-    .catch((error) => {
-      console.error(error);
-      res.status(500).json({ message: "Internal Server Error" });
-    })
+    openai
+      .createChatCompletion({
+        model: "gpt-3.5-turbo",
+        messages: [{ role: "user", content: gptInputJob }],
+      })
+      .then((response) => {
+        let result = response.data.choices[0].message.content.split("?");
+        console.log(result);
+        res.status(201).json({ message: "OK", questions: result });
+      })
+      .catch((error) => {
+        console.error(error);
+        res.status(500).json({ message: "Internal Server Error" });
+      });
   },
 
   GenerateCoverLetter: (req, res) => {
-    const jobPosition = req.body.jobPosition
-    const companyName = req.body.companyName
-    const reasons = req.body.reasons
-    const resume = req.body.resume
-    
-      openai.createChatCompletion({
+    const jobPosition = req.body.jobPosition;
+    const companyName = req.body.companyName;
+    const reasons = req.body.reasons;
+    const resume = req.body.resume;
+
+    openai
+      .createChatCompletion({
         model: "gpt-3.5-turbo",
         messages: [
           {
@@ -69,16 +71,15 @@ const OpenaiController = {
           },
         ],
       })
-      .then((res) => {
-        let result = res.data.choices[0].message.content;
-        res.status(201).json({ message: "OK", coverLetter: result});
+      .then((response) => {
+        let result = response.data.choices[0].message.content;
+        res.status(201).json({ message: "OK", coverLetter: result });
       })
       .catch((error) => {
         console.error(error);
         res.status(500).json({ message: "Internal Server Error" });
-    })
-  }
-  
+      });
+  },
 };
 
 module.exports = OpenaiController;
