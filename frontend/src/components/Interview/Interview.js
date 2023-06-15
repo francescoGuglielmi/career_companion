@@ -96,7 +96,7 @@ const Interview = ({ navigate }) => {
       .then(response => response.json())
       .then((data) => {
         console.log(data)
-        setFeedback(data.feedback.split("£"));
+        setFeedback(data.feedback.split("Feedback"));
         setLoadingFeedbackAlert("");
       });
       
@@ -142,19 +142,19 @@ const Interview = ({ navigate }) => {
             )}
             <h2 className="mt-8">{loadingFeedbackAlert}</h2>
             {feedback && <div className="bg-white mt-2 p-4 rounded-lg shadow">
-              {feedback[1]}
+              <h3>Feedback{feedback[1]}</h3>
               <br></br>
               <br></br>
-              {feedback[2]}
+              <h3>Feedback{feedback[2]}</h3>
               <br></br>
               <br></br>
-              {feedback[3]}
+              <h3>Feedback{feedback[3]}</h3>
               <br></br>
               <br></br>
-              {feedback[4]}
+              <h3>Feedback{feedback[4]}</h3>
               <br></br>
               <br></br>
-              {feedback[5]}
+              <h3>Feedback{feedback[5]}</h3>
             </div>}
             {/* { feedback && generateRating()} */}
 

@@ -15,7 +15,14 @@ const OpenaiController = {
     const jobSelection = req.body.jobSelection;
 
     let answersForGPT =
-    `Act as an interview coach for the ${jobSelection} role and provide actionable feedback based on the answers to the following questions. Format the feedback in a way that each question's feedback is introduced only by the £: symbol and your response doesn't include any other additional text. Do not accept yes/no answers unless it's the only format of answer expected for that question.` +
+    `Act as an interviewer for a ${jobSelection} role and provide actionable feedback to the candidate based on the answers to the following questions. Your feedback is crucial in helping the candidate understand their strengths and areas for improvement. Please adhere to the following guidelines for providing effective feedback:
+
+    Keep your responses focused on the feedback itself, without including any additional text.
+    Encourage the candidate to provide detailed answers beyond simple yes/no responses.
+    Tailor your feedback directly to the candidate, keeping in mind that it should be constructive and supportive.
+    Start each feedback with "Feedback" followed by the question number and a colon.
+    Provide specific and clear feedback that highlights both the candidate's strengths and areas where they can improve.
+    Ensure that your feedback is actionable, offering suggestions or recommendations for enhancing their performance.` +
     `\nQuestion 1: ${questions[0]} Answer: ${answers[0]}` +
     `\nQuestion 2: ${questions[1]} Answer: ${answers[1]}` +
     `\nQuestion 3: ${questions[2]} Answer: ${answers[2]}` +
