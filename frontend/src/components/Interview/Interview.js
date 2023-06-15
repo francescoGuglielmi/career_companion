@@ -19,6 +19,7 @@ const Interview = ({ navigate }) => {
   const [answer5, setAnswer5] = useState("");
   const [loadingFeedbackAlert, setLoadingFeedbackAlert] = useState("");
   const [feedback, setFeedback] = useState(null);
+  // const [rating, setRating] = useState(null);
 
 
   // OnChange FUNCTIONS
@@ -77,8 +78,7 @@ const Interview = ({ navigate }) => {
 
   // ANSWERS
 
-  function handleAnswersSubmit(event) {
-    event.preventDefault();
+  function handleAnswersSubmit() {
     setLoadingFeedbackAlert("Please wait, your feedback is being generated...");
 
     fetch(`${window.BACKEND_API_SERVER_ADDRESS}/openai/interviewFeedback`, {
@@ -99,7 +99,6 @@ const Interview = ({ navigate }) => {
         setFeedback(data.feedback.split("Feedback"));
         setLoadingFeedbackAlert("");
       });
-      
 
   }
 
@@ -156,7 +155,12 @@ const Interview = ({ navigate }) => {
               <br></br>
               <h3>Feedback{feedback[5]}</h3>
             </div>}
-            {/* { feedback && generateRating()} */}
+
+            
+            {/* { rating && <>
+              <h1 className="score_title">Your Score:</h1>
+              <h2 className="rating">{rating}</h2>
+            </> } */}
 
             {feedback && (
               <a
@@ -167,13 +171,6 @@ const Interview = ({ navigate }) => {
               </a>
             )}
             <div className="space"></div>
-            {/* { rating && <>
-          <h1 className="score_title">Your Score:</h1>
-          <h2 className="rating">{rating}</h2>
-          <div className="start_again">
-          
-          </div>
-        </> } */}
           </div>
         </div>
       </>
@@ -192,12 +189,4 @@ export default Interview;
 
 // TO BE FIXED
 
-// function generateRating() {
-//   openai.createChatCompletion({
-//     model: "gpt-3.5-turbo",
-//     messages: [{ role: "user", content: `Please just give me a one word answer as a rating for the questionaire you gave a feedback above: Very Bad, Bad, Incomplete, Average, Satisfactory, Good or Excellent. Beware that to give a good rating the answer must be complete and well argumented`}]
-//   }).then((res) => {
-//     const result = res.data.choices[0].message.content;
-//     setRating(result)
-//   })
-// }
+
