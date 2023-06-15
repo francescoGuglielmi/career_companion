@@ -64,13 +64,14 @@ const CoverLetterGenerator = ({ navigate }) => {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json"
       },
-      body: {
+      body: JSON.stringify({
         jobPosition: jobPosition,
         companyName: companyName,
         reasons: reasons,
         resume: resume
-      }
+      })
     })
       .then((response) => response.json())
       .then((data) => {

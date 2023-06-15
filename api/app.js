@@ -3,6 +3,7 @@ const express = require("express");
 const path = require("path");
 const logger = require("morgan");
 const JWT = require("jsonwebtoken");
+require("dotenv").config()
 
 const feedbackRouter = require("./routes/feedbacks")
 const coverLetterRouter = require("./routes/coverLetters")
@@ -37,7 +38,7 @@ const tokenChecker = (req, res, next) => {
 
   JWT.verify(token, process.env.JWT_SECRET, (err, payload) => {
     if(err) {
-      // console.log(err)
+      console.log(err)
       res.status(401).json({message: "auth error"});
     } else {
       req.user_id = payload.user_id;
@@ -61,6 +62,8 @@ app.use((req, res, next) => {
 
 // error handler
 app.use((err, req, res, next) => {
+
+  console.error(err);
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};

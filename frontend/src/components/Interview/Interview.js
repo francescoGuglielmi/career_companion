@@ -63,15 +63,14 @@ const Interview = ({ navigate }) => {
       headers: {
         Authorization: `Bearer ${token}`,
       },
-      body: {
+      body: JSON.stringify({
         jobSelection: jobSelection
-      }
+      })
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data)
         setQuestions(data.questions);
-        setLoadingFeedbackAlert("");
+        setLoadingFormAlert("");
     });
     
   }
@@ -86,18 +85,20 @@ const Interview = ({ navigate }) => {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json"
       },
-      body: {
+      body: JSON.stringify({
         questions: questions,
         answers: [answer1, answer2, answer3, answer4, answer5],
         jobSelection: jobSelection
-      }
+      })
     })
-      .then((response) => response.json())
-      .then(async (data) => {
-        setFeedback(data.feedback);
+      .then(response => response.json())
+      .then((data) => {
+        setFeedback(data.feedback.split("£:"));
         setLoadingFeedbackAlert("");
-    });
+      });
+      
 
   }
 
@@ -136,7 +137,26 @@ const Interview = ({ navigate }) => {
               />
             )}
             <h2 className="mt-8">{loadingFeedbackAlert}</h2>
-            {feedback && <h3 className="bg-white mt-2 p-4 rounded-lg shadow">{feedback}</h3>}
+            {feedback && <div className="bg-white mt-2 p-4 rounded-lg shadow">
+              <h2>Feedback 1:</h2>
+              {feedback[1]}
+              <br></br>
+              <br></br>
+              <h2>Feedback 2:</h2>
+              {feedback[2]}
+              <br></br>
+              <br></br>
+              <h2>Feedback 3:</h2>
+              {feedback[3]}
+              <br></br>
+              <br></br>
+              <h2>Feedback 4:</h2>
+              {feedback[4]}
+              <br></br>
+              <br></br>
+              <h2>Feedback 5:</h2>
+              {feedback[5]}
+            </div>}
             {/* { feedback && generateRating()} */}
 
             {feedback && (
