@@ -95,7 +95,8 @@ const Interview = ({ navigate }) => {
     })
       .then(response => response.json())
       .then((data) => {
-        setFeedback(data.feedback.split("£:"));
+        console.log(data)
+        setFeedback(data.feedback.split("£"));
         setLoadingFeedbackAlert("");
       });
       
@@ -112,6 +113,9 @@ const Interview = ({ navigate }) => {
           <h2 className="flex justify-center text-lorange font-poppins-bold text-4xl pb-2 pt-8">
             Interview dojo
           </h2>
+          <br></br>
+          <br></br>
+          <p>Disclaimer: <br/>The AI generated features might not be always generated in the right format. We are working on this. If this is your case feel free to reload the questions or the feedbacks until you get a satisfactory interview. <br/> - Career Companion team.</p>
           <div className="dojo_container">
             <br />
             <SelectJobPosition
@@ -138,23 +142,18 @@ const Interview = ({ navigate }) => {
             )}
             <h2 className="mt-8">{loadingFeedbackAlert}</h2>
             {feedback && <div className="bg-white mt-2 p-4 rounded-lg shadow">
-              <h2>Feedback 1:</h2>
               {feedback[1]}
               <br></br>
               <br></br>
-              <h2>Feedback 2:</h2>
               {feedback[2]}
               <br></br>
               <br></br>
-              <h2>Feedback 3:</h2>
               {feedback[3]}
               <br></br>
               <br></br>
-              <h2>Feedback 4:</h2>
               {feedback[4]}
               <br></br>
               <br></br>
-              <h2>Feedback 5:</h2>
               {feedback[5]}
             </div>}
             {/* { feedback && generateRating()} */}
