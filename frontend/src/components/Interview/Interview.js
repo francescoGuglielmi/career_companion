@@ -19,7 +19,6 @@ const Interview = ({ navigate }) => {
   const [answer5, setAnswer5] = useState("");
   const [loadingFeedbackAlert, setLoadingFeedbackAlert] = useState("");
   const [feedback, setFeedback] = useState(null);
-  // const [rating, setRating] = useState(null);
 
 
   // OnChange FUNCTIONS
@@ -78,7 +77,8 @@ const Interview = ({ navigate }) => {
 
   // ANSWERS
 
-  function handleAnswersSubmit() {
+  function handleAnswersSubmit(event) {
+    event.preventDefault()
     setLoadingFeedbackAlert("Please wait, your feedback is being generated...");
 
     fetch(`${window.BACKEND_API_SERVER_ADDRESS}/openai/interviewFeedback`, {
@@ -156,12 +156,7 @@ const Interview = ({ navigate }) => {
               <h3>Feedback{feedback[5]}</h3>
             </div>}
 
-            
-            {/* { rating && <>
-              <h1 className="score_title">Your Score:</h1>
-              <h2 className="rating">{rating}</h2>
-            </> } */}
-
+              <br/><br/>
             {feedback && (
               <a
                 className="bg-blue text-white text-md py-2 px-4 mt-4 inline-flex items-center justify-center text-center border-2 hover:border-blue hover:bg-lblue rounded-xl ease-in-out duration-200 "

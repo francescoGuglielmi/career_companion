@@ -45,11 +45,7 @@ const OpenaiController = {
     `\nQuestion 2: ${questions[1]} Answer: ${answers[1]}` +
     `\nQuestion 3: ${questions[2]} Answer: ${answers[2]}` +
     `\nQuestion 4: ${questions[3]} Answer: ${answers[3]}` +
-    `\nQuestion 5: ${questions[4]} Answer: ${answers[4]}` +
-    `\nFinally, assign a one-word rating to all the answers combined using the following options: Very Bad, Bad, Incomplete, Average, Satisfactory, Good, or Excellent.
-    In addition to the rating, provide constructive feedback that explains your assessment, highlighting areas of strength and suggesting improvements.
-    Consider the overall quality of the answers, the candidate's ability to address the questions effectively, and the coherence of their responses.
-    Emphasize the importance of complete and well-argued answers for achieving an "Excellent" rating.`;
+    `\nQuestion 5: ${questions[4]} Answer: ${answers[4]}`;
 
     openai.createChatCompletion({
       model: "gpt-3.5-turbo",
